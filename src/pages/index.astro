@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import GlassHeader from "@/components/GlassHeader";
+import RecentLaunches from "@/components/RecentLaunches";
 import HeroSection from "@/components/HeroSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import SkillsSection from "@/components/SkillsSection";
@@ -14,6 +15,7 @@ import Footer from "@/components/Footer";
   <GlassHeader client:only="react" />
   <main class="min-h-screen">
     <HeroSection client:only="react" />
+    <RecentLaunches client:only="react" />
     <ExperienceSection client:only="react" />
     <SkillsSection client:only="react" />
     <ProjectsSection client:only="react" />
