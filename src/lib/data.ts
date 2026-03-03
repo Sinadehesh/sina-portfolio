@@ -6,7 +6,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/sina-dehesh-39b487127/",
   profilePicture: "/profile.jpg",
   heroDescription:
-    "Psychologist by training and MSc student in Applied Experimental Psychological Sciences at the University of Milano-Bicocca. Interested in how people interact with technology, with a focus on UX and AI automation. I have worked on projects such as RecallMate, TG Finder, Bright Seeds Foundation, and my thesis interface.",
+    "Serial entrepreneur, psychologist by training, and MSc student in Applied Experimental Psychological Sciences at the University of Milano-Bicocca. Interested in how people interact with technology, with a focus on UX and AI automation. I have worked on projects such as RecallMate, TG Finder, Bright Seeds Foundation, and my thesis interface.",
 };
 
 export const workExperience = [
@@ -215,41 +215,43 @@ export const projects = [
 ];
 
 export const certifications = [
-  {
-    name: "Google Data Analytics Specialization",
-    issuer: "Google",
-    date: "Oct 2025",
-  },
-  {
-    name: "Google UX Design",
-    issuer: "Google",
-    date: "Jul 2025",
-  },
-  {
-    name: "Entrepreneurship Specialization",
-    issuer: "University of Pennsylvania (Wharton)",
-    date: "Jan 2025",
-  },
-  {
-    name: "Generative AI: Elevate Your Data Science Career",
-    issuer: "IBM",
-    date: "May 2025",
-  },
-  {
-    name: "HRCI Human Resource Associate",
-    issuer: "HRCI",
-    date: "Jul 2025",
-  },
-  {
-    name: "Conduct UX Research and Test Early Concepts",
-    issuer: "Google",
-    date: "Mar 2024",
-  },
-  {
-    name: "Foundations of User Experience (UX) Design",
-    issuer: "Google",
-    date: "Dec 2023",
-  },
+  { name: "Google Data Analytics Specialization", issuer: "Google", date: "Oct 2025" },
+  { name: "Google Data Analytics", issuer: "Google", date: "Oct 2025" },
+  { name: "Google Data Analytics Capstone: Complete a Case Study", issuer: "Google", date: "Oct 2025" },
+  { name: "Data Analysis with R Programming", issuer: "Google", date: "Oct 2025" },
+  { name: "Share Data Through the Art of Visualization", issuer: "Google", date: "Oct 2025" },
+  { name: "Analyze Data to Answer Questions", issuer: "Google", date: "Oct 2025" },
+  { name: "Prepare Data for Exploration", issuer: "Google", date: "Oct 2025" },
+  { name: "Ask Questions to Make Data-Driven Decisions", issuer: "Google", date: "Oct 2025" },
+  { name: "Foundations: Data, Data, Everywhere", issuer: "Google", date: "Oct 2025" },
+  { name: "The Non-Technical Skills of Effective Data Scientists", issuer: "LinkedIn", date: "Oct 2025" },
+  { name: "Learning Excel: Data Analysis", issuer: "LinkedIn", date: "Oct 2025" },
+  { name: "Data Literacy: Exploring and Describing Data", issuer: "LinkedIn", date: "Oct 2025" },
+  { name: "Google UX Design", issuer: "Google", date: "Jul 2025" },
+  { name: "Accelerate Your Job Search with AI", issuer: "Google", date: "Jul 2025" },
+  { name: "Design a User Experience for Social Good & Prepare for Jobs", issuer: "Google", date: "Jul 2025" },
+  { name: "Build Dynamic User Interfaces (UI) for Websites", issuer: "Google", date: "Jul 2025" },
+  { name: "Build Wireframes and Low-Fidelity Prototypes", issuer: "Google", date: "Jul 2025" },
+  { name: "Start the UX Design Process: Empathize, Define, and Ideate", issuer: "Google", date: "Jun 2025" },
+  { name: "Conduct UX Research and Test Early Concepts specialization", issuer: "Google", date: "Mar 2024" },
+  { name: "Foundations of User Experience (UX) Design", issuer: "Google", date: "Dec 2023" },
+  { name: "Entrepreneurship Specialization", issuer: "University of Pennsylvania", date: "Jan 2025" },
+  { name: "Wharton Entrepreneurship Capstone", issuer: "University of Pennsylvania", date: "Jul 2025" },
+  { name: "Entrepreneurship 4: Financing and Profitability", issuer: "University of Pennsylvania", date: "Jul 2025" },
+  { name: "Entrepreneurship 3: Growth Strategies", issuer: "University of Pennsylvania", date: "Jul 2025" },
+  { name: "Entrepreneurship 2: Launching your Start-Up", issuer: "University of Pennsylvania", date: "Jul 2025" },
+  { name: "Entrepreneurship 1: Developing the Opportunity", issuer: "University of Pennsylvania", date: "Feb 2024" },
+  { name: "HRCI Human Resource Associate", issuer: "HRCI", date: "Jul 2025" },
+  { name: "Employee Relations", issuer: "HRCI", date: "Jul 2025" },
+  { name: "Learning and Development", issuer: "HRCI", date: "May 2025" },
+  { name: "Talent Acquisition", issuer: "HRCI", date: "May 2025" },
+  { name: "Compensation and Benefits", issuer: "HRCI", date: "May 2025" },
+  { name: "Generative AI: Elevate Your Data Science Career", issuer: "IBM", date: "May 2025" },
+  { name: "Generative AI for Human Resources (HR) Professionals", issuer: "IBM", date: "May 2025" },
+  { name: "Generative AI: Prompt Engineering Basics", issuer: "IBM", date: "May 2025" },
+  { name: "Generative AI: Introduction and Applications", issuer: "IBM", date: "May 2025" },
+  { name: "Generative AI for Data Scientists", issuer: "IBM", date: "May 2025" },
+  { name: "Meditation: A way to achieve your goals in life", issuer: "KAIST", date: "Mar 2024" },
 ];
 
 export const awards: { name: string; issuer: string; date: string; type: string; position: string }[] = [];
