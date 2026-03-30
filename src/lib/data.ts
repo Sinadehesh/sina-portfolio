@@ -6,7 +6,7 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/sinadehesh",
   profilePicture: "/profile.jpeg",
   heroDescription:
-    "I study how people think, feel, and relate — and I build digital things that reflect that understanding. My work sits at the intersection of psychology, design, and technology. I write, create, and ship products that carry depth.",
+    "I study how people think, feel, and relate — and I build digital things that reflect that understanding. My work lives at the intersection of psychology, philosophy, design, and technology. I write, create, and ship products that carry depth.",
 };
 
 export const workExperience = [
@@ -29,9 +29,9 @@ export const workExperience = [
     period: "2025 - Present",
     achievements: [
       "Founded a curated email magazine exploring fine art, philosophy, and the psychology of beauty.",
-      "Designed automated AI-powered content generation and delivery pipelines using n8n and AWS SES.",
+      "Designed AI-powered content generation and delivery pipelines using n8n and AWS SES.",
       "Built cold outreach and subscriber growth systems reaching thousands of readers.",
-      "Created the visual identity and editorial voice of the publication.",
+      "Created the full visual identity and editorial voice of the publication.",
     ],
   },
   {
@@ -40,18 +40,18 @@ export const workExperience = [
     position: "Psychologist, Writer & Digital Builder",
     period: "2024 - Present",
     achievements: [
-      "Authored TAO: The Art of Observation — a philosophical manuscript on perception, awareness, and the examined life.",
-      "Conducted research on anxiety, interview performance, and digital well-being (APES thesis experiment).",
-      "Developed automation tools and web apps for personal and academic research use.",
+      "Authoring TAO: The Art of Observation — a philosophical manuscript on perception, awareness, and the examined life.",
+      "Conducted research on anxiety, interview performance, and digital well-being for master's thesis.",
+      "Developed web applications and automation tools integrating psychology and technology.",
     ],
   },
 ];
 
 export const education = [
   {
-    institution: "University of Turin (in progress)",
+    institution: "University of Turin",
     location: "Turin, Italy",
-    degree: "Master's — Psychology",
+    degree: "Master's — Psychology (in progress)",
     period: "2024 - Present",
     achievements: [
       "Research focus on digital behavior, perception, and applied psychology.",
@@ -66,7 +66,7 @@ export const education = [
     period: "2019 - 2023",
     achievements: [
       "Specialized in personality psychology, attachment theory, and cognitive behavioral frameworks.",
-      "Began integrating psychology with digital product design and UX thinking.",
+      "Integrated psychology with digital product design and UX thinking.",
     ],
   },
 ];
@@ -83,7 +83,7 @@ export const skills = {
 export const projects = [
   {
     title: "OopsCupid — Relationship Psychology Platform",
-    github: "https://github.com/Sinadehesh/OopsCupid",
+    github: "https://oopscupid.com",
     description: [
       "A quiz-based platform for self-discovery through relationship psychology.",
       "Tests cover attachment styles, Big Five personality, dark triad traits, and compatibility.",
@@ -105,9 +105,9 @@ export const projects = [
     title: "APES — Anxiety & Interview Experiment Tool",
     github: "https://github.com/Sinadehesh/APES_Thesis_Interview_Exp",
     description: [
-      "Research tool built for my thesis examining online auto-interviews' effect on anxiety and confidence.",
+      "Research tool for my thesis examining how auto-interviews affect anxiety and confidence.",
       "Designed the full experimental flow, UI, and data collection system.",
-      "Deployed as a web app for participants to use remotely.",
+      "Deployed as a web app for remote participant use.",
     ],
   },
 ];

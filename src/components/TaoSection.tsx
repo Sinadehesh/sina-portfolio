@@ -24,49 +24,36 @@ const QuoteCard = ({ text, chapter, index }: { text: string; chapter: string; in
   <motion.div
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
+    transition={{ duration: 0.7, delay: index * 0.15 }}
     viewport={{ once: true, margin: "-60px" }}
-    className="relative p-8 rounded-2xl border overflow-hidden group"
-    style={{
-      background: "rgba(12,10,7,0.6)",
-      borderColor: "rgba(180,140,60,0.12)",
-      backdropFilter: "blur(10px)",
-    }}
+    whileHover={{ scale: 1.02 }}
+    className="relative p-8 rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-pink-500/5 backdrop-blur-sm hover:border-purple-500/40 transition-colors duration-300"
   >
-    {/* Subtle corner glow */}
-    <div
-      className="absolute top-0 left-0 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-      style={{ background: "radial-gradient(circle, rgba(180,140,60,0.08) 0%, transparent 70%)", transform: "translate(-30%, -30%)" }}
-    />
-    <div className="text-amber-600/30 text-5xl font-serif mb-4 leading-none select-none">&ldquo;</div>
-    <p className="text-stone-200/85 text-base md:text-lg leading-relaxed font-light mb-6 italic">
+    <div className="text-purple-400/40 text-5xl font-serif mb-4 leading-none select-none">&ldquo;</div>
+    <p className="text-foreground/80 text-base md:text-lg leading-relaxed font-light mb-6 italic">
       {text}
     </p>
-    <p className="text-amber-500/50 text-xs tracking-widest uppercase">{chapter}</p>
+    <p className="text-muted-foreground text-xs tracking-widest uppercase">{chapter}</p>
   </motion.div>
 );
 
 export default function TaoSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-28 overflow-hidden"
-      style={{ background: "rgba(8,6,4,0.95)" }}
+      className="relative py-20 bg-gradient-to-b from-background to-muted/20 overflow-hidden"
     >
-      {/* Parallax ambient orb */}
+      {/* Subtle parallax orb */}
       <motion.div
         style={{ y }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
         aria-hidden
       >
-        <div
-          className="w-full h-full rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(140,100,40,0.06) 0%, transparent 65%)" }}
-        />
+        <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-500/5 to-pink-500/5 blur-3xl" />
       </motion.div>
 
       <div className="container max-w-5xl mx-auto px-6 relative z-10">
@@ -75,19 +62,16 @@ export default function TaoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
-          <p className="text-amber-500/50 tracking-[0.35em] uppercase text-xs mb-4">Currently Writing</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-100 mb-4 tracking-tight">
-            TAO
+          <p className="text-muted-foreground tracking-[0.3em] uppercase text-xs mb-3">Currently Writing</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-3">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">TAO</span>
           </h2>
-          <p className="text-amber-300/60 text-lg font-light tracking-wide mb-6">
+          <p className="text-muted-foreground text-lg font-light tracking-wide mb-6">
             The Art of Observation
           </p>
-          <div
-            className="max-w-2xl mx-auto p-6 rounded-xl border text-stone-300/70 text-sm leading-relaxed"
-            style={{ borderColor: "rgba(180,140,60,0.1)", background: "rgba(20,15,8,0.4)" }}
-          >
+          <div className="max-w-2xl mx-auto p-5 rounded-xl border border-purple-500/20 bg-purple-500/5 text-muted-foreground text-sm leading-relaxed">
             A philosophical manuscript on the nature of perception — how we look, what we miss,
             and why learning to observe is the beginning of all wisdom. Drawing from Taoism,
             phenomenology, Stoic philosophy, and the psychology of attention.
@@ -101,15 +85,13 @@ export default function TaoSection() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mt-14"
+          className="text-center mt-10"
         >
-          <p className="text-stone-500 text-sm">
-            Expected publication · 2026
-          </p>
+          <p className="text-muted-foreground text-sm">Expected publication · 2026</p>
         </motion.div>
       </div>
     </section>
