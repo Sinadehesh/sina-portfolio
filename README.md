@@ -102,8 +102,13 @@ Every route is prerendered, so `npm run build` emits a plain static site to
 `out/` (`output: "export"` in `next.config.ts`) — no server, no cold starts.
 
 **Connect the repo once (recommended).** Cloudflare dashboard → Workers & Pages
-→ Create → Pages → Connect to Git → pick this repository and the `main` branch,
-then:
+→ Create → Pages → Connect to Git → pick this repository and the `main` branch.
+
+The build output directory is set in `wrangler.jsonc`
+(`"pages_build_output_dir": "./out"`), which takes precedence over the
+dashboard field — Cloudflare's default of `dist` is wrong for a Next.js export
+and will fail with `Output directory "dist" not found`. If the dashboard still
+insists, set **Build output directory** to `out` there as well.
 
 | Setting | Value |
 | --- | --- |
@@ -114,12 +119,15 @@ then:
 
 After that, every push to `main` rebuilds and redeploys automatically.
 
-**Or deploy from your machine**, using the committed `wrangler.jsonc`:
+**Or deploy from your machine:**
 
 ```bash
 npx wrangler login   # one-time, opens a browser
-npm run deploy       # builds, then wrangler deploy
+npm run deploy       # builds, then wrangler pages deploy out
 ```
+
+Note that `wrangler.jsonc` here is a **Pages** configuration. A Workers-style
+`assets` block is a different schema and Pages rejects it.
 
 Because `next/image` optimisation needs a server, it is turned off
 (`images.unoptimized`). The portrait is already sized at 1100×1467 by
