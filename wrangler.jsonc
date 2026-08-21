@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sina-portfolio",
+  "compatibility_date": "2026-08-21",
+  // Every route is prerendered, so this Worker serves static assets only —
+  // there is no server-side entrypoint. `npm run build` writes ./out.
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}

@@ -96,6 +96,36 @@ an `sr-only` block so nothing depends on the typing animation. Interactive
 chart elements are keyboard reachable, and the whole page respects
 `prefers-reduced-motion`.
 
+## Deploying to Cloudflare
+
+Every route is prerendered, so `npm run build` emits a plain static site to
+`out/` (`output: "export"` in `next.config.ts`) — no server, no cold starts.
+
+**Connect the repo once (recommended).** Cloudflare dashboard → Workers & Pages
+→ Create → Pages → Connect to Git → pick this repository and the `main` branch,
+then:
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | Next.js (Static HTML Export) |
+| Build command | `npm run build` |
+| Build output directory | `out` |
+| Node version | 20 or newer |
+
+After that, every push to `main` rebuilds and redeploys automatically.
+
+**Or deploy from your machine**, using the committed `wrangler.jsonc`:
+
+```bash
+npx wrangler login   # one-time, opens a browser
+npm run deploy       # builds, then wrangler deploy
+```
+
+Because `next/image` optimisation needs a server, it is turned off
+(`images.unoptimized`). The portrait is already sized at 1100×1467 by
+`scripts/generate-portrait-placeholder.mjs` and carries an inline LQIP, so
+there is nothing left to optimise at request time.
+
 ## Verifying against the brief
 
 `docs/spec.md` holds the acceptance checklist. `.claude/agents/spec-verifier.md`

@@ -1,6 +1,10 @@
 import { ImageResponse } from "next/og";
 import { personal } from "@/lib/data";
 
+// Rendered once at build time so the OG card ships as a plain PNG with the
+// rest of the static export.
+export const dynamic = "force-static";
+
 export const alt = personal.headline;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
