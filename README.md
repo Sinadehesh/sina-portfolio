@@ -1,186 +1,97 @@
-# Modern Portfolio Template
+# Sina Dehesh — Portfolio
 
-A sleek, responsive portfolio website built with **Astro**, **React**, and **Tailwind CSS**, featuring modern animations and stunning glassmorphism effects.
+**Engineering Behavior, Building Systems.**
 
-![Portfolio Screenshot](https://github.com/user-attachments/assets/4f2466f1-1ebe-4cbe-857c-40eccd63c384)
+A cinematic single-page portfolio: a scroll-driven WebGL opening sequence, a
+glassmorphism consulting case study, four instrumented project cards, a media
+and research section, and a boot-up terminal that prints the CV.
 
-## ✨ Features
+## Stack
 
-- **Modern Design** – Clean, professional layout with elegant glassmorphism
-- **Animations** – Smooth transitions and interactive UI via Framer Motion
-- **Dark/Light Mode** – Automatic theme switching with system preference detection
-- **Fully Responsive** – Optimized for mobile, tablet, and desktop
-- **Blazing Fast** – Powered by Astro for superior performance
-- **Modular Structure** – Built for easy customization and scalability
-- **SEO Friendly** – Structured content and meta tags for better visibility
+| Concern | Choice |
+| --- | --- |
+| Framework | Next.js 16 (App Router, Turbopack) |
+| Styling | Tailwind CSS v4 (`@theme` tokens in `app/globals.css`) |
+| Motion | GSAP 3 + ScrollTrigger |
+| 3D | three.js r185 — `WebGPURenderer` with automatic WebGL2 fallback, materials written in TSL |
+| Data viz | D3 7 |
+| Type | Cormorant Garamond (display) · Inter (body) · JetBrains Mono (code) |
 
-## 🚀 Demo
-
-👉 [Live Demo](https://rishilol.vercel.app/)
-
-## 🛠 Getting Started
-
-### Prerequisites
-
-- Node.js (v18+ recommended)
-- npm / yarn / bun
-
-### Installation
+## Running it
 
 ```bash
-git clone https://github.com/yourusername/my-portfolio.git
-cd my-portfolio
-
-# Install dependencies
 npm install
-# or
-yarn install
-# or
-bun install
-
-# Start development server
-npm run dev
-# or
-yarn dev
-# or
-bun dev
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
+npm run typecheck
 ```
 
-Visit `http://localhost:4321` in your browser to see it in action.
+## The page, section by section
 
-## 🧩 Customizing the Portfolio
+| Section | Component | Notes |
+| --- | --- | --- |
+| Hero | `components/sections/HeroSection.tsx` → `components/hero/MindToMatrix.tsx` | 420vh scrubbed sequence: chessboard → particle dissolve → manuscript → code matrix → camera pull-back |
+| Identity | `components/sections/IdentitySection.tsx` | Portrait plate, role, manifesto |
+| Musicity | `components/sections/MusicitySection.tsx` | Premium glass card, three engagement phases |
+| App Laboratory | `components/sections/LabSection.tsx` | Workflow graph, Costly burn ticker, OopsCupid radar, Passway heatmap |
+| Media & research | `components/sections/MediaSection.tsx` | Channel card, animated email wireframe, ANOVA plot, literature |
+| CV terminal | `components/sections/CvTerminal.tsx` | Scroll-triggered boot print-out |
 
-All your content lives inside `src/lib/data.ts`. Update the following to make it yours:
+All copy lives in **`lib/data.ts`** — edit there, not in the components.
 
-### 1. Personal Info
+## The hero sequence
 
-```ts
-export const personalInfo = {
-  name: "Your Name",
-  location: "Your Location",
-  email: "your.email@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://www.linkedin.com/in/yourusername/",
-};
-```
+`components/hero/` is split three ways:
 
-### 2. Work Experience
+- `sequence.ts` — board layout, piece profiles, particle target buffers, and the
+  opacity/size envelopes that drive every stage transition.
+- `textures.ts` — canvas-generated textures: the particle sprite, the glyph
+  atlas for the matrix stage, and the manuscript page (prose on the recto,
+  complexity-theory notes on the verso, drawn from `manuscriptFragments`).
+- `MindToMatrix.tsx` — the renderer, the TSL node materials, the knight-move
+  timeline, and the ScrollTrigger wiring.
 
-```ts
-export const workExperience = [
-  {
-    company: "Company Name",
-    location: "Location",
-    position: "Your Position",
-    period: "Start Date - End Date",
-    achievements: [
-      "Achievement 1",
-      "Achievement 2",
-    ],
-  },
-];
-```
+One particle system carries all four stages: per-particle board / notebook /
+matrix targets live in static instanced attributes and are blended inside
+`positionNode`, so nothing is rebuilt per frame.
 
-### 3. Education
+**Degradation.** No WebGPU → three's WebGL2 backend. No working WebGL context →
+the component renders nothing and the CSS poster (`.hero-poster`) holds the
+frame. `prefers-reduced-motion: reduce` → one static composed frame, no rAF
+loop, and every scroll animation on the page resolves to its final state.
 
-```ts
-export const education = [
-  {
-    institution: "University Name",
-    location: "Location",
-    degree: "Your Degree",
-    period: "Start Date - End Date",
-    achievements: [
-      "Achievement 1",
-      "Achievement 2",
-    ],
-  },
-];
-```
+## Swapping in the real portrait
 
-### 4. Skills
-
-```ts
-export const skills = {
-  programmingLanguages: ["TypeScript", "Python"],
-  frontendDevelopment: ["React", "Next.js"],
-  // and more...
-};
-```
-
-### 5. Projects
-
-```ts
-export const projects = [
-  {
-    title: "Project Name",
-    github: "https://github.com/yourusername/project",
-    description: [
-      "What it does",
-      "Technologies used",
-    ],
-  },
-];
-```
-
-### 6. Awards
-
-```ts
-export const awards = [
-  {
-    name: "Award Name",
-    issuer: "Issuer",
-    date: "Date",
-    type: "Type",
-    position: "Position",
-  },
-];
-```
-
-## 📦 Build for Production
+`public/images/portrait.jpg` currently ships a **designed placeholder plate**,
+not a photograph. To use a real photo:
 
 ```bash
-npm run build
-# or
-yarn build
-# or
-bun run build
+node scripts/generate-portrait-placeholder.mjs --from path/to/photo.jpg
 ```
 
-To preview the production build locally:
+That resizes the photo to 1100×1467, writes `public/images/portrait.jpg`, and
+regenerates the inline blur placeholder in `lib/portrait.ts`. Run it with no
+arguments to rebuild the placeholder plate instead.
 
-```bash
-npm run preview
-# or
-yarn preview
-```
+## Simulated data
 
-## 📤 Deployment
+Two charts render numbers that are generated, not measured, and both say so on
+screen:
 
-Easily deploy to platforms like **Vercel**, **Netlify**, **GitHub Pages**, or any static host of your choice.
+- **Passway heatmap** — observed-coverage values come from a seeded generator in
+  `components/viz/CurriculumHeatmap.tsx`; identical on every load.
+- **ANOVA plot** — the per-participant point cloud is simulated from the
+  reported means and SDs. The means, CIs, N = 96 and *p* = .009 are the real
+  reported values.
 
-## 📝 License
+The OopsCupid radar labels its own readout as a demo of the platform's output
+surface rather than a live model call.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## Accessibility
 
-## ©️ Copyright
-
-© 2025 **Rishikesh S.** All rights reserved.
-
-You’re welcome to use this template for your own portfolio — just update `data.ts` and tweak the design as needed. Please keep attribution to the original author.
-
----
-
-## 🌟 Like it?
-
-If you found this helpful or inspiring, **please consider leaving a star** ⭐ on the repo — it helps others discover it too!
-
----
-
-## 🙏 Acknowledgments
-
-- [Astro](https://astro.build/)
-- [React](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Lucide Icons](https://lucide.dev/)
+Every chart carries `role="img"`, a descriptive label, and a visually-hidden
+table of its underlying numbers. The CV terminal duplicates its credentials in
+an `sr-only` block so nothing depends on the typing animation. Interactive
+chart elements are keyboard reachable, and the whole page respects
+`prefers-reduced-motion`.

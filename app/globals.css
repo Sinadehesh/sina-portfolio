@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+/* ============================================================
+   CHIAROSCURO — the light/dark contract of the whole page.
+   Deep charcoal ground, oil-canvas ivory light, muted gold leaf.
+   ============================================================ */
+@theme {
+  --color-void: #050506;
+  --color-charcoal-900: #0a0a0c;
+  --color-charcoal-800: #101013;
+  --color-charcoal-700: #17171b;
+  --color-charcoal-600: #202026;
+  --color-charcoal-500: #2c2c34;
+
+  --color-ivory: #ede4d3;
+  --color-ivory-dim: #c9c0b1;
+  --color-ivory-faint: #8d867a;
+
+  --color-gold: #c8a45c;
+  --color-gold-bright: #e0c184;
+  --color-gold-deep: #8a6d32;
+
+  --color-oxide: #8c4a3f;
+  --color-verdigris: #4a7a6f;
+
+  --font-serif: var(--font-display), "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-code), ui-monospace, "SFMono-Regular", monospace;
+
+  --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --page-bg: var(--color-charcoal-900);
+  color-scheme: dark;
+}
+
+* {
+  border-color: color-mix(in oklab, var(--color-ivory) 10%, transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-void);
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01";
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-gold) 35%, transparent);
+  color: var(--color-ivory);
+}
+
+/* Scrollbar — thin gold thread on charcoal */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--color-gold) 30%, var(--color-charcoal-700));
+  border-radius: 999px;
+  border: 3px solid var(--color-void);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold-deep); }
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+
+/* Canvas-grain: the oil-paint tooth that keeps flat charcoal from
+   reading as flat #000 on OLED. */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.vignette::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse 120% 90% at 50% 45%,
+    transparent 35%,
+    color-mix(in oklab, var(--color-void) 82%, transparent) 100%
+  );
+}
+
+.glass {
+  background: linear-gradient(
+    140deg,
+    color-mix(in oklab, var(--color-ivory) 7%, transparent),
+    color-mix(in oklab, var(--color-ivory) 2%, transparent) 45%,
+    color-mix(in oklab, var(--color-void) 30%, transparent)
+  );
+  backdrop-filter: blur(18px) saturate(115%);
+  -webkit-backdrop-filter: blur(18px) saturate(115%);
+  border: 1px solid color-mix(in oklab, var(--color-ivory) 12%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--color-ivory) 10%, transparent) inset,
+    0 24px 60px -20px rgba(0, 0, 0, 0.85);
+}
+
+.glass-gold {
+  border-color: color-mix(in oklab, var(--color-gold) 28%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--color-gold) 18%, transparent) inset,
+    0 24px 70px -22px rgba(0, 0, 0, 0.9),
+    0 0 90px -50px var(--color-gold);
+}
+
+.rule-gold {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--color-gold) 60%, transparent) 18%,
+    color-mix(in oklab, var(--color-gold) 60%, transparent) 82%,
+    transparent
+  );
+}
+
+.text-gradient-ivory {
+  background: linear-gradient(180deg, var(--color-ivory) 0%, #9a9184 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* Elements GSAP fades in: hidden until ScrollTrigger arms them, but
+   never hidden for readers without JS. */
+.reveal { opacity: 0; transform: translateY(28px); }
+.js-off .reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+
+/* Poster frame: a charcoal board lit from a single high-left source.
+   Shown before WebGL is ready and kept as the floor if it never is. */
+.hero-poster {
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% 62%,
+      color-mix(in oklab, var(--color-ivory) 9%, transparent),
+      transparent 70%
+    ),
+    conic-gradient(
+        from 45deg at 50% 62%,
+        color-mix(in oklab, var(--color-ivory) 4%, transparent) 0deg 90deg,
+        transparent 90deg 180deg,
+        color-mix(in oklab, var(--color-ivory) 4%, transparent) 180deg 270deg,
+        transparent 270deg 360deg
+      )
+      50% 62% / 92px 46px repeat,
+    linear-gradient(180deg, var(--color-void), var(--color-charcoal-900) 55%, var(--color-void));
+}
+
+.hero-caption {
+  animation: caption-in 900ms var(--ease-cinema) both;
+}
+
+@keyframes caption-in {
+  from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
+  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.scroll-thread::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 40%;
+  background: linear-gradient(180deg, transparent, var(--color-gold));
+  animation: thread 2.4s var(--ease-cinema) infinite;
+}
+
+@keyframes thread {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  30%  { opacity: 1; }
+  100% { transform: translateY(250%); opacity: 0; }
+}
+
+/* Portrait sits in the same tonal world as the WebGL scene: pulled toward
+   charcoal, warmed back up with a gold-leaning overlay rather than left
+   as a full-colour photograph dropped onto an oil canvas. */
+.portrait-treatment {
+  filter: grayscale(0.72) contrast(1.16) brightness(0.86) sepia(0.18);
+  transition: filter 900ms var(--ease-cinema);
+}
+figure:hover .portrait-treatment {
+  filter: grayscale(0.35) contrast(1.08) brightness(0.95) sepia(0.06);
+}
+
+/* A slow raking highlight across premium glass — the light source moving
+   over varnish. Purely decorative, disabled under reduced motion. */
+.sheen::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    72deg,
+    transparent 42%,
+    color-mix(in oklab, var(--color-gold) 9%, transparent) 50%,
+    transparent 58%
+  );
+  transform: translateX(-30%);
+  animation: sheen 14s var(--ease-cinema) infinite;
+}
+.sheen > * { position: relative; z-index: 2; }
+
+@keyframes sheen {
+  0%, 62% { transform: translateX(-40%); }
+  92%, 100% { transform: translateX(40%); }
+}
+
+/* ============================================================
+   CV terminal
+   ============================================================ */
+.crt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0 2px,
+    color-mix(in oklab, var(--color-void) 26%, transparent) 2px 3px
+  );
+  opacity: 0.5;
+}
+
+.terminal-cursor {
+  animation: blink 1.05s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
