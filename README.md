@@ -95,3 +95,11 @@ table of its underlying numbers. The CV terminal duplicates its credentials in
 an `sr-only` block so nothing depends on the typing animation. Interactive
 chart elements are keyboard reachable, and the whole page respects
 `prefers-reduced-motion`.
+
+## Verifying against the brief
+
+`docs/spec.md` holds the acceptance checklist. `.claude/agents/spec-verifier.md`
+defines a read-only, fresh-context auditor that walks the codebase against it
+and reports `MET / PARTIAL / NOT MET` per requirement; `/verify-spec` runs it.
+Re-run it after any substantial change to the hero sequence, the charts, or the
+section content.

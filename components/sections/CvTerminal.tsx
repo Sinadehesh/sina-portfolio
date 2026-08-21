@@ -24,7 +24,7 @@ const MS_PER_CHAR = 5;
 const PAUSE_CHARS = 10; // beat between lines, expressed in character-times
 
 function buildLines(): Line[] {
-  const pad = (label: string, value: string, width = 46) => {
+  const pad = (label: string, value: string, width = 40) => {
     const dots = Math.max(2, width - label.length - value.length);
     return `${label} ${".".repeat(dots)} ${value}`;
   };
@@ -33,17 +33,19 @@ function buildLines(): Line[] {
     { text: `$ boot --profile "${personal.name.toLowerCase().replace(/\s+/g, "-")}"`, tone: "cmd" },
     { text: "[ok] mounting credentials volume", tone: "ok" },
     { text: "", tone: "dim" },
-    { text: "── EDUCATION ──────────────────────────────────", tone: "head" },
+    { text: "── EDUCATION ─────────────────────", tone: "head" },
     { text: cv.education.degree, tone: "item" },
     { text: pad(cv.education.institution, cv.education.grade), tone: "item" },
     { text: "", tone: "dim" },
-    { text: "── CERTIFICATIONS ─────────────────────────────", tone: "head" },
+    { text: "── CERTIFICATIONS ────────────────", tone: "head" },
     ...cv.certifications.map<Line>((c) => ({ text: `[x] ${c}`, tone: "item" })),
     { text: "", tone: "dim" },
-    { text: "── CORE STACK ─────────────────────────────────", tone: "head" },
-    { text: cv.stack.join("  ·  "), tone: "item" },
+    { text: "── CORE STACK ────────────────────", tone: "head" },
+    { text: cv.stack.slice(0, 3).join("  ·  "), tone: "item" },
+    { text: cv.stack.slice(3, 5).join("  ·  "), tone: "item" },
+    { text: cv.stack.slice(5).join("  ·  "), tone: "item" },
     { text: "", tone: "dim" },
-    { text: "[ok] profile resolved — behavior compiles to systems", tone: "ok" },
+    { text: "[ok] profile resolved — behavior compiles", tone: "ok" },
     { text: `$ contact --email ${personal.email}`, tone: "cmd" },
   ];
 }
@@ -173,7 +175,7 @@ export default function CvTerminal() {
           <div className="relative overflow-x-auto px-5 py-7 sm:px-8 sm:py-9">
             <pre
               aria-hidden
-              className="font-mono text-[clamp(0.75rem,1.55vw,0.9375rem)] leading-[1.85]"
+              className="font-mono text-[clamp(0.6875rem,1.55vw,0.9375rem)] leading-[1.85]"
             >
               {lines.map((l, i) => (
                 <div key={i} className="flex min-h-[1.85em] items-baseline">

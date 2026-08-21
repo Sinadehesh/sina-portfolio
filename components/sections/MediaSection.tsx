@@ -13,8 +13,9 @@ export default function MediaSection() {
         eyebrow="Media, research & content ventures"
         title={
           <>
-            Publishing, on camera,
-            <span className="text-gold"> in print</span>, and under peer review
+            Publishing, on camera,{" "}
+            <span className="text-gold whitespace-nowrap">in print</span>, and
+            under peer review
           </>
         }
         lede="A channel, a thirty-issue magazine, a thesis with a significant result, and two books. Different surfaces, one habit: make the observation, then make it public."

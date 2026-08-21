@@ -654,12 +654,34 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
       /* ---------------------------------------------------------- *
        * Resize
        * ---------------------------------------------------------- */
+      let lastFov = -1;
+
+      /* The sequence is framed for a landscape viewport. A phone in portrait
+         has far less horizontal coverage at the same vertical FOV, which
+         crops the board and the notebook spread at both edges — so narrow
+         viewports get a wider lens AND get pushed back off the subject. */
+      const FRAME_ASPECT = 16 / 9;
+      const MAX_FOV = 62;
+      const MAX_PULLBACK = 1.9;
+      let fovScale = 1;
+      let pullback = 1;
+
+      const framedFov = (baseFov: number): number => {
+        if (fovScale <= 1) return baseFov;
+        const tanHalf = Math.tan((baseFov * Math.PI) / 360) * fovScale;
+        return Math.min(MAX_FOV, (Math.atan(tanHalf) * 360) / Math.PI);
+      };
+
       const applySize = (): void => {
         const width = Math.max(1, host.clientWidth || window.innerWidth);
         const heightPx = Math.max(1, host.clientHeight || window.innerHeight);
         gpu.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxPixelRatio));
         gpu.setSize(width, heightPx, false);
-        camera.aspect = width / heightPx;
+        const aspect = width / heightPx;
+        camera.aspect = aspect;
+        fovScale = aspect < FRAME_ASPECT ? FRAME_ASPECT / aspect : 1;
+        pullback = Math.min(MAX_PULLBACK, Math.sqrt(fovScale));
+        lastFov = -1; // force the next frame to re-apply the framed FOV
         camera.updateProjectionMatrix();
       };
       applySize();
@@ -680,7 +702,6 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
       const impactState = { value: 0 };
       const scrollState = { progress: 0 };
       let lastStage: HeroStage = 0;
-      let lastFov = -1;
       let rippleActive = false;
 
       const applyProgress = (next: number): void => {
@@ -705,9 +726,15 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
         sampleCamera(p, cameraSample);
         const drift = 1 - Math.min(1, Math.max(0, (p - 0.1) / 0.26));
         camera.position.set(
-          cameraSample.position[0] + Math.sin(elapsed * 0.21) * 0.5 * drift,
-          cameraSample.position[1] + Math.sin(elapsed * 0.17 + 1.1) * 0.2 * drift,
-          cameraSample.position[2] + Math.cos(elapsed * 0.13) * 0.32 * drift,
+          cameraSample.target[0] +
+            (cameraSample.position[0] - cameraSample.target[0]) * pullback +
+            Math.sin(elapsed * 0.21) * 0.5 * drift,
+          cameraSample.target[1] +
+            (cameraSample.position[1] - cameraSample.target[1]) * pullback +
+            Math.sin(elapsed * 0.17 + 1.1) * 0.2 * drift,
+          cameraSample.target[2] +
+            (cameraSample.position[2] - cameraSample.target[2]) * pullback +
+            Math.cos(elapsed * 0.13) * 0.32 * drift,
         );
         lookTarget.set(
           cameraSample.target[0],
@@ -715,9 +742,10 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
           cameraSample.target[2],
         );
         camera.lookAt(lookTarget);
-        if (Math.abs(cameraSample.fov - lastFov) > 0.002) {
-          lastFov = cameraSample.fov;
-          camera.fov = cameraSample.fov;
+        const framed = framedFov(cameraSample.fov);
+        if (Math.abs(framed - lastFov) > 0.002) {
+          lastFov = framed;
+          camera.fov = framed;
           camera.updateProjectionMatrix();
         }
 
@@ -760,11 +788,14 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
         applyProgress(STATIC_PROGRESS);
         sampleCamera(STATIC_PROGRESS, cameraSample);
         camera.position.set(
-          cameraSample.position[0],
-          cameraSample.position[1],
-          cameraSample.position[2],
+          cameraSample.target[0] +
+            (cameraSample.position[0] - cameraSample.target[0]) * pullback,
+          cameraSample.target[1] +
+            (cameraSample.position[1] - cameraSample.target[1]) * pullback,
+          cameraSample.target[2] +
+            (cameraSample.position[2] - cameraSample.target[2]) * pullback,
         );
-        camera.fov = cameraSample.fov;
+        camera.fov = framedFov(cameraSample.fov);
         camera.updateProjectionMatrix();
         lookTarget.set(
           cameraSample.target[0],

@@ -92,11 +92,13 @@ export default function MusicitySection() {
                           }`}
                           style={{ transformOrigin: "top" }}
                         />
-                        <span className="flex items-baseline gap-3">
-                          <span className="font-mono text-[0.625rem] tracking-[0.3em]">
+                        <span className="flex items-baseline gap-2 md:gap-3">
+                          {/* The ordinal is a nicety; on a phone the three
+                              labels need the whole row. */}
+                          <span className="hidden font-mono text-[0.625rem] tracking-[0.3em] md:inline">
                             {String(i + 1).padStart(2, "0")}
                           </span>
-                          <span className="font-mono text-[0.75rem] tracking-[0.24em] uppercase">
+                          <span className="font-mono text-[0.6875rem] tracking-[0.12em] uppercase md:text-[0.75rem] md:tracking-[0.24em]">
                             {p.label}
                           </span>
                         </span>

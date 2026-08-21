@@ -23,7 +23,10 @@ function LabCard({
   index: string;
 }) {
   return (
-    <GlassCard as="article" className={`p-7 sm:p-9 md:p-11 ${className}`}>
+    <GlassCard
+      as="article"
+      className={`flex h-full flex-col p-7 sm:p-9 md:p-11 ${className}`}
+    >
       <div className="reveal flex items-baseline gap-4">
         <span className="font-mono text-[0.625rem] tracking-[0.3em] text-gold">
           {index}
@@ -104,7 +107,7 @@ export default function LabSection() {
             <p className="reveal mt-7 border-l border-gold/30 pl-5 font-serif text-[1.0625rem] leading-snug text-ivory italic">
               {costly.premise}
             </p>
-            <FactList facts={costly.facts} className="reveal mt-8" />
+            <FactList facts={costly.facts} className="reveal mt-auto pt-10" />
           </LabCard>
 
           {/* ---- 4.3 OopsCupid ---- */}
@@ -118,7 +121,7 @@ export default function LabSection() {
             <div className="reveal mt-8">
               <PsychometricRadar />
             </div>
-            <FactList facts={oopsCupid.facts} className="reveal mt-8" />
+            <FactList facts={oopsCupid.facts} className="reveal mt-auto pt-10" />
           </LabCard>
         </div>
 
