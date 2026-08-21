@@ -89,7 +89,9 @@ export type HeroStage = 0 | 1 | 2 | 3;
 export interface MindToMatrixProps {
   onStageChange?: (stage: HeroStage) => void;
   /** Fires once the first frame has actually rendered — or once we know it never will. */
-  onReady?: () => void;
+  /** `true` once a real frame has been drawn; `false` if the scene could
+   *  not start and the CSS poster underneath is the whole hero. */
+  onReady?: (rendering: boolean) => void;
   className?: string;
 }
 
@@ -139,10 +141,10 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
     let renderer: THREE.WebGPURenderer | null = null;
     let readyFired = false;
 
-    const fireReady = (): void => {
+    const fireReady = (rendering: boolean): void => {
       if (readyFired) return;
       readyFired = true;
-      onReadyRef.current?.();
+      onReadyRef.current?.(rendering);
     };
 
     const releaseResources = (): void => {
@@ -197,7 +199,7 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
       } catch {
         // No 2D canvas: the poster underneath is the whole experience.
         releaseResources();
-        fireReady();
+        fireReady(false);
         return;
       }
 
@@ -221,7 +223,7 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
         // No WebGPU adapter and no WebGL2 context. Bail out cleanly: the
         // wrapper keeps its CSS poster and the page never sees a black hole.
         releaseResources();
-        fireReady();
+        fireReady(false);
         return;
       }
 
@@ -267,6 +269,9 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
       const uParticleSize = uniform(0.055);
       const uSceneFade = uniform(1);
       const uImpact = uniform(0);
+      // The knight's landing, fed to the particles: the move is what begins
+      // the dissolve, and scroll is what carries it through.
+      const uKick = uniform(0);
       const uBoardOpacity = uniform(1);
       const uPageOpacity = uniform(0);
       const uInk = uniform(0);
@@ -536,6 +541,12 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
       const wGlyph = smoothstep(0.615, 0.665, uProgress);
 
       /* ---- position: board -> burst -> notebook -> matrix -------- */
+      // The landing shock lifts particles off the board on its own envelope.
+      // `aBurst` already encodes distance from the impact square (its
+      // magnitude falls off as 1/(1 + dist)), so reusing it here sprays the
+      // squares around the knight hardest. It yields to the scroll-driven
+      // burst rather than adding to it.
+      const kick = uKick.mul(float(1).sub(wBurst));
       const burst2 = wBurst.mul(wBurst);
       const turbulence = vec3(
         sin(aBoard.z.mul(1.6).add(time.mul(0.55)).add(aRand.x.mul(6.2832))),
@@ -544,7 +555,7 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
       ).mul(burst2.mul(0.8));
 
       const dissolved = aBoard
-        .add(aBurst.mul(wBurst.mul(3.05)))
+        .add(aBurst.mul(wBurst.mul(3.05).add(kick.mul(0.42))))
         .add(vec3(0, burst2.mul(-2.95), 0))
         .add(turbulence);
 
@@ -751,6 +762,17 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
 
         /* the key light breathes with the candle, and flares on impact */
         uImpact.value = impactState.value;
+        uKick.value = impactState.value;
+        // The dust is scroll-gated, but the knight's landing happens before
+        // the first scroll — so the impact lifts the alpha floor for as long
+        // as it rings. Written per frame because the shock decays on its own
+        // timeline, independent of scroll.
+        if (impactState.value > 0.002) {
+          uParticleAlpha.value = Math.max(
+            envelope(PARTICLE_OPACITY, p),
+            impactState.value * 0.55,
+          );
+        }
         candle.intensity = 26 + Math.sin(elapsed * 1.7) * 2.4 + impactState.value * 30;
         key.intensity = 2.1 + impactState.value * 0.8;
 
@@ -772,7 +794,7 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
         gpu.setClearColor(GROUND, uSceneFade.value);
 
         gpu.render(scene, camera);
-        fireReady();
+        fireReady(true);
 
         const stage = stageForProgress(p);
         if (stage !== lastStage) {
@@ -811,10 +833,10 @@ export default function MindToMatrix(props: MindToMatrixProps): JSX.Element {
         const settle = window.requestAnimationFrame(() => {
           if (disposed) return;
           gpu.render(scene, camera);
-          fireReady();
+          fireReady(true);
         });
         teardown.push(() => window.cancelAnimationFrame(settle));
-        fireReady();
+        fireReady(true);
         return;
       }
 

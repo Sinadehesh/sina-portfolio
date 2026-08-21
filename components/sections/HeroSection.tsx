@@ -36,10 +36,12 @@ const STAGE_CAPTIONS: Record<HeroStage, { numeral: string; label: string; line: 
 
 export default function HeroSection() {
   const [stage, setStage] = useState<HeroStage>(0);
-  const [ready, setReady] = useState(false);
+  // null while the scene is still starting; false if it never could, in which
+  // case the poster below is not decoration — it is the hero.
+  const [rendering, setRendering] = useState<boolean | null>(null);
 
   const handleStage = useCallback((next: HeroStage) => setStage(next), []);
-  const handleReady = useCallback(() => setReady(true), []);
+  const handleReady = useCallback((live: boolean) => setRendering(live), []);
 
   const caption = STAGE_CAPTIONS[stage];
   const titleFaded = stage >= 2;
@@ -48,11 +50,18 @@ export default function HeroSection() {
     <section id="hero-scroll" className="relative h-[420vh]">
       <div className="vignette sticky top-0 h-screen w-full overflow-hidden bg-charcoal-900">
         {/* Poster: the frame before WebGL is up, and the whole frame if the
-            device has no working WebGL context at all. */}
+            device has no working WebGL context at all. Once the scene is live
+            it drops back to a texture under the canvas, and clears entirely
+            for the pull-back — where the canvas itself fades to transparent
+            and anything behind it would otherwise show through. */}
         <div
           aria-hidden
           className={`hero-poster absolute inset-0 transition-opacity duration-1000 ${
-            ready ? "opacity-25" : "opacity-100"
+            rendering === null || rendering === false
+              ? "opacity-100"
+              : stage >= 3
+                ? "opacity-0"
+                : "opacity-25"
           }`}
         />
 

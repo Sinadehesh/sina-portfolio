@@ -383,7 +383,7 @@ export const literature = [
    --------------------------------------------------------------- */
 export const cv = {
   education: {
-    degree: "MSc, Applied Experimental Psychological Sciences",
+    degree: "MSc in Applied Experimental Psychological Sciences",
     institution: "University of Milano-Bicocca",
     grade: "91/110",
   },

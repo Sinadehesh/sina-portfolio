@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cv, personal } from "@/lib/data";
@@ -19,6 +19,9 @@ const TONE_CLASS: Record<Tone, string> = {
   item: "text-ivory-dim",
   dim: "text-ivory-faint",
 };
+
+const useIsomorphicLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 const MS_PER_CHAR = 5;
 const PAUSE_CHARS = 10; // beat between lines, expressed in character-times
@@ -66,6 +69,17 @@ export default function CvTerminal() {
       return start;
     });
   }, [lines]);
+
+  // The markup ships the finished print-out so the credentials are readable
+  // with JS disabled. When JS is running, clear it before the browser paints
+  // so the boot sequence types into an empty terminal rather than flashing
+  // the answer first. Layout effects do not run during SSR, which is exactly
+  // the behaviour wanted here.
+  useIsomorphicLayoutEffect(() => {
+    lineRefs.current.forEach((node) => {
+      if (node) node.textContent = "";
+    });
+  }, []);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -172,10 +186,10 @@ export default function CvTerminal() {
           </div>
 
           {/* Print-out */}
-          <div className="relative overflow-x-auto px-5 py-7 sm:px-8 sm:py-9">
+          <div className="relative overflow-x-auto px-4 py-7 sm:px-8 sm:py-9">
             <pre
               aria-hidden
-              className="font-mono text-[clamp(0.6875rem,1.55vw,0.9375rem)] leading-[1.85]"
+              className="font-mono text-[clamp(0.64rem,1.55vw,0.9375rem)] leading-[1.85]"
             >
               {lines.map((l, i) => (
                 <div key={i} className="flex min-h-[1.85em] items-baseline">
@@ -184,7 +198,9 @@ export default function CvTerminal() {
                       lineRefs.current[i] = el;
                     }}
                     className={`whitespace-pre ${TONE_CLASS[l.tone]}`}
-                  />
+                  >
+                    {l.text}
+                  </span>
                   {cursorAt === i && !done ? (
                     <span className="terminal-cursor ml-0.5 inline-block h-[1.05em] w-[0.55ch] translate-y-[0.16em] bg-gold" />
                   ) : null}

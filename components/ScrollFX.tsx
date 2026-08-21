@@ -95,10 +95,11 @@ export default function ScrollFX() {
       }
     });
 
-    return () => {
-      ctx.revert();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+    // `ctx.revert()` kills exactly the triggers created inside this context.
+    // Killing every ScrollTrigger on the page would take the hero, the four
+    // charts, the email wireframe and the CV terminal down with it on any
+    // StrictMode remount.
+    return () => ctx.revert();
   }, []);
 
   return null;

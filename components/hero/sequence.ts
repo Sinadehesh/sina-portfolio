@@ -37,7 +37,6 @@ const TAU = Math.PI * 2;
 export const TILE_SIZE = 1;
 export const TILE_THICKNESS = 0.17;
 /** Half-extent of the playing surface: files/ranks span [-4, 4]. */
-export const BOARD_HALF = (TILE_SIZE * 8) / 2;
 
 export interface TileCell {
   /** 0..7, a-file first. */
@@ -160,13 +159,6 @@ export function latheProfile(kind: PieceKind): Array<[number, number]> {
         [0.15, 0.42], [0.19, 0.50], [0.14, 0.56], [0, 0.58],
       ];
   }
-}
-
-/** Overall height of a piece, head included. */
-export function pieceHeight(kind: PieceKind): number {
-  const profile = latheProfile(kind);
-  const top = profile[profile.length - 1]?.[1] ?? 0;
-  return kind === "knight" ? top + 0.52 : top;
 }
 
 /**
