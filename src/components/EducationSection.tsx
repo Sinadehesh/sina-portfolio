@@ -1,4 +1,4 @@
-import { education } from "@/lib/data";
+import { certifications, education } from "@/lib/data";
 import TimelineItem from "./TimelineItem";
 import { Award } from "lucide-react";
 import MotionWrapper from "./MotionWrapper";
@@ -13,7 +13,7 @@ export default function EducationSection() {
       <div className="container max-w-4xl mx-auto px-6 md:px-4">
         <MotionWrapper>
           <h2 className="text-2xl font-bold mb-8 text-center md:text-left">
-            🎓 Education
+            What academic training and credentials back the work?
           </h2>
         </MotionWrapper>
 
@@ -21,14 +21,14 @@ export default function EducationSection() {
           {education.map((edu, index) => (
             <TimelineItem
               key={edu.institution}
-              title={`🎓 ${edu.degree}`}
-              subtitle={`🏛️ ${edu.institution}`}
-              date={`📅 ${edu.period}`}
+              title={edu.degree}
+              subtitle={edu.institution}
+              date={edu.period}
               isLast={index === education.length - 1}
               index={index}
             >
               <p className="text-sm text-muted-foreground mb-3">
-                📍 {edu.location}
+                {edu.location}
               </p>
 
               {edu.achievements && edu.achievements.length > 0 && (
@@ -44,7 +44,7 @@ export default function EducationSection() {
                       <Award className="h-4 w-4 text-purple-500" />
                     </div>
                     <h4 className="text-sm font-medium">
-                      ✨ Achievements & Activities
+                      Research focus & thesis
                     </h4>
                   </div>
                   <ul className="list-none ml-4 space-y-2 text-sm">
@@ -66,6 +66,19 @@ export default function EducationSection() {
             </TimelineItem>
           ))}
         </div>
+
+        <h3 className="text-lg font-semibold mb-3">Professional certifications</h3>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {certifications.map((cert) => (
+            <li
+              key={cert.name}
+              className="rounded-lg border border-purple-500/20 bg-background/80 p-3 text-sm"
+            >
+              <span className="font-medium">{cert.name}</span>
+              <span className="text-muted-foreground"> — {cert.issuer}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

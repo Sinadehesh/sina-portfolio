@@ -1,0 +1,72 @@
+---
+import { getCaseStudy, personalInfo, targetRoles } from "@/lib/data";
+import { caseStudyPath } from "@/lib/schema";
+
+const pillars = [
+  {
+    title: "Behavioral science & quantitative UX research",
+    detail: "M.Sc. Applied Experimental Psychological Sciences · ANOVA, logistic regression, psychometrics, thematic coding",
+  },
+  {
+    title: "Product strategy & prototyping",
+    detail: "0-to-1 vision, business plans, Kano, MoSCoW, JTBD, PRINCE2, Agile, Figma systems",
+  },
+  {
+    title: "Full-stack AI engineering",
+    detail: "Next.js, React, TypeScript, Python, Kotlin, PostgreSQL, n8n, LLM agentic workflows",
+  },
+];
+---
+
+<section id="hire" class="py-12 scroll-mt-20" aria-labelledby="hire-heading">
+  <div class="container max-w-4xl mx-auto px-4">
+    <h2 id="hire-heading" class="text-2xl md:text-3xl font-bold mb-3">
+      Which roles is Sina Dehesh ready to step into?
+    </h2>
+    <p class="text-muted-foreground mb-6">
+      Most candidates cover one of these disciplines. Sina covers all three in a single sprint — research the behavior,
+      decide what to build, and ship the system that measures it.
+    </p>
+
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+      {
+        pillars.map((p, i) => (
+          <li class="rounded-lg border border-purple-500/20 bg-background/80 p-4">
+            <p class="text-xs font-semibold text-purple-600 dark:text-purple-400">0{i + 1}</p>
+            <p class="font-semibold mt-1">{p.title}</p>
+            <p class="text-sm text-muted-foreground mt-1">{p.detail}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <ol class="space-y-4">
+      {
+        targetRoles.map((role, i) => (
+          <li class="rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-5">
+            <h3 class="text-lg font-semibold">
+              <span class="text-purple-600 dark:text-purple-400 mr-2">{i + 1}.</span>
+              {role.title}
+            </h3>
+            <p class="text-sm text-muted-foreground mt-2">{role.pitch}</p>
+            <p class="text-sm mt-3">
+              <span class="font-medium">Proof: </span>
+              {role.proof
+                .map((slug) => getCaseStudy(slug))
+                .filter((c) => c !== undefined)
+                .map((c, j) => (
+                  <>{j > 0 && ", "}<a class="text-purple-600 dark:text-purple-400 underline underline-offset-2" href={caseStudyPath(c.slug)}>{c.name}</a></>
+                ))}
+            </p>
+            <a
+              class="mt-4 inline-flex text-sm font-semibold rounded-md px-4 py-2 bg-foreground text-background hover:opacity-90 transition-opacity"
+              href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(`Role: ${role.title}`)}`}
+            >
+              Discuss this role
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

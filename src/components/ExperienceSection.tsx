@@ -14,6 +14,7 @@ export default function ExperienceSection() {
         <MotionWrapper>
           <h2 className="text-2xl font-bold mb-8 text-center md:text-left flex items-center md:inline-block">
             <motion.span
+              aria-hidden="true"
               className="inline-block mr-2"
               initial={{ rotate: 0 }}
               whileInView={{ rotate: [0, -10, 10, -5, 5, 0] }}
@@ -22,16 +23,16 @@ export default function ExperienceSection() {
             >
               💼
             </motion.span>{" "}
-            Work Experience
+            Where has Sina Dehesh led product, research and venture work?
           </h2>
         </MotionWrapper>
         <div className="mb-8">
           {workExperience.map((job, index) => (
             <TimelineItem
-              key={job.company + job.period}
-              title={`👨‍💻 ${job.position} | ${job.company}`}
-              subtitle={`🌍 ${job.location}`}
-              date={`📅 ${job.period}`}
+              key={job.company + job.position}
+              title={`${job.position} — ${job.company}`}
+              subtitle={job.location}
+              date={job.period}
               isLast={index === workExperience.length - 1}
               index={index}
             >
@@ -46,7 +47,7 @@ export default function ExperienceSection() {
                   <div className="h-6 w-6 flex items-center justify-center rounded-full bg-purple-500/10 mr-2">
                     <Briefcase className="h-4 w-4 text-purple-500" />
                   </div>
-                  <h4 className="text-sm font-medium">Key Achievements</h4>
+                  <h4 className="text-sm font-medium">Scope & impact</h4>
                 </div>
                 <ul className="list-none ml-4 space-y-2 text-sm">
                   {job.achievements.map((achievement, i) => (

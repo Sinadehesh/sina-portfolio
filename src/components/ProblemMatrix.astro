@@ -1,0 +1,39 @@
+---
+import { getCaseStudy, problemMatrix } from "@/lib/data";
+import { caseStudyPath } from "@/lib/schema";
+---
+
+<section id="solve" class="py-12 scroll-mt-20" aria-labelledby="solve-heading">
+  <div class="container max-w-4xl mx-auto px-4">
+    <h2 id="solve-heading" class="text-2xl md:text-3xl font-bold mb-6">
+      How does Sina Dehesh solve product problems?
+    </h2>
+    <div class="space-y-4">
+      {
+        problemMatrix.map((row) => (
+          <article class="rounded-xl border border-border/60 bg-background/80 p-5">
+            <h3 class="text-lg font-semibold">{row.question}</h3>
+            <p class="text-muted-foreground mt-2">{row.answer}</p>
+            <ul class="mt-3 flex flex-wrap gap-2">
+              {row.proof.map((p) => {
+                const c = getCaseStudy(p.slug);
+                return (
+                  c && (
+                    <li>
+                      <a
+                        href={caseStudyPath(c.slug)}
+                        class="inline-flex text-xs rounded-full border border-purple-500/30 px-3 py-1 hover:bg-purple-500/10 transition-colors"
+                      >
+                        <strong class="mr-1">{c.name}</strong> — {p.note}
+                      </a>
+                    </li>
+                  )
+                );
+              })}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

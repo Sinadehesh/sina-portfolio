@@ -1,24 +1,65 @@
 ---
 import "../styles/global.css";
+import type { Graph } from "schema-dts";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { personalInfo, site } from "@/lib/data";
+import { absoluteUrl, baseNodes, graph } from "@/lib/schema";
 
 interface Props {
   title?: string;
   description?: string;
+  /** Relative image path or absolute URL for OpenGraph / Twitter cards. */
+  image?: string;
+  ogType?: "website" | "article" | "profile";
+  /** Extra JSON-LD nodes; the Person and WebSite nodes are always included. */
+  jsonLd?: Graph["@graph"];
 }
 
-const { title = "Rishikesh S - Portfolio", description = "My Portfolio" } =
-  Astro.props;
+const {
+  title = site.title,
+  description = site.description,
+  image = site.ogImage,
+  ogType = "website",
+  jsonLd = [],
+} = Astro.props;
+
+const path = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonical = new URL(path, site.url).href;
+const imageUrl = absoluteUrl(image);
+const structuredData = graph([...baseNodes(), ...jsonLd]);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={personalInfo.name} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM-readable profile of Sina Dehesh" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={personalInfo.name} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={`${personalInfo.name} — ${personalInfo.headline}`} />
+    {ogType === "profile" && <meta property="profile:first_name" content="Sina" />}
+    {ogType === "profile" && <meta property="profile:last_name" content="Dehesh" />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <JsonLd data={structuredData} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

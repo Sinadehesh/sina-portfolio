@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 interface TimelineItemProps {
   title: string;
   subtitle: string;
-  date: string;
+  date?: string;
   isLast?: boolean;
   index?: number;
   children?: React.ReactNode;
@@ -60,7 +60,9 @@ export default function TimelineItem({
         >
           <h3 className="font-medium">{title}</h3>
           <p className="text-sm text-muted-foreground">{subtitle}</p>
-          <p className="text-xs text-muted-foreground/70 mb-2">{date}</p>
+          {date && (
+            <p className="text-xs text-muted-foreground/70 mb-2">{date}</p>
+          )}
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}

@@ -1,0 +1,222 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import GlassHeader from "@/components/GlassHeader";
+import Footer from "@/components/Footer.astro";
+import { personalInfo, publishedCaseStudies, type CaseStudy } from "@/lib/data";
+import { breadcrumbNode, caseStudyNode, caseStudyPageNode, caseStudyPath } from "@/lib/schema";
+
+export function getStaticPaths() {
+  return publishedCaseStudies.map((c) => ({ params: { slug: c.slug }, props: { study: c } }));
+}
+
+interface Props {
+  study: CaseStudy;
+}
+
+const { study: c } = Astro.props;
+const index = publishedCaseStudies.findIndex((s) => s.slug === c.slug);
+const next = publishedCaseStudies[(index + 1) % publishedCaseStudies.length];
+
+const title = `${c.name} case study: ${c.tagline} | Sina Dehesh`;
+
+const impactRows = [
+  { term: "Problem", value: c.impact.problem },
+  { term: "Behavioral mechanism", value: c.impact.mechanism },
+  { term: "Tech stack & methods", value: c.impact.stack.join(" · ") },
+  { term: "Outcome", value: c.impact.outcome },
+];
+---
+
+<Layout
+  title={title}
+  description={c.summary}
+  image={c.image}
+  ogType="article"
+  jsonLd={[
+    caseStudyPageNode(c),
+    caseStudyNode(c),
+    breadcrumbNode([
+      { name: "Home", path: "/" },
+      { name: "Case studies", path: "/work/" },
+      { name: c.name, path: caseStudyPath(c.slug) },
+    ]),
+  ]}
+>
+  <GlassHeader client:load />
+  <main class="min-h-screen">
+    <article class="container max-w-3xl mx-auto px-4 py-10" aria-labelledby="study-title">
+      <nav aria-label="Breadcrumb" class="text-sm text-muted-foreground mb-6">
+        <ol class="flex flex-wrap gap-1">
+          <li><a class="hover:text-foreground" href="/">Home</a> /</li>
+          <li><a class="hover:text-foreground" href="/work/">Case studies</a> /</li>
+          <li aria-current="page" class="text-foreground">{c.name}</li>
+        </ol>
+      </nav>
+
+      <header>
+        <h1 id="study-title" class="text-3xl md:text-4xl font-bold tracking-tight">
+          {c.name}: {c.tagline}
+        </h1>
+
+        <!-- Answer-first snippet: the first words a crawler reads after the title. -->
+        <p
+          class="mt-6 rounded-xl border-l-4 border-purple-500 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-5 text-lg font-semibold leading-relaxed"
+        >
+          {c.summary}
+        </p>
+
+        <dl class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+          <div>
+            <dt class="text-muted-foreground">Role</dt>
+            <dd class="font-medium">{c.role}</dd>
+          </div>
+          <div>
+            <dt class="text-muted-foreground">Organization</dt>
+            <dd class="font-medium">{c.organization}</dd>
+          </div>
+          <div>
+            <dt class="text-muted-foreground">Status</dt>
+            <dd class="font-medium">
+              {c.status} · {c.category}
+              {
+                c.url && (
+                  <>
+                    {" · "}
+                    <a class="text-purple-600 dark:text-purple-400 underline underline-offset-2" href={c.url} target="_blank" rel="noopener">
+                      live product ↗
+                    </a>
+                  </>
+                )
+              }
+            </dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="mt-10" aria-labelledby="impact-heading">
+        <h2 id="impact-heading" class="text-2xl font-bold mb-4">Executive impact summary</h2>
+        <dl class="divide-y divide-border/60 rounded-xl border border-border/60 bg-background/80">
+          {
+            impactRows.map((row) => (
+              <div class="grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-1 sm:gap-4 p-4">
+                <dt class="font-semibold">{row.term}</dt>
+                <dd class="text-muted-foreground">{row.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+
+        <dl class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+          {
+            c.metrics.map((m) => (
+              <div class="rounded-lg border border-purple-500/20 p-3 flex flex-col">
+                <dt class="order-2 text-xs text-muted-foreground">{m.label}</dt>
+                <dd class="order-1 text-xl font-bold">{m.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+
+      {
+        c.benchmarks && (
+          <section class="mt-10" aria-labelledby="benchmark-heading">
+            <h2 id="benchmark-heading" class="text-2xl font-bold mb-4">
+              How does {c.name} compare with {c.benchmarks.filter((b) => b.name !== c.name).map((b) => b.name).join(" and ")}?
+            </h2>
+            <div class="overflow-x-auto rounded-xl border border-border/60">
+              <table class="w-full text-sm text-left">
+                <caption class="sr-only">Competitive benchmark for {c.name}</caption>
+                <thead class="bg-muted/60">
+                  <tr>
+                    <th scope="col" class="p-3">Product</th>
+                    <th scope="col" class="p-3">Strength</th>
+                    <th scope="col" class="p-3">Gap</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border/60">
+                  {c.benchmarks.map((b) => (
+                    <tr class:list={[b.name === c.name && "bg-purple-500/5"]}>
+                      <th scope="row" class="p-3 font-semibold">{b.name}</th>
+                      <td class="p-3 text-muted-foreground">{b.strength}</td>
+                      <td class="p-3 text-muted-foreground">{b.gap}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )
+      }
+
+      <section class="mt-10" aria-labelledby="tradeoffs-heading">
+        <h2 id="tradeoffs-heading" class="text-2xl font-bold mb-4">
+          Which technical and behavioral trade-offs shaped {c.name}?
+        </h2>
+        <ul class="list-disc pl-5 space-y-2 text-muted-foreground">
+          {c.tradeoffs.map((t) => <li>{t}</li>)}
+        </ul>
+      </section>
+
+      <section class="mt-10" aria-labelledby="decisions-heading">
+        <h2 id="decisions-heading" class="text-2xl font-bold mb-4">Decision log: how was {c.name} built?</h2>
+        <div class="overflow-x-auto rounded-xl border border-border/60">
+          <table class="w-full min-w-[40rem] text-sm text-left align-top">
+            <caption class="sr-only">Decision log for {c.name}</caption>
+            <thead class="bg-muted/60">
+              <tr>
+                <th scope="col" class="p-3">Challenge</th>
+                <th scope="col" class="p-3">Behavioral / technical hypothesis</th>
+                <th scope="col" class="p-3">Methodology used</th>
+                <th scope="col" class="p-3">Outcome</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/60">
+              {
+                c.decisionLog.map((d) => (
+                  <tr>
+                    <td class="p-3 font-medium">{d.challenge}</td>
+                    <td class="p-3 text-muted-foreground">{d.hypothesis}</td>
+                    <td class="p-3 text-muted-foreground">{d.method}</td>
+                    <td class="p-3 text-muted-foreground">{d.outcome}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-10" aria-labelledby="features-heading">
+        <h2 id="features-heading" class="text-2xl font-bold mb-4">What are {c.name}'s key features?</h2>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {c.featureList.map((f) => <li class="rounded-md bg-muted/60 px-3 py-2 text-sm">{f}</li>)}
+        </ul>
+        <p class="mt-4 text-sm text-muted-foreground">
+          <span class="font-medium text-foreground">Keywords:</span>
+          {c.keywords.join(" · ")}
+        </p>
+      </section>
+
+      <aside class="mt-12 rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-6">
+        <h2 class="text-xl font-bold">Need this kind of work on your team?</h2>
+        <p class="mt-2 text-muted-foreground">
+          {personalInfo.name} is available for AI Product Manager, Senior UX Researcher and AI Prototyper roles in Milan,
+          Turin, across Europe and remotely.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
+          <a
+            class="rounded-md px-4 py-2 text-white bg-gradient-to-r from-purple-600 to-pink-600"
+            href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(`Re: ${c.name} case study`)}`}
+          >
+            Email Sina
+          </a>
+          <a class="rounded-md px-4 py-2 border border-purple-500/30" href={caseStudyPath(next.slug)}>
+            Next case study: {next.name} →
+          </a>
+        </div>
+      </aside>
+    </article>
+  </main>
+  <Footer />
+</Layout>

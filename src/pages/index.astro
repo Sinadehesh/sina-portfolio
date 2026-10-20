@@ -1,26 +1,30 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import GlassHeader from "@/components/GlassHeader";
-import RecentLaunches from "@/components/RecentLaunches";
-import HeroSection from "@/components/HeroSection";
+import Hero from "@/components/Hero.astro";
+import HireSina from "@/components/HireSina.astro";
+import ProblemMatrix from "@/components/ProblemMatrix.astro";
+import CaseStudyGrid from "@/components/CaseStudyGrid.astro";
 import ExperienceSection from "@/components/ExperienceSection";
 import SkillsSection from "@/components/SkillsSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import AwardsSection from "@/components/AwardsSection";
 import EducationSection from "@/components/EducationSection";
-import Footer from "@/components/Footer";
+import FaqSection from "@/components/FaqSection.astro";
+import Footer from "@/components/Footer.astro";
+import { faqs } from "@/lib/faq";
+import { allCaseStudyNodes, profilePageNode } from "@/lib/schema";
 ---
 
-<Layout>
-  <GlassHeader client:only="react" />
+<Layout ogType="profile" jsonLd={[profilePageNode(), ...allCaseStudyNodes()]}>
+  <GlassHeader client:load />
   <main class="min-h-screen">
-    <HeroSection client:only="react" />
-    <RecentLaunches client:only="react" />
-    <ExperienceSection client:only="react" />
-    <SkillsSection client:only="react" />
-    <ProjectsSection client:only="react" />
-    <AwardsSection client:only="react" />
-    <EducationSection client:only="react" />
+    <Hero />
+    <HireSina />
+    <ProblemMatrix />
+    <CaseStudyGrid />
+    <ExperienceSection client:visible />
+    <SkillsSection client:visible />
+    <EducationSection client:visible />
+    <FaqSection items={faqs.filter((f) => f.featured)} moreHref="/capabilities/" />
   </main>
-  <Footer client:only="react" />
+  <Footer />
 </Layout>

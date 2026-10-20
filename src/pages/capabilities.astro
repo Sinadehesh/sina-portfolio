@@ -1,0 +1,101 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import GlassHeader from "@/components/GlassHeader";
+import ProblemMatrix from "@/components/ProblemMatrix.astro";
+import FaqSection from "@/components/FaqSection.astro";
+import Footer from "@/components/Footer.astro";
+import { getCaseStudy, personalInfo, skillGroups } from "@/lib/data";
+import { faqs } from "@/lib/faq";
+import { absoluteUrl, breadcrumbNode, caseStudyPath, faqPageNode, PERSON_ID } from "@/lib/schema";
+
+const title = "Capabilities & FAQ: behavioral product design, UX research and AI prototyping | Sina Dehesh";
+const description =
+  "How Sina Dehesh applies experimental psychology, quantitative UX research and full-stack AI engineering to product problems — capability matrix, problem-solving playbook and answers to common hiring questions.";
+
+// Proof for each capability pillar, in the same order as `skillGroups`.
+const pillarProof = [
+  ["interview-simulation-study", "recallmate", "musicity"],
+  ["recallmate", "musicity", "daily-hustle"],
+  ["oopscupid", "workflow-automation-engine", "costly"],
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  jsonLd={[
+    {
+      "@type": "WebPage",
+      "@id": absoluteUrl("/capabilities/"),
+      url: absoluteUrl("/capabilities/"),
+      name: title,
+      description,
+      about: { "@id": PERSON_ID },
+    },
+    faqPageNode(faqs, "/capabilities/"),
+    breadcrumbNode([
+      { name: "Home", path: "/" },
+      { name: "Capabilities & FAQ", path: "/capabilities/" },
+    ]),
+  ]}
+>
+  <GlassHeader client:load />
+  <main class="min-h-screen">
+    <header class="container max-w-4xl mx-auto px-4 pt-12 pb-4">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+        What can a behavioral scientist who ships production AI do for your product team?
+      </h1>
+      <p class="mt-4 text-lg text-muted-foreground">
+        {personalInfo.name} combines three disciplines that are usually three hires: experimental psychology and quantitative
+        UX research, product strategy and prototyping, and full-stack AI engineering. This page maps each capability to
+        the methods, tools and shipped work that prove it.
+      </p>
+    </header>
+
+    <section class="py-8" aria-labelledby="matrix-heading">
+      <div class="container max-w-4xl mx-auto px-4">
+        <h2 id="matrix-heading" class="text-2xl md:text-3xl font-bold mb-6">Capability matrix</h2>
+        <div class="overflow-x-auto rounded-xl border border-border/60 bg-background/80">
+          <table class="w-full min-w-[40rem] text-sm text-left align-top">
+            <caption class="sr-only">Sina Dehesh capability matrix: discipline, methods and tools, proof</caption>
+            <thead class="bg-muted/60">
+              <tr>
+                <th scope="col" class="p-3 w-1/4">Discipline</th>
+                <th scope="col" class="p-3">Methods & tools</th>
+                <th scope="col" class="p-3 w-1/4">Proof</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/60">
+              {
+                skillGroups.map((group, i) => (
+                  <tr>
+                    <th scope="row" class="p-3 font-semibold">{group.title}</th>
+                    <td class="p-3 text-muted-foreground">{group.items.join(" · ")}</td>
+                    <td class="p-3">
+                      <ul class="space-y-1">
+                        {(pillarProof[i] ?? [])
+                          .map((slug) => getCaseStudy(slug))
+                          .filter((c) => c !== undefined)
+                          .map((c) => (
+                            <li>
+                              <a class="text-purple-600 dark:text-purple-400 underline underline-offset-2" href={caseStudyPath(c.slug)}>
+                                {c.name}
+                              </a>
+                            </li>
+                          ))}
+                      </ul>
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <ProblemMatrix />
+    <FaqSection items={faqs} />
+  </main>
+  <Footer />
+</Layout>
