@@ -4,6 +4,7 @@ import { absoluteUrl, caseStudyPath } from "@/lib/schema";
 
 const routes = [
   { path: "/", priority: "1.0" },
+  { path: "/consumer-psychology/", priority: "1.0" },
   { path: "/work/", priority: "0.9" },
   { path: "/capabilities/", priority: "0.9" },
   ...publishedCaseStudies.map((c) => ({ path: caseStudyPath(c.slug), priority: "0.8" })),

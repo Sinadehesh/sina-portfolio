@@ -3,17 +3,18 @@
 
 export const site = {
   url: "https://sinadehesh.com",
-  title: "Sina Dehesh — Behavioral AI Product Architect & Lead UX Researcher",
+  title: "Sina Dehesh — Consumer Psychology Consultant & Behavioral AI Product Architect, Milan",
   description:
-    "Sina Dehesh builds AI products people actually adopt, combining experimental psychology, quantitative UX research and full-stack engineering (Next.js, Python, LLM workflows). Based in Milan, Italy.",
+    "Sina Dehesh is a consumer psychology consultant and behavioral product architect in Milan, Italy: consumer decision-making research, conversion and lead-generation strategy, and full-stack AI products (Next.js, Python, LLMs).",
   ogImage: "/profile.jpeg",
   locale: "en_US",
 };
 
 export const personalInfo = {
   name: "Sina Dehesh",
-  headline: "Behavioral AI Product Architect & Lead UX Researcher",
+  headline: "Consumer Psychology Consultant & Behavioral AI Product Architect",
   jobTitles: [
+    "Consumer Psychology Consultant",
     "AI Product Manager",
     "Lead UX Researcher",
     "Behavioral Product Engineer",
@@ -29,11 +30,11 @@ export const personalInfo = {
   linkedin: "",
   profilePicture: "/profile.jpeg",
   heroHeadline:
-    "I build AI products that humans actually adopt—combining Experimental Psychology, Quantitative UX Research, and Full-Stack Engineering.",
+    "I engineer why people choose, buy and stay—combining Consumer Psychology, Quantitative UX Research, and Full-Stack AI Engineering.",
   heroDescription:
-    "Most teams hire a researcher, a product manager and an engineer, then lose weeks in the hand-offs. I do all three in a single sprint: I design the behavioral hypothesis, test it with real users, and ship the production system that measures whether it worked.",
+    "Most teams hire a consumer researcher, a product manager and an engineer, then lose weeks in the hand-offs. I do all three in a single sprint: I diagnose the psychological barrier that stops customers, test the fix with real users, and ship the website, funnel or product that measures whether it worked.",
   summary:
-    "Sina Dehesh is an applied experimental psychologist and full-stack AI product builder based in Milan, Italy. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca and runs a behavioral tech studio that has shipped consumer and B2B products including OopsCupid (a psychometric relationship-assessment platform), Costly (a native Android attention-cost tracker), Daily Hustle and The Daily Sublime. The work combines quantitative UX research (200+ research interviews, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and engineering (Next.js, React, TypeScript, Python, Kotlin, n8n, PostgreSQL, LLM APIs).",
+    "Sina Dehesh is a consumer psychology consultant and full-stack behavioral AI product builder based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in building the websites, funnels and products that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca and runs a behavioral tech studio that has shipped consumer and B2B products including OopsCupid (a psychometric relationship-assessment platform), Costly (a native Android attention-cost tracker), Daily Hustle and The Daily Sublime, and designs consumer-psychology-driven lead-generation funnels for B2B clients such as Optimolds. The work combines consumer psychology and behavioral economics, quantitative UX research (200+ research interviews, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and engineering (Next.js, React, TypeScript, Python, Kotlin, n8n, PostgreSQL, LLM APIs).",
   languages: [
     { name: "English", code: "en", level: "C2" },
     { name: "Persian", code: "fa", level: "Native" },
@@ -54,6 +55,12 @@ export const proofStats = [
 ];
 
 export const targetRoles = [
+  {
+    title: "Consumer Psychology Consultant & Conversion Strategist",
+    pitch:
+      "Diagnoses why customers hesitate, choose or churn — using consumer psychology and behavioral economics — and turns it into positioning, funnels, websites and product changes that move conversion.",
+    proof: ["optimolds", "oopscupid", "costly"],
+  },
   {
     title: "AI Product Manager / 0-to-1 Product Builder",
     pitch:
@@ -89,6 +96,19 @@ export const workExperience = [
     ],
   },
   {
+    company: "Optimolds",
+    location: "Italy · Remote",
+    position: "Consumer Psychology & Lead-Generation Consultant; Website Builder",
+    // TODO: add the engagement dates.
+    period: "",
+    achievements: [
+      "Designed and built the trilingual (English, Italian, German) website for Optimolds, a composite FEA, mold-design and tooling firm serving Europe and worldwide.",
+      "Built the lead-generation funnel around B2B buyer psychology: a free 48-hour feasibility check as a risk-reversing lead magnet and a short CAD-upload form to cut effort at the moment of contact.",
+      "Applied loss-framed problem copy, social proof and response-time trust signals ahead of a single primary call to action to reduce perceived supplier risk and choice overload.",
+      "Advised on lead-generation strategy and positioning for small composite producers.",
+    ],
+  },
+  {
     company: "University of Milano-Bicocca — RecallMate",
     location: "Milan, Italy",
     position: "Product Lead & Behavioral AI Researcher",
@@ -104,12 +124,12 @@ export const workExperience = [
   {
     company: "Musicity",
     location: "Milan, Italy",
-    position: "Product Strategy Consultant",
+    position: "Market-Fit & Go-to-Market Strategy Consultant",
     // TODO: add the engagement dates.
     period: "",
     achievements: [
-      "Ran a structured semi-structured interview protocol across artist, listener and venue segments and coded transcripts into a ranked jobs-to-be-done backlog.",
-      "Built the financial structure and a business model designed to force product-market fit rather than wait for it.",
+      "Assessed market fit through semi-structured interviews across artist, listener and venue segments, coded into a ranked jobs-to-be-done view of where demand was strongest.",
+      "Developed go-to-market strategy recommendations: which segment to win first, positioning and launch sequencing.",
     ],
   },
   {
@@ -160,13 +180,28 @@ export const certifications = [
 
 export const skillGroups = [
   {
+    title: "Consumer Psychology & Conversion",
+    icon: "🛒",
+    items: [
+      "Consumer Psychology",
+      "Consumer Decision-Making",
+      "Behavioral Economics",
+      "Choice Architecture & Nudging",
+      "Pricing & Offer Psychology",
+      "Persuasion & Social Proof",
+      "Risk Reversal & Trust Design",
+      "Conversion Rate Optimization",
+      "B2B Lead Generation",
+      "Market Fit & Go-to-Market Strategy",
+    ],
+  },
+  {
     title: "Behavioral Science & Quantitative UX Research",
     icon: "🧠",
     items: [
       "Applied Experimental Psychology",
       "Cognitive Ergonomics",
       "Human-Computer Interaction",
-      "Behavioral Economics",
       "Psychometrics",
       "Usability Testing",
       "Semi-structured Interviews",
@@ -232,7 +267,7 @@ export interface CaseStudy {
   tagline: string;
   /** Hidden from every page, schema, llms.txt and sitemap until set to true. */
   published: boolean;
-  category: "Consumer app" | "B2B automation" | "Research" | "Consulting" | "Media product" | "EdTech";
+  category: "Consumer app" | "B2B automation" | "Research" | "Consulting" | "Growth consulting" | "Media product" | "EdTech";
   status: "Live" | "Shipped" | "Prototype" | "Completed";
   schemaType: SchemaType;
   applicationCategory?: string;
@@ -258,6 +293,74 @@ export interface CaseStudy {
 }
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "optimolds",
+    name: "Optimolds",
+    tagline: "A consumer-psychology-driven B2B website and lead-generation funnel",
+    published: true,
+    category: "Growth consulting",
+    status: "Live",
+    schemaType: "CreativeWork",
+    url: "https://optimolds.com/",
+    role: "Consumer Psychology & Lead-Generation Consultant; Website Builder",
+    organization: "Optimolds",
+    summary:
+      "For Optimolds, an Italy-based composite engineering and mold-making firm, I built the trilingual website and advised on lead generation. The funnel applies B2B buyer psychology: a free 48-hour feasibility check as a risk-reversing lead magnet, a short CAD-upload form to cut effort, and trust signals placed before the ask.",
+    impact: {
+      problem:
+        "Small composite producers are risk-averse buyers: a bad mold ruins a production run, so they hesitate to contact an unfamiliar engineering supplier.",
+      mechanism:
+        "Risk reversal (free feasibility audit), loss-framed problem copy, social proof and responsiveness signals, and a low-effort form, sequenced along the buyer's anxiety toward one clear next step.",
+      stack: ["Website design & build", "English / Italian / German", "Lead-generation funnel", "Conversion copywriting"],
+      outcome:
+        "Live trilingual website with a single primary conversion path — the free feasibility check — serving buyers across Europe and worldwide.",
+    },
+    metrics: [
+      { value: "3", label: "Languages (EN, IT, DE)" },
+      { value: "48 h", label: "Feasibility-check promise as lead magnet" },
+      { value: "1", label: "Primary call to action across the site" },
+    ],
+    tradeoffs: [
+      "One primary call to action repeated across pages instead of several competing offers, to avoid choice overload.",
+      "Loss-framed problem statements paired with a free, low-commitment next step, so buyer anxiety resolves into action instead of avoidance.",
+      "Three language versions to remove language as a trust barrier for European buyers.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Engineering buyers fear wasting money on a supplier they don't know.",
+        hypothesis: "Removing the cost of the first step (risk reversal) raises contact rate.",
+        method: "Free 48-hour feasibility check as the lead magnet.",
+        outcome: "Feasibility check became the site-wide primary conversion.",
+      },
+      {
+        challenge: "Long quote forms deter technical buyers.",
+        hypothesis: "Asking only for CAD files and basic process data cuts effort at the moment of contact.",
+        method: "Short CAD-upload form with service checkboxes.",
+        outcome: "Single short form shared by all three services.",
+      },
+      {
+        challenge: "A new supplier lacks credibility.",
+        hypothesis: "Visible social proof and responsiveness reduce perceived risk.",
+        method: "Client rating, response-time and file-readiness signals placed before the ask.",
+        outcome: "Trust signals placed above the fold, next to the primary call to action.",
+      },
+      {
+        challenge: "Buyers across Europe evaluate in their own language.",
+        hypothesis: "Native-language pages increase trust and comprehension.",
+        method: "English, Italian and German versions.",
+        outcome: "Trilingual site live.",
+      },
+    ],
+    featureList: [
+      "Free 48-hour feasibility check lead magnet",
+      "Short CAD-upload contact form",
+      "Service pages for FEA & layup, mold design and tooling",
+      "Social proof and response-time trust signals",
+      "English, Italian and German versions",
+      "Step-by-step process explainer",
+    ],
+    keywords: ["Consumer Psychology", "B2B Buyer Psychology", "Lead Generation", "Risk Reversal", "Conversion Rate Optimization", "Choice Architecture"],
+  },
   {
     slug: "recallmate",
     name: "RecallMate",
@@ -687,42 +790,45 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "musicity",
     name: "Musicity",
-    tagline: "End-to-end product strategy for a music platform chasing fit",
+    tagline: "Market-fit and go-to-market strategy for a music platform",
     published: true,
     category: "Consulting",
     status: "Completed",
     schemaType: "CreativeWork",
-    role: "Product Strategy Consultant",
+    role: "Market-Fit & Go-to-Market Strategy Consultant",
     organization: "Musicity",
     summary:
-      "For Musicity, a music platform, I ran a full product-strategy engagement: structured interviews across artists, listeners and venues, coded into a ranked jobs-to-be-done backlog, followed by financial structuring and a business model designed to force product-market fit instead of waiting for it.",
+      "For Musicity, a music platform, I consulted on market fit and go-to-market strategy. Semi-structured interviews across artists, listeners and venues were coded into a ranked jobs-to-be-done view of where demand was strongest, which shaped a go-to-market plan for which segment to win first and how to position for it.",
     impact: {
-      problem: "The platform had three user segments with conflicting needs and no evidence of which job to win first.",
-      mechanism: "Separating stated wants from behavioral demand through coded semi-structured interviews and JTBD ranking.",
-      stack: ["Semi-structured interview protocol", "Thematic coding", "Jobs-to-be-Done", "Financial modeling"],
-      outcome: "Ranked JTBD backlog, financial structure and a fit-forcing business model.",
+      problem: "The platform had three user segments with conflicting needs and no evidence of which one to lead with.",
+      mechanism: "Separating stated wants from behavioral demand through coded interviews, then sequencing go-to-market around the strongest demand signal.",
+      stack: ["Semi-structured interview protocol", "Thematic coding", "Jobs-to-be-Done", "Go-to-market strategy"],
+      outcome: "Market-fit assessment and go-to-market recommendations on segment priority, positioning and launch sequence.",
     },
     metrics: [
-      { value: "3", label: "Segments mapped (artists, listeners, venues)" },
-      { value: "3", label: "Phases: discovery, finance, model" },
+      { value: "3", label: "Segments assessed (artists, listeners, venues)" },
+      { value: "JTBD", label: "Ranked demand view behind the GTM plan" },
     ],
-    tradeoffs: ["Prioritized behavioral evidence over stated preferences when the two conflicted."],
+    tradeoffs: [
+      "Prioritized behavioral evidence over stated preferences when the two conflicted.",
+      "Recommended focusing on one beachhead segment instead of launching to all three at once.",
+    ],
     decisionLog: [
       {
         challenge: "Unclear which segment and job to serve first.",
         hypothesis: "Coded interviews reveal the jobs users' behavior actually demands.",
         method: "Semi-structured protocol across segments; thematic coding.",
-        outcome: "Ranked jobs-to-be-done backlog.",
+        outcome: "Ranked jobs-to-be-done view of demand by segment.",
       },
       {
-        challenge: "Business model disconnected from user evidence.",
-        hypothesis: "A model built from the JTBD ranking accelerates fit.",
-        method: "Financial structuring and business-model design.",
-        outcome: "Business model built to force product-market fit.",
+        challenge: "No agreed go-to-market sequence across three segments.",
+        hypothesis: "Leading with the segment showing the strongest demand lowers acquisition cost and speeds learning.",
+        method: "Segment prioritization, positioning and launch sequencing.",
+        outcome: "Go-to-market strategy recommendations delivered.",
       },
     ],
-    featureList: ["User interview program", "JTBD backlog", "Financial structure", "Business model"],
-    keywords: ["Jobs-to-be-Done", "Product-Market Fit", "User Research", "Product Strategy"],
+    featureList: ["Market-fit interview program", "JTBD demand ranking", "Go-to-market strategy", "Positioning recommendations"],
+    keywords: ["Market Fit", "Go-to-Market Strategy", "Jobs-to-be-Done", "Consumer Research"],
   },
   {
     slug: "interview-simulation-study",
@@ -809,6 +915,16 @@ export const getCaseStudy = (slug: string) =>
 
 export const problemMatrix = [
   {
+    question: "Need more customers to say yes — leads, sign-ups, purchases?",
+    answer:
+      "I diagnose the psychological barrier — perceived risk, effort, uncertainty or choice overload — and redesign the offer, copy and funnel around it: risk reversal, social proof, loss framing and friction removal at the exact step where buyers hesitate.",
+    proof: [
+      { slug: "optimolds", note: "risk-reversal lead magnet + trust signals" },
+      { slug: "oopscupid", note: "zero-sign-up funnel" },
+      { slug: "daily-sublime", note: "one-click response surface" },
+    ],
+  },
+  {
     question: "Need to fix user drop-off and retention?",
     answer:
       "I engineer habit loops from behavioral science, not guesswork: behavioral friction and loss framing that make costs salient, variable reward schedules that sustain engagement, and psychometric assessment that makes feedback feel personal.",
@@ -824,7 +940,7 @@ export const problemMatrix = [
       "I run multi-round usability testing and interviews, code them thematically, prioritize with Kano and MoSCoW, and build a functional prototype in days — so the build decision rests on evidence.",
     proof: [
       { slug: "recallmate", note: "interviews → MoSCoW → SM-2 + AI prototype" },
-      { slug: "musicity", note: "coded interviews → ranked JTBD backlog" },
+      { slug: "musicity", note: "market-fit interviews → go-to-market plan" },
     ],
   },
   {
@@ -840,6 +956,16 @@ export const problemMatrix = [
 ];
 
 export const knowsAbout: { name: string; sameAs?: string }[] = [
+  { name: "Consumer Psychology" },
+  { name: "Consumer Behavior", sameAs: "https://en.wikipedia.org/wiki/Consumer_behaviour" },
+  { name: "Choice Architecture", sameAs: "https://en.wikipedia.org/wiki/Choice_architecture" },
+  { name: "Nudge Theory", sameAs: "https://en.wikipedia.org/wiki/Nudge_theory" },
+  { name: "Psychological Pricing", sameAs: "https://en.wikipedia.org/wiki/Psychological_pricing" },
+  { name: "Social Proof", sameAs: "https://en.wikipedia.org/wiki/Social_proof" },
+  { name: "Loss Aversion", sameAs: "https://en.wikipedia.org/wiki/Loss_aversion" },
+  { name: "Conversion Rate Optimization", sameAs: "https://en.wikipedia.org/wiki/Conversion_rate_optimization" },
+  { name: "Lead Generation", sameAs: "https://en.wikipedia.org/wiki/Lead_generation" },
+  { name: "Go-to-Market Strategy" },
   { name: "Applied Experimental Psychology", sameAs: "https://en.wikipedia.org/wiki/Experimental_psychology" },
   { name: "Human-Computer Interaction", sameAs: "https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction" },
   { name: "Cognitive Ergonomics", sameAs: "https://en.wikipedia.org/wiki/Cognitive_ergonomics" },
@@ -868,3 +994,56 @@ export const knowsAbout: { name: string; sameAs?: string }[] = [
   { name: "PostgreSQL", sameAs: "https://en.wikipedia.org/wiki/PostgreSQL" },
   { name: "n8n" },
 ];
+
+export const consumerPsychology = {
+  path: "/consumer-psychology/",
+  services: [
+    {
+      name: "Conversion & funnel psychology audit",
+      description:
+        "A step-by-step review of your website, checkout or sign-up flow that names the psychological barrier at each drop-off (perceived risk, effort, uncertainty, choice overload) and the specific change that removes it.",
+    },
+    {
+      name: "Lead-generation strategy & website build",
+      description:
+        "Offer design, lead magnets, conversion copy and a fast, multilingual website built and shipped by the same person who designed the strategy.",
+    },
+    {
+      name: "Consumer research",
+      description:
+        "Semi-structured interviews, thematic coding, surveys, psychometric instruments and controlled experiments that explain why customers choose, hesitate or leave.",
+    },
+    {
+      name: "Pricing & offer psychology",
+      description:
+        "Anchoring, framing, bundling and risk-reversal design so the offer is easier to say yes to without discounting.",
+    },
+    {
+      name: "Behavioral product design & retention",
+      description:
+        "Habit loops, reward schedules and friction design that keep customers using the product after the first purchase.",
+    },
+    {
+      name: "Market fit & go-to-market positioning",
+      description:
+        "Segment interviews and jobs-to-be-done analysis to decide which customers to win first and how to position for them.",
+    },
+  ],
+  principles: [
+    { name: "Risk reversal", effect: "Removes the cost of the first step so cautious buyers act.", proof: ["optimolds"] },
+    { name: "Loss aversion & loss framing", effect: "Makes the cost of inaction concrete and salient.", proof: ["costly", "optimolds"] },
+    { name: "Social proof & trust signals", effect: "Lowers perceived risk of an unfamiliar brand.", proof: ["optimolds"] },
+    { name: "Friction reduction", effect: "Removes effort exactly where users drop off.", proof: ["oopscupid", "daily-sublime"] },
+    { name: "Choice architecture", effect: "One clear next step instead of competing options.", proof: ["optimolds"] },
+    { name: "Variable reward schedules", effect: "Sustains return visits after novelty fades.", proof: ["dopamine-box", "oopscupid"] },
+    { name: "Psychometric personalization", effect: "Feedback that feels specific to the individual.", proof: ["oopscupid"] },
+    { name: "Goal-gradient effect", effect: "Visible progress accelerates completion.", proof: ["daily-hustle"] },
+  ],
+  process: [
+    { step: "Diagnose", detail: "Audit the funnel, analytics and customer touchpoints to find where and why people stop." },
+    { step: "Research", detail: "Interviews, surveys or quick experiments to confirm the psychological barrier." },
+    { step: "Redesign", detail: "Change the offer, message and flow around the confirmed barrier." },
+    { step: "Build", detail: "Ship the website, funnel or product change directly — no agency hand-off." },
+    { step: "Measure", detail: "Instrument the change and read the result against the original hypothesis." },
+  ],
+};

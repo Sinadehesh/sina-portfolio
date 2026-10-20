@@ -1,0 +1,191 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import GlassHeader from "@/components/GlassHeader";
+import FaqSection from "@/components/FaqSection.astro";
+import Footer from "@/components/Footer.astro";
+import { consumerPsychology, getCaseStudy, personalInfo, publishedCaseStudies } from "@/lib/data";
+import { faqs } from "@/lib/faq";
+import { absoluteUrl, breadcrumbNode, caseStudyPath, faqPageNode, PERSON_ID } from "@/lib/schema";
+
+const path = consumerPsychology.path;
+const title = "Consumer psychology consultant in Milan, Italy — Sina Dehesh";
+const description =
+  "Sina Dehesh is a Milan-based consumer psychology consultant: conversion and funnel psychology audits, B2B lead generation, consumer research, pricing psychology and behavioral product design — researched, built and measured by one person.";
+const summary =
+  "Sina Dehesh is a Milan-based consumer psychology consultant who turns research on how people decide and buy into websites, funnels and products that convert. Trained in experimental psychology at the University of Milano-Bicocca, Sina diagnoses the psychological barrier, redesigns the offer around it, and builds and measures the fix personally.";
+
+const topicFaqs = faqs.filter((f) => f.topic === "consumer-psychology");
+const proofStudies = ["optimolds", "oopscupid", "costly", "daily-sublime", "musicity"]
+  .map((slug) => getCaseStudy(slug))
+  .filter((c) => c !== undefined);
+---
+
+<Layout
+  title={title}
+  description={description}
+  jsonLd={[
+    {
+      "@type": "WebPage",
+      "@id": absoluteUrl(path),
+      url: absoluteUrl(path),
+      name: title,
+      description,
+      about: { "@id": absoluteUrl(`${path}#service`) },
+      author: { "@id": PERSON_ID },
+    },
+    {
+      "@type": "Service",
+      "@id": absoluteUrl(`${path}#service`),
+      name: "Consumer psychology consulting",
+      serviceType: "Consumer psychology consulting",
+      description: summary,
+      provider: { "@id": PERSON_ID },
+      areaServed: personalInfo.serviceArea.map((name) => ({ "@type": "Place", name })),
+      availableLanguage: personalInfo.languages.map((l) => l.name),
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Consumer psychology services",
+        itemListElement: consumerPsychology.services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: s.name, description: s.description },
+        })),
+      },
+      subjectOf: publishedCaseStudies
+        .filter((c) => proofStudies.includes(c))
+        .map((c) => ({ "@id": absoluteUrl(`${caseStudyPath(c.slug)}#work`) })),
+    },
+    faqPageNode(topicFaqs, path),
+    breadcrumbNode([
+      { name: "Home", path: "/" },
+      { name: "Consumer psychology consulting", path },
+    ]),
+  ]}
+>
+  <GlassHeader client:load />
+  <main class="min-h-screen">
+    <article>
+      <header class="container max-w-4xl mx-auto px-4 pt-12 pb-4">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+          Consumer psychology consultant in Milan, Italy: {personalInfo.name}
+        </h1>
+        <p
+          class="mt-6 rounded-xl border-l-4 border-purple-500 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-5 text-lg font-semibold leading-relaxed"
+        >
+          {summary}
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a
+            class="inline-flex justify-center rounded-md px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600"
+            href={`mailto:${personalInfo.email}?subject=${encodeURIComponent("Consumer psychology consulting")}`}
+          >
+            Book a consumer psychology consultation
+          </a>
+          <a class="inline-flex justify-center rounded-md px-5 py-3 text-sm font-semibold border border-purple-500/30" href="#proof">
+            See the proof
+          </a>
+        </div>
+      </header>
+
+      <section class="py-8" aria-labelledby="services-heading">
+        <div class="container max-w-4xl mx-auto px-4">
+          <h2 id="services-heading" class="text-2xl md:text-3xl font-bold mb-6">
+            What consumer psychology consulting services does Sina offer?
+          </h2>
+          <dl class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {
+              consumerPsychology.services.map((s) => (
+                <div class="rounded-xl border border-border/60 bg-background/80 p-5">
+                  <dt class="font-semibold">{s.name}</dt>
+                  <dd class="mt-2 text-sm text-muted-foreground">{s.description}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+      </section>
+
+      <section class="py-8" aria-labelledby="principles-heading">
+        <div class="container max-w-4xl mx-auto px-4">
+          <h2 id="principles-heading" class="text-2xl md:text-3xl font-bold mb-6">
+            Which consumer psychology principles does Sina apply, and where are they shipped?
+          </h2>
+          <div class="overflow-x-auto rounded-xl border border-border/60 bg-background/80">
+            <table class="w-full min-w-[36rem] text-sm text-left align-top">
+              <caption class="sr-only">Consumer psychology principles and the products that apply them</caption>
+              <thead class="bg-muted/60">
+                <tr>
+                  <th scope="col" class="p-3">Principle</th>
+                  <th scope="col" class="p-3">What it changes</th>
+                  <th scope="col" class="p-3">Shipped in</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60">
+                {
+                  consumerPsychology.principles.map((p) => (
+                    <tr>
+                      <th scope="row" class="p-3 font-semibold">{p.name}</th>
+                      <td class="p-3 text-muted-foreground">{p.effect}</td>
+                      <td class="p-3">
+                        {p.proof
+                          .map((slug) => getCaseStudy(slug))
+                          .filter((c) => c !== undefined)
+                          .map((c, i) => (
+                            <>{i > 0 && ", "}<a class="text-purple-600 dark:text-purple-400 underline underline-offset-2" href={caseStudyPath(c.slug)}>{c.name}</a></>
+                          ))}
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-8" aria-labelledby="process-heading">
+        <div class="container max-w-4xl mx-auto px-4">
+          <h2 id="process-heading" class="text-2xl md:text-3xl font-bold mb-6">How does a consumer psychology engagement work?</h2>
+          <ol class="grid grid-cols-1 md:grid-cols-5 gap-3">
+            {
+              consumerPsychology.process.map((p, i) => (
+                <li class="rounded-lg border border-purple-500/20 bg-background/80 p-4">
+                  <p class="text-xs font-semibold text-purple-600 dark:text-purple-400">Step {i + 1}</p>
+                  <p class="font-semibold mt-1">{p.step}</p>
+                  <p class="text-sm text-muted-foreground mt-1">{p.detail}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <section id="proof" class="py-8 scroll-mt-20" aria-labelledby="proof-heading">
+        <div class="container max-w-4xl mx-auto px-4">
+          <h2 id="proof-heading" class="text-2xl md:text-3xl font-bold mb-6">
+            Consumer psychology in practice: case studies
+          </h2>
+          <ul class="space-y-4">
+            {
+              proofStudies.map((c) => (
+                <li class="rounded-xl border border-border/60 bg-background/80 p-5">
+                  <h3 class="text-lg font-semibold">
+                    <a class="hover:text-purple-600 dark:hover:text-purple-400" href={caseStudyPath(c.slug)}>
+                      {c.name}: {c.tagline}
+                    </a>
+                  </h3>
+                  <p class="mt-2 text-sm text-muted-foreground">
+                    <span class="font-medium text-foreground">Mechanism: </span>
+                    {c.impact.mechanism}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+    </article>
+
+    <FaqSection items={topicFaqs} title="Consumer psychology consulting: frequently asked questions" />
+  </main>
+  <Footer />
+</Layout>

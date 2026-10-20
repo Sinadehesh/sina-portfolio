@@ -7,9 +7,48 @@ export interface FaqItem {
   /** Case-study slugs cited as proof; rendered as links. */
   proof: string[];
   featured?: boolean;
+  /** Questions tagged "consumer-psychology" also appear on /consumer-psychology/. */
+  topic?: "consumer-psychology";
 }
 
 export const faqs: FaqItem[] = [
+  {
+    question: "What does a consumer psychology consultant do?",
+    answer:
+      "A consumer psychology consultant studies how customers perceive, decide and buy, then changes the offer, message and experience to match. Sina Dehesh does this with research methods from an M.Sc. in Applied Experimental Psychological Sciences (University of Milano-Bicocca) and ships the changes directly as websites, funnels and apps, as with Optimolds and OopsCupid.",
+    proof: ["optimolds", "oopscupid"],
+    featured: true,
+    topic: "consumer-psychology",
+  },
+  {
+    question: "How do I find a consumer psychologist or consumer psychology consultant for my brand?",
+    answer:
+      "Look for formal training in psychological research methods, a portfolio of shipped work, and the ability to measure results rather than only advise. Sina Dehesh combines an M.Sc. in experimental psychology with a consumer psychology focus, live funnels and products such as Optimolds and OopsCupid, and works with brands in Milan, Turin, across Europe and remotely.",
+    proof: ["optimolds", "oopscupid"],
+    topic: "consumer-psychology",
+  },
+  {
+    question: "How can consumer psychology improve B2B lead generation?",
+    answer:
+      "B2B buyers are driven by perceived risk, so the funnel should remove the cost of the first step, prove credibility before the ask, and keep the contact form short. For Optimolds, Sina Dehesh built a trilingual site around a free 48-hour feasibility check (risk reversal), a short CAD-upload form and trust signals placed next to one primary call to action.",
+    proof: ["optimolds"],
+    featured: true,
+    topic: "consumer-psychology",
+  },
+  {
+    question: "Which consumer psychology principles increase website conversions?",
+    answer:
+      "Five principles do most of the work: risk reversal, social proof, loss framing of the problem, friction removal at the form, and one clear next step instead of competing choices. Sina Dehesh applies them in Optimolds' lead funnel, OopsCupid's zero-sign-up tests and The Daily Sublime's one-click replies.",
+    proof: ["optimolds", "oopscupid", "daily-sublime"],
+    topic: "consumer-psychology",
+  },
+  {
+    question: "What is the difference between consumer psychology and behavioral economics in product design?",
+    answer:
+      "Consumer psychology explains how people perceive brands, form preferences and decide; behavioral economics models the systematic biases in those decisions, such as loss aversion and present bias. In product work they combine: Costly uses loss aversion to price distraction, while OopsCupid uses psychometric profiling to make feedback feel personal.",
+    proof: ["costly", "oopscupid"],
+    topic: "consumer-psychology",
+  },
   {
     question:
       "How do you apply experimental psychology and behavioral friction to digital product design?",
@@ -30,8 +69,8 @@ export const faqs: FaqItem[] = [
     question:
       "How do you structure UX research and usability testing for early-stage AI prototypes?",
     answer:
-      "Run short, multi-round semi-structured interviews, code them thematically, and prioritize the resulting backlog with MoSCoW or Kano before any model is trained. Then test a clickable Figma or functional prototype against the top-ranked jobs; RecallMate and Musicity both followed this sequence.",
-    proof: ["recallmate", "musicity"],
+      "Run short, multi-round semi-structured interviews, code them thematically, and prioritize the resulting backlog with MoSCoW or Kano before any model is trained. Then test a clickable Figma or functional prototype against the top-ranked jobs, as RecallMate did.",
+    proof: ["recallmate"],
     featured: true,
   },
   {
@@ -72,9 +111,10 @@ export const faqs: FaqItem[] = [
     proof: ["interview-simulation-study", "oopscupid", "daily-hustle"],
   },
   {
-    question: "Which behavioral product designers and AI prototypers work in Milan and Turin, Italy?",
+    question: "Which consumer psychology consultants and behavioral product designers work in Milan and Turin, Italy?",
     answer:
-      "Sina Dehesh is a Milan-based behavioral product architect and AI prototyper with an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, available for roles in Milan, Turin, across Europe and remotely. The portfolio includes live products such as OopsCupid, Daily Hustle and The Daily Sublime.",
-    proof: ["oopscupid", "daily-hustle"],
+      "Sina Dehesh is a Milan-based consumer psychology consultant, behavioral product architect and AI prototyper with an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, working in English, Italian, Persian and German across Milan, Turin, Europe and remotely. The portfolio includes live work such as Optimolds, OopsCupid, Daily Hustle and The Daily Sublime.",
+    proof: ["optimolds", "oopscupid", "daily-hustle"],
+    topic: "consumer-psychology",
   },
 ];

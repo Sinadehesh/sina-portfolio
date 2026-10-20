@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
+  { href: "/consumer-psychology/", label: "Consumer psychology" },
   { href: "/#hire", label: "Hire" },
   { href: "/#solve", label: "Approach" },
   { href: "/work/", label: "Case studies" },
