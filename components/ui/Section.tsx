@@ -1,59 +1,65 @@
 import type { ReactNode } from "react";
 
 /**
- * Every content section shares one rhythm: an eyebrow, a serif display
- * heading, an optional lede, then the body. Keeping it here means the
- * page reads as one document rather than a stack of unrelated cards.
+ * Sections alternate between two grounds: "stage" (charcoal, cinematic media)
+ * and "paper" (ivory, anything people need to read). One heading rhythm —
+ * eyebrow, serif title, optional lede — keeps the page reading as one document.
  */
 export function Section({
   id,
+  tone = "stage",
   children,
   className = "",
+  innerClassName = "",
 }: {
-  id: string;
+  id?: string;
+  tone?: "stage" | "paper" | "paper-deep";
   children: ReactNode;
   className?: string;
+  innerClassName?: string;
 }) {
+  const ground =
+    tone === "stage" ? "stage" : tone === "paper" ? "paper" : "paper bg-paper-deep";
   return (
     <section
       id={id}
-      className={`relative mx-auto w-full max-w-[1400px] px-6 py-28 sm:px-10 md:py-40 ${className}`}
+      aria-labelledby={id ? `${id}-heading` : undefined}
+      className={`${ground} relative ${className}`}
     >
-      {children}
+      <div
+        className={`mx-auto w-full max-w-[1280px] px-5 py-24 sm:px-10 md:py-32 ${innerClassName}`}
+      >
+        {children}
+      </div>
     </section>
   );
 }
 
 export function SectionHeading({
+  id,
   eyebrow,
   title,
   lede,
-  index,
+  as: Tag = "h2",
+  className = "",
 }: {
+  id?: string;
   eyebrow: string;
   title: ReactNode;
-  lede?: string;
-  index?: string;
+  lede?: ReactNode;
+  as?: "h1" | "h2";
+  className?: string;
 }) {
   return (
-    <header className="reveal mb-16 md:mb-24">
-      <div className="flex items-baseline gap-4">
-        {index ? (
-          <span className="font-mono text-[0.6875rem] tracking-[0.34em] text-ivory-faint">
-            {index}
-          </span>
-        ) : null}
-        <span className="eyebrow">{eyebrow}</span>
-      </div>
-      <div className="rule-gold mt-4 h-px w-full opacity-50" />
-      <h2 className="display mt-8 max-w-[22ch] text-[clamp(2.5rem,6vw,5.25rem)] text-gradient-ivory">
+    <header className={`reveal mb-14 max-w-[60rem] md:mb-20 ${className}`}>
+      <p className="eyebrow">{eyebrow}</p>
+      <Tag
+        id={id ? `${id}-heading` : undefined}
+        className="display mt-5 text-[clamp(2.4rem,5.4vw,4.5rem)]"
+      >
         {title}
-      </h2>
-      {lede ? (
-        <p className="mt-8 max-w-[62ch] text-[1.0625rem] leading-relaxed text-ivory-dim">
-          {lede}
-        </p>
-      ) : null}
+      </Tag>
+      {lede ? <p className="lede mt-6 max-w-[58ch] opacity-80">{lede}</p> : null}
     </header>
   );
 }
@@ -66,16 +72,14 @@ export function FactList({
   className?: string;
 }) {
   return (
-    <dl className={`grid gap-px overflow-hidden rounded-sm ${className}`}>
+    <dl className={className}>
       {facts.map((f) => (
         <div
           key={f.k}
-          className="flex items-baseline justify-between gap-6 border-t border-ivory/10 py-3 first:border-t-0"
+          className="flex items-baseline justify-between gap-6 border-t py-3 first:border-t-0"
         >
-          <dt className="font-mono text-[0.6875rem] tracking-[0.22em] text-ivory-faint uppercase">
-            {f.k}
-          </dt>
-          <dd className="text-right text-sm text-ivory-dim">{f.v}</dd>
+          <dt className="text-sm opacity-65">{f.k}</dt>
+          <dd className="text-right text-sm font-medium">{f.v}</dd>
         </div>
       ))}
     </dl>

@@ -1,6 +1,7 @@
 /**
- * Single source of truth for every word on the page.
- * Sections read from here so copy edits never require touching layout.
+ * Numbers and copy read directly by the interactive charts (components/viz,
+ * components/lab, components/media). Page-level positioning, case studies and
+ * credentials live in lib/content.ts.
  */
 
 /* ---------------------------------------------------------------
@@ -10,14 +11,6 @@
 export interface Fact {
   k: string;
   v: string;
-}
-
-export interface CasePhase {
-  id: string;
-  label: string;
-  title: string;
-  body: string;
-  metrics: Fact[];
 }
 
 export type FlowNodeKind =
@@ -61,91 +54,14 @@ export interface AnovaCondition {
 
 export const personal = {
   name: "Sina Dehesh",
-  tagline: "Engineering Behavior, Building Systems.",
-  headline: "Sina Dehesh | Engineering Behavior, Building Systems.",
-  role: "Psychological scientist · Systems builder · Consultant",
+  tagline: "Consumer psychology, engineered into products people choose.",
+  headline: "Sina Dehesh — Consumer Psychology Consultant & Behavioral Product Builder",
   location: "Milan, Italy",
   email: "sinadehesh@gmail.com",
-  portrait: "/images/portrait.jpg",
-  intro:
-    "I study why people do what they do, then build the systems that account for it. Experimental psychology on one side, shipped software on the other — the same discipline pointed at two ends of the same problem.",
-  manifesto: [
-    "Behavior is not noise around the system. It is the system's operating condition.",
-    "Every product here starts as a measurement problem and ends as an interface.",
-  ],
 } as const;
 
 /* ---------------------------------------------------------------
-   Hero — the manuscript fragments that surface in Stage 2
-   --------------------------------------------------------------- */
-export const manuscriptFragments = [
-  "He had been counting the seconds between her answers, the way one counts",
-  "thunder after lightning, to measure the distance of a thing already gone.",
-  "— on the intractability of the self as a search problem —",
-  "A problem is hard not because the space is large but because the",
-  "verifier is slow, and the self is the slowest verifier of all.",
-  "NP: a proof you can check but never find. Ask her again. Check again.",
-  "The notebook does not remember. It only refuses to forget.",
-  "complexity(observation) ≤ complexity(the observer) + c",
-];
-
-/* ---------------------------------------------------------------
-   3 — Business strategy & consultancy
-   --------------------------------------------------------------- */
-export const musicity: {
-  name: string;
-  kicker: string;
-  title: string;
-  summary: string;
-  phases: CasePhase[];
-} = {
-  name: "Musicity",
-  kicker: "Consulting engagement",
-  title: "End-to-end strategy for a music platform chasing aggressive fit",
-  summary:
-    "A full consulting engagement for the Musicity platform: from raw user interviews through financial structuring to a business model built to force product-market fit rather than wait for it.",
-  phases: [
-    {
-      id: "discovery",
-      label: "Discovery",
-      title: "User interviews",
-      body:
-        "Structured interview protocol run across artist and listener segments. Coded transcripts turned unstructured complaints into a ranked list of jobs-to-be-done, separating what users said they wanted from what their behavior demanded.",
-      metrics: [
-        { k: "Segments mapped", v: "Artists · Listeners · Venues" },
-        { k: "Instrument", v: "Semi-structured protocol" },
-        { k: "Output", v: "Ranked JTBD backlog" },
-      ],
-    },
-    {
-      id: "finance",
-      label: "Finance",
-      title: "Complex financial structuring",
-      body:
-        "Multi-scenario financial model covering revenue splits, royalty flow-through, cost of acquisition and runway sensitivity. Structured so a change in a single behavioral assumption propagates through the entire P&L instead of hiding in a footnote.",
-      metrics: [
-        { k: "Model", v: "Driver-based, multi-scenario" },
-        { k: "Levers", v: "CAC · LTV · Split · Runway" },
-        { k: "Horizon", v: "36-month projection" },
-      ],
-    },
-    {
-      id: "model",
-      label: "Model",
-      title: "Comprehensive business modeling",
-      body:
-        "Business architecture designed backwards from the fit condition: pricing, channel, and retention mechanics chosen because they compound, then stress-tested against the pessimistic scenario before anything was committed to build.",
-      metrics: [
-        { k: "Target", v: "Aggressive product-market fit" },
-        { k: "Method", v: "Backwards from fit condition" },
-        { k: "Test", v: "Pessimistic-case stress" },
-      ],
-    },
-  ],
-};
-
-/* ---------------------------------------------------------------
-   4 — The App Laboratory
+   Case-study charts
    --------------------------------------------------------------- */
 export const workflowAutomation: {
   name: string;
@@ -196,19 +112,19 @@ export const costly: {
   facts: Fact[];
 } = {
   name: "Costly",
-  kicker: "Native Android",
+  kicker: "Android companion · Next.js · Stripe",
   summary:
-    "A burn-rate ticker for attention. Costly anchors distraction time directly to a personal savings goal and runs the number in real time — because the stakes in a user's environment are never actually zero.",
+    "Real money for every minute of doomscrolling, at the hourly rate you set for your own time — 80% of it earned back by walking it off within 24 hours.",
   premise:
-    "The behavioral truth the app is built on: financial stakes in user environments are never completely zero. Costly makes the number visible instead of letting it stay abstract.",
-  goalLabel: "Savings goal",
-  goalAmount: 4200,
-  hourlyRate: 18.5,
+    "Feedback only changes behavior when it carries a consequence. Costly makes the consequence real, prices it against the things you actually want, and lets you walk most of it back.",
+  goalLabel: "Top of your ladder · PS5",
+  goalAmount: 500,
+  hourlyRate: 15,
   facts: [
-    { k: "Platform", v: "Native Android · Kotlin" },
-    { k: "Signal", v: "Foreground app time" },
-    { k: "Anchor", v: "User-set savings goal" },
-    { k: "Feedback", v: "Real-time burn ticker" },
+    { k: "Platform", v: "Kotlin companion + Next.js web app" },
+    { k: "Signal", v: "UsageStats + gyroscope heuristics" },
+    { k: "Stakes", v: "Stripe hold, 20% captured / 80% held" },
+    { k: "Redemption", v: "2 min walked per min scrolled" },
   ],
 };
 
@@ -288,7 +204,7 @@ export const passway: {
 };
 
 /* ---------------------------------------------------------------
-   5 — Media, research & content
+   Research & media
    --------------------------------------------------------------- */
 export const youtube: {
   name: string;
@@ -364,50 +280,16 @@ export const thesis: {
 export const literature = [
   {
     title: "TAO: The Art of Observation",
-    status: "Non-fiction · upcoming",
+    status: "Non-fiction · finished",
     body:
       "A working manual for looking at things properly: attention as a trainable instrument, observation as the discipline underneath every method I use elsewhere on this page.",
-    progress: 0.68,
+    progress: 1,
   },
   {
     title: "Untitled literary fiction",
-    status: "Novel · in progress",
+    status: "Novel · finished",
     body:
-      "Introspective literary fiction, drafted in the same notebook as the complexity-theory notes. A narrator trying to verify a proof about himself that he cannot construct.",
-    progress: 0.42,
+      "Introspective literary fiction: a narrator trying to verify a proof about himself that he cannot construct.",
+    progress: 1,
   },
-] as const;
-
-/* ---------------------------------------------------------------
-   6 — CV terminal
-   --------------------------------------------------------------- */
-export const cv = {
-  education: {
-    degree: "MSc in Applied Experimental Psychological Sciences",
-    institution: "University of Milano-Bicocca",
-    grade: "91/110",
-  },
-  certifications: [
-    "HubSpot Data Integrations",
-    "Google Data Analytics",
-    "Google UX Design",
-    "IBM Generative AI for Data Scientists",
-  ],
-  stack: [
-    "SQL",
-    "Python",
-    "Git",
-    "Vercel",
-    "Microsoft Power BI",
-    "SAP Activate",
-    "Agile/PRINCE2",
-  ],
-} as const;
-
-export const navSections = [
-  { id: "hero", label: "Sequence" },
-  { id: "musicity", label: "Consultancy" },
-  { id: "lab", label: "Laboratory" },
-  { id: "media", label: "Media" },
-  { id: "cv", label: "CV" },
 ] as const;
