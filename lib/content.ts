@@ -36,7 +36,7 @@ export const personalInfo = {
   heroDescription:
     "Most teams hire a consumer researcher, a product manager and an engineer, then lose weeks in the hand-offs. I do all three in a single sprint: I diagnose the psychological barrier that stops customers, test the fix with real users, and ship the website, funnel or product that measures whether it worked.",
   summary:
-    "Sina Dehesh is a consumer psychology consultant and full-stack behavioral AI product builder based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in building the websites, funnels and products that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca and runs a behavioral tech studio that has shipped consumer and B2B products including OopsCupid (a psychometric relationship-assessment platform), Costly (a native Android attention-cost tracker), Daily Hustle and The Daily Sublime, and designs consumer-psychology-driven lead-generation funnels for B2B clients such as Optimolds. The work combines consumer psychology and behavioral economics, quantitative UX research (200+ research interviews, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and engineering (Next.js, React, TypeScript, Python, Kotlin, n8n, PostgreSQL, LLM APIs).",
+    "Sina Dehesh is a consumer psychology consultant and full-stack behavioral AI product builder based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in building the websites, funnels and products that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca and has built consumer and B2B products including Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (200+ research interviews, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and engineering (Next.js, React, TypeScript, Python, Kotlin, n8n, PostgreSQL, LLM APIs).",
   languages: [
     { name: "English", code: "en", level: "C2" },
     { name: "Persian", code: "fa", level: "Native" },
@@ -47,47 +47,16 @@ export const personalInfo = {
 
 export const proofStats = [
   { value: "N = 96", label: "Controlled experiment, p = .009" },
-  { value: "200+", label: "Research & clinical interviews analyzed" },
+  { value: "200+", label: "Research interviews conducted & analyzed" },
   { value: "15+", label: "Apps, products & funnels built" },
   { value: "M.Sc.", label: "Experimental psychology, Milano-Bicocca" },
 ];
 
 /** First-person bio for the homepage About section. */
 export const about = [
-  "I'm Sina Dehesh, a consumer psychology consultant and behavioral product builder based in Milan. My M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca focused on cognitive ergonomics, psychometrics and consumer psychology — how people perceive, decide and buy.",
-  "Since 2021 I've run a small behavioral tech studio, shipping consumer apps, B2B lead funnels and automation systems end to end. Before that I co-founded Guardbar at the Shiraz Science & Technology Innovation Park and ran 200 research interviews at the Salami Rehabilitation Center, modeled with logistic regression.",
+  "I'm Sina Dehesh, a consumer psychology consultant and behavioral product builder based in Milan. My M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca covered research design, psychometrics, quantitative methods, cognitive ergonomics, human-technology interaction and consumer psychology — how people perceive, decide and buy.",
+  "I consult on consumer psychology and growth, and I build the products myself: the apps and websites below were designed, researched and engineered end to end. My thesis was a controlled experiment with 96 participants; before that I ran 200 research interviews as a volunteer researcher and co-founded Guardbar.",
   "I work in English, Italian, Persian and German, with teams in Milan, Turin, across Europe and remotely.",
-];
-
-/** The three things Sina is hired for — the homepage "What I do" panels. */
-export const pillars = [
-  {
-    id: "consumer-psychology",
-    title: "Consumer psychology consulting",
-    line: "Find out why customers hesitate, choose or leave — then change it.",
-    points: ["Funnel & conversion psychology audits", "B2B lead generation & websites", "Pricing and offer design"],
-    href: "/consumer-psychology",
-    cta: "Consumer psychology services",
-    video: "/videos/pillar-consumer-psychology.mp4",
-  },
-  {
-    id: "research",
-    title: "Behavioral product & UX research",
-    line: "Evidence before engineering: interviews, experiments and psychometrics.",
-    points: ["Interviews & thematic coding", "Controlled experiments", "Kano / MoSCoW prioritization"],
-    href: "/work/interview-simulation-study",
-    cta: "See the N = 96 study",
-    video: "/videos/pillar-research.mp4",
-  },
-  {
-    id: "build",
-    title: "AI prototyping & automation",
-    line: "From hypothesis to a shipped, measured product in days.",
-    points: ["Next.js, Python, Kotlin", "LLM workflows & n8n automation", "Retention & habit mechanics"],
-    href: "/work/workflow-automation-engine",
-    cta: "See the automation engine",
-    video: "/videos/pillar-build.mp4",
-  },
 ];
 
 export const targetRoles = [
@@ -117,78 +86,79 @@ export const targetRoles = [
   },
 ];
 
-export const workExperience = [
+/** Experience in display order. `kind` groups the entries on the homepage. */
+export const workExperience: {
+  kind: "consulting" | "research" | "venture" | "volunteer";
+  company: string;
+  location: string;
+  position: string;
+  period: string;
+  achievements: string[];
+  caseStudy?: string;
+}[] = [
   {
-    company: "Behavioral Tech Studio",
-    location: "Milan, Italy · Remote",
-    position: "Principal AI Product Builder & Founder",
-    period: "2021 – Present",
-    achievements: [
-      "Designed and built a portfolio of consumer and B2B products end to end, each starting from an explicit behavioral hypothesis: OopsCupid, Costly, FloraLock / ShroomLock / CloudLock, DeBubble, Virtue Ledger, Merge Farmstead, Daily Hustle, The Daily Sublime, Passway and two Pipedrive automation products.",
-      "Built Costly solo — a real-money commitment app with a Stripe hold-and-capture backend and a Play-compliant Kotlin companion — and prepared it for an accelerator programme and pre-seed raise.",
-      "Shipped three learn-to-unlock app lockers from one React Native codebase, with spaced review, look-alike distractors and escape hatches designed to prevent uninstalls.",
-      "Built OopsCupid solo across the full stack: psychometric instrument design, live profile database, LLM narrative-profiling layer and a zero-sign-up interface with daily challenges.",
-      "Delivered an n8n + Pipedrive automation engine that extracts deal data from calls and email with a confidence gate and human-in-the-loop review.",
-    ],
-  },
-  {
+    kind: "consulting",
     company: "Optimolds",
     location: "Italy · Remote",
-    position: "Consumer Psychology & Lead-Generation Consultant; Website Builder",
+    position: "Consumer Psychology & Growth Consultant",
     // TODO: add the engagement dates.
     period: "",
     achievements: [
-      "Designed and built the trilingual (English, Italian, German) website for Optimolds, a composite FEA, mold-design and tooling firm serving Europe and worldwide.",
-      "Built the lead-generation funnel around B2B buyer psychology: a free 48-hour feasibility check as a risk-reversing lead magnet and a short CAD-upload form to cut effort at the moment of contact.",
-      "Applied loss-framed problem copy, social proof and response-time trust signals ahead of a single primary call to action to reduce perceived supplier risk and choice overload.",
-      "Advised on lead-generation strategy and positioning for small composite producers.",
+      "Designed and built the trilingual (English, Italian, German) website and the lead-generation funnel for a composite engineering and mold-making firm.",
+      "Applied B2B buyer psychology: a free 48-hour feasibility check as risk reversal, a short CAD-upload form, and trust signals next to one clear call to action.",
     ],
+    caseStudy: "optimolds",
   },
   {
-    company: "University of Milano-Bicocca — RecallMate",
-    location: "Milan, Italy",
-    position: "Product Lead & Behavioral AI Researcher",
-    // TODO: add the project dates.
-    period: "",
-    achievements: [
-      "Set the 0-to-1 product vision for RecallMate, an AI-assisted learning app, and authored its business plan and monetization model.",
-      "Benchmarked active recall, spaced repetition and conversational AI against Anki and Quizlet to locate the friction points where learners abandon review.",
-      "Led multi-round user interviews with thematic coding and prioritized the roadmap with the MoSCoW method.",
-      "Designed the full interactive Figma prototype and specified a simplified SM-2 spaced-repetition scheduler integrated with conversational AI tutoring.",
-    ],
-  },
-  {
+    kind: "consulting",
     company: "Musicity",
     location: "Milan, Italy",
-    position: "Market-Fit & Go-to-Market Strategy Consultant",
+    position: "Market-Fit & Go-to-Market Consultant",
     // TODO: add the engagement dates.
     period: "",
     achievements: [
-      "Assessed market fit through semi-structured interviews across artist, listener and venue segments, coded into a ranked jobs-to-be-done view of where demand was strongest.",
-      "Developed go-to-market strategy recommendations: which segment to win first, positioning and launch sequencing.",
+      "Assessed market fit through interviews with artists, listeners and venues, coded into a ranked jobs-to-be-done view of demand.",
+      "Recommended the go-to-market sequence: which segment to win first, positioning and launch order.",
     ],
+    caseStudy: "musicity",
   },
   {
-    company: "Guardbar — Shiraz Science & Technology Innovation Park",
+    kind: "research",
+    company: "University of Milano-Bicocca",
+    location: "Milan, Italy",
+    position: "Research Intern",
+    period: "Feb 2025 – Aug 2025",
+    achievements: [
+      "Led the conceptual development of RecallMate, an AI-assisted learning app: purpose, learning goals, target personas, and a business plan covering the value proposition and monetization.",
+      "Reviewed the literature on active recall, spaced repetition and conversational AI, benchmarking study methods against Anki and Quizlet to find market differentiators.",
+      "Designed and ran the user research: interview guides, recruitment, multi-round interviews, and thematic coding of the responses into product decisions.",
+      "Mapped user flows and built interactive Figma prototypes of the full student journey, from onboarding to content upload and quizzes.",
+      "Ran pilot studies and usability tests, and prioritized design improvements with the MoSCoW method.",
+      "Contributed to the functional design by integrating a simplified SM-2 spaced-repetition algorithm, and presented the findings to stakeholders and faculty.",
+    ],
+    caseStudy: "recallmate",
+  },
+  {
+    kind: "venture",
+    company: "Guardbar",
     location: "Shiraz, Iran",
-    position: "Co-Founder & Head of Product Strategy",
-    // TODO: add the venture dates.
-    period: "",
+    position: "Co-Founder",
+    period: "Jan 2020 – Sep 2021",
     achievements: [
-      "Led B2B and stakeholder requirement gathering and translated it into product requirements.",
-      "Authored the venture business plan and managed stakeholder communication.",
-      "Ran operations within the Shiraz Science and Technology Innovation Park ecosystem.",
+      "Led requirement gathering, stakeholder communication and strategic planning to align product development with market needs.",
+      "Wrote the business plan: value proposition, target market and operational milestones.",
+      "Established operations at the Shiraz Science and Technology Innovation Park, managing institutional relations and ecosystem networking.",
     ],
   },
   {
+    kind: "volunteer",
     company: "Salami Rehabilitation Center",
-    location: "Iran",
-    position: "Quantitative Behavioral Researcher",
-    // TODO: add the research dates.
-    period: "",
+    location: "Shiraz, Iran",
+    position: "Volunteer Researcher",
+    period: "Jan 2018 – Sep 2018",
     achievements: [
-      "Conducted 200 semi-structured interviews with clinical participants.",
-      "Modeled outcomes with binary logistic regression in SPSS to inform evidence-based intervention decisions.",
+      "Conducted 200 semi-structured interviews.",
+      "Analyzed the data with binary logistic regression in SPSS.",
     ],
   },
 ];
@@ -198,8 +168,7 @@ export const education = [
     institution: "University of Milano-Bicocca",
     location: "Milan, Italy",
     degree: "M.Sc. Applied Experimental Psychological Sciences",
-    // TODO: add the enrolment years.
-    period: "",
+    period: "Sep 2022 – Jul 2026",
     achievements: [
       "Focus: cognitive ergonomics, human-technology interaction, psychometrics, consumer psychology, and quantitative/computational behavioral measurement.",
       "Thesis: automated interview simulation (within-subjects, N = 96). Repeated-measures ANOVA showed significantly greater candidate expressiveness under self-referential visual feedback (p = .009).",
@@ -354,6 +323,7 @@ export interface Investment {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "optimolds",
+    image: "/images/work/optimolds.webp",
     cover: { metric: "48 h", caption: "free feasibility check as the lead magnet" },
     featured: true,
     name: "Optimolds",
@@ -424,6 +394,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "app-lockers",
+    image: "/images/work/app-lockers.webp",
     cover: { metric: "177", caption: "plants, mushrooms and clouds to name before you can scroll" },
     featured: true,
     name: "FloraLock, ShroomLock & CloudLock",
@@ -436,7 +407,7 @@ export const caseStudies: CaseStudy[] = [
     operatingSystem: "Android",
     url: "https://www.sinadehesh.com/app-lockers/",
     role: "Founder & solo builder",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "FloraLock, ShroomLock and CloudLock are Android app lockers that replace \"no\" with a question. To open Instagram or TikTok, you name the plant, mushroom or cloud in a photo. Every urge to scroll becomes a five-second lesson, reinforced by spaced review — and built-in escape hatches keep people from uninstalling.",
     impact: {
@@ -508,10 +479,10 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "SoftwareApplication",
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",
-    role: "Product Lead & Behavioral AI Researcher",
+    role: "Research Intern — product concept & UX research lead",
     organization: "University of Milano-Bicocca",
     summary:
-      "RecallMate is an AI-assisted learning app I led from 0-to-1 at the University of Milano-Bicocca. It targets the main failure of flashcard tools — learners abandon review before memory consolidates — by pairing a simplified SM-2 spaced-repetition scheduler with conversational AI, validated through multi-round user interviews and MoSCoW prioritization.",
+      "RecallMate is an AI-assisted learning app whose concept and UX research I led as a research intern at the University of Milano-Bicocca. It targets the main failure of flashcard tools — learners abandon review before memory consolidates — by pairing a simplified SM-2 spaced-repetition scheduler with conversational AI, validated through multi-round user interviews and MoSCoW prioritization.",
     impact: {
       problem:
         "Spaced repetition works, but tools like Anki demand heavy setup and card authoring, so most learners quit before the retention benefit compounds.",
@@ -585,6 +556,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "oopscupid",
+    image: "/images/work/oopscupid.webp",
     cover: { metric: "15", caption: "free psychological tests, zero sign-up" },
     viz: "radar",
     featured: true,
@@ -598,7 +570,7 @@ export const caseStudies: CaseStudy[] = [
     operatingSystem: "Web",
     url: "https://www.oopscupid.com",
     role: "Founder & solo full-stack builder",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "OopsCupid is a live relationship-assessment platform I built solo, end to end. It turns attachment and relationship psychology into short, no-sign-up tests and games, scores responses into a six-axis psychometric profile, and uses an LLM layer to write the readout — with daily challenges and streaks driving return visits.",
     impact: {
@@ -653,6 +625,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "costly",
+    image: "/images/work/costly.webp",
     cover: { metric: "80%", caption: "of every loss earned back by walking it off" },
     viz: "costly",
     featured: true,
@@ -775,7 +748,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     role: "Automation architect & engineer",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "The Workflow Automation Engine captures CRM signal from sales calls and email threads and writes it to Pipedrive automatically. Custom n8n pipelines transcribe and extract deal fields, a confidence gate routes ambiguous extractions to human review, and data integrity is the invariant: the pipeline may be slow, never wrong.",
     impact: {
@@ -821,6 +794,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "daily-hustle",
+    image: "/images/work/daily-hustle.webp",
     cover: { metric: "27", caption: "days from idea to first income" },
     name: "Daily Hustle",
     tagline: "Structured idea-to-income programs with daily action steps",
@@ -832,7 +806,7 @@ export const caseStudies: CaseStudy[] = [
     operatingSystem: "Web",
     url: "https://hustle.sinadehesh.com/",
     role: "Founder & full-stack builder",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "Daily Hustle is a live web platform that guides creators from idea to first income. It breaks a launch into a 27-day program of daily action steps with built-in workbooks and a progress dashboard — using task chunking and goal-gradient feedback to keep people moving where open-ended courses stall.",
     impact: {
@@ -869,6 +843,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "daily-sublime",
+    image: "/images/work/daily-sublime.webp",
     cover: { metric: "30", caption: "issues, one painting each" },
     viz: "email",
     featured: true,
@@ -880,7 +855,7 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "CreativeWork",
     url: "https://daily.sinadehesh.com/",
     role: "Founder, editor & builder",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "The Daily Sublime is a 30-issue digital art magazine and visual-mindfulness course delivered by email. Each issue is a five-minute guided observation of one painting, ending in one-click reply buttons — the lowest-friction response surface an inbox allows — turning passive readers into a measurable engagement signal.",
     impact: {
@@ -930,7 +905,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",
     role: "Founder & builder",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "Passway is an engineering learning tracker built on a two-source data model: the canonical engineering curriculum on one axis and what universities actually teach on the other. Mapping both onto one topic grid exposes the gap between them, which is the product — a personal map of what a learner still needs.",
     impact: {
@@ -967,7 +942,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Web",
     role: "Founder & builder",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "Dopamine Box is a mock-token simulator of \"spin to claim\" monetization. Each spin adds shards toward a target item — micro hits, solid hits and rare jackpots on a variable schedule — with engineered near-misses and scarcity tags, to make visible exactly how these loops hold attention. No real money is involved.",
     impact: {
@@ -1082,6 +1057,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "virtue-ledger",
+    image: "/images/work/virtue-ledger.webp",
     cover: { metric: "13 × 7", caption: "Franklin's virtues across a week, one tap per cell" },
     name: "Virtue Ledger",
     tagline: "Benjamin Franklin's thirteen-virtue audit, rebuilt as a one-tap app",
@@ -1092,7 +1068,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "LifestyleApplication",
     operatingSystem: "Android",
     role: "Founder & builder",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "Virtue Ledger turns Benjamin Franklin's thirteen-virtue notebook into a mobile behavioral audit: a 13 × 7 grid where logging a day costs one tap and no decisions. When it raises a virtue there is no \"dismiss\" — only Now, or a named hour it holds you to.",
     impact: {
@@ -1149,7 +1125,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "EducationalApplication",
     operatingSystem: "Android",
     role: "Author & Android developer",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "An Android app for reading and studying TAO: The Art of Observation. The full text appears verbatim in a distraction-free reader, with a key-concepts study guide linked back to each chapter and one passage of the day chosen deterministically by date.",
     impact: {
@@ -1185,6 +1161,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "debubble",
+    image: "/images/work/debubble.webp",
     cover: { metric: "3 × 100", caption: "pillars × tiers of comfort-zone challenges" },
     featured: true,
     name: "DeBubble",
@@ -1196,7 +1173,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "LifestyleApplication",
     operatingSystem: "Android",
     role: "Founder & designer-engineer",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "DeBubble widens the bubble people live in — where they go, what they do and who they talk to. It calibrates a starting level per pillar from four onboarding answers, then serves one challenge per pillar per day across 100 tiers, stepping back when a tier causes friction instead of letting users stall.",
     impact: {
@@ -1243,6 +1220,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "merge-farmstead",
+    image: "/images/work/merge-farmstead.webp",
     cover: { metric: "7–9", caption: "the reading age every story line is written for" },
     name: "Merge Farmstead",
     tagline: "A story-driven merge tycoon game for young players",
@@ -1253,7 +1231,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
     role: "Founder & game developer",
-    organization: "Behavioral Tech Studio",
+    organization: "Own product",
     summary:
       "Merge Farmstead: Tycoon Edition is a farm merge game wrapped in a mystery: find the town's lost Golden Bell before a land developer takes the valley. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start.",
     impact: {

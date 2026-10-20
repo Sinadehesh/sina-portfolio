@@ -1,11 +1,11 @@
 import { personalInfo } from "@/lib/content";
 
 const links = [
-  { href: "/#work", label: "Work" },
-  { href: "/consumer-psychology", label: "Consumer psychology" },
-  { href: "/#research", label: "Research" },
+  { href: "/#consulting", label: "Consulting" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#work", label: "Apps & websites" },
+  { href: "/#books", label: "Books" },
   { href: "/#about", label: "About" },
-  { href: "/#faq", label: "FAQ" },
 ];
 
 const mailto = `mailto:${personalInfo.email}?subject=${encodeURIComponent("Working together")}`;

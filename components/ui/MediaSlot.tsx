@@ -4,8 +4,9 @@ import { posterFor, publicFileExists } from "@/lib/media";
 /**
  * A slot for a short looping video. If the file exists in /public at build
  * time it plays muted and looped (with an optional `-mobile.mp4` vertical cut
- * and `.jpg` poster); otherwise a designed light-canvas fallback renders in
- * its place, tinted by `hue`. Overlay content goes in `children`.
+ * and `.jpg` poster). Without a video it shows `image` if given, otherwise a
+ * designed light-canvas fallback tinted by `hue`. Overlay content goes in
+ * `children`.
  */
 export function MediaSlot({
   video,
@@ -13,6 +14,8 @@ export function MediaSlot({
   className = "",
   priority = false,
   canvasClassName = "",
+  image,
+  imageAlt = "",
   children,
 }: {
   video: string;
@@ -21,6 +24,9 @@ export function MediaSlot({
   priority?: boolean;
   /** Extra classes for the fallback canvas, e.g. "hero-light". */
   canvasClassName?: string;
+  /** Real screenshot or artwork shown when there is no video. */
+  image?: string;
+  imageAlt?: string;
   children?: ReactNode;
 }) {
   const hasVideo = publicFileExists(video);
@@ -45,6 +51,9 @@ export function MediaSlot({
           {hasMobile && <source src={mobile} type="video/mp4" media="(max-width: 767px)" />}
           <source src={video} type="video/mp4" />
         </video>
+      ) : image ? (
+        // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
+        <img src={image} alt={imageAlt} loading={priority ? "eager" : "lazy"} decoding="async" />
       ) : (
         <div
           aria-hidden="true"

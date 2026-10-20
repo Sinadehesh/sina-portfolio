@@ -280,16 +280,16 @@ export const thesis: {
 export const literature = [
   {
     title: "TAO: The Art of Observation",
-    status: "Non-fiction · upcoming",
+    status: "Non-fiction · finished",
     body:
       "A working manual for looking at things properly: attention as a trainable instrument, observation as the discipline underneath every method I use elsewhere on this page.",
-    progress: 0.68,
+    progress: 1,
   },
   {
     title: "Untitled literary fiction",
-    status: "Novel · in progress",
+    status: "Novel · finished",
     body:
-      "Introspective literary fiction, drafted in the same notebook as the complexity-theory notes. A narrator trying to verify a proof about himself that he cannot construct.",
-    progress: 0.42,
+      "Introspective literary fiction: a narrator trying to verify a proof about himself that he cannot construct.",
+    progress: 1,
   },
 ] as const;

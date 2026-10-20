@@ -1,8 +1,8 @@
 import Hero from "@/components/home/Hero";
-import Pillars from "@/components/home/Pillars";
+import Consulting from "@/components/home/Consulting";
+import Experience from "@/components/home/Experience";
 import WorkGrid from "@/components/home/WorkGrid";
-import Principles from "@/components/home/Principles";
-import Research from "@/components/home/Research";
+import Books from "@/components/home/Books";
 import About from "@/components/home/About";
 import Faq from "@/components/home/Faq";
 import Contact from "@/components/home/Contact";
@@ -17,10 +17,10 @@ export default function Page() {
     <>
       <JsonLd nodes={[profilePageNode(), faqPageNode(homeFaqs, "/"), ...allCaseStudyNodes()]} />
       <Hero />
-      <Pillars />
+      <Consulting />
+      <Experience />
       <WorkGrid />
-      <Principles />
-      <Research />
+      <Books />
       <About />
       <Faq items={homeFaqs} />
       <Contact />

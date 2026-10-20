@@ -20,46 +20,48 @@ codebase against it; keep this file in sync when the brief changes.
 5. Display headings use Cormorant Garamond at weight ≥ 500; body text is at
    least 15px; no label text below 12px.
 6. The fixed navigation has a solid ground and never overlaps section content.
-7. Every hero, service panel, project tile and case-study header is a video
-   slot that falls back to a designed placeholder when no file exists
-   (documented in `public/videos/README.md`).
+7. Project tiles and case-study pages show real screenshots of the products
+   (`public/images/work/`); only the hero and contact sections use video
+   slots (documented in `public/videos/README.md`).
 
 ## C. Homepage structure
 
-8. Hero → What I do (3 services) → Selected work (tiles + "More work") → The
-   psychology behind the work (8 principles, each linked to a project) →
-   Research & writing (thesis, The Daily Sublime, channel with
-   `subscribe, I'm serious!`, two books) → About & credentials → FAQ → Contact.
+8. Hero → Consulting (consumer psychology & growth: Optimolds, Musicity) →
+   Experience from the CV (Research Intern, University of Milano-Bicocca;
+   Co-Founder, Guardbar; Volunteer Researcher, Salami Rehabilitation Center)
+   → Apps & websites (real screenshots) → Books (both finished, awaiting
+   editorial work) → About & education → FAQ → Contact.
+9. Titles and dates match the CV; no invented studio or tenure.
 
 ## D. Case studies
 
-9. Every published project has `/work/<slug>` with: an answer-first summary,
+10. Every published project has `/work/<slug>` with: an answer-first summary,
    an executive impact summary (problem, psychology used, stack, outcome), key
    numbers, trade-offs, a decision-log table
    (Challenge | Hypothesis | Method | Outcome) and features.
-10. The interactive charts live on their case pages: workflow graph
+11. The interactive charts live on their case pages: workflow graph
     (Workflow Automation Engine), burn-rate ticker (Costly), psychometric radar
     (OopsCupid), curriculum heatmap (Passway), ANOVA plot (thesis), email
     wireframe (The Daily Sublime).
-11. Optimolds is presented as a consumer-psychology-driven B2B website and
+12. Optimolds is presented as a consumer-psychology-driven B2B website and
     lead-generation engagement; Musicity only as market-fit and go-to-market
     strategy consulting.
-12. Costly's case page carries an Investment section (stage, honest status,
+13. Costly's case page carries an Investment section (stage, honest status,
     12-week plan, use of funds, sourced market figures, the ask, deck CTA),
     and its tile shows a "Raising pre-seed" badge.
-13. Recent apps are listed with accurate status: FloraLock / ShroomLock /
+14. Recent apps are listed with accurate status: FloraLock / ShroomLock /
     CloudLock (closed testing, linked to their live pages), DeBubble, Virtue
     Ledger, Merge Farmstead, the TAO reader app and Dopamine Box (a mock-token
     loot-box simulator).
 
 ## E. Search & AI visibility
 
-14. `/consumer-psychology` service page with `Service` and `FAQPage` JSON-LD.
-15. Every page carries `Person` + `WebSite` JSON-LD; case pages add
+15. `/consumer-psychology` service page with `Service` and `FAQPage` JSON-LD.
+16. Every page carries `Person` + `WebSite` JSON-LD; case pages add
     `SoftwareApplication`/`CreativeWork` and `BreadcrumbList`.
-16. `/llms.txt`, `/llms-full.txt`, `/sitemap.xml` and `/robots.txt` (AI
+17. `/llms.txt`, `/llms-full.txt`, `/sitemap.xml` and `/robots.txt` (AI
     crawlers explicitly allowed) are generated from `lib/content.ts`.
-17. Each page has one `<h1>`, a canonical URL and OpenGraph metadata.
+18. Each page has one `<h1>`, a canonical URL and OpenGraph metadata.
 
 ## Standing quality bars
 

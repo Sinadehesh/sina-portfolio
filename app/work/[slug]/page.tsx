@@ -98,6 +98,17 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
       </header>
 
+      {c.image && (
+        <section className="stage" aria-label={`${c.name} screenshot`}>
+          <div className="mx-auto max-w-[1280px] px-5 pb-16 sm:px-10 md:pb-24">
+            <figure className="overflow-hidden rounded-2xl shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] ring-1 ring-ivory/10">
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset */}
+              <img src={c.image} alt={`${c.name} — ${c.tagline}`} width={1600} height={1000} className="block h-auto w-full" />
+            </figure>
+          </div>
+        </section>
+      )}
+
       {/* Answer-first summary + impact */}
       <section className="paper">
         <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-10 md:py-28">

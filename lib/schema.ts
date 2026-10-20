@@ -18,7 +18,6 @@ import {
   publishedCaseStudies,
   site,
   targetRoles,
-  workExperience,
   type CaseStudy,
 } from "./content";
 import type { FaqItem } from "./faq";
@@ -27,7 +26,6 @@ export const absoluteUrl = (path: string) => new URL(path, site.url).href;
 
 export const PERSON_ID = absoluteUrl("/#person");
 export const WEBSITE_ID = absoluteUrl("/#website");
-const STUDIO_ID = absoluteUrl("/#studio");
 
 const personRef = { "@id": PERSON_ID } as const;
 
@@ -42,7 +40,6 @@ export const caseStudyPath = (slug: string) => `/work/${slug}`;
 const caseStudyId = (slug: string) => absoluteUrl(`${caseStudyPath(slug)}#work`);
 
 export function personNode(): Person {
-  const studio = workExperience[0];
   return {
     "@type": "Person",
     "@id": PERSON_ID,
@@ -59,12 +56,6 @@ export function personNode(): Person {
       addressCountry: personalInfo.countryCode,
     },
     alumniOf: university,
-    worksFor: {
-      "@type": "Organization",
-      "@id": STUDIO_ID,
-      name: studio.company,
-      founder: personRef,
-    },
     hasOccupation: personalInfo.jobTitles.map((name) => ({
       "@type": "Occupation",
       name,

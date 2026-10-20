@@ -6,7 +6,7 @@ import { caseStudyPath } from "@/lib/schema";
 export default function Faq({
   items,
   title = "Questions people ask before hiring me",
-  tone = "paper-deep",
+  tone = "paper",
 }: {
   items: FaqItem[];
   title?: string;

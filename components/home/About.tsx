@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { about, certifications, education, skillGroups, workExperience } from "@/lib/content";
+import { about, certifications, education, skillGroups } from "@/lib/content";
+import { caseStudyPath } from "@/lib/schema";
 import { publicFileExists } from "@/lib/media";
 
 const portrait = "/images/portrait.jpg";
@@ -8,7 +9,7 @@ const portrait = "/images/portrait.jpg";
 export default function About() {
   const hasPortrait = publicFileExists(portrait);
   return (
-    <Section id="about" tone="paper">
+    <Section id="about" tone="paper-deep">
       <div className="grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <SectionHeading
@@ -30,30 +31,24 @@ export default function About() {
         </div>
 
         <div className="space-y-12 lg:col-span-6 lg:pt-4">
-          <div className="reveal">
-            <h3 className="eyebrow">Experience</h3>
-            <ul className="mt-4">
-              {workExperience.map((job) => (
-                <li key={job.company + job.position} className="border-t border-ink/12 py-4">
-                  <p className="font-semibold">{job.position}</p>
-                  <p className="text-[0.9375rem] text-ink-dim">
-                    {job.company}
-                    {job.period ? ` · ${job.period}` : ""}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <div className="reveal grid gap-10 sm:grid-cols-2">
             <div>
               <h3 className="eyebrow">Education</h3>
               {education.map((e) => (
-                <p key={e.degree} className="mt-4">
-                  <span className="font-semibold">{e.degree}</span>
-                  <br />
-                  <span className="text-[0.9375rem] text-ink-dim">{e.institution}</span>
-                </p>
+                <div key={e.degree} className="mt-4">
+                  <p className="font-semibold">{e.degree}</p>
+                  <p className="text-[0.9375rem] text-ink-dim">
+                    {e.institution}
+                    {e.period ? ` · ${e.period}` : ""}
+                  </p>
+                  <p className="mt-3 text-[0.9375rem] text-ink-dim">
+                    Thesis: a controlled experiment with 96 participants — seeing yourself in an automated interview
+                    makes you more expressive (p = .009).
+                  </p>
+                  <a href={caseStudyPath("interview-simulation-study")} className="link-arrow mt-2 text-sm text-gold-ink">
+                    The study <span aria-hidden="true">→</span>
+                  </a>
+                </div>
               ))}
             </div>
             <div>

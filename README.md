@@ -32,7 +32,7 @@ npm run typecheck
 
 | Route | Source | Notes |
 | --- | --- | --- |
-| `/` | `app/page.tsx` → `components/home/*` | Hero → What I do → Selected work → Psychology behind the work → Research & writing → About → FAQ → Contact |
+| `/` | `app/page.tsx` → `components/home/*` | Hero → Consulting → Experience → Apps & websites → Books → About → FAQ → Contact |
 | `/work` | `app/work/page.tsx` | All case studies |
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Answer-first summary, impact, interactive chart (`components/work/CaseViz.tsx`), comparison, trade-offs, decision log |
 | `/consumer-psychology` | `app/consumer-psychology/page.tsx` | Service page: services, principles, process, proof, FAQ |
@@ -59,15 +59,15 @@ only accent. Component classes (`.stage`, `.paper`, `.display`, `.eyebrow`,
 `.btn`, `.media-frame`, …) live in the `components` layer of
 `app/globals.css`, so Tailwind utilities always win.
 
-## Videos
+## Images and videos
 
-Every hero, service panel, project tile and case-study header is a video slot
-(`components/ui/MediaSlot.tsx`). Drop a file at the documented path in
-`public/videos/` and rebuild — it replaces the designed light-canvas
-placeholder automatically. File names, aspect ratios and lengths are listed in
-**[`public/videos/README.md`](public/videos/README.md)**. Ready-to-paste text-to-video prompts for every slot are in
-**[`docs/video-prompts.md`](docs/video-prompts.md)**. A real portrait at
-`public/images/portrait.jpg` appears in the About section the same way.
+Project tiles and case-study pages use real screenshots of each product in
+`public/images/work/<slug>.webp` (1600 × 1000), set via `image` in
+`lib/content.ts`. Only the hero and contact sections use video
+(`components/ui/MediaSlot.tsx`): drop a file at the path listed in
+**[`public/videos/README.md`](public/videos/README.md)** and rebuild. Prompts
+are in **[`docs/video-prompts.md`](docs/video-prompts.md)**. A real portrait at
+`public/images/portrait.jpg` appears in the About section automatically.
 
 ## Simulated data
 

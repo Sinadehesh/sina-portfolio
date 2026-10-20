@@ -19,13 +19,11 @@ export function WorkTile({
         <MediaSlot
           video={workVideo(c.slug)}
           hue={hueFor(c.slug)}
-          className={`rounded-2xl ${wide ? "aspect-[16/10] md:aspect-[21/9]" : "aspect-[16/10]"}`}
+          image={c.image}
+          imageAlt={`${c.name} — ${c.tagline}`}
+          className={`rounded-2xl ring-1 ring-ivory/10 ${wide ? "aspect-[16/10] md:aspect-[21/9]" : "aspect-[16/10]"}`}
         >
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 z-[2] bg-gradient-to-t from-void/85 via-void/10 to-transparent transition-opacity duration-700 group-hover:opacity-70"
-          />
-          <span className="absolute top-4 left-4 z-10 rounded-full bg-void/55 px-3 py-1.5 text-xs font-medium text-ivory backdrop-blur-sm">
+          <span className="absolute top-4 left-4 z-10 rounded-full bg-void/70 px-3 py-1.5 text-xs font-medium text-ivory backdrop-blur-sm">
             {c.category} · {c.status}
           </span>
           {c.investment && (
@@ -33,12 +31,20 @@ export function WorkTile({
               Raising pre-seed
             </span>
           )}
-          <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
-            <p className="font-serif text-[clamp(2.75rem,6vw,5.25rem)] leading-none font-semibold text-ivory">
-              {c.cover.metric}
-            </p>
-            <p className="mt-2 max-w-[34ch] text-sm text-ivory-dim md:text-base">{c.cover.caption}</p>
-          </div>
+          {!c.image && (
+            <>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 z-[2] bg-gradient-to-t from-void/85 via-void/10 to-transparent transition-opacity duration-700 group-hover:opacity-70"
+              />
+              <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
+                <p className="font-serif text-[clamp(2.75rem,6vw,5.25rem)] leading-none font-semibold text-ivory">
+                  {c.cover.metric}
+                </p>
+                <p className="mt-2 max-w-[34ch] text-sm text-ivory-dim md:text-base">{c.cover.caption}</p>
+              </div>
+            </>
+          )}
         </MediaSlot>
         <div className="mt-5 flex items-start justify-between gap-6">
           <div>
@@ -46,6 +52,11 @@ export function WorkTile({
               {c.name}
             </H>
             <p className="mt-1 text-ivory-dim">{c.tagline}</p>
+            {c.image && (
+              <p className="mt-3 text-sm text-gold">
+                <span className="font-semibold">{c.cover.metric}</span> — {c.cover.caption}
+              </p>
+            )}
           </div>
           <span
             aria-hidden="true"
