@@ -101,8 +101,7 @@ export const workExperience: {
     company: "Optimolds",
     location: "Italy · Remote",
     position: "Consumer Psychology & Growth Consultant",
-    // TODO: add the engagement dates.
-    period: "",
+    period: "Oct 2026 – Present",
     achievements: [
       "Designed and built the trilingual (English, Italian, German) website and the lead-generation funnel for a composite engineering and mold-making firm.",
       "Applied B2B buyer psychology: a free 48-hour feasibility check as risk reversal, a short CAD-upload form, and trust signals next to one clear call to action.",
@@ -114,8 +113,7 @@ export const workExperience: {
     company: "Musicity",
     location: "Milan, Italy",
     position: "Market-Fit & Go-to-Market Consultant",
-    // TODO: add the engagement dates.
-    period: "",
+    period: "Aug 2026",
     achievements: [
       "Assessed market fit through interviews with artists, listeners and venues, coded into a ranked jobs-to-be-done view of demand.",
       "Recommended the go-to-market sequence: which segment to win first, positioning and launch order.",

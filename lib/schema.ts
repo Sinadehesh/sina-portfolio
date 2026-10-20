@@ -45,7 +45,7 @@ export function personNode(): Person {
     "@id": PERSON_ID,
     name: personalInfo.name,
     url: site.url,
-    image: absoluteUrl(site.ogImage),
+    image: absoluteUrl("/images/portrait.jpg"),
     email: `mailto:${personalInfo.email}`,
     jobTitle: personalInfo.jobTitles,
     description: personalInfo.summary,
