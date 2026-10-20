@@ -150,6 +150,16 @@ const caseStudyFull = (c: CaseStudy) =>
     "",
     `Features: ${c.featureList.join(", ")}.`,
     `Keywords: ${c.keywords.join(", ")}.`,
+    ...(c.investment
+      ? [
+          "",
+          `**Investment:** ${c.investment.stage}${c.investment.amount ? ` (${c.investment.amount})` : ""}. ${c.investment.status}`,
+          ...c.investment.plan.map((step) => `- ${step.when}: ${step.what}`),
+          `- Use of funds: ${c.investment.useOfFunds.join("; ")}.`,
+          `- Market: ${c.investment.market.map((m) => `${m.label} ${m.value} (${m.source})`).join("; ")}.`,
+          `- Contact: ${personalInfo.email}`,
+        ]
+      : []),
   ].join("\n");
 
 export function buildLlmsFullTxt(): string {

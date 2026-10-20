@@ -44,15 +44,22 @@ codebase against it; keep this file in sync when the brief changes.
 11. Optimolds is presented as a consumer-psychology-driven B2B website and
     lead-generation engagement; Musicity only as market-fit and go-to-market
     strategy consulting.
+12. Costly's case page carries an Investment section (stage, honest status,
+    12-week plan, use of funds, sourced market figures, the ask, deck CTA),
+    and its tile shows a "Raising pre-seed" badge.
+13. Recent apps are listed with accurate status: FloraLock / ShroomLock /
+    CloudLock (closed testing, linked to their live pages), DeBubble, Virtue
+    Ledger, Merge Farmstead, the TAO reader app and Dopamine Box (a mock-token
+    loot-box simulator).
 
 ## E. Search & AI visibility
 
-12. `/consumer-psychology` service page with `Service` and `FAQPage` JSON-LD.
-13. Every page carries `Person` + `WebSite` JSON-LD; case pages add
+14. `/consumer-psychology` service page with `Service` and `FAQPage` JSON-LD.
+15. Every page carries `Person` + `WebSite` JSON-LD; case pages add
     `SoftwareApplication`/`CreativeWork` and `BreadcrumbList`.
-14. `/llms.txt`, `/llms-full.txt`, `/sitemap.xml` and `/robots.txt` (AI
+16. `/llms.txt`, `/llms-full.txt`, `/sitemap.xml` and `/robots.txt` (AI
     crawlers explicitly allowed) are generated from `lib/content.ts`.
-15. Each page has one `<h1>`, a canonical URL and OpenGraph metadata.
+17. Each page has one `<h1>`, a canonical URL and OpenGraph metadata.
 
 ## Standing quality bars
 

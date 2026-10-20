@@ -26,5 +26,10 @@ const hues: Record<string, string> = {
   passway: "#5a8aa0",
   "dopamine-box": "#a85a8a",
   musicity: "#9a6aa0",
+  "app-lockers": "#6f9a5a",
+  debubble: "#4a6fd0",
+  "virtue-ledger": "#a08050",
+  "tao-app": "#8a8070",
+  "merge-farmstead": "#c0a040",
 };
 export const hueFor = (slug: string) => hues[slug] ?? "#c8a45c";

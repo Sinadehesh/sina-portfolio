@@ -4,6 +4,7 @@ import Contact from "@/components/home/Contact";
 import JsonLd from "@/components/seo/JsonLd";
 import { MediaSlot } from "@/components/ui/MediaSlot";
 import CaseViz from "@/components/work/CaseViz";
+import InvestmentSection from "@/components/work/Investment";
 import { getCaseStudy, personalInfo, publishedCaseStudies } from "@/lib/content";
 import { hueFor, workVideo } from "@/lib/media";
 import { breadcrumbNode, caseStudyNode, caseStudyPageNode, caseStudyPath } from "@/lib/schema";
@@ -129,6 +130,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </div>
         </div>
       </section>
+
+      {c.investment && <InvestmentSection study={c} inv={c.investment} />}
 
       {/* Interactive chart */}
       {c.viz && (

@@ -4,8 +4,10 @@ import { publishedCaseStudies } from "@/lib/content";
 
 const featuredOrder = [
   "optimolds",
-  "oopscupid",
+  "app-lockers",
   "costly",
+  "oopscupid",
+  "debubble",
   "interview-simulation-study",
   "workflow-automation-engine",
   "daily-sublime",

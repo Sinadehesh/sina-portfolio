@@ -65,7 +65,8 @@ Every hero, service panel, project tile and case-study header is a video slot
 (`components/ui/MediaSlot.tsx`). Drop a file at the documented path in
 `public/videos/` and rebuild — it replaces the designed light-canvas
 placeholder automatically. File names, aspect ratios and lengths are listed in
-**[`public/videos/README.md`](public/videos/README.md)**. A real portrait at
+**[`public/videos/README.md`](public/videos/README.md)**. Ready-to-paste text-to-video prompts for every slot are in
+**[`docs/video-prompts.md`](docs/video-prompts.md)**. A real portrait at
 `public/images/portrait.jpg` appears in the About section the same way.
 
 ## Simulated data

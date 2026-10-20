@@ -48,7 +48,7 @@ export const personalInfo = {
 export const proofStats = [
   { value: "N = 96", label: "Controlled experiment, p = .009" },
   { value: "200+", label: "Research & clinical interviews analyzed" },
-  { value: "6+", label: "Products and funnels shipped" },
+  { value: "15+", label: "Apps, products & funnels built" },
   { value: "M.Sc.", label: "Experimental psychology, Milano-Bicocca" },
 ];
 
@@ -124,11 +124,11 @@ export const workExperience = [
     position: "Principal AI Product Builder & Founder",
     period: "2021 – Present",
     achievements: [
-      "Designed, built and shipped a portfolio of consumer and B2B products end to end — OopsCupid, Costly, Daily Hustle, The Daily Sublime, Passway and a CRM automation engine — each starting from an explicit behavioral hypothesis.",
-      "Built OopsCupid solo across the full stack: psychometric instrument design, live profile database, LLM narrative-profiling layer and a zero-sign-up interface with daily challenges and streak mechanics.",
-      "Engineered Costly in Kotlin for native Android: a real-time burn-rate ticker that prices distraction time against a user's own savings goal, applying loss framing as behavioral friction.",
-      "Delivered an n8n + Pipedrive automation engine that extracts deal data from calls and email with a confidence gate and human-in-the-loop review, so CRM writes are never wrong.",
-      "Shipped Daily Hustle (structured idea-to-income programs with dashboards and workbooks) and The Daily Sublime (a 30-issue email magazine built around one-click reply engagement signals).",
+      "Designed and built a portfolio of consumer and B2B products end to end, each starting from an explicit behavioral hypothesis: OopsCupid, Costly, FloraLock / ShroomLock / CloudLock, DeBubble, Virtue Ledger, Merge Farmstead, Daily Hustle, The Daily Sublime, Passway and two Pipedrive automation products.",
+      "Built Costly solo — a real-money commitment app with a Stripe hold-and-capture backend and a Play-compliant Kotlin companion — and prepared it for an accelerator programme and pre-seed raise.",
+      "Shipped three learn-to-unlock app lockers from one React Native codebase, with spaced review, look-alike distractors and escape hatches designed to prevent uninstalls.",
+      "Built OopsCupid solo across the full stack: psychometric instrument design, live profile database, LLM narrative-profiling layer and a zero-sign-up interface with daily challenges.",
+      "Delivered an n8n + Pipedrive automation engine that extracts deal data from calls and email with a confidence gate and human-in-the-loop review.",
     ],
   },
   {
@@ -306,8 +306,8 @@ export interface CaseStudy {
   tagline: string;
   /** Hidden from every page, schema, llms.txt and sitemap until set to true. */
   published: boolean;
-  category: "Consumer app" | "B2B automation" | "Research" | "Consulting" | "Growth consulting" | "Media product" | "EdTech";
-  status: "Live" | "Shipped" | "Prototype" | "Completed";
+  category: "Consumer app" | "Game" | "B2B automation" | "Research" | "Consulting" | "Growth consulting" | "Media product" | "EdTech";
+  status: "Live" | "Shipped" | "Closed testing" | "Pre-launch" | "Built" | "Prototype" | "Completed";
   schemaType: SchemaType;
   applicationCategory?: string;
   operatingSystem?: string;
@@ -334,6 +334,21 @@ export interface CaseStudy {
   viz?: VizKind;
   /** Shown as a large tile on the homepage; the rest go in "More work". */
   featured?: boolean;
+  /** Fundraising details, rendered as an Investment section on the case page. */
+  investment?: Investment;
+}
+
+export interface Investment {
+  stage: string;
+  /** Round size; leave empty until decided. */
+  amount: string;
+  status: string;
+  plan: { when: string; what: string }[];
+  useOfFunds: string[];
+  successMetrics: string[];
+  market: { label: string; value: string; source: string; url: string }[];
+  beachhead: string;
+  ask: string;
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -406,6 +421,81 @@ export const caseStudies: CaseStudy[] = [
       "Step-by-step process explainer",
     ],
     keywords: ["Consumer Psychology", "B2B Buyer Psychology", "Lead Generation", "Risk Reversal", "Conversion Rate Optimization", "Choice Architecture"],
+  },
+  {
+    slug: "app-lockers",
+    cover: { metric: "177", caption: "plants, mushrooms and clouds to name before you can scroll" },
+    featured: true,
+    name: "FloraLock, ShroomLock & CloudLock",
+    tagline: "App lockers that teach you something instead of saying no",
+    published: true,
+    category: "Consumer app",
+    status: "Closed testing",
+    schemaType: "MobileApplication",
+    applicationCategory: "EducationalApplication",
+    operatingSystem: "Android",
+    url: "https://www.sinadehesh.com/app-lockers/",
+    role: "Founder & solo builder",
+    organization: "Behavioral Tech Studio",
+    summary:
+      "FloraLock, ShroomLock and CloudLock are Android app lockers that replace \"no\" with a question. To open Instagram or TikTok, you name the plant, mushroom or cloud in a photo. Every urge to scroll becomes a five-second lesson, reinforced by spaced review — and built-in escape hatches keep people from uninstalling.",
+    impact: {
+      problem:
+        "Most app blockers just say no, so people switch them off: the friction feels like punishment rather than something worth paying.",
+      mechanism:
+        "Worthwhile friction that interrupts the automatic tap-and-scroll loop, spaced repetition (reviews after 1, 3, 7, 14 and 30 days), real look-alikes as wrong answers, a 10-second \"Genius Penalty\" against random tapping, and escape hatches that respect autonomy to reduce reactance.",
+      stack: ["React Native (Expo)", "Native Android module: UsageStats + foreground service", "Google Play Billing", "Offline, on-device data"],
+      outcome:
+        "Three apps from one codebase — 70 plants, 71 mushrooms and 36 clouds with real photos — each with its own landing page and a closed test on Google Play.",
+    },
+    metrics: [
+      { value: "177", label: "Species and cloud types with real photos" },
+      { value: "5", label: "Spaced reviews: day 1, 3, 7, 14, 30" },
+      { value: "10 s", label: "Genius Penalty for a wrong guess" },
+    ],
+    tradeoffs: [
+      "Escape hatches (\"I don't need Instagram right now\", a few emergency unlocks) trade some blocking strength for not being uninstalled — closing the app is the best outcome, not beating the quiz.",
+      "Wrong answers are real look-alikes, not random names, so every mistake teaches a distinction that matters — including deadly mushroom look-alikes.",
+      "Fully offline and private: nothing leaves the phone, at the cost of no cloud sync.",
+      "One codebase, three subjects: content packs swap while the lock, lesson and review engine stays identical.",
+    ],
+    decisionLog: [
+      {
+        challenge: "People disable blockers that only say no.",
+        hypothesis: "A question is friction worth paying: it breaks the loop without feeling like punishment.",
+        method: "Name-the-photo challenge every time a locked app opens.",
+        outcome: "Unlock after a correct answer, for a chosen window (default 10 minutes).",
+      },
+      {
+        challenge: "Random tapping defeats a quiz.",
+        hypothesis: "A short cost for wrong answers makes guessing not pay.",
+        method: "10-second freeze showing the right answer and a fact, then a different item.",
+        outcome: "\"Genius Penalty\" in all three apps.",
+      },
+      {
+        challenge: "Facts seen once are forgotten.",
+        hypothesis: "Spaced retrieval turns interruptions into lasting knowledge.",
+        method: "Daily lesson and exam, then reviews after 1, 3, 7, 14 and 30 days.",
+        outcome: "Spaced-review engine with streaks and milestones.",
+      },
+      {
+        challenge: "Strict blockers get uninstalled.",
+        hypothesis: "Respecting autonomy reduces reactance.",
+        method: "\"I don't need Instagram right now\" plus configurable emergency unlocks.",
+        outcome: "Escape hatches built in; closing the app counts as success.",
+      },
+    ],
+    featureList: [
+      "Name-the-photo unlock challenge",
+      "Daily lessons and exams",
+      "Spaced review (1 / 3 / 7 / 14 / 30 days)",
+      "Real look-alike distractors",
+      "Genius Penalty",
+      "Emergency unlocks",
+      "Offline and private",
+      "FloraLock Plus via Google Play Billing",
+    ],
+    keywords: ["Behavioral Friction", "Spaced Repetition", "Digital Wellbeing", "Reactance", "React Native", "Android"],
   },
   {
     slug: "recallmate",
@@ -563,61 +653,113 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "costly",
-    cover: { metric: "€18.50/h", caption: "the price of an hour of distraction" },
+    cover: { metric: "80%", caption: "of every loss earned back by walking it off" },
     viz: "costly",
     featured: true,
     name: "Costly",
-    tagline: "A real-time burn-rate ticker that prices distraction",
+    tagline: "Doomscrolling that costs real money — until you walk it back",
     published: true,
     category: "Consumer app",
-    status: "Shipped",
+    status: "Pre-launch",
     schemaType: "MobileApplication",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Android",
-    role: "Founder & Android engineer",
-    organization: "Behavioral Tech Studio",
+    applicationCategory: "HealthApplication",
+    operatingSystem: "Android, Web",
+    role: "Founder & solo engineer",
+    organization: "Costly",
     summary:
-      "Costly is a native Android app that makes the cost of distraction visible. It tracks foreground app time and converts it in real time into money burned against the user's own savings goal — applying loss framing and behavioral friction so the stakes of a scroll session are never abstract.",
+      "Costly is a habit-reversal app that charges real money for every minute of doomscrolling, at the hourly rate you set for your own time — then lets you earn 80% of it back by walking it off within 24 hours. A self-priced commitment contract stops you deleting it when it starts to hurt.",
     impact: {
       problem:
-        "Screen-time dashboards report minutes after the fact; minutes feel free, so the information rarely changes behavior.",
+        "App blockers rely on soft friction, so people switch them off — competitor reviews are full of \"I just turn it off.\" Commitment-contract apps work, but make users define and track a goal first.",
       mechanism:
-        "Loss aversion and mental accounting: distraction time is priced at a user-set hourly rate and anchored to a personal savings goal, shown live with no zero state.",
-      stack: ["Kotlin", "Native Android", "Foreground app usage signal"],
+        "Real stakes and loss aversion (money held per minute scrolled), losses framed against a five-tier ladder of things the user actually wants, redemption through exercise (2 minutes walked per minute scrolled), and precommitment through a self-priced deletion fee.",
+      stack: ["Next.js", "PostgreSQL + Prisma", "Stripe pre-auth holds & captures", "Kotlin / Jetpack Compose", "UsageStats + gyroscope detection", "Health Connect"],
       outcome:
-        "Shipped native Android app with a real-time burn ticker tied to a personal goal.",
+        "Built solo in June–July 2026: about 20 API routes with the full Stripe hold-and-capture lifecycle, and a Play-compliant Android companion with a live overlay meter, APK green in CI. No users yet — the first live loop on real hardware is the next milestone.",
     },
     metrics: [
-      { value: "Real-time", label: "Burn-rate feedback during the session" },
-      { value: "1", label: "User-set anchor (savings goal)" },
-      { value: "Native", label: "Kotlin, no cross-platform wrapper" },
+      { value: "80%", label: "Of each loss redeemable by walking" },
+      { value: "2 : 1", label: "Minutes walked per minute scrolled" },
+      { value: "24 h", label: "Window to walk it off" },
     ],
     tradeoffs: [
-      "Native Kotlin over a cross-platform framework, for reliable access to Android usage signals.",
-      "Monetary framing over time framing, because loss in currency is more salient than loss in minutes.",
-      "No zero state: the meter always runs, which is the intervention itself.",
+      "No AccessibilityService: scroll detection uses UsageStats plus gyroscope heuristics so the app stays Google Play compliant, at the cost of on-device threshold tuning.",
+      "Two Stripe PaymentIntents per session — 20% captured, 80% held for 24 hours — because Stripe cannot partially capture a payment and keep the rest on hold.",
+      "The user sets the deletion fee (€0–€1000, zero allowed) and a fixed 7- or 30-day term, so the contract is self-priced rather than an imposed penalty.",
+      "If the redemption rate comes back low, Costly is a punishment app and needs rebalancing — the alpha is designed to find that out early.",
     ],
     decisionLog: [
       {
-        challenge: "Screen-time stats do not change behavior.",
-        hypothesis: "Pricing time in money tied to a personal goal triggers loss aversion.",
-        method: "Burn-rate model: hourly price × foreground distraction time vs. savings goal.",
-        outcome: "Live ticker that shows money burned this session.",
+        challenge: "Screen-time feedback rarely changes behavior.",
+        hypothesis: "Feedback changes behavior only when it carries a consequence.",
+        method: "Real-money meter at a self-set hourly rate, framed against a five-tier ladder of wanted products.",
+        outcome: "Per-second live meter overlaid on the target app.",
       },
       {
-        challenge: "Abstract feedback is easy to ignore.",
-        hypothesis: "Real-time, in-session feedback beats end-of-day reports.",
-        method: "Foreground app tracking with a live meter.",
-        outcome: "Feedback delivered while the behavior is happening.",
+        challenge: "Pure punishment drives uninstalls.",
+        hypothesis: "A redemption path keeps stakes real but fair.",
+        method: "20/80 split: 80% held for 24 hours and released on a verified walking goal (Health Connect).",
+        outcome: "Two-PaymentIntent session lifecycle with an expiry sweep.",
+      },
+      {
+        challenge: "People delete the app when it hurts.",
+        hypothesis: "Precommitment beats willpower.",
+        method: "Self-priced deletion fee and lock-in term, enforced by a heartbeat dead man's switch.",
+        outcome: "Commitment contract signed at onboarding; breach sweep scaffolded.",
+      },
+      {
+        challenge: "Is the effect causal, or just awareness?",
+        hypothesis: "Stakes cut targeted-app minutes more than awareness or soft friction.",
+        method: "Planned randomized three-arm study: awareness vs. soft friction vs. stakes.",
+        outcome: "Scheduled for weeks 9–12, after a 30–50 user alpha.",
       },
     ],
     featureList: [
-      "Real-time distraction burn-rate ticker",
-      "User-set hourly price",
-      "Savings-goal anchoring",
-      "Foreground app time tracking",
+      "Real-money per-minute meter",
+      "Self-set hourly rate",
+      "Five-tier ladder of wanted products",
+      "Walk-it-off redemption via Health Connect",
+      "Commitment contract with dead man's switch",
+      "Live overlay meter on Android",
     ],
-    keywords: ["Behavioral Friction", "Loss Aversion", "Digital Wellbeing", "Kotlin", "Android"],
+    keywords: ["Loss Aversion", "Commitment Devices", "Behavioral Friction", "Habit Reversal", "Stripe", "Kotlin"],
+    investment: {
+      stage: "Accelerator programme + pre-seed",
+      // TODO: add the round size once decided, e.g. "€150K".
+      amount: "",
+      status: "Zero users. No charge has moved yet. The system is built end to end; the first live loop on real hardware is the next milestone.",
+      plan: [
+        { when: "Weeks 1–4", what: "Harden, deploy and tune detection → first live loop on real hardware" },
+        { when: "Weeks 5–8", what: "30–50 user alpha on real cards at small stakes → retention and redemption data; legal opinion on the contract terms" },
+        { when: "Weeks 9–12", what: "Randomized three-arm study — awareness vs. soft friction vs. stakes → effect size" },
+      ],
+      useOfFunds: [
+        "Legal & compliance — EU unfair-terms review of the breach fee and the 14-day withdrawal question",
+        "Alpha cohort — recruitment and a reimbursement pool so real cards can run ethically at small stakes",
+        "Part-time Android contractor — detection tuning and device-matrix testing, the riskiest technical surface",
+        "The study — instrumentation, incentives and analysis",
+      ],
+      successMetrics: [
+        "Primary: daily minutes in targeted apps, week 4 vs. baseline",
+        "Health: redemption rate — the share of holds walked off",
+      ],
+      market: [
+        {
+          label: "Digital detox apps",
+          value: "$498M (2025) → $1.38B (2032)",
+          source: "Valuates",
+          url: "https://reports.valuates.com/market-reports/QYRE-Auto-9Z18571/global-digital-detox-apps",
+        },
+        {
+          label: "Screen-time management software",
+          value: "$3.8B (2025) → $9.7B (2034)",
+          source: "Dataintelo",
+          url: "https://dataintelo.com/report/screen-time-management-software-market",
+        },
+      ],
+      beachhead: "People who already paid for a blocker and relapsed: proven willingness to pay, proven dissatisfaction with soft friction.",
+      ask: "Beyond capital: payments and regulatory introductions, and time with people who have shipped consumer products that charge cards on an automated trigger.",
+    },
   },
   {
     slug: "workflow-automation-engine",
@@ -815,38 +957,46 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "dopamine-box",
-    cover: { metric: "VR", caption: "variable-ratio reward loop" },
+    cover: { metric: "99%", caption: "the near-miss that keeps you spinning" },
     name: "Dopamine Box",
-    tagline: "Variable-reward habit loops by design",
+    tagline: "A loot-box psychology simulator: near-misses, shards and scarcity",
     published: true,
     category: "Consumer app",
-    status: "Shipped",
+    status: "Prototype",
     schemaType: "WebApplication",
-    applicationCategory: "LifestyleApplication",
+    applicationCategory: "GameApplication",
     operatingSystem: "Web",
-    // TODO: add the live URL, tech stack and a screenshot.
     role: "Founder & builder",
     organization: "Behavioral Tech Studio",
     summary:
-      "Dopamine Box is a behavioral product that applies variable-ratio reward schedules — the reinforcement pattern behind the most habit-forming products — to positive routines. Unpredictable rewards replace fixed ones so the habit loop holds attention after the novelty of a streak counter wears off.",
+      "Dopamine Box is a mock-token simulator of \"spin to claim\" monetization. Each spin adds shards toward a target item — micro hits, solid hits and rare jackpots on a variable schedule — with engineered near-misses and scarcity tags, to make visible exactly how these loops hold attention. No real money is involved.",
     impact: {
-      problem: "Fixed, predictable rewards lose motivational pull quickly, so habit apps see engagement decay after the first weeks.",
-      mechanism: "Variable-ratio reinforcement: rewards arrive unpredictably, sustaining anticipation and repeat behavior.",
-      stack: ["Web app"],
-      outcome: "Shipped product built around a variable-reward core loop.",
+      problem:
+        "Spin-to-win and shard-collection mechanics are spreading from games into shopping apps, but their psychology is rarely shown plainly to the people who design or use them.",
+      mechanism:
+        "Variable-ratio reinforcement (micro, solid and jackpot outcomes), near-miss effects, goal-gradient progress toward 100%, and scarcity and social-proof labels such as \"Low Stock\" and \"1 User Won Today\".",
+      stack: ["Next.js", "React", "Zustand", "Tailwind CSS"],
+      outcome: "Working simulator with mock tokens, tiered target items and live feedback on every spin.",
     },
-    metrics: [{ value: "Variable-ratio", label: "Reinforcement schedule at the core loop" }],
-    tradeoffs: ["Variable rewards are powerful, so the loop rewards positive routines rather than time spent in the app."],
+    metrics: [
+      { value: "3", label: "Reward sizes: micro, solid, jackpot" },
+      { value: "100%", label: "Shard progress needed to claim" },
+      { value: "€0", label: "Real money — mock tokens only" },
+    ],
+    tradeoffs: [
+      "Mock tokens only: the point is to study and demonstrate the loop, not to monetize it.",
+      "Targets span four tiers of pull — high-value tech, status items, aspirational purchases and speculative assets — to compare which framing holds attention longest.",
+    ],
     decisionLog: [
       {
-        challenge: "Habit apps lose users once fixed rewards become predictable.",
-        hypothesis: "Unpredictable rewards sustain engagement longer than fixed ones.",
-        method: "Variable-ratio reward mechanic as the core loop.",
-        outcome: "Variable-reward loop shipped as the core experience.",
+        challenge: "Loot-box mechanics are hard to explain in the abstract.",
+        hypothesis: "A working simulator makes the pull of each mechanic felt, not just described.",
+        method: "Spin loop with variable progress, near-miss snaps and scarcity tags.",
+        outcome: "Interactive simulator of the full spin-to-claim loop.",
       },
     ],
-    featureList: ["Variable-ratio reward reveals", "Habit loop design"],
-    keywords: ["Variable Reward Schedules", "Habit Loops", "Retention Mechanics", "Operant Conditioning"],
+    featureList: ["Spin-to-claim shard progress", "Micro / solid / jackpot variable rewards", "Near-miss feedback", "Scarcity and social-proof tags", "Mock-token wallet"],
+    keywords: ["Variable Reward Schedules", "Near-Miss Effect", "Loot Boxes", "Dark Patterns", "Goal-Gradient Effect"],
   },
   {
     slug: "musicity",
@@ -931,47 +1081,213 @@ export const caseStudies: CaseStudy[] = [
     keywords: ["Experimental Design", "Repeated-measures ANOVA", "Human-Computer Interaction", "AI Interviews"],
   },
   {
-    slug: "debubble",
-    cover: { metric: "", caption: "" },
-    name: "Debubble",
-    tagline: "",
-    // TODO: fill in the real details and URL, then set published: true.
-    published: false,
+    slug: "virtue-ledger",
+    cover: { metric: "13 × 7", caption: "Franklin's virtues across a week, one tap per cell" },
+    name: "Virtue Ledger",
+    tagline: "Benjamin Franklin's thirteen-virtue audit, rebuilt as a one-tap app",
+    published: true,
     category: "Consumer app",
-    status: "Live",
-    schemaType: "WebApplication",
-    operatingSystem: "Web",
+    status: "Built",
+    schemaType: "MobileApplication",
+    applicationCategory: "LifestyleApplication",
+    operatingSystem: "Android",
     role: "Founder & builder",
     organization: "Behavioral Tech Studio",
-    summary: "",
-    impact: { problem: "", mechanism: "", stack: [], outcome: "" },
-    metrics: [],
-    tradeoffs: [],
-    decisionLog: [],
-    featureList: [],
-    keywords: [],
+    summary:
+      "Virtue Ledger turns Benjamin Franklin's thirteen-virtue notebook into a mobile behavioral audit: a 13 × 7 grid where logging a day costs one tap and no decisions. When it raises a virtue there is no \"dismiss\" — only Now, or a named hour it holds you to.",
+    impact: {
+      problem:
+        "Habit trackers ask for too many decisions per entry, and their \"remind me later\" buttons let intentions quietly evaporate.",
+      mechanism:
+        "Minimal-effort logging (one tap cycles not logged → fault → kept), honest fault-first ordering, and implementation intentions: \"Later\" means naming an hour, backed by a real scheduled notification.",
+      stack: ["Next.js (static export)", "React + TypeScript", "Zustand (persisted)", "Capacitor (Android)", "Haptics"],
+      outcome:
+        "Working Android app with a one-tap matrix, marks readable without colour, and Now-or-named-hour resolutions.",
+    },
+    metrics: [
+      { value: "1", label: "Tap per log — no dialogs, no save button" },
+      { value: "56 px", label: "Cells, above the 44 px accessibility floor" },
+      { value: "3", label: "States: not logged, fault, kept" },
+    ],
+    tradeoffs: [
+      "A tri-state instead of a binary, because \"no fault today\" and \"not reviewed yet\" are different facts — an untouched grid must not read as a perfect week.",
+      "Fault is the first tap, Franklin's own order: the harder admission should be the cheaper action.",
+      "Kept and fault marks differ by shape, not just colour, so they survive greyscale and colour blindness.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Logging friction kills tracking.",
+        hypothesis: "One tap with no decisions keeps the audit daily.",
+        method: "Tap-to-cycle cells with haptic feedback; no dialogs or confirmations.",
+        outcome: "A full day logged in seconds.",
+      },
+      {
+        challenge: "\"Later\" buttons let intentions evaporate.",
+        hypothesis: "Naming an hour — an implementation intention — raises follow-through.",
+        method: "Now, or Later with a named hour backed by a scheduled notification.",
+        outcome: "No dismiss option anywhere in the flow.",
+      },
+      {
+        challenge: "Keeping a virtue felt like less of an act than breaking one.",
+        hypothesis: "Marks should feel like something you did.",
+        method: "Both states drawn as struck seals that press inward rather than pop outward.",
+        outcome: "Kept and fault marks with equal visual weight.",
+      },
+    ],
+    featureList: ["13 × 7 virtue matrix", "One-tap tri-state logging", "Haptic feedback", "Now-or-named-hour resolutions", "Colour-blind-safe marks"],
+    keywords: ["Implementation Intentions", "Habit Tracking", "Friction Reduction", "Capacitor", "Next.js"],
+  },
+  {
+    slug: "tao-app",
+    cover: { metric: "1", caption: "passage a day, chosen by the date" },
+    name: "The Art of Observation (app)",
+    tagline: "A distraction-free Android reader and study guide for TAO",
+    published: true,
+    category: "Media product",
+    status: "Built",
+    schemaType: "MobileApplication",
+    applicationCategory: "EducationalApplication",
+    operatingSystem: "Android",
+    role: "Author & Android developer",
+    organization: "Behavioral Tech Studio",
+    summary:
+      "An Android app for reading and studying TAO: The Art of Observation. The full text appears verbatim in a distraction-free reader, with a key-concepts study guide linked back to each chapter and one passage of the day chosen deterministically by date.",
+    impact: {
+      problem: "Reflective texts are hard to return to on a phone full of interruptions.",
+      mechanism:
+        "A single daily passage as a low-effort ritual, and a study guide that links every concept back to the chapter that teaches it.",
+      stack: ["Kotlin", "Jetpack Compose", "Bundled JSON content"],
+      outcome: "Complete reader, key-concepts study guide and passage-of-the-day features.",
+    },
+    metrics: [
+      { value: "0", label: "Words rewritten — the text is verbatim" },
+      { value: "1", label: "Passage a day, selected by date" },
+    ],
+    tradeoffs: [
+      "The app never summarises or reinterprets the text in place; study aids live beside the text, not inside it.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Studying a dense text on a phone.",
+        hypothesis: "Concepts linked back to their chapters make the text navigable without altering it.",
+        method: "Key-concepts guide with chapter anchors.",
+        outcome: "Study guide across the central ideas.",
+      },
+      {
+        challenge: "Building a daily reading habit.",
+        hypothesis: "One small, predictable passage a day lowers the effort to return.",
+        method: "Passage of the Day selected by date.",
+        outcome: "Daily reading ritual built in.",
+      },
+    ],
+    featureList: ["Full text, chapter by chapter", "Key-concepts study guide", "Passage of the Day", "Distraction-free reader"],
+    keywords: ["Reading Experience", "Habit Formation", "Kotlin", "Jetpack Compose"],
+  },
+  {
+    slug: "debubble",
+    cover: { metric: "3 × 100", caption: "pillars × tiers of comfort-zone challenges" },
+    featured: true,
+    name: "DeBubble",
+    tagline: "A behavioral expansion engine for getting out of your bubble",
+    published: true,
+    category: "Consumer app",
+    status: "Prototype",
+    schemaType: "MobileApplication",
+    applicationCategory: "LifestyleApplication",
+    operatingSystem: "Android",
+    role: "Founder & designer-engineer",
+    organization: "Behavioral Tech Studio",
+    summary:
+      "DeBubble widens the bubble people live in — where they go, what they do and who they talk to. It calibrates a starting level per pillar from four onboarding answers, then serves one challenge per pillar per day across 100 tiers, stepping back when a tier causes friction instead of letting users stall.",
+    impact: {
+      problem:
+        "Routine shrinks people's worlds to the same places, activities and people, and generic \"leave your comfort zone\" advice gives no starting point and no ladder.",
+      mechanism:
+        "Graded exposure: personalized entry tiers for Access, Activity and Social, a difficulty curve that stays almost flat for the first thirty tiers, step-backs on repeated friction, and a Friction Score that reads as credit for courage rather than failure.",
+      stack: ["Kotlin + Jetpack Compose (Android)", "Adaptive progression engine", "Single-file interactive design spec"],
+      outcome:
+        "Complete interactive prototype and design system for every screen, plus an Android build with 300 challenges and 5 goal campaigns, not yet compiled.",
+    },
+    metrics: [
+      { value: "300", label: "Challenges across three pillars" },
+      { value: "4", label: "Onboarding answers set the entry tiers" },
+      { value: "(t/100)^1.9", label: "Difficulty curve, almost flat for 30 tiers" },
+    ],
+    tradeoffs: [
+      "Tiers advance on completion, never on the calendar, so a user can be at Access 040 and Social 003 — the Bubble Map shows that asymmetry honestly.",
+      "Repeated friction steps the user back rather than stalling them; three clean completions unlock a double step.",
+      "Ember, the courage colour, is reserved for the Friction Score and never used for errors, so friction always reads as credit.",
+    ],
+    decisionLog: [
+      {
+        challenge: "One difficulty curve doesn't fit everyone.",
+        hypothesis: "Calibrated entry points prevent both boredom and overwhelm.",
+        method: "Four onboarding answers feed entry-tier formulas per pillar.",
+        outcome: "Personalized starting tiers for Access, Activity and Social.",
+      },
+      {
+        challenge: "Users quit after a step that is too hard.",
+        hypothesis: "Graded exposure needs a way down as well as up.",
+        method: "Step back after repeated friction; double step after three clean completions.",
+        outcome: "Adaptive escalation engine.",
+      },
+      {
+        challenge: "Avoidance feels like failure.",
+        hypothesis: "Reframing friction as courage keeps users engaged.",
+        method: "Friction Score and Anti-Score on the profile, in a dedicated colour.",
+        outcome: "Friction surfaced as credit, not fault.",
+      },
+    ],
+    featureList: ["Baseline calibration", "Three-pillar dashboard and Bubble Map", "One challenge per pillar per day", "Completion micro-journal", "Friction Score & Anti-Score", "5 goal campaigns"],
+    keywords: ["Graded Exposure", "Comfort Zone", "Habit Formation", "Adaptive Difficulty", "Kotlin", "Jetpack Compose"],
   },
   {
     slug: "merge-farmstead",
-    cover: { metric: "", caption: "" },
+    cover: { metric: "7–9", caption: "the reading age every story line is written for" },
     name: "Merge Farmstead",
-    tagline: "",
-    // TODO: fill in the real details and URL, then set published: true.
-    published: false,
-    category: "Consumer app",
-    status: "Live",
-    schemaType: "WebApplication",
+    tagline: "A story-driven merge tycoon game for young players",
+    published: true,
+    category: "Game",
+    status: "Pre-launch",
+    schemaType: "MobileApplication",
     applicationCategory: "GameApplication",
-    operatingSystem: "Web",
-    role: "Founder & builder",
+    operatingSystem: "Android, Web",
+    role: "Founder & game developer",
     organization: "Behavioral Tech Studio",
-    summary: "",
-    impact: { problem: "", mechanism: "", stack: [], outcome: "" },
-    metrics: [],
-    tradeoffs: [],
-    decisionLog: [],
-    featureList: [],
-    keywords: [],
+    summary:
+      "Merge Farmstead: Tycoon Edition is a farm merge game wrapped in a mystery: find the town's lost Golden Bell before a land developer takes the valley. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start.",
+    impact: {
+      problem:
+        "Merge games are sticky but hollow, and many aimed at children monetize through ad and purchase flows that were never designed for them.",
+      mechanism:
+        "Merge-and-upgrade progression for steady competence wins, a chaptered mystery with clues and suspects for curiosity, and child-directed, non-personalized ad requests.",
+      stack: ["PixiJS", "JavaScript", "Capacitor (Android)", "Progressive web app"],
+      outcome: "Playable game with a full story bible, an Android build and a web build, prepared for release.",
+    },
+    metrics: [
+      { value: "7–9", label: "Reading age for all story text" },
+      { value: "2", label: "Platforms: Android and web" },
+    ],
+    tradeoffs: [
+      "Short sentences and easy words everywhere, even in the mystery: readability for young players over richer prose.",
+      "Child-directed, non-personalized ads by design, accepting lower ad revenue for compliance and parents' trust.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Merge loops get repetitive.",
+        hypothesis: "A mystery with clues and suspects gives players a reason to keep merging.",
+        method: "Story bible — The Lost Golden Bell — with chapters, clues, suspects and character voices.",
+        outcome: "Story beats unlocked through farm progress.",
+      },
+      {
+        challenge: "Kids' games often monetize unsafely.",
+        hypothesis: "Designing monetization as child-directed from day one avoids retrofitting compliance.",
+        method: "Child-directed, non-personalized ad requests.",
+        outcome: "Monetization layer built for a young audience.",
+      },
+    ],
+    featureList: ["Merge-and-upgrade farm", "Town deliveries", "Chaptered mystery story", "Android app (Capacitor)", "Playable on the web"],
+    keywords: ["Game Design", "Progression Systems", "Child-directed Design", "PixiJS", "Capacitor"],
   },
 ];
 
@@ -996,7 +1312,8 @@ export const problemMatrix = [
     answer:
       "I engineer habit loops from behavioral science, not guesswork: behavioral friction and loss framing that make costs salient, variable reward schedules that sustain engagement, and psychometric assessment that makes feedback feel personal.",
     proof: [
-      { slug: "costly", note: "loss-framed behavioral friction" },
+      { slug: "costly", note: "real stakes with a walk-it-back path" },
+      { slug: "app-lockers", note: "friction worth paying, without uninstalls" },
       { slug: "dopamine-box", note: "variable-ratio reward loop" },
       { slug: "oopscupid", note: "psychometric profiles + daily streaks" },
     ],
@@ -1098,13 +1415,13 @@ export const consumerPsychology = {
   ],
   principles: [
     { name: "Risk reversal", effect: "Removes the cost of the first step so cautious buyers act.", proof: ["optimolds"] },
-    { name: "Loss aversion & loss framing", effect: "Makes the cost of inaction concrete and salient.", proof: ["costly", "optimolds"] },
+    { name: "Loss aversion & commitment", effect: "Makes the cost of inaction concrete — and hard to back out of.", proof: ["costly", "optimolds"] },
     { name: "Social proof & trust signals", effect: "Lowers perceived risk of an unfamiliar brand.", proof: ["optimolds"] },
-    { name: "Friction reduction", effect: "Removes effort exactly where users drop off.", proof: ["oopscupid", "daily-sublime"] },
-    { name: "Choice architecture", effect: "One clear next step instead of competing options.", proof: ["optimolds"] },
+    { name: "Friction design", effect: "Removes effort where users drop off; adds it where they act on autopilot.", proof: ["app-lockers", "oopscupid", "virtue-ledger"] },
+    { name: "Choice architecture", effect: "One clear next step instead of competing options.", proof: ["optimolds", "app-lockers"] },
     { name: "Variable reward schedules", effect: "Sustains return visits after novelty fades.", proof: ["dopamine-box", "oopscupid"] },
     { name: "Psychometric personalization", effect: "Feedback that feels specific to the individual.", proof: ["oopscupid"] },
-    { name: "Goal-gradient effect", effect: "Visible progress accelerates completion.", proof: ["daily-hustle"] },
+    { name: "Goal-gradient effect", effect: "Visible progress accelerates completion.", proof: ["daily-hustle", "debubble", "dopamine-box"] },
   ],
   process: [
     { step: "Diagnose", detail: "Audit the funnel, analytics and customer touchpoints to find where and why people stop." },

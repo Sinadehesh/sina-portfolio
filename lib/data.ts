@@ -112,19 +112,19 @@ export const costly: {
   facts: Fact[];
 } = {
   name: "Costly",
-  kicker: "Native Android",
+  kicker: "Android companion · Next.js · Stripe",
   summary:
-    "A burn-rate ticker for attention. Costly anchors distraction time directly to a personal savings goal and runs the number in real time — because the stakes in a user's environment are never actually zero.",
+    "Real money for every minute of doomscrolling, at the hourly rate you set for your own time — 80% of it earned back by walking it off within 24 hours.",
   premise:
-    "The behavioral truth the app is built on: financial stakes in user environments are never completely zero. Costly makes the number visible instead of letting it stay abstract.",
-  goalLabel: "Savings goal",
-  goalAmount: 4200,
-  hourlyRate: 18.5,
+    "Feedback only changes behavior when it carries a consequence. Costly makes the consequence real, prices it against the things you actually want, and lets you walk most of it back.",
+  goalLabel: "Top of your ladder · PS5",
+  goalAmount: 500,
+  hourlyRate: 15,
   facts: [
-    { k: "Platform", v: "Native Android · Kotlin" },
-    { k: "Signal", v: "Foreground app time" },
-    { k: "Anchor", v: "User-set savings goal" },
-    { k: "Feedback", v: "Real-time burn ticker" },
+    { k: "Platform", v: "Kotlin companion + Next.js web app" },
+    { k: "Signal", v: "UsageStats + gyroscope heuristics" },
+    { k: "Stakes", v: "Stripe hold, 20% captured / 80% held" },
+    { k: "Redemption", v: "2 min walked per min scrolled" },
   ],
 };
 

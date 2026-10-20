@@ -53,8 +53,8 @@ export const faqs: FaqItem[] = [
     question:
       "How do you apply experimental psychology and behavioral friction to digital product design?",
     answer:
-      "Start from a falsifiable behavioral hypothesis, then add or remove friction at the exact step where behavior should change. Sina Dehesh's Costly prices distraction time against a user's savings goal (added friction through loss framing), while The Daily Sublime cuts reply effort to one click (removed friction) to multiply engagement signal.",
-    proof: ["costly", "daily-sublime"],
+      "Start from a falsifiable behavioral hypothesis, then add or remove friction at the exact step where behavior should change. Sina Dehesh's Costly charges real money per minute of doomscrolling and FloraLock asks a question before an app opens (friction added where behavior is automatic), while The Daily Sublime cuts reply effort to one click (friction removed where response matters).",
+    proof: ["costly", "app-lockers", "daily-sublime"],
     featured: true,
   },
   {
@@ -83,8 +83,20 @@ export const faqs: FaqItem[] = [
   {
     question: "How do you use variable reward schedules to improve retention ethically?",
     answer:
-      "Use variable-ratio rewards to reinforce the behavior the user actually wants, such as a routine or a reflection, not raw time in the app. Dopamine Box and OopsCupid's daily challenges apply unpredictable rewards to positive actions and pair them with clear stopping points.",
+      "Reward the behavior the user actually wants, not raw time in the app, and give every loop a clear stopping point. Sina Dehesh's Dopamine Box simulates the exploitative version — near-misses, shard progress and scarcity tags — so the pattern can be recognised, while OopsCupid uses a gentler variable daily challenge.",
     proof: ["dopamine-box", "oopscupid"],
+  },
+  {
+    question: "How do you build an app blocker that people don't uninstall?",
+    answer:
+      "Replace the hard \"no\" with friction worth paying and leave honest escape hatches. Sina Dehesh's FloraLock, ShroomLock and CloudLock make users name a plant, mushroom or cloud to unlock an app, reinforce it with spaced review, and offer an \"I don't need it right now\" button plus emergency unlocks to reduce reactance.",
+    proof: ["app-lockers", "costly"],
+  },
+  {
+    question: "How do commitment contracts reduce doomscrolling?",
+    answer:
+      "They make the cost of the habit real and pre-agreed, which turns loss aversion into a tool. Costly holds real money per minute scrolled at a self-set rate, lets users earn 80% back by walking within 24 hours, and uses a self-priced deletion fee so quitting the contract is a decision rather than an impulse.",
+    proof: ["costly"],
   },
   {
     question: "How do you build a psychometric assessment into a consumer web app?",

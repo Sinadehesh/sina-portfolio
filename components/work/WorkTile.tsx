@@ -28,6 +28,11 @@ export function WorkTile({
           <span className="absolute top-4 left-4 z-10 rounded-full bg-void/55 px-3 py-1.5 text-xs font-medium text-ivory backdrop-blur-sm">
             {c.category} · {c.status}
           </span>
+          {c.investment && (
+            <span className="absolute top-4 right-4 z-10 rounded-full bg-gold px-3 py-1.5 text-xs font-semibold text-void">
+              Raising pre-seed
+            </span>
+          )}
           <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
             <p className="font-serif text-[clamp(2.75rem,6vw,5.25rem)] leading-none font-semibold text-ivory">
               {c.cover.metric}
