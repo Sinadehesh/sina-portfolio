@@ -1,31 +1,29 @@
-import ScrollFX from "@/components/ScrollFX";
-import SiteNav from "@/components/SiteNav";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/sections/HeroSection";
-import IdentitySection from "@/components/sections/IdentitySection";
-import MusicitySection from "@/components/sections/MusicitySection";
-import LabSection from "@/components/sections/LabSection";
-import MediaSection from "@/components/sections/MediaSection";
-import CvTerminal from "@/components/sections/CvTerminal";
+import Hero from "@/components/home/Hero";
+import Pillars from "@/components/home/Pillars";
+import WorkGrid from "@/components/home/WorkGrid";
+import Principles from "@/components/home/Principles";
+import Research from "@/components/home/Research";
+import About from "@/components/home/About";
+import Faq from "@/components/home/Faq";
+import Contact from "@/components/home/Contact";
+import JsonLd from "@/components/seo/JsonLd";
+import { faqs } from "@/lib/faq";
+import { allCaseStudyNodes, faqPageNode, profilePageNode } from "@/lib/schema";
+
+const homeFaqs = faqs.filter((f) => f.topic !== "consumer-psychology");
 
 export default function Page() {
   return (
     <>
-      <ScrollFX />
-      <SiteNav />
-      <main className="relative">
-        <HeroSection />
-        {/* Everything below the hero rides on the charcoal ground, lifted
-            just enough to read as a separate plane from the WebGL stage. */}
-        <div className="relative z-10 bg-charcoal-900">
-          <IdentitySection />
-          <MusicitySection />
-          <LabSection />
-          <MediaSection />
-          <CvTerminal />
-        </div>
-      </main>
-      <Footer />
+      <JsonLd nodes={[profilePageNode(), faqPageNode(homeFaqs, "/"), ...allCaseStudyNodes()]} />
+      <Hero />
+      <Pillars />
+      <WorkGrid />
+      <Principles />
+      <Research />
+      <About />
+      <Faq items={homeFaqs} />
+      <Contact />
     </>
   );
 }

@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
-import { personal } from "@/lib/data";
+import { personalInfo, site } from "@/lib/content";
+import SiteNav from "@/components/SiteNav";
+import Footer from "@/components/Footer";
+import ScrollFX from "@/components/ScrollFX";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -25,27 +28,25 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sinadehesh.com"),
-  title: personal.headline,
-  description: personal.intro,
-  authors: [{ name: personal.name }],
-  keywords: [
-    "Sina Dehesh",
-    "experimental psychology",
-    "behavioral engineering",
-    "systems",
-    "consulting",
-    "n8n automation",
-    "OopsCupid",
-    "Passway",
-    "Costly",
-    "Musicity",
-  ],
-  openGraph: {
-    title: personal.headline,
-    description: personal.intro,
-    type: "profile",
+  metadataBase: new URL(site.url),
+  title: site.title,
+  description: site.description,
+  authors: [{ name: personalInfo.name, url: site.url }],
+  creator: personalInfo.name,
+  alternates: {
+    canonical: "/",
+    types: { "text/markdown": "/llms.txt" },
   },
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  openGraph: {
+    type: "profile",
+    siteName: personalInfo.name,
+    locale: site.locale,
+    title: site.title,
+    description: site.description,
+    url: "/",
+  },
+  twitter: { card: "summary_large_image", title: site.title, description: site.description },
 };
 
 export const viewport: Viewport = {
@@ -61,7 +62,12 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
-      <body className="js-off antialiased">{children}</body>
+      <body className="js-off antialiased">
+        <ScrollFX />
+        <SiteNav />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

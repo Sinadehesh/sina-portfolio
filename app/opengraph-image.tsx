@@ -35,7 +35,7 @@ export default function OpengraphImage() {
             color: "#8d867a",
           }}
         >
-          <span>Portfolio</span>
+          <span>Milan · Europe · Remote</span>
           <span>{personal.location}</span>
         </div>
 
@@ -44,8 +44,8 @@ export default function OpengraphImage() {
           <div style={{ display: "flex", fontSize: 104, marginTop: 34, letterSpacing: -2 }}>
             {personal.name}
           </div>
-          <div style={{ display: "flex", fontSize: 42, marginTop: 20, color: "#c8a45c" }}>
-            Engineering Behavior, Building Systems.
+          <div style={{ display: "flex", fontSize: 40, marginTop: 20, color: "#c8a45c" }}>
+            Consumer Psychology Consultant · Behavioral Product Builder
           </div>
         </div>
 

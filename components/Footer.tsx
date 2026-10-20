@@ -1,29 +1,39 @@
-import { personal } from "@/lib/data";
+import { personalInfo } from "@/lib/content";
+
+const links = [
+  { href: "/work", label: "All case studies" },
+  { href: "/consumer-psychology", label: "Consumer psychology consulting" },
+  { href: "/#faq", label: "FAQ" },
+  { href: `mailto:${personalInfo.email}`, label: personalInfo.email },
+  { href: personalInfo.github, label: "GitHub" },
+  { href: personalInfo.linkedin, label: "LinkedIn" },
+  { href: "/llms.txt", label: "llms.txt" },
+].filter((l) => l.href);
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-ivory/10 bg-void">
-      <div className="mx-auto grid max-w-[1400px] gap-10 px-6 py-16 sm:px-10 md:grid-cols-12 md:py-24">
-        <div className="md:col-span-7">
-          <p className="display text-[clamp(1.75rem,4.5vw,3.25rem)] text-gradient-ivory">
-            {personal.tagline}
+    <footer className="border-t border-ivory/10 bg-void text-ivory">
+      <div className="mx-auto grid max-w-[1280px] gap-10 px-5 py-14 sm:px-10 md:grid-cols-12">
+        <div className="md:col-span-6">
+          <p className="font-serif text-2xl font-semibold">{personalInfo.name}</p>
+          <p className="mt-2 text-sm text-ivory-faint">
+            {personalInfo.headline} · {personalInfo.location}
           </p>
-          <a
-            href={`mailto:${personal.email}`}
-            className="group mt-8 inline-flex items-center gap-3 font-mono text-[0.75rem] tracking-[0.24em] text-ivory uppercase transition-colors hover:text-gold"
-          >
-            <span className="h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16 group-hover:bg-gold" />
-            {personal.email}
-          </a>
         </div>
-        <div className="flex flex-col justify-end gap-3 md:col-span-5 md:items-end">
-          <span className="font-mono text-[0.625rem] tracking-[0.26em] text-ivory-faint uppercase">
-            {personal.name} · {personal.location}
-          </span>
-          <span className="font-mono text-[0.625rem] tracking-[0.26em] text-ivory-faint uppercase">
-            © {new Date().getFullYear()} — all rights reserved
-          </span>
-        </div>
+        <nav aria-label="Footer" className="md:col-span-6">
+          <ul className="grid gap-x-8 gap-y-3 text-sm text-ivory-dim sm:grid-cols-2">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="hover:text-ivory">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <p className="text-xs text-ivory-faint md:col-span-12">
+          © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+        </p>
       </div>
     </footer>
   );

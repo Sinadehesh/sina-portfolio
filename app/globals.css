@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 /* ============================================================
-   CHIAROSCURO — the light/dark contract of the whole page.
-   Deep charcoal ground, oil-canvas ivory light, muted gold leaf.
+   CHIAROSCURO — two grounds, one light.
+   Charcoal "stage" sections carry the cinematic media; ivory "paper"
+   sections carry anything people need to read. Muted gold is the only
+   accent and is used sparingly.
    ============================================================ */
 @theme {
   --color-void: #050506;
@@ -12,13 +14,21 @@
   --color-charcoal-600: #202026;
   --color-charcoal-500: #2c2c34;
 
-  --color-ivory: #ede4d3;
-  --color-ivory-dim: #c9c0b1;
-  --color-ivory-faint: #8d867a;
+  --color-ivory: #f1eadc;
+  --color-ivory-dim: #d3cabb;
+  --color-ivory-faint: #a39b8d;
+
+  --color-paper: #f2ece0;
+  --color-paper-deep: #e7dfcf;
+  --color-ink: #17150f;
+  --color-ink-dim: #4a443a;
+  --color-ink-faint: #6f685c;
 
   --color-gold: #c8a45c;
   --color-gold-bright: #e0c184;
   --color-gold-deep: #8a6d32;
+  /* Gold that still passes AA as small text on paper. */
+  --color-gold-ink: #7a5b1f;
 
   --color-oxide: #8c4a3f;
   --color-verdigris: #4a7a6f;
@@ -31,130 +41,228 @@
 }
 
 :root {
-  --page-bg: var(--color-charcoal-900);
   color-scheme: dark;
 }
 
 * {
-  border-color: color-mix(in oklab, var(--color-ivory) 10%, transparent);
+  border-color: color-mix(in oklab, currentColor 14%, transparent);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
   background-color: var(--color-void);
 }
 
 body {
-  background-color: var(--page-bg);
+  background-color: var(--color-charcoal-900);
   color: var(--color-ivory);
   font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
   font-feature-settings: "ss01", "cv01";
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--color-gold) 35%, transparent);
-  color: var(--color-ivory);
+  background: color-mix(in oklab, var(--color-gold) 40%, transparent);
+  color: inherit;
 }
 
-/* Scrollbar — thin gold thread on charcoal */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--color-void); }
-::-webkit-scrollbar-thumb {
-  background: color-mix(in oklab, var(--color-gold) 30%, var(--color-charcoal-700));
-  border-radius: 999px;
-  border: 3px solid var(--color-void);
+@property --lx { syntax: "<percentage>"; inherits: true; initial-value: 28%; }
+@property --ly { syntax: "<percentage>"; inherits: true; initial-value: 30%; }
+
+/* Component classes live in the components layer so Tailwind utilities
+   (absolute, padding, colours) can always override them. */
+@layer components {
+  /* ============================================================
+     Grounds
+     ============================================================ */
+  .stage {
+    background-color: var(--color-charcoal-900);
+    color: var(--color-ivory);
+  }
+
+  .paper {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    color-scheme: light;
+  }
+  .paper ::selection {
+    background: color-mix(in oklab, var(--color-gold) 45%, transparent);
+  }
+
+  /* Oil-paint tooth so flat grounds never read as flat colour. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.28;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+  .paper.grain::after,
+  .paper .grain::after {
+    opacity: 0.45;
+    mix-blend-mode: multiply;
+  }
+
+  /* ============================================================
+     Typography
+     ============================================================ */
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  .paper .eyebrow {
+    color: var(--color-gold-ink);
+  }
+
+  .lede {
+    font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+
+  /* ============================================================
+     Media
+     ============================================================ */
+  .media-frame {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--color-charcoal-800);
+  }
+  .media-frame > video,
+  .media-frame > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Designed fallback for a media slot without a video yet: one warm light
+     source raking across a charcoal canvas, tinted per slot via --hue. */
+  .light-canvas {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at var(--lx, 28%) var(--ly, 30%), color-mix(in oklab, var(--hue, var(--color-gold)) 50%, transparent), transparent 70%),
+      radial-gradient(ellipse 50% 60% at 85% 90%, color-mix(in oklab, var(--color-oxide) 22%, transparent), transparent 70%),
+      linear-gradient(160deg, var(--color-charcoal-700), var(--color-void));
+  }
+  /* A faint lab grid that only shows where the light falls. */
+  .light-canvas::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--color-ivory) 7%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-ivory) 7%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 55% 65% at var(--lx, 28%) var(--ly, 30%), black, transparent 75%);
+    mask-image: radial-gradient(ellipse 55% 65% at var(--lx, 28%) var(--ly, 30%), black, transparent 75%);
+  }
+  .light-canvas.drift {
+    animation: drift 18s var(--ease-cinema) infinite alternate;
+  }
+  @keyframes drift {
+    from { --lx: 22%; --ly: 26%; }
+    to   { --lx: 62%; --ly: 44%; }
+  }
+  /* Hero: the light sits right of the headline, where the video will play. */
+  .light-canvas.hero-light {
+    --hue: var(--color-gold);
+    animation-name: drift-right;
+    animation-duration: 22s;
+  }
+  @keyframes drift-right {
+    from { --lx: 66%; --ly: 34%; }
+    to   { --lx: 84%; --ly: 52%; }
+  }
+
+  .vignette::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(ellipse 120% 90% at 50% 45%, transparent 40%, color-mix(in oklab, var(--color-void) 85%, transparent) 100%);
+  }
+
+  /* Hero scrim: keeps the headline readable over any video. */
+  .hero-scrim {
+    background:
+      linear-gradient(90deg, color-mix(in oklab, var(--color-void) 88%, transparent) 0%, color-mix(in oklab, var(--color-void) 55%, transparent) 48%, transparent 85%),
+      linear-gradient(0deg, var(--color-charcoal-900) 0%, transparent 35%);
+  }
+
+  .rule-gold {
+    background: linear-gradient(90deg, color-mix(in oklab, var(--color-gold) 70%, transparent), color-mix(in oklab, var(--color-gold) 10%, transparent));
+  }
+
+  /* ============================================================
+     Components
+     ============================================================ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border-radius: 999px;
+    padding: 0.95rem 1.6rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1;
+    transition: background-color 300ms var(--ease-cinema), color 300ms var(--ease-cinema), transform 300ms var(--ease-cinema);
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-gold { background: var(--color-gold); color: var(--color-void); }
+  .btn-gold:hover { background: var(--color-gold-bright); }
+  .btn-ghost { border: 1px solid color-mix(in oklab, currentColor 35%, transparent); }
+  .btn-ghost:hover { background: color-mix(in oklab, currentColor 8%, transparent); }
+  .btn-ink { background: var(--color-ink); color: var(--color-paper); }
+  .btn-ink:hover { background: #2a2620; }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+    transition: text-decoration-color 300ms, gap 300ms var(--ease-cinema);
+  }
+  .link-arrow:hover { text-decoration-color: currentColor; gap: 0.75rem; }
+
+  /* FAQ disclosure */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-plus { transform: rotate(45deg); }
 }
-::-webkit-scrollbar-thumb:hover { background: var(--color-gold-deep); }
 
 /* ============================================================
-   Utilities
+   Motion
    ============================================================ */
-
-/* Canvas-grain: the oil-paint tooth that keeps flat charcoal from
-   reading as flat #000 on OLED. */
-.grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.32;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-}
-
-.vignette::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  background: radial-gradient(
-    ellipse 120% 90% at 50% 45%,
-    transparent 35%,
-    color-mix(in oklab, var(--color-void) 82%, transparent) 100%
-  );
-}
-
-.glass {
-  background: linear-gradient(
-    140deg,
-    color-mix(in oklab, var(--color-ivory) 7%, transparent),
-    color-mix(in oklab, var(--color-ivory) 2%, transparent) 45%,
-    color-mix(in oklab, var(--color-void) 30%, transparent)
-  );
-  backdrop-filter: blur(18px) saturate(115%);
-  -webkit-backdrop-filter: blur(18px) saturate(115%);
-  border: 1px solid color-mix(in oklab, var(--color-ivory) 12%, transparent);
-  box-shadow:
-    0 1px 0 0 color-mix(in oklab, var(--color-ivory) 10%, transparent) inset,
-    0 24px 60px -20px rgba(0, 0, 0, 0.85);
-}
-
-.glass-gold {
-  border-color: color-mix(in oklab, var(--color-gold) 28%, transparent);
-  box-shadow:
-    0 1px 0 0 color-mix(in oklab, var(--color-gold) 18%, transparent) inset,
-    0 24px 70px -22px rgba(0, 0, 0, 0.9),
-    0 0 90px -50px var(--color-gold);
-}
-
-.rule-gold {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklab, var(--color-gold) 60%, transparent) 18%,
-    color-mix(in oklab, var(--color-gold) 60%, transparent) 82%,
-    transparent
-  );
-}
-
-.text-gradient-ivory {
-  background: linear-gradient(180deg, var(--color-ivory) 0%, #9a9184 130%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.display {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
-}
-
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-}
-
-/* Elements GSAP fades in: hidden until ScrollTrigger arms them, but
-   never hidden for readers without JS. */
-.reveal { opacity: 0; transform: translateY(28px); }
+/* Elements GSAP fades in. Never hidden for readers without JS. */
+.reveal { opacity: 0; transform: translateY(18px); }
 .js-off .reveal { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -165,114 +273,4 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* ============================================================
-   Hero
-   ============================================================ */
-
-/* Poster frame: a charcoal board lit from a single high-left source.
-   Shown before WebGL is ready and kept as the floor if it never is. */
-.hero-poster {
-  background:
-    radial-gradient(
-      ellipse 70% 55% at 50% 62%,
-      color-mix(in oklab, var(--color-ivory) 9%, transparent),
-      transparent 70%
-    ),
-    conic-gradient(
-        from 45deg at 50% 62%,
-        color-mix(in oklab, var(--color-ivory) 4%, transparent) 0deg 90deg,
-        transparent 90deg 180deg,
-        color-mix(in oklab, var(--color-ivory) 4%, transparent) 180deg 270deg,
-        transparent 270deg 360deg
-      )
-      50% 62% / 92px 46px repeat,
-    linear-gradient(180deg, var(--color-void), var(--color-charcoal-900) 55%, var(--color-void));
-}
-
-.hero-caption {
-  animation: caption-in 900ms var(--ease-cinema) both;
-}
-
-@keyframes caption-in {
-  from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
-  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
-}
-
-.scroll-thread::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  top: 0;
-  height: 40%;
-  background: linear-gradient(180deg, transparent, var(--color-gold));
-  animation: thread 2.4s var(--ease-cinema) infinite;
-}
-
-@keyframes thread {
-  0%   { transform: translateY(-100%); opacity: 0; }
-  30%  { opacity: 1; }
-  100% { transform: translateY(250%); opacity: 0; }
-}
-
-/* Portrait sits in the same tonal world as the WebGL scene: pulled toward
-   charcoal, warmed back up with a gold-leaning overlay rather than left
-   as a full-colour photograph dropped onto an oil canvas. */
-.portrait-treatment {
-  filter: grayscale(0.72) contrast(1.16) brightness(0.86) sepia(0.18);
-  transition: filter 900ms var(--ease-cinema);
-}
-figure:hover .portrait-treatment {
-  filter: grayscale(0.35) contrast(1.08) brightness(0.95) sepia(0.06);
-}
-
-/* A slow raking highlight across premium glass — the light source moving
-   over varnish. Purely decorative, disabled under reduced motion. */
-.sheen::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  pointer-events: none;
-  z-index: 1;
-  background: linear-gradient(
-    72deg,
-    transparent 42%,
-    color-mix(in oklab, var(--color-gold) 9%, transparent) 50%,
-    transparent 58%
-  );
-  transform: translateX(-30%);
-  animation: sheen 14s var(--ease-cinema) infinite;
-}
-.sheen > * { position: relative; z-index: 2; }
-
-@keyframes sheen {
-  0%, 62% { transform: translateX(-40%); }
-  92%, 100% { transform: translateX(40%); }
-}
-
-/* ============================================================
-   CV terminal
-   ============================================================ */
-.crt::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 3;
-  background: repeating-linear-gradient(
-    180deg,
-    transparent 0 2px,
-    color-mix(in oklab, var(--color-void) 26%, transparent) 2px 3px
-  );
-  opacity: 0.5;
-}
-
-.terminal-cursor {
-  animation: blink 1.05s steps(2, start) infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }

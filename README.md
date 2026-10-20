@@ -1,78 +1,72 @@
 # Sina Dehesh — Portfolio
 
-**Engineering Behavior, Building Systems.**
+**Consumer psychology, engineered into products people choose.**
 
-A cinematic single-page portfolio: a scroll-driven WebGL opening sequence, a
-glassmorphism consulting case study, four instrumented project cards, a media
-and research section, and a boot-up terminal that prints the CV.
+Portfolio of a consumer psychology consultant and behavioral product builder.
+The homepage says who, what and why-believe-it on the first screen, then shows
+the work; every project has its own answer-first case-study page with an
+interactive chart where one exists. Built to be read by people, search engines
+and AI assistants alike.
 
 ## Stack
 
 | Concern | Choice |
 | --- | --- |
-| Framework | Next.js 16 (App Router, Turbopack) |
+| Framework | Next.js 16 (App Router, Turbopack), static export |
 | Styling | Tailwind CSS v4 (`@theme` tokens in `app/globals.css`) |
-| Motion | GSAP 3 + ScrollTrigger |
-| 3D | three.js r185 — `WebGPURenderer` with automatic WebGL2 fallback, materials written in TSL |
+| Motion | GSAP 3 + ScrollTrigger (section reveals, chart animation) |
 | Data viz | D3 7 |
-| Type | Cormorant Garamond (display) · Inter (body) · JetBrains Mono (code) |
+| Type | Cormorant Garamond (display) · Inter (body) · JetBrains Mono (labels) |
+| Structured data | `schema-dts` typed JSON-LD |
 
 ## Running it
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # production build
-npm start        # serve the production build
+npm run build    # static export to out/
 npm run typecheck
 ```
 
-## The page, section by section
+## Pages
 
-| Section | Component | Notes |
+| Route | Source | Notes |
 | --- | --- | --- |
-| Hero | `components/sections/HeroSection.tsx` → `components/hero/MindToMatrix.tsx` | 420vh scrubbed sequence: chessboard → particle dissolve → manuscript → code matrix → camera pull-back |
-| Identity | `components/sections/IdentitySection.tsx` | Portrait plate, role, manifesto |
-| Musicity | `components/sections/MusicitySection.tsx` | Premium glass card, three engagement phases |
-| App Laboratory | `components/sections/LabSection.tsx` | Workflow graph, Costly burn ticker, OopsCupid radar, Passway heatmap |
-| Media & research | `components/sections/MediaSection.tsx` | Channel card, animated email wireframe, ANOVA plot, literature |
-| CV terminal | `components/sections/CvTerminal.tsx` | Scroll-triggered boot print-out |
+| `/` | `app/page.tsx` → `components/home/*` | Hero → What I do → Selected work → Psychology behind the work → Research & writing → About → FAQ → Contact |
+| `/work` | `app/work/page.tsx` | All case studies |
+| `/work/[slug]` | `app/work/[slug]/page.tsx` | Answer-first summary, impact, interactive chart (`components/work/CaseViz.tsx`), comparison, trade-offs, decision log |
+| `/consumer-psychology` | `app/consumer-psychology/page.tsx` | Service page: services, principles, process, proof, FAQ |
+| `/llms.txt`, `/llms-full.txt` | `app/llms*.txt/route.ts` → `lib/llms.ts` | [llmstxt.org](https://llmstxt.org) dossiers for AI assistants |
+| `/sitemap.xml`, `/robots.txt` | `app/sitemap.ts`, `app/robots.ts` | AI crawlers explicitly allowed |
 
-All copy lives in **`lib/data.ts`** — edit there, not in the components.
+## Where the content lives
 
-## The hero sequence
+- **`lib/content.ts`** — positioning, case studies, services, principles,
+  experience and credentials. Every page, JSON-LD node and llms.txt reads it.
+- **`lib/faq.ts`** — FAQ copy (general questions on `/`, `consumer-psychology`
+  questions on `/consumer-psychology`).
+- **`lib/data.ts`** — numbers the interactive charts read directly.
+- **`lib/schema.ts`** — JSON-LD builders (`Person`, `SoftwareApplication`,
+  `FAQPage`, …), injected by `components/seo/JsonLd.tsx`.
 
-`components/hero/` is split three ways:
+Set `published: false` on a case study to hide it everywhere.
 
-- `sequence.ts` — board layout, piece profiles, particle target buffers, and the
-  opacity/size envelopes that drive every stage transition.
-- `textures.ts` — canvas-generated textures: the particle sprite, the glyph
-  atlas for the matrix stage, and the manuscript page (prose on the recto,
-  complexity-theory notes on the verso, drawn from `manuscriptFragments`).
-- `MindToMatrix.tsx` — the renderer, the TSL node materials, the knight-move
-  timeline, and the ScrollTrigger wiring.
+## Design
 
-One particle system carries all four stages: per-particle board / notebook /
-matrix targets live in static instanced attributes and are blended inside
-`positionNode`, so nothing is rebuilt per frame.
+Two grounds alternate: charcoal **stage** sections for cinematic media and
+ivory **paper** sections for anything people need to read. Muted gold is the
+only accent. Component classes (`.stage`, `.paper`, `.display`, `.eyebrow`,
+`.btn`, `.media-frame`, …) live in the `components` layer of
+`app/globals.css`, so Tailwind utilities always win.
 
-**Degradation.** No WebGPU → three's WebGL2 backend. No working WebGL context →
-the component renders nothing and the CSS poster (`.hero-poster`) holds the
-frame. `prefers-reduced-motion: reduce` → one static composed frame, no rAF
-loop, and every scroll animation on the page resolves to its final state.
+## Videos
 
-## Swapping in the real portrait
-
-`public/images/portrait.jpg` currently ships a **designed placeholder plate**,
-not a photograph. To use a real photo:
-
-```bash
-node scripts/generate-portrait-placeholder.mjs --from path/to/photo.jpg
-```
-
-That resizes the photo to 1100×1467, writes `public/images/portrait.jpg`, and
-regenerates the inline blur placeholder in `lib/portrait.ts`. Run it with no
-arguments to rebuild the placeholder plate instead.
+Every hero, service panel, project tile and case-study header is a video slot
+(`components/ui/MediaSlot.tsx`). Drop a file at the documented path in
+`public/videos/` and rebuild — it replaces the designed light-canvas
+placeholder automatically. File names, aspect ratios and lengths are listed in
+**[`public/videos/README.md`](public/videos/README.md)**. A real portrait at
+`public/images/portrait.jpg` appears in the About section the same way.
 
 ## Simulated data
 
@@ -91,8 +85,7 @@ surface rather than a live model call.
 ## Accessibility
 
 Every chart carries `role="img"`, a descriptive label, and a visually-hidden
-table of its underlying numbers. The CV terminal duplicates its credentials in
-an `sr-only` block so nothing depends on the typing animation. Interactive
+table of its underlying numbers. Interactive
 chart elements are keyboard reachable, and the whole page respects
 `prefers-reduced-motion`.
 
@@ -130,14 +123,12 @@ Note that `wrangler.jsonc` here is a **Pages** configuration. A Workers-style
 `assets` block is a different schema and Pages rejects it.
 
 Because `next/image` optimisation needs a server, it is turned off
-(`images.unoptimized`). The portrait is already sized at 1100×1467 by
-`scripts/generate-portrait-placeholder.mjs` and carries an inline LQIP, so
-there is nothing left to optimise at request time.
+(`images.unoptimized`); size images and videos before adding them.
 
 ## Verifying against the brief
 
 `docs/spec.md` holds the acceptance checklist. `.claude/agents/spec-verifier.md`
 defines a read-only, fresh-context auditor that walks the codebase against it
 and reports `MET / PARTIAL / NOT MET` per requirement; `/verify-spec` runs it.
-Re-run it after any substantial change to the hero sequence, the charts, or the
-section content.
+Re-run it after any substantial change to the page structure, the charts, or
+the content.
