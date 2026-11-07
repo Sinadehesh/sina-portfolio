@@ -1,27 +1,22 @@
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { WorkRow, WorkTile } from "@/components/work/WorkTile";
-import { publishedCaseStudies } from "@/lib/content";
+import { WorkRow, WorkSpotlight, WorkTile } from "@/components/work/WorkTile";
+import { publishedCaseStudies, type CaseStudy } from "@/lib/content";
 
-const featuredOrder = [
-  "costly",
-  "app-lockers",
-  "oopscupid",
-  "debubble",
-  "virtue-ledger",
-  "merge-farmstead",
-  "daily-sublime",
-  "daily-hustle",
-];
+/** Lead project first (shown as a spotlight), then the tiles in order. */
+const appsOrder = ["costly", "app-lockers", "oopscupid", "debubble", "pukytoon", "virtue-ledger", "daily-sublime"];
+export const gamesOrder = ["the-loop", "gem-jar", "zombie-bomber", "merge-farmstead", "thermite-dominoes"];
 
 /** Shown in their own homepage sections (consulting, experience, books, about). */
 const elsewhereOnHome = ["optimolds", "musicity", "recallmate", "interview-simulation-study", "tao-app"];
 
+export const pick = (slugs: string[]) =>
+  slugs.map((slug) => publishedCaseStudies.find((c) => c.slug === slug)).filter((c): c is CaseStudy => c !== undefined);
+
 export default function WorkGrid({ asPage = false }: { asPage?: boolean }) {
-  const featured = featuredOrder
-    .map((slug) => publishedCaseStudies.find((c) => c.slug === slug))
-    .filter((c) => c !== undefined);
+  const [lead, ...apps] = pick(appsOrder);
+  const shown = new Set([...appsOrder, ...gamesOrder]);
   const more = publishedCaseStudies.filter(
-    (c) => !featuredOrder.includes(c.slug) && (asPage || !elsewhereOnHome.includes(c.slug)),
+    (c) => !shown.has(c.slug) && (asPage || !elsewhereOnHome.includes(c.slug)),
   );
 
   return (
@@ -29,13 +24,17 @@ export default function WorkGrid({ asPage = false }: { asPage?: boolean }) {
       <SectionHeading
         id="work"
         as={asPage ? "h1" : "h2"}
+        numeral={asPage ? undefined : "III"}
         eyebrow={asPage ? "All work" : "Apps & websites"}
         title={asPage ? "Every product, engagement and study" : "Apps and websites I designed and built"}
         lede="Real screenshots from the products. Each case study covers the problem, the psychology used, and the decisions behind the build."
       />
-      <div className="grid gap-x-8 gap-y-16 md:grid-cols-2" data-stagger>
-        {featured.map((c) => (
-          <WorkTile key={c.slug} study={c} />
+
+      {lead && <WorkSpotlight study={lead} index={1} />}
+
+      <div className="mt-24 grid gap-x-8 gap-y-16 md:grid-cols-2" data-stagger>
+        {apps.map((c, i) => (
+          <WorkTile key={c.slug} study={c} index={i + 2} />
         ))}
       </div>
 

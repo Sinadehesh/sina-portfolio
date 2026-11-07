@@ -3,7 +3,8 @@ import { personalInfo } from "@/lib/content";
 const links = [
   { href: "/#consulting", label: "Consulting" },
   { href: "/#experience", label: "Experience" },
-  { href: "/#work", label: "Apps & websites" },
+  { href: "/#work", label: "Apps" },
+  { href: "/#games", label: "Games" },
   { href: "/#books", label: "Books" },
   { href: "/#about", label: "About" },
 ];

@@ -1,7 +1,9 @@
 import Hero from "@/components/home/Hero";
 import Consulting from "@/components/home/Consulting";
 import Experience from "@/components/home/Experience";
+import Quote from "@/components/home/Quote";
 import WorkGrid from "@/components/home/WorkGrid";
+import Games from "@/components/home/Games";
 import Books from "@/components/home/Books";
 import About from "@/components/home/About";
 import Faq from "@/components/home/Faq";
@@ -19,10 +21,12 @@ export default function Page() {
       <Hero />
       <Consulting />
       <Experience />
+      <Quote />
       <WorkGrid />
+      <Games />
       <Books />
       <About />
-      <Faq items={homeFaqs} />
+      <Faq items={homeFaqs} numeral="VII" />
       <Contact />
     </>
   );

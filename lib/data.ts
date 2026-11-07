@@ -280,16 +280,17 @@ export const thesis: {
 export const literature = [
   {
     title: "TAO: The Art of Observation",
-    status: "Non-fiction · finished",
+    genre: "Non-fiction",
+    status: "Finished · awaiting editorial work",
     body:
-      "A working manual for looking at things properly: attention as a trainable instrument, observation as the discipline underneath every method I use elsewhere on this page.",
+      "A body of teachings about the Observer, the Everything and the point of observation: Nothingness, the Self, wanting and needing, and flow.",
     progress: 1,
   },
   {
-    title: "Untitled literary fiction",
-    status: "Novel · finished",
-    body:
-      "Introspective literary fiction: a narrator trying to verify a proof about himself that he cannot construct.",
+    title: "Man in the Moment",
+    genre: "Novel",
+    status: "Finished · awaiting editorial work",
+    body: "",
     progress: 1,
   },
 ] as const;

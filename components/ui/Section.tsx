@@ -18,8 +18,9 @@ export function Section({
   className?: string;
   innerClassName?: string;
 }) {
+  // Paper grounds carry a faint grain, so ivory reads as paper, not flat colour.
   const ground =
-    tone === "stage" ? "stage" : tone === "paper" ? "paper" : "paper bg-paper-deep";
+    tone === "stage" ? "stage" : tone === "paper" ? "paper grain" : "paper grain bg-paper-deep";
   return (
     <section
       id={id}
@@ -38,6 +39,7 @@ export function Section({
 export function SectionHeading({
   id,
   eyebrow,
+  numeral,
   title,
   lede,
   as: Tag = "h2",
@@ -45,6 +47,8 @@ export function SectionHeading({
 }: {
   id?: string;
   eyebrow: string;
+  /** Roman numeral shown before the eyebrow, like a chapter in a catalogue. */
+  numeral?: string;
   title: ReactNode;
   lede?: ReactNode;
   as?: "h1" | "h2";
@@ -52,7 +56,15 @@ export function SectionHeading({
 }) {
   return (
     <header className={`reveal mb-14 max-w-[60rem] md:mb-20 ${className}`}>
-      <p className="eyebrow">{eyebrow}</p>
+      <p className="eyebrow flex items-center gap-4">
+        {numeral && (
+          <>
+            <span className="numeral">{numeral}</span>
+            <span aria-hidden="true" className="h-px w-10 bg-current opacity-50" />
+          </>
+        )}
+        {eyebrow}
+      </p>
       <Tag
         id={id ? `${id}-heading` : undefined}
         className="display mt-5 text-[clamp(2.4rem,5.4vw,4.5rem)]"

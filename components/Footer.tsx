@@ -12,7 +12,13 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-ivory/10 bg-void text-ivory">
+    <footer className="relative overflow-hidden border-t border-ivory/10 bg-void text-ivory">
+      <p
+        aria-hidden="true"
+        className="pointer-events-none mx-auto max-w-[1280px] px-5 pt-16 font-serif text-[clamp(3.5rem,13vw,11rem)] leading-[0.85] font-medium tracking-tight text-ivory/[0.07] italic select-none sm:px-10"
+      >
+        {personalInfo.name}
+      </p>
       <div className="mx-auto grid max-w-[1280px] gap-10 px-5 py-14 sm:px-10 md:grid-cols-12">
         <div className="md:col-span-6">
           <p className="font-serif text-2xl font-semibold">{personalInfo.name}</p>

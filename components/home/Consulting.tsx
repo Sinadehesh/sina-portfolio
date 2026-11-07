@@ -9,6 +9,7 @@ export default function Consulting() {
     <Section id="consulting" tone="paper">
       <SectionHeading
         id="consulting"
+        numeral="I"
         eyebrow="Consulting"
         title="Consultant — consumer psychology & growth"
         lede="I help businesses understand why customers hesitate, choose or leave, then change the website, offer or funnel around it."

@@ -1,14 +1,22 @@
+import type { ReactNode } from "react";
 import { MediaSlot } from "@/components/ui/MediaSlot";
+import PointerLight from "@/components/home/PointerLight";
 import { personalInfo } from "@/lib/content";
 
 export default function Contact({
-  title = "Customers doing something you can't explain? Let's find out why.",
+  title = (
+    <>
+      Customers doing something you can&rsquo;t explain? Let&rsquo;s find out <em className="text-gold-bright italic">why</em>.
+    </>
+  ),
 }: {
-  title?: string;
+  title?: ReactNode;
 }) {
   return (
     <section id="contact" aria-labelledby="contact-heading" className="stage relative overflow-hidden">
       <MediaSlot video="/videos/contact.mp4" hue="#c8a45c" className="vignette absolute inset-0" />
+      <div aria-hidden="true" className="pointer-light absolute inset-0 z-[3]" />
+      <PointerLight targetId="contact" />
       <div className="relative z-10 mx-auto max-w-[1280px] px-5 py-28 sm:px-10 md:py-40">
         <p className="eyebrow">Contact</p>
         <h2 id="contact-heading" className="display mt-5 max-w-[18ch] text-[clamp(2.5rem,6vw,5rem)]">

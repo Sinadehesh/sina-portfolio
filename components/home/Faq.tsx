@@ -6,17 +6,19 @@ import { caseStudyPath } from "@/lib/schema";
 export default function Faq({
   items,
   title = "Questions people ask before hiring me",
-  tone = "paper",
+  tone = "paper-deep",
+  numeral,
 }: {
   items: FaqItem[];
   title?: string;
   tone?: "paper" | "paper-deep";
+  numeral?: string;
 }) {
   return (
     <Section id="faq" tone={tone}>
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <SectionHeading id="faq" eyebrow="FAQ" title={title} className="lg:sticky lg:top-28" />
+          <SectionHeading id="faq" numeral={numeral} eyebrow="FAQ" title={title} className="lg:sticky lg:top-28" />
         </div>
         <div className="divide-y divide-ink/12 border-y border-ink/12 lg:col-span-8">
           {items.map((f) => (

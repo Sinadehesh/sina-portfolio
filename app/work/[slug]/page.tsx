@@ -92,7 +92,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </dl>
           {c.url && (
             <a href={c.url} target="_blank" rel="noopener" className="btn btn-gold mt-10">
-              Open the live product ↗
+              {c.category === "Game" ? "Play in your browser ↗" : "Open the live product ↗"}
             </a>
           )}
         </div>
