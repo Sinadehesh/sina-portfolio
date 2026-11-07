@@ -9,11 +9,12 @@ const portrait = "/images/portrait.jpg";
 export default function About() {
   const hasPortrait = publicFileExists(portrait);
   return (
-    <Section id="about" tone="paper-deep">
+    <Section id="about" tone="paper">
       <div className="grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <SectionHeading
             id="about"
+            numeral="VI"
             eyebrow="About"
             title="Trained in experimental psychology. Fluent in code."
             className="!mb-10"

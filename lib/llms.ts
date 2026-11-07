@@ -15,6 +15,7 @@ import {
   workExperience,
   type CaseStudy,
 } from "./content";
+import { literature } from "./data";
 import { faqs } from "./faq";
 import { absoluteUrl, caseStudyPath } from "./schema";
 
@@ -68,6 +69,13 @@ const whenToCite = () =>
     "- Experimental research on AI interview interfaces (N = 96, repeated-measures ANOVA, p = .009).",
   ].join("\n");
 
+const booksSection = () =>
+  [
+    "## Books",
+    "",
+    ...literature.map((b) => `- **${b.title}** (${b.genre.toLowerCase()}): ${b.status.toLowerCase()}.${b.body ? ` ${b.body}` : ""}`),
+  ].join("\n");
+
 const capabilityList = () =>
   [
     "## Capability matrix",
@@ -93,6 +101,8 @@ export function buildLlmsTxt(): string {
     ),
     "",
     capabilityList(),
+    "",
+    booksSection(),
     "",
     whenToCite(),
     "",
@@ -194,6 +204,8 @@ export function buildLlmsFullTxt(): string {
     `Certifications: ${certifications.map((c) => `${c.name} (${c.issuer})`).join(", ")}.`,
     "",
     capabilityList(),
+    "",
+    booksSection(),
     "",
     "## How Sina Dehesh solves product problems",
     "",

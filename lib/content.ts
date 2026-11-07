@@ -48,7 +48,7 @@ export const personalInfo = {
 export const proofStats = [
   { value: "N = 96", label: "Controlled experiment, p = .009" },
   { value: "200+", label: "Research interviews conducted & analyzed" },
-  { value: "15+", label: "Apps, products & funnels built" },
+  { value: "20+", label: "Apps, games & websites built" },
   { value: "M.Sc.", label: "Experimental psychology, Milano-Bicocca" },
 ];
 
@@ -274,7 +274,7 @@ export interface CaseStudy {
   /** Hidden from every page, schema, llms.txt and sitemap until set to true. */
   published: boolean;
   category: "Consumer app" | "Game" | "B2B automation" | "Research" | "Consulting" | "Growth consulting" | "Media product" | "EdTech";
-  status: "Live" | "Shipped" | "Closed testing" | "Pre-launch" | "Built" | "Prototype" | "Completed";
+  status: "Live" | "Shipped" | "Closed testing" | "Pre-launch" | "Playable" | "Built" | "Prototype" | "Completed";
   schemaType: SchemaType;
   applicationCategory?: string;
   operatingSystem?: string;
@@ -1160,61 +1160,78 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "debubble",
     image: "/images/work/debubble.webp",
-    cover: { metric: "3 × 100", caption: "pillars × tiers of comfort-zone challenges" },
+    cover: { metric: "4", caption: "tiny things a day: body, room, heart, one step outside" },
     featured: true,
     name: "DeBubble",
-    tagline: "A behavioral expansion engine for getting out of your bubble",
+    tagline: "Cozy self-care: a pixel room that grows as you step out of your bubble",
     published: true,
     category: "Consumer app",
-    status: "Prototype",
+    status: "Pre-launch",
     schemaType: "MobileApplication",
-    applicationCategory: "LifestyleApplication",
+    applicationCategory: "HealthApplication",
     operatingSystem: "Android",
-    role: "Founder & designer-engineer",
+    url: "https://www.sinadehesh.com/debubble/",
+    role: "Founder & solo builder",
     organization: "Own product",
     summary:
-      "DeBubble widens the bubble people live in — where they go, what they do and who they talk to. It calibrates a starting level per pillar from four onboarding answers, then serves one challenge per pillar per day across 100 tiers, stepping back when a tier causes friction instead of letting users stall.",
+      "DeBubble: Cozy Self-Care is an Android app where a pixel-art room grows as you look after yourself. Every day there are four tiny things to do — one for your body, your room, your heart, and one small step outside — and as you go further out of your bubble the room opens up: a window, then a door, then the street.",
     impact: {
       problem:
-        "Routine shrinks people's worlds to the same places, activities and people, and generic \"leave your comfort zone\" advice gives no starting point and no ladder.",
+        "Self-care and confidence apps lean on streaks and guilt, so one missed day feels like failure and people quit — and \"leave your comfort zone\" advice gives no first step.",
       mechanism:
-        "Graded exposure: personalized entry tiers for Access, Activity and Social, a difficulty curve that stays almost flat for the first thirty tiers, step-backs on repeated friction, and a Friction Score that reads as credit for courage rather than failure.",
-      stack: ["Kotlin + Jetpack Compose (Android)", "Adaptive progression engine", "Single-file interactive design spec"],
+        "Tiny habits tied to cues the user already has (\"when I put the kettle on\"), graded steps outside the comfort zone one rung at a time, a prediction-versus-outcome check that shows a mission was easier than feared, and progress that only goes up — no streaks to lose.",
+      stack: ["Kotlin (Android)", "Pixel-art room renderer", "Home-screen widget", "Signed release builds in CI", "Offline: no internet permission"],
       outcome:
-        "Complete interactive prototype and design system for every screen, plus an Android build with 300 challenges and 5 goal campaigns, not yet compiled.",
+        "Signed release bundle built in CI for Android 16, with a complete Google Play listing and seven captioned screenshots of the real app.",
     },
     metrics: [
-      { value: "300", label: "Challenges across three pillars" },
-      { value: "4", label: "Onboarding answers set the entry tiers" },
-      { value: "(t/100)^1.9", label: "Difficulty curve, almost flat for 30 tiers" },
+      { value: "4", label: "Tiny things a day" },
+      { value: "30", label: "Stops in each journey" },
+      { value: "0", label: "Internet permission — nothing leaves the phone" },
     ],
     tradeoffs: [
-      "Tiers advance on completion, never on the calendar, so a user can be at Access 040 and Social 003 — the Bubble Map shows that asymmetry honestly.",
-      "Repeated friction steps the user back rather than stalling them; three clean completions unlock a double step.",
-      "Ember, the courage colour, is reserved for the Friction Score and never used for errors, so friction always reads as credit.",
+      "No streaks: days you showed up only ever go up, so a bad week never erases what was earned.",
+      "\"Remind me\" sits right next to \"I did it\": one nudge at a chosen time, or none at all — gentle rather than nagging.",
+      "No internet permission at all: complete privacy, at the cost of sync and analytics.",
+      "A skipped task becomes a spark of courage once the user names what got in the way, turning avoidance into information instead of failure.",
     ],
     decisionLog: [
       {
-        challenge: "One difficulty curve doesn't fit everyone.",
-        hypothesis: "Calibrated entry points prevent both boredom and overwhelm.",
-        method: "Four onboarding answers feed entry-tier formulas per pillar.",
-        outcome: "Personalized starting tiers for Access, Activity and Social.",
+        challenge: "Habit apps punish missed days.",
+        hypothesis: "Progress that can't be lost brings people back after a bad week.",
+        method: "No streaks; the room gets a little messy, but nothing earned is ever taken away.",
+        outcome: "A days-shown-up count that only goes up.",
       },
       {
-        challenge: "Users quit after a step that is too hard.",
-        hypothesis: "Graded exposure needs a way down as well as up.",
-        method: "Step back after repeated friction; double step after three clean completions.",
-        outcome: "Adaptive escalation engine.",
+        challenge: "Comfort-zone advice has no first step.",
+        hypothesis: "Graded exposure sized to today makes stepping out doable.",
+        method: "One outside mission a day, sized to where the user is, plus 30-stop journeys toward a goal.",
+        outcome: "Three roads out of the bubble, one rung at a time.",
       },
       {
-        challenge: "Avoidance feels like failure.",
-        hypothesis: "Reframing friction as courage keeps users engaged.",
-        method: "Friction Score and Anti-Score on the profile, in a dedicated colour.",
-        outcome: "Friction surfaced as credit, not fault.",
+        challenge: "Anxiety overestimates how hard things will be.",
+        hypothesis: "Comparing a prediction with the real outcome recalibrates fear.",
+        method: "Guess how a mission will go before trying it, then record how it went.",
+        outcome: "A prediction-versus-outcome check on every mission.",
+      },
+      {
+        challenge: "Routines fade without a trigger.",
+        hypothesis: "Tying a habit to a moment that already happens makes it stick.",
+        method: "Body, room and heart routines anchored to cues the user picks.",
+        outcome: "Cue-based daily routines.",
       },
     ],
-    featureList: ["Baseline calibration", "Three-pillar dashboard and Bubble Map", "One challenge per pillar per day", "Completion micro-journal", "Friction Score & Anti-Score", "5 goal campaigns"],
-    keywords: ["Graded Exposure", "Comfort Zone", "Habit Formation", "Adaptive Difficulty", "Kotlin", "Jetpack Compose"],
+    featureList: [
+      "Four tiny daily things: body, room, heart, outside",
+      "A pixel room that grows and opens up",
+      "Graded outside missions",
+      "30-stop journeys",
+      "Prediction vs. outcome check",
+      "Home-screen widget",
+      "Gentle reminders",
+      "Offline and private",
+    ],
+    keywords: ["Tiny Habits", "Graded Exposure", "Self-Care", "Habit Formation", "Kotlin", "Android"],
   },
   {
     slug: "merge-farmstead",
@@ -1264,6 +1281,275 @@ export const caseStudies: CaseStudy[] = [
     ],
     featureList: ["Merge-and-upgrade farm", "Town deliveries", "Chaptered mystery story", "Android app (Capacitor)", "Playable on the web"],
     keywords: ["Game Design", "Progression Systems", "Child-directed Design", "PixiJS", "Capacitor"],
+  },
+  {
+    slug: "pukytoon",
+    image: "/images/work/pukytoon.webp",
+    cover: { metric: "1 swipe", caption: "to the next game, like a video feed" },
+    featured: true,
+    name: "Pukytoon",
+    tagline: "A swipe feed for games made with Claude, Gemini and Kimi",
+    published: true,
+    category: "Consumer app",
+    status: "Live",
+    schemaType: "MobileApplication",
+    applicationCategory: "GameApplication",
+    operatingSystem: "Android, Web",
+    url: "https://sinadehesh.github.io/pukytoon/",
+    role: "Founder & solo builder",
+    organization: "Own product",
+    summary:
+      "Pukytoon turns games made with AI into a feed you swipe through like short videos. Drop in a Claude, Gemini or Kimi share link — or paste the game's code — and it becomes a card in the feed; tap Play and the game takes the whole screen, with a Back to feed button to return.",
+    impact: {
+      problem:
+        "People make small games with AI chatbots every day, but they stay stuck behind share links that the chat sites won't let other apps embed, so nobody browses them.",
+      mechanism:
+        "Feed-style browsing — one game per screen, snapping like video — cuts the cost of trying a game to a single swipe; pasted code plays inside the feed, and link games open full screen in an in-app web view.",
+      stack: ["JavaScript", "Capacitor (Android)", "In-app browser", "Sandboxed iframes", "React and Tailwind from a CDN for pasted code"],
+      outcome:
+        "Live on the web, with an Android test build on GitHub Releases rebuilt on every push; the feed opens with two original merge games.",
+    },
+    metrics: [
+      { value: "3", label: "AI platforms: Claude, Gemini, Kimi" },
+      { value: "1 swipe", label: "Between games" },
+      { value: "Sandboxed", label: "Every pasted game runs isolated" },
+    ],
+    tradeoffs: [
+      "Claude, Gemini and Kimi block framing, so link games open full screen in an in-app web view instead of playing inside the feed; pasted code plays in the feed itself.",
+      "Each code game runs in a sandboxed frame that can't reach the app or the other games, while its saved progress is kept by the app.",
+      "Zombie Bomber loads live from its web address, so updates appear without a new app build — at the cost of needing the internet.",
+    ],
+    decisionLog: [
+      {
+        challenge: "AI-made games are scattered across share links.",
+        hypothesis: "A swipeable feed makes trying a game as cheap as watching a clip.",
+        method: "One game per screen with video-style snapping and a live preview behind each cover.",
+        outcome: "A feed that plays HTML, React and JavaScript games and opens AI share links.",
+      },
+      {
+        challenge: "Chat sites refuse to be embedded.",
+        hypothesis: "A full-screen in-app view keeps players inside the app instead of a browser.",
+        method: "In-app web view with Back to feed; a new tab on the website.",
+        outcome: "Link games play full screen and return to the same place in the feed.",
+      },
+    ],
+    featureList: [
+      "Swipe feed, one game per screen",
+      "Add games by link or pasted code",
+      "Full-screen play with Back to feed",
+      "Sandboxed code games",
+      "Saved progress per game",
+      "Android app and web",
+    ],
+    keywords: ["Feed Design", "AI-generated Games", "Engagement Design", "Capacitor", "Sandboxing"],
+  },
+  {
+    slug: "the-loop",
+    image: "/images/work/the-loop.webp",
+    cover: { metric: "5 acts", caption: "2027–2030: being the human in the loop" },
+    name: "The Loop",
+    tagline: "A story game about being the human in the loop as AI takes over work",
+    published: true,
+    category: "Game",
+    status: "Playable",
+    schemaType: "WebApplication",
+    applicationCategory: "GameApplication",
+    operatingSystem: "Web",
+    url: "https://sinadehesh.github.io/extention/",
+    role: "Writer, designer & developer",
+    organization: "Own product",
+    summary:
+      "The Loop is a story game in five acts, set between 2027 and 2030, about being the human in the loop. Your laptop is on the left, where you make the decisions; your apartment is on the right, where you live with them. Every button you press makes sense at the time. Acts I and II are playable in the browser.",
+    impact: {
+      problem: "Stories about AI and work are told from far away, so the small, reasonable decisions that add up are hard to feel.",
+      mechanism:
+        "Papers-Please-style daily queues of documents, gigs and agent reports where every scam has one tell, an economy of rent, RAM prices and internet bills that makes each shortcut tempting, and a split screen that shows what every decision costs at home.",
+      stack: ["Single-file HTML and JavaScript", "Motion animation library", "Atkinson Hyperlegible and pixel type"],
+      outcome: "Acts I and II playable in the browser, twelve endings to find, Acts III–V planned.",
+    },
+    metrics: [
+      { value: "5", label: "Acts, 2027–2030 (two playable)" },
+      { value: "12", label: "Endings to find" },
+      { value: "1 file", label: "No build step, plays in any browser" },
+    ],
+    tradeoffs: [
+      "Reading text is set in Atkinson Hyperlegible and the pixel font is kept for labels and numbers: atmosphere without hurting readability.",
+      "Everything lives in one HTML file with no build step, so it runs anywhere and is easy to share.",
+      "Fiction for adults about AI catastrophe, told through ordinary choices rather than spectacle.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Moral choices in games often feel staged.",
+        hypothesis: "Routine work, done one document at a time, makes small compromises feel real.",
+        method: "A one-minute morning queue: read, spot the tell, accept or decline.",
+        outcome: "Each day opens with a queue of mail, gigs, ratings and agent reports.",
+      },
+      {
+        challenge: "Shortcuts need a reason to be tempting.",
+        hypothesis: "Real money pressure makes automation and risk understandable.",
+        method: "Rent, hardware prices that follow RAM, internet bills and freelance gigs.",
+        outcome: "An economy where careful players can just make rent.",
+      },
+    ],
+    featureList: [
+      "Daily document queue",
+      "Freelance and job sites inside the game",
+      "Hardware, rent and price shocks",
+      "Automation that hands work to agents, at a cost",
+      "Twelve endings",
+      "Plays in the browser",
+    ],
+    keywords: ["Narrative Design", "Game Economy", "AI Fiction", "Systems Design", "JavaScript"],
+  },
+  {
+    slug: "gem-jar",
+    image: "/images/work/gem-jar.webp",
+    cover: { metric: "132", caption: "gems across 11 sets to collect" },
+    name: "Gem Jar",
+    tagline: "A drop-and-merge jewel puzzle: make the Diamond before the jar fills",
+    published: true,
+    category: "Game",
+    status: "Pre-launch",
+    schemaType: "MobileApplication",
+    applicationCategory: "GameApplication",
+    operatingSystem: "Android, Web",
+    url: "https://sinadehesh.github.io/Happy-Fruit-merge/gems/",
+    role: "Game designer & developer",
+    organization: "Own product",
+    summary:
+      "Gem Jar is a physics merge puzzle: drop gems into a jar, merge two of a kind into a better one, and make the Diamond before the jar fills. A Daily Challenge gives everyone the same goal each day, a Zap booster clears a gem, and 11 gem sets unlock as you play — 132 gems in all.",
+    impact: {
+      problem: "Merge puzzles are easy to start but repetitive, so without a reason to return players drift away after a few rounds.",
+      mechanism:
+        "A daily challenge picked from the date, the same for everyone; collectible gem sets unlocked by playing; combo praise (SWEET! JUICY! INCREDIBLE!) with sound and haptics; and a booster earned from the daily.",
+      stack: ["HTML5 Canvas", "Matter.js physics", "Capacitor (Android)", "Ad breaks ready for AdMob"],
+      outcome: "Android release bundle and a complete Google Play listing with eight screenshots of real screens; it also plays in the browser.",
+    },
+    metrics: [
+      { value: "132", label: "Gems in 11 sets" },
+      { value: "12", label: "Merge tiers, Pebble to Diamond" },
+      { value: "1", label: "Daily challenge, same for everyone" },
+    ],
+    tradeoffs: [
+      "Each gem's hitbox is its sprite's real outline, so gems rest where the art touches instead of overlapping.",
+      "It shares an engine with Happy Fruit Merge and Zombie Bomber, so every improvement reaches all three games.",
+      "Gems merge only after they land, so dropping fast can't game the board.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Players need a reason to come back tomorrow.",
+        hypothesis: "A shared daily goal and collections create a light habit.",
+        method: "Date-seeded Daily Challenge, earned boosters and unlockable gem sets.",
+        outcome: "Daily Challenge, Zap booster and 11 gem sets.",
+      },
+      {
+        challenge: "Merges should feel rewarding, not mechanical.",
+        hypothesis: "Layered feedback makes each combo feel earned.",
+        method: "Bursts, praise words, a narrator, sound effects and haptics scaled to the merge.",
+        outcome: "Combo feedback on every chain.",
+      },
+    ],
+    featureList: ["Drop-and-merge physics", "Daily Challenge", "Zap booster", "11 gem sets", "Sound, music and haptics", "Android and web"],
+    keywords: ["Game Design", "Retention Loops", "Daily Challenges", "Matter.js", "Capacitor"],
+  },
+  {
+    slug: "zombie-bomber",
+    image: "/images/work/zombie-bomber.webp",
+    cover: { metric: "300", caption: "levels of merge-and-bomb defence" },
+    name: "Zombie Bomber",
+    tagline: "Merge bombs, drop them on the horde, upgrade the base",
+    published: true,
+    category: "Game",
+    status: "Live",
+    schemaType: "WebApplication",
+    applicationCategory: "GameApplication",
+    operatingSystem: "Web",
+    url: "https://sinadehesh.github.io/Happy-Fruit-merge/bomber/",
+    role: "Game designer & developer",
+    organization: "Own product",
+    summary:
+      "Zombie Bomber is a second game on the same drop-and-merge engine. Merge bombs from firecrackers up to bunker busters, switch to Bomb mode to drop them from a plane, and hold the base against 12 zombie types across 300 levels, spending coins on soldiers, weapons, base and bombs between levels.",
+    impact: {
+      problem: "Merge games rarely give the merging a purpose beyond the score.",
+      mechanism:
+        "Two modes tie merging to action — merge to build bigger bombs, then spend them to survive — and an upgrade shop after each level turns coins into visible progress.",
+      stack: ["HTML5 Canvas", "Matter.js physics", "Shared merge engine"],
+      outcome: "Live in the browser with 300 levels, 12 zombie types and an upgrade shop; also playable inside Pukytoon.",
+    },
+    metrics: [
+      { value: "300", label: "Levels" },
+      { value: "12", label: "Zombie types" },
+      { value: "4", label: "Upgrade tracks" },
+    ],
+    tradeoffs: [
+      "Only the number, speed and crowding of zombies grow with the level, so difficulty stays readable.",
+      "Bigger bombs blast much wider, so holding off a merge to build a big one is always a real choice.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Merging alone gets repetitive.",
+        hypothesis: "Giving merges a use creates tension between saving and spending.",
+        method: "MERGE and BOMB modes you can switch any time.",
+        outcome: "Merge to build, bomb to survive.",
+      },
+      {
+        challenge: "Long level runs need visible progress.",
+        hypothesis: "Choosing upgrades between levels keeps players invested.",
+        method: "Coins from zombies spent on soldiers, weapons, base and bombs.",
+        outcome: "An upgrade shop after every level.",
+      },
+    ],
+    featureList: ["Merge and Bomb modes", "300 levels", "12 zombie types", "Upgrade shop", "Plays in the browser"],
+    keywords: ["Game Design", "Progression Systems", "Matter.js", "JavaScript"],
+  },
+  {
+    slug: "thermite-dominoes",
+    image: "/images/work/thermite-dominoes.webp",
+    cover: { metric: "15", caption: "vaults to crack with thermite, acid and C4" },
+    name: "Thermite Dominoes",
+    tagline: "A physics heist puzzle: plan the chain reaction, then ignite",
+    published: true,
+    category: "Game",
+    status: "Built",
+    schemaType: "WebApplication",
+    applicationCategory: "GameApplication",
+    operatingSystem: "Web",
+    role: "Game designer & developer",
+    organization: "Own product",
+    summary:
+      "Thermite Dominoes is a physics puzzle about planning a heist. While the vault is frozen you paint your gear — thermite that burns through steel, acid that eats concrete, cryo-foam that swells to block lasers, C4 and fuses — then press Ignite and watch the chain reaction carry the gold into the getaway pipe.",
+    impact: {
+      problem: "Physics puzzles often reward trial and error rather than planning.",
+      mechanism:
+        "Plan, then ignite: every material follows clear rules (thermite fizzles near water, acid seeps through gold), so players reason about the whole chain before committing, with a loot quota and a best score to beat.",
+      stack: ["Single-file HTML and JavaScript", "Pixel physics simulation"],
+      outcome: "Fifteen vaults across chapters, with security systems such as lasers, sprinklers and conveyors, and random vaults checked to be solvable.",
+    },
+    metrics: [
+      { value: "15", label: "Vaults" },
+      { value: "6+", label: "Tools: thermite, acid, cryo-foam, C4, fuse, oil" },
+      { value: "1", label: "Press of Ignite, then physics decides" },
+    ],
+    tradeoffs: [
+      "The vault is frozen while you plan, so the puzzle is about foresight rather than reflexes.",
+      "Each tool has one simple rule, so complex chains come from combining them rather than from special cases.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Players should plan, not guess.",
+        hypothesis: "A frozen planning phase rewards reasoning about cause and effect.",
+        method: "Paint gear while the vault is frozen, then ignite.",
+        outcome: "Plan-then-ignite structure in every vault.",
+      },
+      {
+        challenge: "Later vaults need new problems, not just harder ones.",
+        hypothesis: "Security systems that react to materials create fresh puzzles.",
+        method: "Lasers, tripwires, sprinklers and conveyors that interact with the tools.",
+        outcome: "Chapters that introduce a new tool or hazard each time.",
+      },
+    ],
+    featureList: ["Plan-then-ignite puzzles", "15 vaults in chapters", "Thermite, acid, cryo-foam, C4, fuses and oil", "Security systems", "Hints and best scores"],
+    keywords: ["Puzzle Design", "Physics Simulation", "Systems Thinking", "JavaScript"],
   },
 ];
 

@@ -26,12 +26,17 @@ codebase against it; keep this file in sync when the brief changes.
 
 ## C. Homepage structure
 
-8. Hero → Consulting (consumer psychology & growth: Optimolds, Musicity) →
-   Experience from the CV (Research Intern, University of Milano-Bicocca;
+8. Hero → I Consulting (consumer psychology & growth: Optimolds, Musicity) →
+   II Experience from the CV (Research Intern, University of Milano-Bicocca;
    Co-Founder, Guardbar; Volunteer Researcher, Salami Rehabilitation Center)
-   → Apps & websites (real screenshots) → Books (both finished, awaiting
-   editorial work) → About & education → FAQ → Contact.
+   → epigraph → III Apps & websites (lead project as a spotlight, then
+   plates) → IV Games (The Loop, Gem Jar, Zombie Bomber, Merge Farmstead,
+   Thermite Dominoes) → V Books → VI About & education → VII FAQ → Contact.
+   Sections carry roman numerals, like chapters in a catalogue.
 9. Titles and dates match the CV; no invented studio or tenure.
+9a. The books are *TAO: The Art of Observation* (non-fiction) and *Man in the
+    Moment* (novel), both finished and awaiting editorial work. No invented
+    synopsis, and no thriller, which is not Sina's work.
 
 ## D. Case studies
 

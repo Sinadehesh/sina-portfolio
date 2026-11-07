@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Contact from "@/components/home/Contact";
 import WorkGrid from "@/components/home/WorkGrid";
+import Games from "@/components/home/Games";
 import JsonLd from "@/components/seo/JsonLd";
 import { personalInfo, publishedCaseStudies } from "@/lib/content";
 import { absoluteUrl, allCaseStudyNodes, breadcrumbNode, caseStudyPath } from "@/lib/schema";
@@ -39,6 +40,7 @@ export default function WorkPage() {
         ]}
       />
       <WorkGrid asPage />
+      <Games numeral="" />
       <Contact />
     </>
   );
