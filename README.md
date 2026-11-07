@@ -95,8 +95,24 @@ chart elements are keyboard reachable, and the whole page respects
 Every route is prerendered, so `npm run build` emits a plain static site to
 `out/` (`output: "export"` in `next.config.ts`) — no server, no cold starts.
 
-**Connect the repo once (recommended).** Cloudflare dashboard → Workers & Pages
-→ Create → Pages → Connect to Git → pick this repository and the `main` branch.
+**Builds come from GitHub.** The `sina-portfolio` Pages project is connected
+to this repository through the **Cloudflare Workers and Pages** GitHub app, and
+production builds from the branch set in Cloudflare (Settings → Builds → Branch
+control; it has been `claude/sina-dehesh-portfolio-i5mzi1`, and `main` is the
+intended one).
+
+Two things silently stop deploys, so check them first when a push doesn't go
+live:
+
+- **App access.** The app must list this repository under GitHub → Settings →
+  Applications → Cloudflare Workers and Pages → Repository access. Connecting
+  another repository to Cloudflare can drop this one from the list; pushes are
+  then ignored with no failed build anywhere.
+- **Production branch.** Only pushes to the production branch update
+  sinadehesh.com.
+
+Cloudflare doesn't build commits it missed: after fixing either, push a new
+commit or start a deployment from the Cloudflare dashboard.
 
 The build output directory is set in `wrangler.jsonc`
 (`"pages_build_output_dir": "./out"`), which takes precedence over the
