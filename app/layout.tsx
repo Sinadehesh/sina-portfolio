@@ -1,28 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { personalInfo, site } from "@/lib/content";
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
 import ScrollFX from "@/components/ScrollFX";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+// Fonts are bundled in app/fonts (Google Fonts' latin variable files, SIL OFL)
+// so the build never depends on reaching Google's servers.
+const display = localFont({
+  src: [
+    { path: "./fonts/cormorant-garamond-latin.woff2", weight: "300 700", style: "normal" },
+    { path: "./fonts/cormorant-garamond-italic-latin.woff2", weight: "300 700", style: "italic" },
+  ],
   variable: "--font-display",
   display: "swap",
 });
 
-const body = Inter({
-  subsets: ["latin"],
+const body = localFont({
+  src: [{ path: "./fonts/inter-latin.woff2", weight: "100 900", style: "normal" }],
   variable: "--font-body",
   display: "swap",
 });
 
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+const mono = localFont({
+  src: [{ path: "./fonts/jetbrains-mono-latin.woff2", weight: "100 800", style: "normal" }],
   variable: "--font-mono-code",
   display: "swap",
 });
