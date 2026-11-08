@@ -32,7 +32,7 @@ npm run typecheck
 
 | Route | Source | Notes |
 | --- | --- | --- |
-| `/` | `app/page.tsx` → `components/home/*` | Hero → tapes → Consulting → Experience → Principle → Apps & websites → Games → Books → About → FAQ → Contact |
+| `/` | `app/page.tsx` → `components/home/*` | Hero → tapes → How I work → Consulting → Experience → Principle → Apps & websites → Games → Books → About → FAQ → Contact |
 | `/work` | `app/work/page.tsx` | All case studies |
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Answer-first summary, impact, interactive chart (`components/work/CaseViz.tsx`), comparison, trade-offs, decision log |
 | `/consumer-psychology` | `app/consumer-psychology/page.tsx` | Service page: services, principles, process, proof, FAQ |
@@ -67,6 +67,13 @@ Signature pieces:
   "decision field" (`components/home/DecisionField.tsx`) that swirls around
   the pointer like attention.
 - **Tapes** — two crossing marquee bands of disciplines under the hero.
+- **How I work** — a scroll story (`components/scrolly/`): a live diagram of
+  visitors passing four decision gates. As you scroll, the drop-offs, the
+  doubt behind each gate, a diagnostic scan, the fixes and the shipped,
+  measured product appear in turn. The flow is a labelled simulation.
+- **Consulting** — Optimolds told as a guided camera tour of the real site
+  (`public/images/work/optimolds-tour.webp`, a 2× capture), spotlighting one
+  psychological lever per scroll step.
 - **Experience** — a timeline whose line fills as you read.
 - **Principle** — the manifesto lights up word by word on scroll.
 - **Apps** — a sticky stacked deck of cards (desktop), each with the real
@@ -74,7 +81,10 @@ Signature pieces:
 - **Games** — a bento grid; **Contact** — an ember section with a magnetic
   orb; **Footer** — the name set across the full width.
 
-`components/Motion.tsx` drives all of it from data attributes (`data-split`,
+Scroll stories use `components/scrolly/Scrolly.tsx`: steps marked
+`data-scrolly-step` beside (desktop) or under (phone) a sticky stage that
+redraws from scroll progress. `components/Motion.tsx` drives the rest from
+data attributes (`data-split`,
 `data-scrub-words`, `data-beam`, `data-deck`, `data-magnetic`, `data-tilt`,
 `data-cursor`, …). Under `prefers-reduced-motion` nothing moves and every
 section renders in its final state.

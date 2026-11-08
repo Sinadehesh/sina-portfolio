@@ -11,7 +11,7 @@ const layout = [
   "md:col-start-2 md:row-start-3",
 ];
 
-export default function Games({ numeral = "04" }: { numeral?: string }) {
+export default function Games({ numeral = "05" }: { numeral?: string }) {
   const games = pick(gamesOrder);
   const playable = games.filter((g) => g.url).length;
   return (

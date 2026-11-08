@@ -11,7 +11,7 @@ export default function About() {
     <Section id="about" tone="paper">
       <SectionHeading
         id="about"
-        numeral="06"
+        numeral="07"
         eyebrow="About"
         title={
           <>

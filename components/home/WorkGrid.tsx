@@ -22,7 +22,7 @@ export default function WorkGrid({ asPage = false }: { asPage?: boolean }) {
       <SectionHeading
         id="work"
         as={asPage ? "h1" : "h2"}
-        numeral={asPage ? undefined : "03"}
+        numeral={asPage ? undefined : "04"}
         eyebrow={asPage ? "All work" : "Apps & websites"}
         title={asPage ? "Every product, engagement and study." : "Products I designed, built and shipped."}
         lede="Real screenshots from the products. Each case study covers the problem, the psychology used, and the decisions behind the build."
