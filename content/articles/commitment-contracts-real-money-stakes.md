@@ -27,7 +27,7 @@
     },
     {
       "q": "Is it ethical to charge people money for their own habits?",
-      "a": "Only when they choose it, set the price and can see exactly what they will pay. In Costly the user sets the hourly rate, most of each loss can be earned back by walking, and the deletion fee is self-priced. The terms are also going through a review against EU unfair-terms rules before launch."
+      "a": "Only when they choose it, set the price and can see exactly what they will pay. In Costly the user sets the hourly rate, most of each loss can be earned back by walking, and the deletion fee is self-priced. Before launch, the terms will also be reviewed against EU unfair-terms rules."
     }
   ],
   "related": ["loss-aversion-fintech-ux", "designing-fair-penalty-fees", "positive-friction-ux-design"],
@@ -82,7 +82,7 @@ That engineering is part of the psychology. A meter that lags, a charge that loo
 
 Costly is pre-launch and has no users, so I can't tell you it works — and I am wary of anyone who claims that before testing. The plan is a 30–50 person alpha on real cards at small stakes, followed by a randomized three-arm study comparing awareness alone, soft friction and real stakes, to estimate the effect size properly. The primary metric is daily minutes in the targeted apps at week four against each person's own baseline. I wrote about why that kind of metric matters in [measuring behavior change in apps](/insights/measuring-behavior-change-apps).
 
-There are open legal questions too: how a breach fee is treated under EU unfair-terms rules, and how it interacts with the 14-day withdrawal right. Those are being reviewed before launch. This is not legal advice, and if you are building something similar, get your own.
+There are open legal questions too: how a breach fee is treated under EU unfair-terms rules, and how it interacts with the 14-day withdrawal right. A legal review of both is part of the pre-launch plan. This is not legal advice, and if you are building something similar, get your own.
 
 ## When should a product use money stakes?
 
