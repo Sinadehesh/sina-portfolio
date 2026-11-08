@@ -12,7 +12,7 @@ function Notes({ items }: { items: readonly string[] }) {
     <ul className="space-y-4">
       {items.map((n) => (
         <li key={n} className="flex gap-3 text-[0.9375rem] text-ivory-dim">
-          <span aria-hidden="true" className="mt-[0.75em] h-px w-4 shrink-0 bg-gold" />
+          <span aria-hidden="true" className="mt-[0.75em] h-px w-4 shrink-0 bg-ember" />
           {n}
         </li>
       ))}
@@ -37,10 +37,10 @@ export default function CaseViz({ kind }: { kind: VizKind }) {
     case "costly":
       return (
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          <div className="rounded-xl border border-gold/25 bg-void/40 p-6 lg:col-span-6">
+          <div className="rounded-xl border border-ember/25 bg-void/40 p-6 lg:col-span-6">
             <BurnRateTicker />
           </div>
-          <p className="font-serif text-[1.5rem] leading-snug italic lg:col-span-6">{costly.premise}</p>
+          <p className="font-serif text-[1.5rem] leading-snug font-semibold tracking-[-0.02em] lg:col-span-6">{costly.premise}</p>
         </div>
       );
     case "radar":

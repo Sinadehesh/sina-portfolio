@@ -7,7 +7,7 @@
  * parsed into structured deal fields, and hit a confidence gate. High
  * confidence writes straight through to Pipedrive. Anything ambiguous is
  * *held* — diverted to manual review, where a human approves before the CRM
- * is ever touched. That held branch is the only thing wearing gold, and the
+ * is ever touched. That held branch is the only thing wearing ember, and the
  * flowing packets visibly stall on it.
  *
  * D3 owns the entire <svg> subtree; React only owns the mount node and the
@@ -26,12 +26,12 @@ import { workflowAutomation } from "@/lib/data";
  * ------------------------------------------------------------------ */
 const INK_800 = "#101013";
 const INK_700 = "#17171b";
-const IVORY = "#ede4d3";
-const IVORY_DIM = "#c9c0b1";
-const IVORY_FAINT = "#8d867a";
-const GOLD = "#c8a45c";
-const GOLD_BRIGHT = "#e0c184";
-const GOLD_DEEP = "#8a6d32";
+const IVORY = "#f3f0ea";
+const IVORY_DIM = "#b9b5ad";
+const IVORY_FAINT = "#7d7a74";
+const EMBER = "#ff5b1f";
+const EMBER_BRIGHT = "#ff8a5c";
+const EMBER_DEEP = "#b8400f";
 
 const MONO = 'var(--font-mono, ui-monospace, "SFMono-Regular", monospace)';
 
@@ -302,7 +302,7 @@ export default function WorkflowGraph({
       .join("path")
       .attr("fill", "none")
       .attr("stroke-linecap", "round")
-      .attr("stroke", (d) => (d.gated ? GOLD : IVORY_FAINT))
+      .attr("stroke", (d) => (d.gated ? EMBER : IVORY_FAINT))
       .attr("stroke-width", (d) => (d.gated ? 1.5 : 1.15))
       .attr("opacity", (d) => (d.gated ? 0.9 : 0.55));
 
@@ -318,7 +318,7 @@ export default function WorkflowGraph({
       .attr("text-anchor", "middle")
       .attr("dominant-baseline", "middle")
       .attr("letter-spacing", "0.12em")
-      .attr("fill", (d) => (d.gated ? GOLD_BRIGHT : IVORY_FAINT))
+      .attr("fill", (d) => (d.gated ? EMBER_BRIGHT : IVORY_FAINT))
       .attr("opacity", (d) => (d.gated ? 0.95 : 0.75))
       .text((d) => d.label.toUpperCase());
 
@@ -341,7 +341,7 @@ export default function WorkflowGraph({
       .append("circle")
       .attr("class", "wf-hold-ring")
       .attr("fill", "none")
-      .attr("stroke", GOLD)
+      .attr("stroke", EMBER)
       .attr("stroke-width", 0.9)
       .attr("stroke-dasharray", "2 5")
       .attr("opacity", 0.32)
@@ -350,7 +350,7 @@ export default function WorkflowGraph({
       .append("rect")
       .attr("class", "wf-focus")
       .attr("fill", "none")
-      .attr("stroke", GOLD_BRIGHT)
+      .attr("stroke", EMBER_BRIGHT)
       .attr("stroke-width", 1)
       .attr("stroke-dasharray", "3 3")
       .attr("opacity", 0)
@@ -362,7 +362,7 @@ export default function WorkflowGraph({
       .attr("letter-spacing", "0.08em")
       .attr("pointer-events", "none")
       .attr("fill", (d) =>
-        d.kind === "safeguard" ? GOLD_BRIGHT : d.kind === "sink" ? IVORY : IVORY_DIM,
+        d.kind === "safeguard" ? EMBER_BRIGHT : d.kind === "sink" ? IVORY : IVORY_DIM,
       )
       .text((d) => d.label);
     const hitSel = nodeSel
@@ -435,9 +435,9 @@ export default function WorkflowGraph({
                   .join(" "),
               )
               .attr("fill", INK_800)
-              .attr("stroke", GOLD_DEEP)
+              .attr("stroke", EMBER_DEEP)
               .attr("stroke-width", 1.2);
-            g.append("circle").attr("r", 1.7).attr("fill", GOLD_DEEP);
+            g.append("circle").attr("r", 1.7).attr("fill", EMBER_DEEP);
             break;
           case "safeguard": {
             const oct = d3
@@ -451,7 +451,7 @@ export default function WorkflowGraph({
             g.append("polygon")
               .attr("points", oct)
               .attr("fill", INK_700)
-              .attr("stroke", GOLD_BRIGHT)
+              .attr("stroke", EMBER_BRIGHT)
               .attr("stroke-width", 1.4);
             g.append("path")
               .attr(
@@ -459,7 +459,7 @@ export default function WorkflowGraph({
                 `M ${-hw * 0.34} 0 L ${-hw * 0.08} ${hh * 0.3} L ${hw * 0.36} ${-hh * 0.32}`,
               )
               .attr("fill", "none")
-              .attr("stroke", GOLD_BRIGHT)
+              .attr("stroke", EMBER_BRIGHT)
               .attr("stroke-width", 1.2)
               .attr("stroke-linecap", "round")
               .attr("stroke-linejoin", "round");
@@ -499,7 +499,7 @@ export default function WorkflowGraph({
     /* ---------------- caption band ---------------- */
     const captionRule = gCaption
       .append("line")
-      .attr("stroke", GOLD)
+      .attr("stroke", EMBER)
       .attr("stroke-width", 1)
       .attr("opacity", 0.5);
     const captionText = gCaption
@@ -529,7 +529,7 @@ export default function WorkflowGraph({
         gated: false,
       });
     }
-    const warm = d3.interpolateRgb(IVORY, GOLD_BRIGHT);
+    const warm = d3.interpolateRgb(IVORY, EMBER_BRIGHT);
 
     /* ---------------- layout ---------------- */
     const linkH = d3.linkHorizontal();
@@ -695,7 +695,7 @@ export default function WorkflowGraph({
           d3.select(p.el)
             .attr("cx", pt.x)
             .attr("cy", pt.y)
-            .attr("fill", l.gated ? GOLD_BRIGHT : IVORY)
+            .attr("fill", l.gated ? EMBER_BRIGHT : IVORY)
             .attr("opacity", 0.75);
         });
       }
@@ -736,10 +736,10 @@ export default function WorkflowGraph({
           return on ? 1 : 0.1;
         })
         .attr("stroke", (d) => {
-          if (id === null) return d.gated ? GOLD : IVORY_FAINT;
+          if (id === null) return d.gated ? EMBER : IVORY_FAINT;
           const on = d.source.id === id || d.target.id === id;
-          if (!on) return d.gated ? GOLD : IVORY_FAINT;
-          return d.gated ? GOLD_BRIGHT : IVORY_DIM;
+          if (!on) return d.gated ? EMBER : IVORY_FAINT;
+          return d.gated ? EMBER_BRIGHT : IVORY_DIM;
         })
         .attr("stroke-width", (d) => {
           const base = d.gated ? 1.5 : 1.15;
@@ -840,7 +840,7 @@ export default function WorkflowGraph({
             .attr("cx", link.target.x)
             .attr("cy", link.target.y)
             .attr("r", pulse)
-            .attr("fill", GOLD_BRIGHT);
+            .attr("fill", EMBER_BRIGHT);
           if (p.hold <= 0) {
             p.seg += 1;
             p.dist = 0;

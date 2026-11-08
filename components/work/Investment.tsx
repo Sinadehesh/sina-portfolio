@@ -7,16 +7,16 @@ export default function InvestmentSection({ study: c, inv }: { study: CaseStudy;
   return (
     <section id="investment" className="stage relative overflow-hidden" aria-labelledby="investment-heading">
       <div aria-hidden="true" className="light-canvas grain absolute inset-0 opacity-60" />
-      <div className="relative z-10 mx-auto max-w-[1280px] px-5 py-20 sm:px-10 md:py-28">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 py-20 sm:px-10 md:py-28">
         <p className="eyebrow">Investment</p>
         <h2 id="investment-heading" className="display mt-4 max-w-[20ch] text-[clamp(2.2rem,5vw,4rem)]">
           {c.name} is raising
         </h2>
         <p className="mt-5 inline-flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-gold px-4 py-1.5 text-sm font-semibold text-void">{inv.stage}</span>
-          {inv.amount && <span className="rounded-full border border-gold/50 px-4 py-1.5 text-sm">{inv.amount}</span>}
+          <span className="rounded-full bg-ember px-4 py-1.5 text-sm font-semibold text-void">{inv.stage}</span>
+          {inv.amount && <span className="rounded-full border border-ember/50 px-4 py-1.5 text-sm">{inv.amount}</span>}
         </p>
-        <p className="mt-8 max-w-[62ch] border-l-2 border-gold pl-5 font-serif text-[1.4rem] leading-snug italic">
+        <p className="mt-8 max-w-[62ch] border-l-2 border-ember pl-5 font-serif text-[1.4rem] leading-snug font-semibold tracking-[-0.02em]">
           {inv.status}
         </p>
 
@@ -26,7 +26,7 @@ export default function InvestmentSection({ study: c, inv }: { study: CaseStudy;
             <ol className="mt-6 space-y-6">
               {inv.plan.map((step, i) => (
                 <li key={step.when} className="grid gap-2 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
-                  <span className="font-serif text-xl font-semibold text-gold-bright">{step.when}</span>
+                  <span className="font-serif text-xl font-semibold text-ember-bright">{step.when}</span>
                   <span className="text-ivory-dim">
                     <span className="sr-only">Step {i + 1}: </span>
                     {step.what}
@@ -38,7 +38,7 @@ export default function InvestmentSection({ study: c, inv }: { study: CaseStudy;
             <ul className="mt-4 space-y-2 text-[0.9375rem] text-ivory-dim">
               {inv.successMetrics.map((m) => (
                 <li key={m} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-[0.75em] h-px w-4 shrink-0 bg-gold" />
+                  <span aria-hidden="true" className="mt-[0.75em] h-px w-4 shrink-0 bg-ember" />
                   {m}
                 </li>
               ))}
@@ -50,7 +50,7 @@ export default function InvestmentSection({ study: c, inv }: { study: CaseStudy;
             <ol className="mt-6 space-y-5">
               {inv.useOfFunds.map((u, i) => (
                 <li key={u} className="flex gap-4">
-                  <span className="font-mono text-sm text-gold">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-mono text-sm text-ember">{String(i + 1).padStart(2, "0")}</span>
                   <span className="text-[0.9375rem] text-ivory-dim">{u}</span>
                 </li>
               ))}
@@ -78,7 +78,7 @@ export default function InvestmentSection({ study: c, inv }: { study: CaseStudy;
         </div>
 
         <div className="mt-12 flex flex-wrap gap-3">
-          <a href={deck} className="btn btn-gold">
+          <a href={deck} className="btn btn-ember">
             Request the investor deck
           </a>
           <a href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(`${c.name} — intro call`)}`} className="btn btn-ghost">

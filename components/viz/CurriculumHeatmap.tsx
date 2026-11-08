@@ -11,19 +11,19 @@ import { passway } from "@/lib/data";
 
    Two sources on one grid. Rows carry Source A (the canonical weight of a
    topic, ivory); cells carry Source B (what a program actually covers,
-   gold). The toggle re-encodes the cells as the difference between them, so
+   ember). The toggle re-encodes the cells as the difference between them, so
    the gap the product exists to expose is the thing you read.
    ========================================================================== */
 
 /* Chiaroscuro: charcoal ground, ivory light, gold accent. Oxide is admitted
    for one job only — the deficit direction of the diverging scale. */
 const INK = {
-  ivory: "#ede4d3",
-  ivoryDim: "#c9c0b1",
-  ivoryFaint: "#8d867a",
-  gold: "#c8a45c",
-  goldBright: "#e0c184",
-  goldDeep: "#8a6d32",
+  ivory: "#f3f0ea",
+  ivoryDim: "#b9b5ad",
+  ivoryFaint: "#7d7a74",
+  ember: "#ff5b1f",
+  emberBright: "#ff8a5c",
+  emberDeep: "#b8400f",
   oxide: "#8c4a3f",
 } as const;
 
@@ -174,20 +174,20 @@ function rampFrom(stops: readonly string[]): (t: number) => string {
   return (t: number): string => String(interpolate(clamp(t, 0, 1)));
 }
 
-/* Sequential: empty → ivory → gold. Monotonic in lightness, so more coverage
+/* Sequential: empty → ivory → ember. Monotonic in lightness, so more coverage
    always reads as more light on the charcoal. */
 const observedRamp = rampFrom([
   CELL_FLOOR,
   "#413c33",
   INK.ivoryFaint,
-  INK.gold,
-  INK.goldBright,
+  INK.ember,
+  INK.emberBright,
 ]);
 
 /* Diverging: oxide deficit ← ivory-on-charcoal neutral → gold surplus, with
    the neutral pinned to exactly zero gap. */
 const deficitRamp = rampFrom([GAP_NEUTRAL, INK.oxide]);
-const surplusRamp = rampFrom([GAP_NEUTRAL, INK.goldDeep, INK.goldBright]);
+const surplusRamp = rampFrom([GAP_NEUTRAL, INK.emberDeep, INK.emberBright]);
 const gapRamp = (t: number): string =>
   t < 0.5 ? deficitRamp((0.5 - t) * 2) : surplusRamp((t - 0.5) * 2);
 
@@ -658,7 +658,7 @@ export default function CurriculumHeatmap({
       tipObserved.value.textContent = fmt(cell.observed);
       tipGap.value.textContent = signed(cell.gap);
       tipGap.value.style.color =
-        cell.gap <= CLEAR_GAP ? INK.oxide : cell.gap > 0 ? INK.goldBright : INK.ivory;
+        cell.gap <= CLEAR_GAP ? INK.oxide : cell.gap > 0 ? INK.emberBright : INK.ivory;
 
       tip.style.opacity = "1";
       const tw = tip.offsetWidth;
@@ -871,10 +871,10 @@ export default function CurriculumHeatmap({
     <figure className={["w-full", className ?? ""].join(" ").trim()}>
       {/* Titling only — the surrounding section owns the heading level. */}
       <figcaption className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <span className="font-serif text-lg font-light tracking-tight text-[#ede4d3]">
+        <span className="font-serif text-lg font-light tracking-tight text-[#f3f0ea]">
           Canonical curriculum × observed coverage
         </span>
-        <span className="font-mono text-[10px] tracking-[0.24em] uppercase text-[#8d867a]">
+        <span className="font-mono text-[10px] tracking-[0.24em] uppercase text-[#7d7a74]">
           {TOPICS.length} topics · {PROGRAMS.length} programs
         </span>
       </figcaption>
@@ -897,8 +897,8 @@ export default function CurriculumHeatmap({
             className={[
               toggleBase,
               mode === option
-                ? "border-[#c8a45c]/60 bg-[#c8a45c]/10 text-[#e0c184] focus-visible:ring-[#e0c184]"
-                : "border-[#ede4d3]/12 text-[#8d867a] hover:border-[#ede4d3]/30 hover:text-[#c9c0b1] focus-visible:ring-[#c8a45c]",
+                ? "border-[#ff5b1f]/60 bg-[#ff5b1f]/10 text-[#ff8a5c] focus-visible:ring-[#ff8a5c]"
+                : "border-[#f3f0ea]/12 text-[#7d7a74] hover:border-[#f3f0ea]/30 hover:text-[#b9b5ad] focus-visible:ring-[#ff5b1f]",
             ].join(" ")}
           >
             {MODE_LABEL[option]}
@@ -909,7 +909,7 @@ export default function CurriculumHeatmap({
       {/* D3 owns everything inside this node — React renders it empty. */}
       <div ref={hostRef} className="relative w-full" />
 
-      <p className="mt-4 max-w-[62ch] font-mono text-[10px] leading-relaxed tracking-[0.06em] text-[#8d867a]">
+      <p className="mt-4 max-w-[62ch] font-mono text-[10px] leading-relaxed tracking-[0.06em] text-[#7d7a74]">
         {CLEAR_GAP_COUNT} of {CELLS.length} cells sit at least 0.25 below the
         canonical weight of their topic. Coverage values are generated from a
         seeded model of the two-source matrix — the same numbers every load.

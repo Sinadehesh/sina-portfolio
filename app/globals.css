@@ -1,57 +1,63 @@
 @import "tailwindcss";
 
 /* ============================================================
-   CHIAROSCURO — two grounds, one light.
-   Charcoal "stage" sections carry the cinematic media; ivory "paper"
-   sections carry anything people need to read. Muted gold is the only
-   accent and is used sparingly.
+   ENGINEERED BEHAVIOR
+   Graphite and bone, with one signal colour: ember. Archivo for display
+   (variable width and weight), Inter for reading, JetBrains Mono for data.
    ============================================================ */
 @theme {
-  --color-void: #050506;
-  --color-charcoal-900: #0a0a0c;
-  --color-charcoal-800: #101013;
-  --color-charcoal-700: #17171b;
-  --color-charcoal-600: #202026;
-  --color-charcoal-500: #2c2c34;
+  --color-void: #040506;
+  --color-charcoal-900: #08090b;
+  --color-charcoal-800: #0f1114;
+  --color-charcoal-700: #16191d;
+  --color-charcoal-600: #1e2126;
+  --color-charcoal-500: #2a2e35;
 
-  --color-ivory: #f1eadc;
-  --color-ivory-dim: #d3cabb;
-  --color-ivory-faint: #a39b8d;
+  /* Bone: the light ground and the text colour on dark. */
+  --color-ivory: #f3f0ea;
+  --color-ivory-dim: #b9b5ad;
+  --color-ivory-faint: #7d7a74;
 
-  --color-paper: #f2ece0;
-  --color-paper-deep: #e7dfcf;
-  --color-ink: #17150f;
-  --color-ink-dim: #4a443a;
-  --color-ink-faint: #6f685c;
+  --color-paper: #eeebe4;
+  --color-paper-deep: #e3dfd6;
+  --color-ink: #0b0c0e;
+  --color-ink-dim: #45464a;
+  --color-ink-faint: #6b6b6d;
 
-  --color-gold: #c8a45c;
-  --color-gold-bright: #e0c184;
-  --color-gold-deep: #8a6d32;
-  /* Gold that still passes AA as small text on paper. */
-  --color-gold-ink: #7a5b1f;
+  /* Ember: the one accent. ember-ink passes AA as small text on bone. */
+  --color-ember: #ff5b1f;
+  --color-ember-bright: #ff8a5c;
+  --color-ember-deep: #b8400f;
+  --color-ember-ink: #b8400f;
 
-  --color-oxide: #8c4a3f;
-  --color-verdigris: #4a7a6f;
-
-  --font-serif: var(--font-display), "Cormorant Garamond", "Times New Roman", serif;
+  --font-serif: var(--font-display), "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-code), ui-monospace, "SFMono-Regular", monospace;
 
   --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 :root {
   color-scheme: dark;
 }
 
-* {
-  border-color: color-mix(in oklab, currentColor 14%, transparent);
+@layer base {
+  * {
+    border-color: color-mix(in oklab, currentColor 14%, transparent);
+  }
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
   background-color: var(--color-void);
+}
+html:not(.lenis) {
+  scroll-behavior: smooth;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
 body {
@@ -60,21 +66,52 @@ body {
   font-family: var(--font-sans);
   font-size: 1.0625rem;
   line-height: 1.65;
-  font-feature-settings: "ss01", "cv01";
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
+/* Film grain over everything: keeps flat graphite from looking digital. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.2s steps(6) infinite;
+}
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+}
+
 ::selection {
-  background: color-mix(in oklab, var(--color-gold) 40%, transparent);
-  color: inherit;
+  background: var(--color-ember);
+  color: var(--color-void);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--color-ember) 55%, var(--color-charcoal-700));
+  border-radius: 999px;
+  border: 3px solid var(--color-void);
+}
+
+/* Archivo headings run slightly wide and tight everywhere they appear. */
+.font-serif {
+  font-stretch: 106%;
+  letter-spacing: -0.02em;
 }
 
 @property --lx { syntax: "<percentage>"; inherits: true; initial-value: 28%; }
 @property --ly { syntax: "<percentage>"; inherits: true; initial-value: 30%; }
+@property --angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 
-/* Component classes live in the components layer so Tailwind utilities
-   (absolute, padding, colours) can always override them. */
 @layer components {
   /* ============================================================
      Grounds
@@ -83,29 +120,28 @@ body {
     background-color: var(--color-charcoal-900);
     color: var(--color-ivory);
   }
-
   .paper {
     background-color: var(--color-paper);
     color: var(--color-ink);
     color-scheme: light;
   }
-  .paper ::selection {
-    background: color-mix(in oklab, var(--color-gold) 45%, transparent);
+  .ember-ground {
+    background-color: var(--color-ember);
+    color: var(--color-void);
   }
 
-  /* Oil-paint tooth so flat grounds never read as flat colour. */
   .grain::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.28;
+    opacity: 0.22;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   }
   .paper.grain::after,
   .paper .grain::after {
-    opacity: 0.32;
+    opacity: 0.25;
     mix-blend-mode: multiply;
   }
 
@@ -114,9 +150,10 @@ body {
      ============================================================ */
   .display {
     font-family: var(--font-serif);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    line-height: 1.02;
+    font-weight: 740;
+    font-stretch: 114%;
+    letter-spacing: -0.048em;
+    line-height: 0.93;
     text-wrap: balance;
   }
 
@@ -124,18 +161,31 @@ body {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-gold);
+    color: var(--color-ember);
   }
   .paper .eyebrow {
-    color: var(--color-gold-ink);
+    color: var(--color-ember-ink);
   }
 
   .lede {
     font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
     line-height: 1.6;
     text-wrap: pretty;
+  }
+
+  /* Section index, e.g. (01) */
+  .numeral {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Outlined display type for marquees and large background words. */
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1px color-mix(in oklab, currentColor 55%, transparent);
   }
 
   /* ============================================================
@@ -156,24 +206,22 @@ body {
     object-fit: cover;
   }
 
-  /* Designed fallback for a media slot without a video yet: one warm light
-     source raking across a charcoal canvas, tinted per slot via --hue. */
+  /* Placeholder canvas for a media slot without a video: one light source
+     raking across graphite, tinted per slot via --hue. */
   .light-canvas {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 70% at var(--lx, 28%) var(--ly, 30%), color-mix(in oklab, var(--hue, var(--color-gold)) 50%, transparent), transparent 70%),
-      radial-gradient(ellipse 50% 60% at 85% 90%, color-mix(in oklab, var(--color-oxide) 22%, transparent), transparent 70%),
+      radial-gradient(ellipse 60% 70% at var(--lx, 28%) var(--ly, 30%), color-mix(in oklab, var(--hue, var(--color-ember)) 38%, transparent), transparent 70%),
       linear-gradient(160deg, var(--color-charcoal-700), var(--color-void));
   }
-  /* A faint lab grid that only shows where the light falls. */
   .light-canvas::before {
     content: "";
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(color-mix(in oklab, var(--color-ivory) 7%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in oklab, var(--color-ivory) 7%, transparent) 1px, transparent 1px);
+      linear-gradient(color-mix(in oklab, var(--color-ivory) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-ivory) 6%, transparent) 1px, transparent 1px);
     background-size: 56px 56px;
     -webkit-mask-image: radial-gradient(ellipse 55% 65% at var(--lx, 28%) var(--ly, 30%), black, transparent 75%);
     mask-image: radial-gradient(ellipse 55% 65% at var(--lx, 28%) var(--ly, 30%), black, transparent 75%);
@@ -185,9 +233,7 @@ body {
     from { --lx: 22%; --ly: 26%; }
     to   { --lx: 62%; --ly: 44%; }
   }
-  /* Hero: the light sits right of the headline, where the video will play. */
   .light-canvas.hero-light {
-    --hue: var(--color-gold);
     animation-name: drift-right;
     animation-duration: 22s;
   }
@@ -205,39 +251,74 @@ body {
     background: radial-gradient(ellipse 120% 90% at 50% 45%, transparent 40%, color-mix(in oklab, var(--color-void) 85%, transparent) 100%);
   }
 
-  /* Hero scrim: keeps the headline readable over any video. */
   .hero-scrim {
     background:
-      linear-gradient(90deg, color-mix(in oklab, var(--color-void) 88%, transparent) 0%, color-mix(in oklab, var(--color-void) 55%, transparent) 48%, transparent 85%),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-void) 88%, transparent) 0%, color-mix(in oklab, var(--color-void) 50%, transparent) 50%, transparent 85%),
       linear-gradient(0deg, var(--color-charcoal-900) 0%, transparent 35%);
   }
 
-  .rule-gold {
-    background: linear-gradient(90deg, color-mix(in oklab, var(--color-gold) 70%, transparent), color-mix(in oklab, var(--color-gold) 10%, transparent));
+  /* A framed plate: the image eases in on hover and a passe-partout line
+     appears inside the frame. */
+  .plate img,
+  .plate video {
+    transition: transform 1.4s var(--ease-cinema);
+  }
+  .group:hover .plate img,
+  .group:hover .plate video {
+    transform: scale(1.035);
+  }
+  .plate::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    z-index: 4;
+    pointer-events: none;
+    border-radius: 0.9rem;
+    border: 1px solid color-mix(in oklab, var(--color-ivory) 24%, transparent);
+    opacity: 0;
+    transition: opacity 700ms var(--ease-cinema), inset 700ms var(--ease-cinema);
+  }
+  .group:hover .plate::after {
+    opacity: 1;
+    inset: 16px;
   }
 
   /* ============================================================
-     Components
+     Buttons and links
      ============================================================ */
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
     border-radius: 999px;
-    padding: 0.95rem 1.6rem;
+    padding: 1rem 1.7rem;
     font-size: 0.9375rem;
     font-weight: 600;
     line-height: 1;
-    transition: background-color 300ms var(--ease-cinema), color 300ms var(--ease-cinema), transform 300ms var(--ease-cinema);
+    letter-spacing: -0.005em;
+    transition: background-color 300ms var(--ease-cinema), color 300ms var(--ease-cinema), border-color 300ms var(--ease-cinema), box-shadow 500ms var(--ease-cinema);
+    will-change: transform;
   }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-gold { background: var(--color-gold); color: var(--color-void); }
-  .btn-gold:hover { background: var(--color-gold-bright); }
-  .btn-ghost { border: 1px solid color-mix(in oklab, currentColor 35%, transparent); }
-  .btn-ghost:hover { background: color-mix(in oklab, currentColor 8%, transparent); }
+  .btn-ember {
+    background: var(--color-ember);
+    color: var(--color-void);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-ember) 0%, transparent);
+  }
+  .btn-ember:hover {
+    background: var(--color-ember-bright);
+    box-shadow: 0 10px 40px -8px color-mix(in oklab, var(--color-ember) 70%, transparent);
+  }
+  .btn-ghost {
+    border: 1px solid color-mix(in oklab, currentColor 30%, transparent);
+  }
+  .btn-ghost:hover {
+    border-color: currentColor;
+    background: color-mix(in oklab, currentColor 6%, transparent);
+  }
   .btn-ink { background: var(--color-ink); color: var(--color-paper); }
-  .btn-ink:hover { background: #2a2620; }
+  .btn-ink:hover { background: #24262b; }
 
   .link-arrow {
     display: inline-flex;
@@ -258,107 +339,548 @@ body {
   details[open] .faq-plus { transform: rotate(45deg); }
 
   /* ============================================================
-     Catalogue details — numerals, plates, captions
+     Signature pieces
      ============================================================ */
-  /* Section numeral: an italic serif roman numeral before the eyebrow. */
-  .numeral {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 1.35rem;
-    letter-spacing: 0;
-    text-transform: none;
-    line-height: 1;
+  /* Spotlight card: a soft ember light follows the pointer across the card
+     and along its border. --sx/--sy are set by the motion layer. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--color-charcoal-800);
+    border: 1px solid color-mix(in oklab, var(--color-ivory) 9%, transparent);
   }
-
-  /* A framed plate: the image eases in on hover and a passe-partout line
-     appears inside the frame, like a print in a gallery. */
-  .plate img,
-  .plate video {
-    transition: transform 1.4s var(--ease-cinema);
-  }
-  .group:hover .plate img,
-  .group:hover .plate video {
-    transform: scale(1.035);
-  }
-  .plate::after {
+  .spotlight::before {
     content: "";
     position: absolute;
-    inset: 12px;
-    z-index: 4;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 500ms var(--ease-cinema);
+    background: radial-gradient(520px circle at var(--sx, 50%) var(--sy, 50%), color-mix(in oklab, var(--color-ember) 14%, transparent), transparent 45%);
+  }
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
     pointer-events: none;
-    border-radius: 0.75rem;
-    border: 1px solid color-mix(in oklab, var(--color-ivory) 22%, transparent);
     opacity: 0;
-    transition: opacity 700ms var(--ease-cinema), inset 700ms var(--ease-cinema);
+    transition: opacity 500ms var(--ease-cinema);
+    background: radial-gradient(360px circle at var(--sx, 50%) var(--sy, 50%), var(--color-ember), transparent 40%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
-  .group:hover .plate::after {
-    opacity: 1;
-    inset: 16px;
-  }
-
-  /* Pointer light: a soft gold glow that follows the visitor's pointer. */
-  .pointer-light {
-    opacity: 0;
-    transition: opacity 900ms var(--ease-cinema);
-    background: radial-gradient(560px circle at var(--px, 70%) var(--py, 40%), color-mix(in oklab, var(--color-gold) 15%, transparent), transparent 65%);
-  }
-  .pointer-on .pointer-light {
+  .spotlight:hover::before,
+  .spotlight:hover::after {
     opacity: 1;
   }
 
-  /* ============================================================
-     Book covers
-     ============================================================ */
+  /* Infinite marquee. Content is duplicated in markup; this moves it half
+     its width, forever. */
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-speed, 38s) linear infinite;
+  }
+  .marquee-wrap:hover .marquee {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* Focus brackets around a photograph, like a camera's AF frame. -lg only
+     from 1024px up. */
+  .af-frame::before,
+  .af-frame::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .af-frame::before { top: -12px; left: -12px; border-top: 2px solid var(--color-ember); border-left: 2px solid var(--color-ember); }
+  .af-frame::after { bottom: -12px; right: -12px; border-bottom: 2px solid var(--color-ember); border-right: 2px solid var(--color-ember); }
+  @media (min-width: 64rem) {
+    .af-frame-lg::before,
+    .af-frame-lg::after {
+      content: "";
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .af-frame-lg::before { top: -12px; left: -12px; border-top: 2px solid var(--color-ember); border-left: 2px solid var(--color-ember); }
+    .af-frame-lg::after { bottom: -12px; right: -12px; border-bottom: 2px solid var(--color-ember); border-right: 2px solid var(--color-ember); }
+  }
+  .af-frame::before { top: -10px; left: -10px; border-top: 2px solid; border-left: 2px solid; }
+  .af-frame::after { bottom: -10px; right: -10px; border-bottom: 2px solid; border-right: 2px solid; }
+
+  /* Live dot */
+  .live-dot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-ember);
+  }
+  .live-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--color-ember);
+    animation: ping 1.8s var(--ease-cinema) infinite;
+  }
+  @keyframes ping {
+    from { transform: scale(1); opacity: 0.7; }
+    to   { transform: scale(3.2); opacity: 0; }
+  }
+
+  /* Book covers */
   .book {
     position: relative;
     aspect-ratio: 2 / 3;
-    border-radius: 3px 10px 10px 3px;
+    border-radius: 3px 12px 12px 3px;
     overflow: hidden;
     box-shadow:
-      inset 7px 0 12px -7px rgba(0, 0, 0, 0.45),
-      0 34px 60px -28px rgba(0, 0, 0, 0.55),
-      0 2px 6px rgba(0, 0, 0, 0.12);
-    transform: perspective(1400px) rotateY(-9deg);
+      inset 8px 0 14px -8px rgba(0, 0, 0, 0.55),
+      0 40px 70px -30px rgba(0, 0, 0, 0.8),
+      0 2px 6px rgba(0, 0, 0, 0.25);
+    transform: perspective(1400px) rotateY(-14deg) rotateX(2deg);
     transform-origin: left center;
-    transition: transform 1.1s var(--ease-cinema), box-shadow 1.1s var(--ease-cinema);
+    transition: transform 1.1s var(--ease-cinema);
   }
   .group:hover .book {
-    transform: perspective(1400px) rotateY(0deg) translateY(-4px);
+    transform: perspective(1400px) rotateY(0deg) translateY(-6px);
   }
-  /* The spine: a fold of light and shadow down the left edge. */
   .book::before {
     content: "";
     position: absolute;
     inset: 0 auto 0 0;
     width: 16px;
     z-index: 2;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.32), rgba(255, 255, 255, 0.1) 55%, transparent);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.38), rgba(255, 255, 255, 0.1) 55%, transparent);
+  }
+
+  /* Stacked deck of project cards: sticky only from 1024px, where a card fits
+     the viewport. */
+  .deck-card {
+    position: relative;
+  }
+  @media (min-width: 64rem) {
+    .deck-card {
+      position: sticky;
+      top: calc(5.5rem + var(--i, 0) * 1.25rem);
+    }
+  }
+  .deck-glow {
+    background: radial-gradient(70% 70% at 0% 100%, color-mix(in oklab, var(--color-ember) 10%, transparent), transparent 70%);
+  }
+
+  /* ============================================================
+     Hero
+     ============================================================ */
+  .hero-bg {
+    background:
+      radial-gradient(40% 48% at 79% 50%, color-mix(in oklab, var(--color-ember) 18%, transparent), transparent 72%),
+      radial-gradient(70% 70% at 8% 0%, #16191e, transparent 70%),
+      var(--color-charcoal-900);
+  }
+  /* Engineering grid, fading out towards the edges. */
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--color-ivory) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-ivory) 5%, transparent) 1px, transparent 1px);
+    background-size: 72px 72px;
+    background-position: -1px -1px;
+    -webkit-mask-image: radial-gradient(75% 85% at 60% 45%, black, transparent 82%);
+    mask-image: radial-gradient(75% 85% at 60% 45%, black, transparent 82%);
+  }
+  /* Keeps the headline legible over the particle field. */
+  .hero-veil {
+    background:
+      radial-gradient(55% 65% at 22% 52%, color-mix(in oklab, var(--color-charcoal-900) 72%, transparent), transparent 75%),
+      linear-gradient(0deg, var(--color-charcoal-900) 0%, transparent 24%);
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 13.4vw, 5.6rem);
+    font-stretch: 118%;
+    line-height: 0.9;
+  }
+  @media (min-width: 64rem) {
+    .hero-title {
+      font-size: clamp(4.4rem, min(8.1vw, 15.5svh), 8.6rem);
+    }
+  }
+  /* Each hero line rises out of its own mask (CSS only, so it never waits
+     for JavaScript). The padding keeps descenders inside the mask. */
+  .line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.11em;
+    margin-bottom: -0.11em;
+  }
+  .line > span {
+    display: inline-block;
+    animation: line-up 1.3s var(--ease-out-expo) both;
+    animation-delay: var(--d, 0ms);
+  }
+  @keyframes line-up {
+    from { transform: translate3d(0, 110%, 0); }
+    to   { transform: none; }
+  }
+
+  @media (max-width: 63.999rem) {
+    .portrait-fade {
+      -webkit-mask-image: linear-gradient(to bottom, black 52%, transparent 98%);
+      mask-image: linear-gradient(to bottom, black 52%, transparent 98%);
+    }
+  }
+
+  /* Floating discipline chips around the portrait. */
+  .chip {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.85rem 1.05rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    background: color-mix(in oklab, var(--color-charcoal-900) 80%, transparent);
+    border: 1px solid color-mix(in oklab, var(--color-ivory) 14%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.85);
+  }
+  .float {
+    animation: float 7s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-9px); }
+  }
+
+  /* Big figures: proof bar, deck metrics. */
+  .stat-figure {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 760;
+    font-stretch: 118%;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .section-index { color: var(--color-ember); }
+  .paper .section-index { color: var(--color-ember-ink); }
+
+  /* ============================================================
+     Navigation
+     ============================================================ */
+  .site-nav {
+    background: color-mix(in oklab, var(--color-charcoal-900) 94%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 1px solid color-mix(in oklab, var(--color-ivory) 9%, transparent);
+    transition: background-color 500ms var(--ease-cinema), border-color 500ms var(--ease-cinema);
+  }
+  .site-nav.at-top {
+    background: transparent;
+    border-bottom-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 1px;
+    background: var(--color-ember);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 500ms var(--ease-cinema);
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  /* ============================================================
+     Crossing tapes (marquee band under the hero)
+     ============================================================ */
+  .tape {
+    position: relative;
+    left: -5%;
+    width: 110%;
+    display: flex;
+    padding: 0.5em 0;
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.3vw, 3rem);
+    font-weight: 800;
+    font-stretch: 122%;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .tape-back {
+    z-index: 1;
+    transform: rotate(2.4deg);
+    background: var(--color-charcoal-700);
+    color: color-mix(in oklab, var(--color-ivory) 38%, transparent);
+  }
+  .tape-front {
+    z-index: 2;
+    margin-top: -2em;
+    transform: rotate(-2.4deg);
+    background: var(--color-ember);
+    color: var(--color-void);
+    box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.9);
+  }
+
+  /* ============================================================
+     Experience timeline (the beam)
+     ============================================================ */
+  .beam {
+    --beam-x: 6px;
+    --beam-col: 0px;
+    position: relative;
+  }
+  @media (min-width: 48rem) {
+    .beam { --beam-col: 15rem; --beam-x: 15rem; }
+  }
+  @media (min-width: 80rem) {
+    .beam { --beam-col: 19rem; --beam-x: 19rem; }
+  }
+  .beam-track,
+  .beam-fill {
+    position: absolute;
+    top: 0.7rem;
+    bottom: 0;
+    left: var(--beam-x);
+    width: 1px;
+    pointer-events: none;
+  }
+  .beam-track { background: color-mix(in oklab, var(--color-ink) 16%, transparent); }
+  .beam-fill {
+    width: 3px;
+    margin-left: -1px;
+    border-radius: 3px;
+    background: linear-gradient(var(--color-ember), var(--color-ember-deep));
+    box-shadow: 0 0 18px color-mix(in oklab, var(--color-ember) 55%, transparent);
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+  .js-off .beam-fill { transform: none; }
+  .beam-node {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    padding: 0 0 5rem 2.5rem;
+  }
+  .beam-node:last-child { padding-bottom: 0; }
+  @media (min-width: 48rem) {
+    .beam-node {
+      grid-template-columns: var(--beam-col) minmax(0, 1fr);
+      gap: 0;
+      padding-left: 0;
+      padding-bottom: 6.5rem;
+    }
+    .beam-when { padding-right: 2.75rem; text-align: right; }
+    .beam-what { padding-left: 3.5rem; }
+  }
+  .beam-dot {
+    position: absolute;
+    z-index: 1;
+    top: 0.45rem;
+    left: calc(var(--beam-x) - 6px);
+    width: 13px;
+    height: 13px;
+    border-radius: 999px;
+    background: var(--color-paper);
+    border: 2px solid color-mix(in oklab, var(--color-ink) 30%, transparent);
+    transition: background-color 600ms var(--ease-cinema), border-color 600ms var(--ease-cinema), box-shadow 600ms var(--ease-cinema);
+  }
+  .beam-year {
+    font-family: var(--font-serif);
+    font-size: clamp(2.6rem, 4.2vw, 4rem);
+    font-weight: 800;
+    font-stretch: 112%;
+    letter-spacing: -0.045em;
+    line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1.5px color-mix(in oklab, var(--color-ink) 42%, transparent);
+    transition: color 800ms var(--ease-cinema), -webkit-text-stroke-color 800ms var(--ease-cinema);
+  }
+  .beam-node.is-lit .beam-dot,
+  .js-off .beam-dot {
+    background: var(--color-ember);
+    border-color: var(--color-ember);
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--color-ember) 18%, transparent);
+  }
+  .beam-node.is-lit .beam-year,
+  .js-off .beam-year {
+    color: var(--color-ink);
+    -webkit-text-stroke-color: transparent;
+  }
+
+  /* ============================================================
+     Section atmospheres
+     ============================================================ */
+  .manifesto-glow,
+  .books-glow {
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 96%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 96%);
+  }
+  .manifesto-glow {
+    background:
+      radial-gradient(48% 55% at 86% 72%, color-mix(in oklab, var(--color-ember) 15%, transparent), transparent 70%),
+      radial-gradient(40% 50% at 0% 0%, color-mix(in oklab, var(--color-ivory) 4%, transparent), transparent 70%);
+  }
+  .books-glow {
+    background: radial-gradient(45% 55% at 22% 78%, color-mix(in oklab, var(--color-ember) 12%, transparent), transparent 70%);
+  }
+  .grid-paper {
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--color-ivory) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-ivory) 5%, transparent) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* ============================================================
+     Contact and footer
+     ============================================================ */
+  .contact-orb {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 999px;
+    background: var(--color-void);
+    color: var(--color-ember);
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-stretch: 112%;
+    letter-spacing: -0.02em;
+    box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.55);
+    transition: background-color 400ms var(--ease-cinema), color 400ms var(--ease-cinema);
+  }
+  .contact-orb:hover {
+    background: var(--color-charcoal-700);
+    color: var(--color-ember-bright);
+  }
+  @media (min-width: 64rem) {
+    .contact-orb { width: 13rem; height: 13rem; }
+  }
+
+  /* The name, set as wide as the page. */
+  .footer-wordmark {
+    padding: 0.06em 0 0;
+    font-family: var(--font-serif);
+    font-size: 11.2vw;
+    font-weight: 900;
+    font-stretch: 125%;
+    letter-spacing: -0.065em;
+    line-height: 0.76;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: transparent;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--color-ivory) 22%, transparent) 10%, transparent 92%);
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 }
 
-/* Thin gold thread for the scrollbar. */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--color-void); }
-::-webkit-scrollbar-thumb {
-  background: color-mix(in oklab, var(--color-gold) 35%, var(--color-charcoal-700));
+/* ============================================================
+   Custom cursor (desktop, added by the motion layer)
+   ============================================================ */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  pointer-events: none;
   border-radius: 999px;
-  border: 3px solid var(--color-void);
+  transform: translate3d(-100px, -100px, 0);
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: var(--color-ember);
+}
+.cursor-ring {
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border: 1px solid color-mix(in oklab, var(--color-ivory) 55%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: transparent;
+  transition: width 400ms var(--ease-cinema), height 400ms var(--ease-cinema), margin 400ms var(--ease-cinema), background-color 400ms var(--ease-cinema), border-color 400ms var(--ease-cinema), color 300ms;
+}
+.cursor-ring.is-link {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-color: var(--color-ember);
+}
+.cursor-ring.is-label {
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;
+  background: var(--color-ember);
+  border-color: var(--color-ember);
+  color: var(--color-void);
 }
 
 /* ============================================================
-   Entrances
+   Motion
    ============================================================ */
-/* Hero entrance: each line rises out of a soft blur, staggered by --d. */
+/* Fade-ups armed by the motion layer. Never hidden without JS. */
+.reveal { opacity: 0; transform: translateY(22px); }
+.js-off .reveal { opacity: 1; transform: none; }
+
+/* Hero entrance for elements that aren't split into lines. */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
-  to   { opacity: 1; transform: none; filter: blur(0); }
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
 }
 .rise {
-  animation: rise 1.2s var(--ease-cinema) both;
+  animation: rise 1.2s var(--ease-out-expo) both;
   animation-delay: var(--d, 0ms);
 }
 
-/* Slow drift on a photograph, like a camera breathing. */
 @keyframes slow-zoom {
   from { transform: scale(1.02); }
   to   { transform: scale(1.1) translate(-1.5%, -1%); }
@@ -367,16 +889,13 @@ body {
   animation: slow-zoom 26s ease-in-out infinite alternate;
 }
 
-/* ============================================================
-   Motion
-   ============================================================ */
-/* Elements GSAP fades in. Never hidden for readers without JS. */
-.reveal { opacity: 0; transform: translateY(18px); }
-.js-off .reveal { opacity: 1; transform: none; }
-
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html:not(.lenis) { scroll-behavior: auto; }
+  body::after { animation: none; }
   .reveal { opacity: 1 !important; transform: none !important; }
+  .beam-fill { transform: none; }
+  .beam-dot { background: var(--color-ember); border-color: var(--color-ember); }
+  .beam-year { color: var(--color-ink); -webkit-text-stroke-color: transparent; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

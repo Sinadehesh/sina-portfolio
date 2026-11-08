@@ -1,5 +1,8 @@
 # Video prompts
 
+> **Note:** the current design does not use the hero or contact videos — the hero is a live particle field around the portrait. These prompts are kept for reference.
+
+
 Only three videos are needed; project tiles use real screenshots. All three
 share one abstract motif — ivory and gold ink unfolding in dark water — so
 there are no objects for the generator to redraw differently from clip to

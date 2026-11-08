@@ -82,7 +82,7 @@ export default function BurnRateTicker({ className = "" }: { className?: string 
         <span className="flex items-center gap-2 font-mono text-[0.625rem] tracking-[0.28em] text-ivory-faint uppercase">
           <span
             aria-hidden
-            className={`h-1.5 w-1.5 rounded-full bg-gold ${reduced ? "" : "animate-pulse"}`}
+            className={`h-1.5 w-1.5 rounded-full bg-ember ${reduced ? "" : "animate-pulse"}`}
           />
           <span ref={elapsedRef}>00:00</span>
         </span>
@@ -102,7 +102,7 @@ export default function BurnRateTicker({ className = "" }: { className?: string 
         </span>
         <span
           ref={fracRef}
-          className="ml-1 text-[clamp(1rem,2.4vw,1.5rem)] font-light text-gold"
+          className="ml-1 text-[clamp(1rem,2.4vw,1.5rem)] font-light text-ember"
         >
           00
         </span>
@@ -118,7 +118,7 @@ export default function BurnRateTicker({ className = "" }: { className?: string 
         <span className="mt-3 block h-px w-full bg-ivory/12">
           <span
             ref={barRef}
-            className="block h-px bg-gold shadow-[0_0_12px_var(--color-gold)]"
+            className="block h-px bg-ember shadow-[0_0_12px_var(--color-ember)]"
             style={{ width: "0.6%" }}
           />
         </span>

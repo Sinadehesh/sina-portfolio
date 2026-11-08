@@ -63,7 +63,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <header className="stage relative overflow-hidden">
         <MediaSlot video={workVideo(c.slug)} hue={hueFor(c.slug)} priority className="vignette absolute inset-0" />
         <div aria-hidden="true" className="hero-scrim absolute inset-0 z-[2]" />
-        <div className="relative z-10 mx-auto max-w-[1280px] px-5 pt-36 pb-16 sm:px-10 md:pt-44 md:pb-20">
+        <div className="relative z-10 mx-auto max-w-[1440px] px-5 pt-36 pb-16 sm:px-10 md:pt-44 md:pb-20">
           <nav aria-label="Breadcrumb" className="text-sm text-ivory-faint">
             <a href="/" className="hover:text-ivory">Home</a> / <a href="/work" className="hover:text-ivory">Work</a> /{" "}
             <span className="text-ivory">{c.name}</span>
@@ -71,7 +71,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <p className="eyebrow mt-8">
             {c.category} · {c.status}
           </p>
-          <h1 className="display mt-5 max-w-[18ch] text-[clamp(2.6rem,6.4vw,5.5rem)]">
+          <h1 className="display mt-5 max-w-[20ch] text-[clamp(2.4rem,5.4vw,4.75rem)]">
             {c.name}: <span className="text-ivory-dim">{c.tagline}</span>
           </h1>
           <dl className="mt-10 grid max-w-3xl gap-6 text-sm sm:grid-cols-3">
@@ -91,7 +91,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             </div>
           </dl>
           {c.url && (
-            <a href={c.url} target="_blank" rel="noopener" className="btn btn-gold mt-10">
+            <a href={c.url} target="_blank" rel="noopener" className="btn btn-ember mt-10">
               {c.category === "Game" ? "Play in your browser ↗" : "Open the live product ↗"}
             </a>
           )}
@@ -100,7 +100,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
       {c.image && (
         <section className="stage" aria-label={`${c.name} screenshot`}>
-          <div className="mx-auto max-w-[1280px] px-5 pb-16 sm:px-10 md:pb-24">
+          <div className="mx-auto max-w-[1440px] px-5 pb-16 sm:px-10 md:pb-24">
             <figure className="overflow-hidden rounded-2xl shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] ring-1 ring-ivory/10">
               {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset */}
               <img src={c.image} alt={`${c.name} — ${c.tagline}`} width={1600} height={1000} className="block h-auto w-full" />
@@ -111,10 +111,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
       {/* Answer-first summary + impact */}
       <section className="paper">
-        <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-10 md:py-28">
+        <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-10 md:py-28">
           <div className="grid gap-14 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <p className="border-l-4 border-gold pl-6 font-serif text-[clamp(1.5rem,2.6vw,2rem)] leading-snug font-medium">
+              <p className="border-l-4 border-ember pl-6 font-serif text-[clamp(1.5rem,2.6vw,2rem)] leading-snug font-medium">
                 {c.summary}
               </p>
               <h2 className="eyebrow mt-16">Executive impact summary</h2>
@@ -147,7 +147,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       {/* Interactive chart */}
       {c.viz && (
         <section className="stage" aria-labelledby="viz-heading">
-          <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-10 md:py-28">
+          <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-10 md:py-28">
             <p className="eyebrow">Interactive</p>
             <h2 id="viz-heading" className="display mt-4 mb-12 text-[clamp(2rem,4.4vw,3.5rem)]">
               See how {c.name} works
@@ -159,7 +159,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
       {/* Comparison, trade-offs, decision log, features */}
       <section className="paper">
-        <div className="mx-auto max-w-[1280px] space-y-20 px-5 py-20 sm:px-10 md:py-28">
+        <div className="mx-auto max-w-[1440px] space-y-20 px-5 py-20 sm:px-10 md:py-28">
           {c.benchmarks && (
             <div>
               <h2 className="display text-[clamp(2rem,4vw,3.25rem)]">
@@ -181,7 +181,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   </thead>
                   <tbody className="divide-y divide-ink/10">
                     {c.benchmarks.map((b) => (
-                      <tr key={b.name} className={b.name === c.name ? "bg-gold/10" : ""}>
+                      <tr key={b.name} className={b.name === c.name ? "bg-ember/10" : ""}>
                         <th scope="row" className={`${thCls} align-top`}>{b.name}</th>
                         <td className={tdCls}>{b.strength}</td>
                         <td className={tdCls}>{b.gap}</td>
@@ -198,7 +198,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <ul className="space-y-5 lg:col-span-7">
               {c.tradeoffs.map((t) => (
                 <li key={t} className="flex gap-4 text-[1.0625rem] text-ink-dim">
-                  <span aria-hidden="true" className="mt-[0.8em] h-px w-5 shrink-0 bg-gold-ink" />
+                  <span aria-hidden="true" className="mt-[0.8em] h-px w-5 shrink-0 bg-ember-ink" />
                   {t}
                 </li>
               ))}
