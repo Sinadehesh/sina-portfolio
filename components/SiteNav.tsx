@@ -1,6 +1,7 @@
 import { personalInfo } from "@/lib/content";
 
 const links = [
+  { href: "/#method", label: "Method" },
   { href: "/#consulting", label: "Consulting" },
   { href: "/#experience", label: "Experience" },
   { href: "/#work", label: "Apps" },

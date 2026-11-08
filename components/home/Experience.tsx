@@ -24,7 +24,7 @@ export default function Experience() {
     <Section id="experience" tone="paper">
       <SectionHeading
         id="experience"
-        numeral="02"
+        numeral="03"
         eyebrow="Experience"
         title="Research, a venture, and fieldwork."
         lede="Before consulting: product research at university, a company of my own, and 200 interviews in the field."

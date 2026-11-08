@@ -29,13 +29,19 @@ codebase against it; keep this file in sync when the brief changes.
 
 ## C. Homepage structure
 
-8. Hero → disciplines tape → (01) Consulting (consumer psychology & growth:
-   Optimolds, Musicity) → (02) Experience from the CV (Research Intern,
-   University of Milano-Bicocca; Co-Founder, Guardbar; Volunteer Researcher,
-   Salami Rehabilitation Center) → principle → (03) Apps & websites (a stacked
-   deck of cards) → (04) Games (The Loop, Gem Jar, Zombie Bomber, Merge
-   Farmstead, Thermite Dominoes) → (05) Books → (06) About & education →
-   (07) FAQ → Contact. Sections carry two-digit indices on an index rule.
+8. Hero → disciplines tape → (01) How I work, a scroll story over a live
+   diagram (visitors → drop-offs → the doubt behind each → diagnosis →
+   fixes → the shipped, measured product) → (02) Consulting (consumer
+   psychology & growth: Optimolds as a guided scroll tour of the live site,
+   then Musicity) → (03) Experience from the CV (Research Intern, University
+   of Milano-Bicocca; Co-Founder, Guardbar; Volunteer Researcher, Salami
+   Rehabilitation Center) → principle → (04) Apps & websites (a stacked deck
+   of cards) → (05) Games (The Loop, Gem Jar, Zombie Bomber, Merge Farmstead,
+   Thermite Dominoes) → (06) Books → (07) About & education → (08) FAQ →
+   Contact. Sections carry two-digit indices on an index rule.
+8a. Scroll stories keep every step's text in the page in reading order; the
+    stage only illustrates it. Under reduced motion the stage shows its final
+    state and every step is fully visible.
 9. Titles and dates match the CV; no invented studio or tenure.
 9a. The books are *TAO: The Art of Observation* (non-fiction) and *Man in the
     Moment* (novel), both finished and awaiting editorial work. No invented

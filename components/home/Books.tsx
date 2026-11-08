@@ -67,7 +67,7 @@ function MomentCover() {
   );
 }
 
-export default function Books({ numeral = "05" }: { numeral?: string }) {
+export default function Books({ numeral = "06" }: { numeral?: string }) {
   return (
     <Section id="books" tone="stage" className="overflow-hidden">
       <div aria-hidden="true" className="books-glow pointer-events-none absolute inset-0" />

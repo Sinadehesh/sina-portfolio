@@ -22,6 +22,8 @@ import Lenis from "lenis";
  *   [data-tilt]            [data-tilt-target] tilts toward the pointer; [data-depth] layers float
  *   .spotlight             gets --sx / --sy for its pointer-following light
  *   [data-cursor="View"]   the custom cursor shows a label over it
+ *   [data-draw]            SVG strokes (.draw-stroke) draw themselves in on entry
+ * Scrollytelling chapters (components/scrolly) drive their own stages.
  * Under prefers-reduced-motion nothing moves; pointer effects need a fine pointer.
  */
 export default function Motion() {
@@ -62,6 +64,25 @@ export default function Motion() {
         },
         { passive: true },
       );
+    }
+
+    // Nav: mark the chapter currently on screen.
+    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".nav-link[href*='#']"));
+    const chapters = navLinks
+      .map((a) => document.getElementById(new URL(a.href).hash.slice(1)))
+      .filter((el): el is HTMLElement => el !== null);
+    if (chapters.length) {
+      const spy = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            navLinks.forEach((a) => a.classList.toggle("is-current", a.hash === `#${entry.target.id}`));
+          }
+        },
+        { rootMargin: "-45% 0px -50% 0px" },
+      );
+      chapters.forEach((el) => spy.observe(el));
+      cleanups.push(() => spy.disconnect());
     }
 
     // The phone menu is a <details>: close it once a link inside is chosen.
@@ -204,6 +225,10 @@ export default function Motion() {
           { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "expo.inOut" },
         );
         if (media) tl.fromTo(media, { scale: 1.22 }, { scale: 1, duration: 2, ease: "expo.out" }, 0.1);
+      });
+
+      gsap.utils.toArray<HTMLElement>("[data-draw]").forEach((el) => {
+        ScrollTrigger.create({ trigger: el, start: "top 82%", once: true, onEnter: () => el.classList.add("is-drawn") });
       });
 
       // Experience timeline: the line fills as you read, each entry lights up.
