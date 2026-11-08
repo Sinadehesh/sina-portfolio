@@ -61,7 +61,7 @@ Notice one detail, because it matters later: the head start in that study was vi
 
 **3. Show the next step, not just the bar.** A progress bar tells people how far; a next step tells them how. Implementation intentions — plans in the form "when X happens, I will do Y" — make follow-through more likely (Gollwitzer, 1999). Daily Hustle builds on them alongside chunking, and DeBubble anchors its daily routines to cues the user picks, like "when I put the kettle on".
 
-**4. Count up, never down.** Progress that can be lost turns every slip into a reason to quit. In DeBubble, the days you showed up only ever go up. On a bad week the pixel room gets a little messy, but nothing earned is ever taken away.
+**4. Count up, never down.** Progress that can be lost can turn every slip into a reason to quit. In DeBubble, the days you showed up only ever go up. On a bad week the pixel room gets a little messy, but nothing earned is ever taken away.
 
 ## Where does progress design become manipulation?
 

@@ -34,7 +34,7 @@
   "caseStudies": ["recallmate"]
 }
 ---
-An AI tutor should quiz you before it explains anything, because the act of retrieving an answer is what makes it stick. Researchers call this the testing effect, and it is one of the most dependable findings in learning science. Most AI tutors do the opposite: you ask, they explain beautifully, and you leave feeling you've learned more than you have.
+An AI tutor should quiz you before it explains anything, because the act of retrieving an answer is what makes it stick. Researchers call this the testing effect, and it is one of the most dependable findings in learning science. Many AI tutors do the opposite: you ask, they explain beautifully, and you leave feeling you've learned more than you have.
 
 I don't think that's a model problem. It's a design default. Here is the evidence, the tutor loop I'd build instead, and one question handled both ways.
 
@@ -46,7 +46,7 @@ That pattern runs through the research. Dunlosky and colleagues (2013) reviewed 
 
 ## Why do AI tutors default to explaining?
 
-Three forces push them there. Explaining is what language models do best: fluent, structured, endlessly patient prose. Learners rate explanations highly, because being explained to feels like progress. And product teams measure what is easy to measure — satisfaction, session length, thumbs-up — all of which reward the tutor for explaining and penalize it for making someone struggle.
+Three forces push them there. Explaining is what language models do best: fluent, structured, endlessly patient prose. Learners tend to like explanations, because being explained to feels like progress. And product teams measure what is easy to measure — satisfaction, session length, thumbs-up — all of which reward the tutor for explaining and penalize it for making someone struggle.
 
 The cost shows up later. Bastani and colleagues (2024–25) ran a field experiment in Turkish high-school math classes. Unrestricted GPT-4 access improved students' performance on practice problems, but they did worse once access was removed. A tutor version with guardrails largely avoided the harm.
 
@@ -93,7 +93,7 @@ It is a concept and prototype, not a launched app, so I can't report learning ou
 
 ## What should you measure instead of satisfaction?
 
-If you only measure how students feel during a session, the explaining tutor wins every time. Measure learning where it shows up — later, and without the tool:
+If you only measure how students feel during a session, the explaining tutor will usually win. Measure learning where it shows up — later, and without the tool:
 
 - **Delayed performance without AI.** A short quiz days later, with the tutor switched off.
 - **Attempt rate.** How often the learner tried before seeing an explanation.

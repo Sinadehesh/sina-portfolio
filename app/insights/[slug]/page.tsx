@@ -4,15 +4,7 @@ import Contact from "@/components/home/Contact";
 import ArticleCard from "@/components/insights/ArticleCard";
 import AuthorBox from "@/components/insights/AuthorBox";
 import JsonLd from "@/components/seo/JsonLd";
-import {
-  articlePath,
-  formatDate,
-  getArticle,
-  getArticles,
-  getTopic,
-  relatedTo,
-  topicPath,
-} from "@/lib/articles";
+import { articlePath, formatDate, getArticle, getArticles, getTopic, relatedTo, topicPath } from "@/lib/articles";
 import { getCaseStudy, personalInfo, site } from "@/lib/content";
 import { articleFaqNode, articleNode, breadcrumbNode, caseStudyPath } from "@/lib/schema";
 
@@ -210,9 +202,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
             {studies.length > 0 && (
               <section aria-label="Work this draws on" className="mt-16">
-                <p className="font-mono text-[0.75rem] tracking-[0.2em] text-ink-faint uppercase">
-                  Work this draws on
-                </p>
+                <p className="font-mono text-[0.75rem] tracking-[0.2em] text-ink-faint uppercase">Work this draws on</p>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                   {studies.map((c) => (
                     <li key={c.slug}>
@@ -220,7 +210,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                         href={caseStudyPath(c.slug)}
                         className="group flex h-full flex-col rounded-[8px] bg-white/45 p-5 ring-1 ring-ink/10 transition-colors hover:bg-white/80"
                       >
-                        <span className="font-serif text-[1.15rem] font-bold tracking-[-0.02em] text-ink">{c.name}</span>
+                        <span className="font-serif text-[1.15rem] font-bold tracking-[-0.02em] text-ink">
+                          {c.name}
+                        </span>
                         <span className="mt-1 text-sm text-ink-dim">{c.tagline}</span>
                         <span className="mt-3 font-mono text-[0.75rem] tracking-[0.14em] text-ember-ink uppercase">
                           Case study →

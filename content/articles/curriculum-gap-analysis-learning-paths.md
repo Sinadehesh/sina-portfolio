@@ -92,7 +92,7 @@ Passway renders the comparison as a grid you can read at a glance: a heatmap. A 
 
 ## Where could AI extend it, and what guardrails does it need?
 
-The slowest part of gap analysis is step two: reading syllabi and scoring coverage topic by topic. That is where AI could help most.
+Step two is the labor-intensive part: reading syllabi and scoring coverage topic by topic. That is where AI could help most.
 
 - Drafting the mapping: a language model reads course descriptions and proposes a coverage score per topic, quoting the passages it relied on.
 - Recommending resources: for each flagged topic, it suggests material at the learner's level, and the learner chooses.
@@ -111,4 +111,4 @@ It's also the invariant behind the confidence gate in my CRM automation engine: 
 
 A map only helps if it changes what someone studies next. Three pieces close the loop. Newly learned material fades fastest (Ebbinghaus, 1885), so a topic someone has just caught up on should feed into spaced review; I describe how in [spaced repetition meets conversational AI](/insights/spaced-repetition-conversational-ai). The study itself should make the learner do the thinking, which is the subject of [designing AI study tools that teach](/insights/ai-study-tools-that-teach). And if you're building the tool, the feature list will grow fast — AI mapping, recommendations, progress tracking — so decide what ships first with a method, not a hunch; I compare two in [Kano or MoSCoW for AI features](/insights/kano-vs-moscow-ai-features).
 
-A gap map is honest in a way most learning products aren't: it starts from what's missing, not from what's for sale. If you're designing one, start with the two sources and the threshold. Everything else — the AI, the recommendations, the path — depends on a grid people can trust.
+A gap map is honest in a way many learning products aren't: it starts from what's missing, not from what's for sale. If you're designing one, start with the two sources and the threshold. Everything else — the AI, the recommendations, the path — depends on a grid people can trust.

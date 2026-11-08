@@ -19,62 +19,68 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const title = a?.title ?? "Insights";
   const topic = a ? getTopic(a.topic)?.title : "";
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        padding: "64px 80px",
+        color: "#f3f0ea",
+        fontFamily: "Archivo",
+        fontWeight: 500,
+        background: "radial-gradient(ellipse 60% 70% at 88% 18%, rgba(255,91,31,0.28) 0%, rgba(8,9,11,0) 60%), #08090b",
+      }}
+    >
       <div
         style={{
-          width: "100%",
-          height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "64px 80px",
-          color: "#f3f0ea",
-          fontFamily: "Archivo",
-          fontWeight: 500,
-          background:
-            "radial-gradient(ellipse 60% 70% at 88% 18%, rgba(255,91,31,0.28) 0%, rgba(8,9,11,0) 60%), #08090b",
+          alignItems: "center",
+          gap: 18,
+          fontSize: 22,
+          letterSpacing: 5,
+          textTransform: "uppercase",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 22, letterSpacing: 5, textTransform: "uppercase" }}>
-          <div
-            style={{
-              display: "flex",
-              width: 44,
-              height: 44,
-              alignItems: "center",
-              justifyContent: "center",
-              background: "#ff5b1f",
-              color: "#040506",
-              fontSize: 20,
-              fontWeight: 800,
-              letterSpacing: -1,
-            }}
-          >
-            SD
-          </div>
-          <span style={{ color: "#ff5b1f" }}>{topic}</span>
-        </div>
         <div
           style={{
             display: "flex",
-            fontSize: title.length > 52 ? 64 : 76,
+            width: 44,
+            height: 44,
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#ff5b1f",
+            color: "#040506",
+            fontSize: 20,
             fontWeight: 800,
-            lineHeight: 1.04,
-            letterSpacing: -2.5,
-            maxWidth: 1040,
+            letterSpacing: -1,
           }}
         >
-          {title}
+          SD
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontSize: 26 }}>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontWeight: 800 }}>{personalInfo.name}</span>
-            <span style={{ color: "#b9b5ad", fontSize: 22, marginTop: 6 }}>Consumer psychology consultant · Milan</span>
-          </div>
-          <span style={{ color: "#7d7a74", fontSize: 22, letterSpacing: 3 }}>SINADEHESH.COM/INSIGHTS</span>
-        </div>
+        <span style={{ color: "#ff5b1f" }}>{topic}</span>
       </div>
-    ),
+      <div
+        style={{
+          display: "flex",
+          fontSize: title.length > 52 ? 64 : 76,
+          fontWeight: 800,
+          lineHeight: 1.04,
+          letterSpacing: -2.5,
+          maxWidth: 1040,
+        }}
+      >
+        {title}
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontSize: 26 }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ fontWeight: 800 }}>{personalInfo.name}</span>
+          <span style={{ color: "#b9b5ad", fontSize: 22, marginTop: 6 }}>Consumer psychology consultant · Milan</span>
+        </div>
+        <span style={{ color: "#7d7a74", fontSize: 22, letterSpacing: 3 }}>SINADEHESH.COM/INSIGHTS</span>
+      </div>
+    </div>,
     { ...size, fonts: ogFonts() },
   );
 }

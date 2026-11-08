@@ -1,7 +1,7 @@
 ---
 {
   "title": "Spaced Repetition Meets Conversational AI: Designing Around SM-2",
-  "description": "Spaced repetition with AI, designed around SM-2: how the algorithm schedules reviews, where a chatbot helps, and why the learner must still do the recalling.",
+  "description": "How spaced repetition AI should work: SM-2 schedules the reviews, conversational AI takes over the card-making, and the learner still does the recalling.",
   "topic": "ai-education",
   "order": 1,
   "date": "2026-11-08",

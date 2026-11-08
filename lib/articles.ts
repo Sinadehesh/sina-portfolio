@@ -157,7 +157,8 @@ function render(markdown: string) {
           : `<a href="${href}"${t}>${text}</a>`;
       },
       table(token) {
-        const cell = (c: (typeof token.header)[number], tag: "th" | "td") => `<${tag}>${this.parser.parseInline(c.tokens)}</${tag}>`;
+        const cell = (c: (typeof token.header)[number], tag: "th" | "td") =>
+          `<${tag}>${this.parser.parseInline(c.tokens)}</${tag}>`;
         const head = `<tr>${token.header.map((c) => cell(c, "th")).join("")}</tr>`;
         const body = token.rows.map((r) => `<tr>${r.map((c) => cell(c, "td")).join("")}</tr>`).join("");
         return `<div class="table-wrap"><table><thead>${head}</thead><tbody>${body}</tbody></table></div>\n`;

@@ -21,7 +21,9 @@ export default function ArticleCard({
       }`}
     >
       {showTopic && (
-        <p className={`font-mono text-[0.75rem] tracking-[0.16em] uppercase ${paper ? "text-ember-ink" : "text-ember"}`}>
+        <p
+          className={`font-mono text-[0.75rem] tracking-[0.16em] uppercase ${paper ? "text-ember-ink" : "text-ember"}`}
+        >
           {getTopic(a.topic)?.label}
         </p>
       )}
@@ -30,7 +32,9 @@ export default function ArticleCard({
       >
         {a.title}
       </H>
-      <p className={`mt-3 line-clamp-3 text-[0.9375rem] ${paper ? "text-ink-dim" : "text-ivory-dim"}`}>{a.description}</p>
+      <p className={`mt-3 line-clamp-3 text-[0.9375rem] ${paper ? "text-ink-dim" : "text-ivory-dim"}`}>
+        {a.description}
+      </p>
       <p
         className={`mt-auto flex items-center gap-2 pt-6 font-mono text-[0.75rem] tracking-[0.14em] uppercase ${paper ? "text-ink-faint" : "text-ivory-faint"}`}
       >

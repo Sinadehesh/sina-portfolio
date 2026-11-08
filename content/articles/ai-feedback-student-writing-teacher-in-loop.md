@@ -1,7 +1,7 @@
 ---
 {
   "title": "AI Feedback on Student Writing, With the Teacher in the Loop",
-  "description": "AI essay feedback that keeps the teacher in the loop: AI drafts formative comments, teachers approve them, and high-stakes grades stay human. A workflow.",
+  "description": "AI essay feedback with the teacher in the loop: a workflow where AI drafts formative comments, teachers approve them and high-stakes grades stay human.",
   "topic": "ai-education",
   "order": 8,
   "date": "2026-11-08",
@@ -36,11 +36,11 @@
 ---
 AI feedback on student writing works when the AI drafts and the teacher decides. A model can read a draft in seconds and flag an unsupported claim or a paragraph that drifts; the teacher knows the student, the assignment and what matters this week. Put those two in the wrong order and you get generic feedback at scale, or grades nobody really checked.
 
-I haven't built a grading product, and I won't pretend otherwise. What I have built is a shipped pipeline where an LLM extracts information and a human approves anything ambiguous before it is written anywhere. I've also run a controlled experiment showing that small interface choices change how people behave. Both transfer to the classroom. Here is the workflow I'd design.
+I haven't built a grading product, and I won't pretend otherwise. What I have built is a shipped pipeline where an LLM extracts information and a human approves anything ambiguous before it is written anywhere. I've also run a controlled experiment showing that one interface choice, whether people could see themselves, changed how they behaved. Both transfer to the classroom. Here is the workflow I'd design.
 
 ## What makes feedback change learning?
 
-I check every piece of feedback against three questions — call it the three-question feedback test:
+I'd check every piece of feedback against three questions — call it the three-question feedback test:
 
 1. **Is it specific?** Does it point at a sentence, not at "the essay"?
 2. **Is it actionable?** Does it say what to try next, rather than only what went wrong?
@@ -68,15 +68,15 @@ Lane three is where the confidence gate earns its keep. A comment the system is 
 
 There is a design reason and a legal one. The design reason is that a grade is a judgment about a person, and the person deserves a judge who can be asked why.
 
-The legal context points the same way. Under the EU AI Act (Regulation (EU) 2024/1689), AI used to evaluate learning outcomes, including when that evaluation steers the learning process, is a high-risk use listed in Annex III. Those obligations, which include human oversight under Article 14, now apply from 2 December 2027, after the Digital Omnibus (Regulation (EU) 2026/1744) moved them. Separately, GDPR Article 22 gives people a right not to be subject to decisions based solely on automated processing that produce legal or similarly significant effects, and EDPB and Article 29 Working Party guidance on automated decision-making says human involvement must be meaningful, not a token gesture. A teacher clicking "approve all" on a stack of AI-suggested grades is the token gesture. I cover the wider rules in [the EU AI Act in education](/insights/eu-ai-act-education-high-risk). This is a builder's reading, not legal advice.
+The legal context points the same way. Under the EU AI Act (Regulation (EU) 2024/1689), AI used to evaluate learning outcomes, including when that evaluation steers the learning process, is a high-risk use listed in Annex III. The obligations for those systems, which include human oversight under Article 14, now apply from 2 December 2027, after the Digital Omnibus (Regulation (EU) 2026/1744) moved them. Separately, GDPR Article 22 gives people a right not to be subject to decisions based solely on automated processing that produce legal or similarly significant effects, and EDPB and Article 29 Working Party guidance on automated decision-making says human involvement must be meaningful, not a token gesture. A teacher clicking "approve all" on a stack of AI-suggested grades is the token gesture. I cover the wider rules in [the EU AI Act in education](/insights/eu-ai-act-education-high-risk). This is a builder's reading, not legal advice.
 
 ## How do you stop teachers rubber-stamping AI?
 
-Automation bias is the tendency to over-rely on automated aids. Skitka, Mosier and Burdick (1999) described two forms: errors of omission, when people miss problems the system didn't flag, and errors of commission, when they follow its wrong advice. Parasuraman and Manzey (2010) found these effects in experts as well as novices, so experience alone won't protect a teacher working through a full queue late at night. The goal is what Lee and See (2004) call appropriate reliance: trusting the system as much as it deserves, and no more.
+Automation bias is the tendency to over-rely on automated aids. Skitka, Mosier and Burdick (1999) described two forms: errors of omission, when people miss problems the system didn't flag, and errors of commission, when they follow its wrong advice. Reviewing the evidence, Parasuraman and Manzey (2010) concluded that these effects appear in experts as well as novices, so experience alone won't protect a teacher working through a full queue late at night. The goal is what Lee and See (2004) call appropriate reliance: trusting the system as much as it deserves, and no more.
 
 Design moves that help:
 
-- **Read first, then reveal.** The teacher reads the essay, or at least its argument, before the AI's comments appear. A first impression formed without the machine is one of the simplest defenses against simply following it.
+- **Read first, then reveal.** The teacher reads the essay, or at least its argument, before the AI's comments appear. Forming a first impression without the machine is one of the simplest defenses against just following it.
 - **Evidence, not verdicts.** Every comment is anchored to the sentence it's about, so checking it takes seconds.
 - **Make disagreement cheap.** Delete or edit in one click; never make "accept" the only fast option.
 - **Track the edit rate.** If a teacher never changes anything, find out whether the model is excellent or the workload is impossible.
@@ -100,6 +100,6 @@ Imagine a teacher with a class set of argumentative essay drafts:
 4. The teacher reviews the batch: reads each essay's argument, then accepts, edits or deletes each comment.
 5. Students receive the approved comments while they still have time to revise, labeled as AI-drafted and teacher-approved.
 6. The teacher grades the final essay. The AI can point to rubric evidence; it doesn't propose a score.
-7. Every teacher edit is logged. That log is the best evaluation data you will ever have for the AI.
+7. Every teacher edit is logged. That log is the most useful evaluation data you will have for the AI.
 
 If you're starting out, start small: one assignment, formative feedback only, one class. Measure two things — how long review takes and how often teachers change the AI's comments — and ask students whether the feedback helped them revise. One cycle like that will teach you more than any demo, and it keeps the teacher where they belong: deciding.

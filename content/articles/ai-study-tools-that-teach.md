@@ -42,7 +42,7 @@ That is a design choice, not a law of nature. Below is the evidence that guardra
 
 Because the shortest path wins. Fogg (2009) describes behavior as what happens when motivation, ability and a prompt meet. A deadline supplies the motivation and the prompt; the tool decides what is easiest. If the easiest action in your tool is "paste the question, copy the answer", that is what your tool is for, whatever the landing page says.
 
-The evidence that design changes the outcome comes from Bastani and colleagues (2024–25), in a field experiment in Turkish high-school math classes. Unrestricted GPT-4 access improved performance on practice problems, but students did worse once access was removed. A tutor version with guardrails largely avoided the harm. Both versions put GPT-4 in front of students; what differed was the design around it.
+The evidence that design changes the outcome comes from Bastani and colleagues (2024–25), in a field experiment in Turkish high-school math classes. Unrestricted GPT-4 access improved performance on practice problems, but students did worse once access was removed. A tutor version with guardrails largely avoided the harm. What separated the two outcomes was the design around the model.
 
 My view is that policing output alone is a losing game for a product team. A student who wants an answer will find a tool that gives one. What you control is what your own tool makes easy.
 

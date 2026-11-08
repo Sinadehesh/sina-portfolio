@@ -8,7 +8,7 @@ const links = [
   { href: "/#work", label: "Apps" },
   { href: "/#games", label: "Games", wide: true },
   { href: "/#books", label: "Books", wide: true },
-  { href: "/insights", label: "Insights" },
+  { href: "/insights", label: "Insights", spy: "insights" },
   { href: "/#about", label: "About" },
 ];
 
@@ -42,7 +42,11 @@ export default function SiteNav() {
           <ul className="hidden items-center gap-7 font-mono text-[0.75rem] tracking-[0.16em] uppercase lg:flex xl:gap-8">
             {links.map((l) => (
               <li key={l.href} className={l.wide ? "hidden xl:block" : undefined}>
-                <a href={l.href} className="nav-link text-ivory-dim transition-colors hover:text-ivory">
+                <a
+                  href={l.href}
+                  data-spy={l.spy}
+                  className="nav-link text-ivory-dim transition-colors hover:text-ivory"
+                >
                   {l.label}
                 </a>
               </li>

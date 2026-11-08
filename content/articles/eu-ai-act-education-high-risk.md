@@ -57,7 +57,7 @@ Annex III lists four uses in education as high-risk:
 
 High-risk systems carry obligations that include human oversight (Article 14), and Article 86 gives people a right to an explanation of certain high-risk decisions about them. The Digital Omnibus on AI, Regulation (EU) 2026/1744, published on 24 July 2026 and in force since 27 July 2026, moved the Annex III high-risk obligations from 2 August 2026 to 2 December 2027.
 
-Look closely at the second category. "Steering the learning process" sounds abstract, but it can describe everyday adaptive learning: an engine that scores a student's answers and decides which unit comes next. Teams rarely think of that as evaluating learning outcomes, which is exactly why it's worth asking the question early.
+Look closely at the second category. "Steering the learning process" sounds abstract, but it can describe everyday adaptive learning: an engine that scores a student's answers and decides which unit comes next. Teams rarely think of that as evaluating learning outcomes, which is exactly why it's worth asking the question early. This is a builder's reading, not legal advice.
 
 ## The EdTech risk map
 
@@ -82,7 +82,7 @@ RecallMate is a concept and Figma prototype from my research internship at the U
 
 The scheduler is the interesting part. It evaluates recall and steers what a learner reviews next. For someone studying on their own, that's a study aid. If a university adopted it to evaluate students and steer their coursework, I'd want a lawyer's view on the "evaluating learning outcomes" category before launch.
 
-Passway is a prototype that compares 10 core engineering topics across 6 university programs, using a two-source model: a canonical curriculum against what programs actually teach. It evaluates programs, not people. The moment a tool like it starts scoring an individual learner and deciding which level or program they can access, the question changes. Both are judgment calls I'd put to counsel, not legal conclusions.
+Passway is a prototype that compares 10 core engineering topics across 6 university programs, using a two-source model: a canonical curriculum against what programs actually teach. It evaluates programs, not people. The moment a tool like it starts scoring an individual learner and deciding which level or program they can access, the question changes. Both are judgment calls for counsel; this is not legal advice.
 
 ## Why the delay to December 2027 isn't a reason to wait
 
@@ -90,11 +90,13 @@ The Omnibus gave EdTech more time. I'd spend it designing, for three reasons.
 
 Oversight is a design property, not a document. In my view, human oversight only means something if the product gives the human real material to oversee: the evidence, a clear decision point, and the time and authority to disagree. Retrofitting that into a grading flow means rebuilding the interface and the teacher's workload.
 
-Rubber stamps are the default. People over-rely on automated aids, both by missing problems the system doesn't flag and by following its wrong advice (Skitka, Mosier & Burdick, 1999). A teacher approving AI scores at the end of a long day is exactly the setting where that happens. I set out a workflow that designs against it in [AI feedback on student writing, with the teacher in the loop](/insights/ai-feedback-student-writing-teacher-in-loop).
+Rubber-stamping is the path of least resistance. People over-rely on automated aids, both by missing problems the system doesn't flag and by following its wrong advice (Skitka, Mosier & Burdick, 1999). A teacher approving AI scores at the end of a long day is the kind of setting where that happens. I set out a workflow that designs against it in [AI feedback on student writing, with the teacher in the loop](/insights/ai-feedback-student-writing-teacher-in-loop).
 
-Some rules already apply. The emotion recognition ban, Article 4 on AI literacy and Article 50 transparency are not waiting for 2027. The same oversight questions are playing out elsewhere, too — see [the AI Act's high-risk rules for life and health insurance pricing](/insights/ai-act-life-health-insurance-pricing).
+The same oversight questions are playing out in other sectors, too — see [the AI Act's high-risk rules for life and health insurance pricing](/insights/ai-act-life-health-insurance-pricing).
 
 ## What EdTech builders should do this quarter
+
+Some rules are not waiting for 2027 — the emotion recognition ban and Article 4 on AI literacy have applied since 2 February 2025 (the Digital Omnibus reworded Article 4 from July 2026 into a duty to take measures that support AI literacy, rather than to guarantee a set level), and Article 50 transparency since 2 August 2026 — so this list starts now:
 
 1. **Inventory** every feature that decides something about a student: admission, grade, level, next unit, sanction.
 2. **Remove, or get legal review for,** anything that infers emotions from faces or voices in school settings.

@@ -60,7 +60,7 @@ As of this writing, in November 2026, that leaves a little over a year of runway
 
 Read as a product brief, the high-risk regime asks you to be able to show your work: what the system does, what it learned from, how it is monitored, and how a person can step in. Three parts land directly on design.
 
-**Human oversight (Article 14).** I read oversight as an interface, a workload and a set of permissions, not a sentence in a policy document: a person who can see what the model did and who can overrule it in practice. The AI literacy duty that already applies under Article 4 is a sensible place to start, because reviewers who understand what a model can and can't do are harder to fool.
+**Human oversight (Article 14).** The article explicitly asks that overseers stay aware of automation bias — the tendency to over-rely on a system's output. I read oversight as an interface, a workload and a set of permissions, not a sentence in a policy document: a person who can see what the model did and who can overrule it in practice. The AI literacy duty under Article 4 — since July 2026 a duty to take measures that support AI literacy, after the Digital Omnibus reworded it — is a sensible place to start, because reviewers who understand what a model can and can't do are harder to fool.
 
 **Transparency (Article 50).** This already applies. If a customer is chatting with an AI system, they need to be told.
 
