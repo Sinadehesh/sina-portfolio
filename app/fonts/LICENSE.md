@@ -6,6 +6,6 @@ licensed under the [SIL Open Font License 1.1](https://openfontlicense.org).
 
 | File | Family | Copyright |
 | --- | --- | --- |
-| `cormorant-garamond-latin.woff2`, `cormorant-garamond-italic-latin.woff2` | Cormorant Garamond | Copyright 2015 The Cormorant Project Authors |
+| `archivo-latin.woff2` | Archivo (wght 100–900, wdth 62–125) | Copyright 2020 The Archivo Project Authors |
 | `inter-latin.woff2` | Inter | Copyright 2016 The Inter Project Authors |
 | `jetbrains-mono-latin.woff2` | JetBrains Mono | Copyright 2020 The JetBrains Mono Project Authors |

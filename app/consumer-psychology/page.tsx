@@ -69,9 +69,9 @@ export default function ConsumerPsychologyPage() {
       />
 
       <header className="stage relative overflow-hidden">
-        <MediaSlot video="/videos/pillar-consumer-psychology.mp4" hue="#c8a45c" priority className="vignette absolute inset-0" />
+        <MediaSlot video="/videos/pillar-consumer-psychology.mp4" hue="#ff5b1f" priority className="vignette absolute inset-0" />
         <div aria-hidden="true" className="hero-scrim absolute inset-0 z-[2]" />
-        <div className="relative z-10 mx-auto max-w-[1280px] px-5 pt-36 pb-20 sm:px-10 md:pt-48 md:pb-28">
+        <div className="relative z-10 mx-auto max-w-[1440px] px-5 pt-36 pb-20 sm:px-10 md:pt-48 md:pb-28">
           <p className="eyebrow">Consumer psychology consulting</p>
           <h1 className="display mt-5 max-w-[16ch] text-[clamp(2.7rem,6.8vw,5.75rem)]">
             Consumer psychology consultant in Milan, Italy
@@ -80,7 +80,7 @@ export default function ConsumerPsychologyPage() {
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href={`mailto:${personalInfo.email}?subject=${encodeURIComponent("Consumer psychology consulting")}`}
-              className="btn btn-gold"
+              className="btn btn-ember"
             >
               Book a consultation
             </a>
@@ -101,7 +101,7 @@ export default function ConsumerPsychologyPage() {
         <dl className="grid gap-px overflow-hidden rounded-2xl bg-ink/10 ring-1 ring-ink/10 md:grid-cols-2 lg:grid-cols-3" data-stagger>
           {consumerPsychology.services.map((s, i) => (
             <div key={s.name} className="reveal bg-paper p-8">
-              <span className="font-mono text-xs text-gold-ink">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-mono text-xs text-ember-ink">{String(i + 1).padStart(2, "0")}</span>
               <dt className="mt-4 font-serif text-[1.6rem] leading-tight font-semibold">{s.name}</dt>
               <dd className="mt-3 text-[0.9375rem] text-ink-dim">{s.description}</dd>
             </div>
@@ -152,7 +152,7 @@ export default function ConsumerPsychologyPage() {
         <ol className="mt-10 grid gap-4 md:grid-cols-5">
           {consumerPsychology.process.map((p, i) => (
             <li key={p.step} className="rounded-2xl bg-paper p-6 ring-1 ring-ink/10">
-              <span className="font-mono text-xs text-gold-ink">Step {i + 1}</span>
+              <span className="font-mono text-xs text-ember-ink">Step {i + 1}</span>
               <p className="mt-3 font-serif text-2xl font-semibold">{p.step}</p>
               <p className="mt-2 text-[0.9375rem] text-ink-dim">{p.detail}</p>
             </li>

@@ -27,15 +27,15 @@ import { thesis } from "@/lib/data";
  * ------------------------------------------------------------------ */
 const INK_900 = "#0a0a0c";
 const INK_800 = "#101013";
-const IVORY = "#ede4d3";
-const IVORY_DIM = "#c9c0b1";
-const IVORY_FAINT = "#8d867a";
-const GOLD = "#c8a45c";
-const GOLD_BRIGHT = "#e0c184";
-const GOLD_DEEP = "#8a6d32";
+const IVORY = "#f3f0ea";
+const IVORY_DIM = "#b9b5ad";
+const IVORY_FAINT = "#7d7a74";
+const EMBER = "#ff5b1f";
+const EMBER_BRIGHT = "#ff8a5c";
+const EMBER_DEEP = "#b8400f";
 
 const MONO = 'var(--font-mono, ui-monospace, "SFMono-Regular", monospace)';
-const SERIF = 'var(--font-serif, "Cormorant Garamond", Georgia, serif)';
+const SERIF = 'var(--font-serif, "Archivo", system-ui, sans-serif)';
 
 type Mode = "ci" | "trajectories";
 
@@ -367,7 +367,7 @@ export default function AnovaPlot({
       .append("circle")
       .attr("class", "an-hero-ring")
       .attr("fill", "none")
-      .attr("stroke", GOLD)
+      .attr("stroke", EMBER)
       .attr("stroke-width", 1)
       .attr("stroke-opacity", 0.85);
 
@@ -375,13 +375,13 @@ export default function AnovaPlot({
     const sigPath = gSig
       .append("path")
       .attr("fill", "none")
-      .attr("stroke", GOLD)
+      .attr("stroke", EMBER)
       .attr("stroke-width", 1.3)
       .attr("stroke-linecap", "round")
       .attr("stroke-linejoin", "round");
     const sigLabel = gSig
       .append("text")
-      .attr("fill", GOLD_BRIGHT)
+      .attr("fill", EMBER_BRIGHT)
       .attr("font-family", MONO)
       .attr("letter-spacing", "0.14em")
       .attr("text-anchor", "middle")
@@ -390,14 +390,14 @@ export default function AnovaPlot({
     /* callout */
     const calloutRule = gCallout
       .append("line")
-      .attr("stroke", GOLD)
+      .attr("stroke", EMBER)
       .attr("stroke-width", 1)
       .attr("stroke-opacity", 0.65);
     const calloutText = gCallout
       .append("text")
       .attr("fill", IVORY)
       .attr("font-family", SERIF)
-      .attr("font-style", "italic");
+      .attr("font-weight", 600);
 
     /* footnote */
     const footText = gFoot
@@ -413,7 +413,7 @@ export default function AnovaPlot({
       .append("rect")
       .attr("fill", INK_800)
       .attr("fill-opacity", 0.94)
-      .attr("stroke", GOLD_DEEP)
+      .attr("stroke", EMBER_DEEP)
       .attr("stroke-opacity", 0.5)
       .attr("rx", 2);
     const readoutText = gReadout
@@ -438,7 +438,7 @@ export default function AnovaPlot({
       .append("rect")
       .attr("class", "an-focus")
       .attr("fill", "none")
-      .attr("stroke", GOLD_BRIGHT)
+      .attr("stroke", EMBER_BRIGHT)
       .attr("stroke-width", 1)
       .attr("stroke-dasharray", "3 3")
       .attr("pointer-events", "none")
@@ -917,10 +917,10 @@ export default function AnovaPlot({
   const btn = (active: boolean): string =>
     [
       "font-mono text-[0.625rem] uppercase tracking-[0.22em] transition-colors duration-200",
-      "border-b pb-1 outline-none focus-visible:ring-1 focus-visible:ring-[#e0c184]",
+      "border-b pb-1 outline-none focus-visible:ring-1 focus-visible:ring-[#ff8a5c]",
       active
-        ? "border-[#c8a45c] text-[#e0c184]"
-        : "border-transparent text-[#8d867a] hover:text-[#c9c0b1]",
+        ? "border-[#ff5b1f] text-[#ff8a5c]"
+        : "border-transparent text-[#7d7a74] hover:text-[#b9b5ad]",
     ].join(" ");
 
   return (

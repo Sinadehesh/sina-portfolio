@@ -121,7 +121,7 @@ export default function EmailWireframe({ className = "" }: { className?: string 
             data-wire="block"
             className="relative h-32 w-full overflow-hidden rounded-sm border border-ivory/10 sm:h-40"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_35%_45%,color-mix(in_oklab,var(--color-gold)_22%,transparent),transparent_70%),linear-gradient(120deg,var(--color-charcoal-700),var(--color-charcoal-900))]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_35%_45%,color-mix(in_oklab,var(--color-ember)_22%,transparent),transparent_70%),linear-gradient(120deg,var(--color-charcoal-700),var(--color-charcoal-900))]" />
             <div className="grain absolute inset-0" />
             <span className="absolute bottom-3 left-4 font-mono text-[0.5625rem] tracking-[0.28em] text-ivory-faint uppercase">
               plate 30 — figure in low light
@@ -157,8 +157,8 @@ export default function EmailWireframe({ className = "" }: { className?: string 
                   }}
                   className={`rounded-full border px-5 py-2.5 font-mono text-[0.6875rem] tracking-[0.18em] uppercase transition-all duration-500 ${
                     picked === i
-                      ? "border-gold bg-gold/15 text-gold shadow-[0_0_28px_-10px_var(--color-gold)]"
-                      : "border-ivory/20 text-ivory-dim hover:border-gold/60 hover:text-ivory"
+                      ? "border-ember bg-ember/15 text-ember shadow-[0_0_28px_-10px_var(--color-ember)]"
+                      : "border-ivory/20 text-ivory-dim hover:border-ember/60 hover:text-ivory"
                   }`}
                 >
                   {label}
@@ -170,7 +170,7 @@ export default function EmailWireframe({ className = "" }: { className?: string 
               aria-live="polite"
             >
               replies logged this issue:{" "}
-              <span className="text-gold">{String(replies).padStart(3, "0")}</span>
+              <span className="text-ember">{String(replies).padStart(3, "0")}</span>
               {picked !== null ? (
                 <span className="ml-3 text-ivory-dim">
                   — “{dailySublime.replyButtons[picked]}” recorded
@@ -185,7 +185,7 @@ export default function EmailWireframe({ className = "" }: { className?: string 
       <span
         data-wire="pointer"
         aria-hidden
-        className="pointer-events-none absolute top-0 left-0 z-10 h-6 w-6 rounded-full border border-gold bg-gold/20 opacity-0 shadow-[0_0_24px_-4px_var(--color-gold)]"
+        className="pointer-events-none absolute top-0 left-0 z-10 h-6 w-6 rounded-full border border-ember bg-ember/20 opacity-0 shadow-[0_0_24px_-4px_var(--color-ember)]"
       />
     </div>
   );

@@ -8,31 +8,34 @@ codebase against it; keep this file in sync when the brief changes.
 1. The first screen (no scrolling) states who (Sina Dehesh), what (consumer
    psychology consultant & behavioral product builder, Milan), a one-sentence
    value proposition, two calls to action, and a proof strip
-   (N = 96 / p = .009 experiment, 200+ interviews, 6+ products, M.Sc.).
+   (N = 96 / p = .009 experiment, 200+ interviews, 20+ apps, games & websites,
+   M.Sc.).
 2. No decorative intro sequence delays that message.
 3. The site never calls Sina a "psychologist" (a protected title in Italy);
    "consumer psychology consultant" is the term used.
 
 ## B. Readability & design
 
-4. Charcoal "stage" and ivory "paper" sections alternate; reading-heavy content
-   sits on paper.
-5. Display headings use Cormorant Garamond at weight ≥ 500; body text is at
-   least 15px; no label text below 12px.
-6. The fixed navigation has a solid ground and never overlaps section content.
+4. Graphite "stage" and bone "paper" sections alternate, with ember as the
+   only accent colour; long reading content sits on paper or on graphite with
+   ivory text.
+5. Display headings use Archivo (variable width) at weight ≥ 600, with no
+   italics; body text is at least 15px; no label text below 12px.
+6. The fixed navigation never overlaps section content: transparent only
+   over the hero's top margin, a solid ground once the page scrolls.
 7. Project tiles and case-study pages show real screenshots of the products
-   (`public/images/work/`); only the hero and contact sections use video
-   slots (documented in `public/videos/README.md`).
+   (`public/images/work/`). The hero shows the colour portrait first; the
+   black-and-white desk photo appears in About. No section depends on video.
 
 ## C. Homepage structure
 
-8. Hero → I Consulting (consumer psychology & growth: Optimolds, Musicity) →
-   II Experience from the CV (Research Intern, University of Milano-Bicocca;
-   Co-Founder, Guardbar; Volunteer Researcher, Salami Rehabilitation Center)
-   → epigraph → III Apps & websites (lead project as a spotlight, then
-   plates) → IV Games (The Loop, Gem Jar, Zombie Bomber, Merge Farmstead,
-   Thermite Dominoes) → V Books → VI About & education → VII FAQ → Contact.
-   Sections carry roman numerals, like chapters in a catalogue.
+8. Hero → disciplines tape → (01) Consulting (consumer psychology & growth:
+   Optimolds, Musicity) → (02) Experience from the CV (Research Intern,
+   University of Milano-Bicocca; Co-Founder, Guardbar; Volunteer Researcher,
+   Salami Rehabilitation Center) → principle → (03) Apps & websites (a stacked
+   deck of cards) → (04) Games (The Loop, Gem Jar, Zombie Bomber, Merge
+   Farmstead, Thermite Dominoes) → (05) Books → (06) About & education →
+   (07) FAQ → Contact. Sections carry two-digit indices on an index rule.
 9. Titles and dates match the CV; no invented studio or tenure.
 9a. The books are *TAO: The Art of Observation* (non-fiction) and *Man in the
     Moment* (novel), both finished and awaiting editorial work. No invented

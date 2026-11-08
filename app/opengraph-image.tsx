@@ -20,9 +20,9 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           background:
-            "radial-gradient(ellipse 70% 60% at 30% 40%, #17171b 0%, #0a0a0c 60%, #050506 100%)",
+            "radial-gradient(ellipse 70% 60% at 30% 40%, #16191d 0%, #08090b 60%, #040506 100%)",
           padding: "72px 80px",
-          color: "#ede4d3",
+          color: "#f3f0ea",
         }}
       >
         <div
@@ -32,7 +32,7 @@ export default function OpengraphImage() {
             fontSize: 20,
             letterSpacing: 8,
             textTransform: "uppercase",
-            color: "#8d867a",
+            color: "#7d7a74",
           }}
         >
           <span>Milan · Europe · Remote</span>
@@ -40,11 +40,11 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", height: 2, background: "#c8a45c", width: 180 }} />
+          <div style={{ display: "flex", height: 2, background: "#ff5b1f", width: 180 }} />
           <div style={{ display: "flex", fontSize: 104, marginTop: 34, letterSpacing: -2 }}>
             {personal.name}
           </div>
-          <div style={{ display: "flex", fontSize: 40, marginTop: 20, color: "#c8a45c" }}>
+          <div style={{ display: "flex", fontSize: 40, marginTop: 20, color: "#ff5b1f" }}>
             Consumer Psychology Consultant · Behavioral Product Builder
           </div>
         </div>
@@ -54,10 +54,10 @@ export default function OpengraphImage() {
             display: "flex",
             fontSize: 22,
             letterSpacing: 4,
-            color: "#8d867a",
+            color: "#7d7a74",
           }}
         >
-          Consultancy · App laboratory · Media & research
+          Consumer psychology · Conversion · Behavioral AI products
         </div>
       </div>
     ),

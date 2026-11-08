@@ -1,17 +1,17 @@
-/** A single line, set large between sections, like an epigraph. */
+/** The principle behind the work, set large. Words light up as it scrolls through. */
 export default function Quote() {
   return (
     <section aria-label="Principle" className="stage relative overflow-hidden">
-      <div aria-hidden="true" className="light-canvas drift grain absolute inset-0 opacity-80" />
-      <figure className="reveal relative z-10 mx-auto max-w-[1100px] px-5 py-28 text-center sm:px-10 md:py-40">
-        <span aria-hidden="true" className="numeral block text-5xl text-gold">“</span>
-        <blockquote className="display mt-2 text-[clamp(2rem,4.4vw,3.6rem)] italic">
-          Behavior is not noise around the system. It is the system&rsquo;s operating condition.
+      <div aria-hidden="true" className="manifesto-glow pointer-events-none absolute inset-0" />
+      <figure className="relative mx-auto max-w-[1440px] px-5 py-32 sm:px-10 md:py-48">
+        <p className="font-mono text-[0.75rem] tracking-[0.2em] text-ember uppercase">(Principle)</p>
+        <blockquote data-scrub-words className="display mt-8 max-w-[19ch] text-[clamp(2.4rem,6.6vw,6.75rem)]">
+          Behavior is not noise around the system. It is the system&rsquo;s{" "}
+          <span className="text-ember">operating condition.</span>
         </blockquote>
-        <figcaption className="eyebrow mt-10 flex items-center justify-center gap-4">
-          <span aria-hidden="true" className="h-px w-10 bg-current opacity-50" />
+        <figcaption className="mt-14 flex items-center gap-4 font-mono text-[0.75rem] tracking-[0.2em] text-ivory-faint uppercase">
+          <span aria-hidden="true" className="h-px w-12 bg-ember" />
           Sina Dehesh
-          <span aria-hidden="true" className="h-px w-10 bg-current opacity-50" />
         </figcaption>
       </figure>
     </section>

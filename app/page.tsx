@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import Marquee from "@/components/home/Marquee";
 import Consulting from "@/components/home/Consulting";
 import Experience from "@/components/home/Experience";
 import Quote from "@/components/home/Quote";
@@ -19,6 +20,7 @@ export default function Page() {
     <>
       <JsonLd nodes={[profilePageNode(), faqPageNode(homeFaqs, "/"), ...allCaseStudyNodes()]} />
       <Hero />
+      <Marquee />
       <Consulting />
       <Experience />
       <Quote />
@@ -26,7 +28,7 @@ export default function Page() {
       <Games />
       <Books />
       <About />
-      <Faq items={homeFaqs} numeral="VII" />
+      <Faq items={homeFaqs} numeral="07" />
       <Contact />
     </>
   );

@@ -14,9 +14,9 @@ and AI assistants alike.
 | --- | --- |
 | Framework | Next.js 16 (App Router, Turbopack), static export |
 | Styling | Tailwind CSS v4 (`@theme` tokens in `app/globals.css`) |
-| Motion | GSAP 3 + ScrollTrigger (section reveals, chart animation) |
+| Motion | GSAP 3 (ScrollTrigger, SplitText) + Lenis smooth scroll, one layer in `components/Motion.tsx` |
 | Data viz | D3 7 |
-| Type | Cormorant Garamond (display) · Inter (body) · JetBrains Mono (labels) |
+| Type | Archivo, variable width (display) · Inter (body) · JetBrains Mono (labels), bundled in `app/fonts` |
 | Structured data | `schema-dts` typed JSON-LD |
 
 ## Running it
@@ -32,7 +32,7 @@ npm run typecheck
 
 | Route | Source | Notes |
 | --- | --- | --- |
-| `/` | `app/page.tsx` → `components/home/*` | Hero → Consulting → Experience → Apps & websites → Books → About → FAQ → Contact |
+| `/` | `app/page.tsx` → `components/home/*` | Hero → tapes → Consulting → Experience → Principle → Apps & websites → Games → Books → About → FAQ → Contact |
 | `/work` | `app/work/page.tsx` | All case studies |
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Answer-first summary, impact, interactive chart (`components/work/CaseViz.tsx`), comparison, trade-offs, decision log |
 | `/consumer-psychology` | `app/consumer-psychology/page.tsx` | Service page: services, principles, process, proof, FAQ |
@@ -53,21 +53,41 @@ Set `published: false` on a case study to hide it everywhere.
 
 ## Design
 
-Two grounds alternate: charcoal **stage** sections for cinematic media and
-ivory **paper** sections for anything people need to read. Muted gold is the
-only accent. Component classes (`.stage`, `.paper`, `.display`, `.eyebrow`,
-`.btn`, `.media-frame`, …) live in the `components` layer of
-`app/globals.css`, so Tailwind utilities always win.
+Graphite **stage** sections and bone **paper** sections, with one signal
+colour: ember (`#ff5b1f`; `ember-ink` on bone for AA text). Headings are
+Archivo, heavy and slightly wide; labels are JetBrains Mono. Component classes
+(`.stage`, `.paper`, `.display`, `.btn`, `.spotlight`, `.beam`, `.tape`, …)
+live in the `components` layer of `app/globals.css`, so Tailwind utilities
+always win.
+
+Signature pieces:
+
+- **Hero** — the colour portrait framed with focus brackets and floating
+  discipline chips (tilts towards the pointer), over a live particle
+  "decision field" (`components/home/DecisionField.tsx`) that swirls around
+  the pointer like attention.
+- **Tapes** — two crossing marquee bands of disciplines under the hero.
+- **Experience** — a timeline whose line fills as you read.
+- **Principle** — the manifesto lights up word by word on scroll.
+- **Apps** — a sticky stacked deck of cards (desktop), each with the real
+  screenshot.
+- **Games** — a bento grid; **Contact** — an ember section with a magnetic
+  orb; **Footer** — the name set across the full width.
+
+`components/Motion.tsx` drives all of it from data attributes (`data-split`,
+`data-scrub-words`, `data-beam`, `data-deck`, `data-magnetic`, `data-tilt`,
+`data-cursor`, …). Under `prefers-reduced-motion` nothing moves and every
+section renders in its final state.
 
 ## Images and videos
 
 Project tiles and case-study pages use real screenshots of each product in
 `public/images/work/<slug>.webp` (1600 × 1000), set via `image` in
-`lib/content.ts`. Only the hero and contact sections use video
-(`components/ui/MediaSlot.tsx`): drop a file at the path listed in
-**[`public/videos/README.md`](public/videos/README.md)** and rebuild. Prompts
-are in **[`docs/video-prompts.md`](docs/video-prompts.md)**. A real portrait at
-`public/images/portrait.jpg` appears in the About section automatically.
+`lib/content.ts`. The hero shows `public/images/portrait.jpg` (colour) and
+About shows `public/images/hero-working.jpg` (black and white). No section
+needs a video any more; an optional `public/videos/work-<slug>.mp4` still
+replaces that project's screenshot (see
+[`public/videos/README.md`](public/videos/README.md)).
 
 ## Simulated data
 

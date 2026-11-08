@@ -21,12 +21,12 @@ import { oopsCupid } from "@/lib/data";
 
 /* Chiaroscuro: charcoal ground, ivory light, gold reserved as the accent. */
 const INK = {
-  ivory: "#ede4d3",
-  ivoryDim: "#c9c0b1",
-  ivoryFaint: "#8d867a",
-  gold: "#c8a45c",
-  goldBright: "#e0c184",
-  goldDeep: "#8a6d32",
+  ivory: "#f3f0ea",
+  ivoryDim: "#b9b5ad",
+  ivoryFaint: "#7d7a74",
+  ember: "#ff5b1f",
+  emberBright: "#ff8a5c",
+  emberDeep: "#b8400f",
 } as const;
 
 /* Scores are 0–1, so two decimals is the honest precision. */
@@ -222,12 +222,12 @@ export default function PsychometricRadar({
     gradient
       .append("stop")
       .attr("offset", "0%")
-      .attr("stop-color", INK.gold)
+      .attr("stop-color", INK.ember)
       .attr("stop-opacity", 0.26);
     gradient
       .append("stop")
       .attr("offset", "100%")
-      .attr("stop-color", INK.goldDeep)
+      .attr("stop-color", INK.emberDeep)
       .attr("stop-opacity", 0.07);
 
     const plot = svg.append("g");
@@ -265,7 +265,7 @@ export default function PsychometricRadar({
     const shapePath = plot
       .append("path")
       .attr("fill", `url(#${gradientId})`)
-      .attr("stroke", INK.goldBright)
+      .attr("stroke", INK.emberBright)
       .attr("stroke-width", 1.6)
       .attr("stroke-linejoin", "round");
 
@@ -274,14 +274,14 @@ export default function PsychometricRadar({
       .selectAll<SVGCircleElement, number>("circle")
       .data(d3.range(AXES.length))
       .join("circle")
-      .attr("fill", INK.gold)
+      .attr("fill", INK.ember)
       .attr("r", 2.4);
 
     /* The one direct label on the chart: the peak axis of the resolved
        profile. Every other number lives in the table. */
     const peakText = plot
       .append("text")
-      .attr("fill", INK.goldBright)
+      .attr("fill", INK.emberBright)
       .attr("font-family", "var(--font-mono)")
       .attr("text-anchor", "middle")
       .attr("dominant-baseline", "middle")
@@ -428,7 +428,7 @@ export default function PsychometricRadar({
     const caret = document.createElement("span");
     caret.textContent = "█";
     caret.style.marginLeft = "0.15em";
-    caret.style.color = INK.goldDeep;
+    caret.style.color = INK.emberDeep;
     statusEl.appendChild(caret);
 
     let caretAnim: Animation | null = null;
@@ -731,10 +731,10 @@ export default function PsychometricRadar({
     <figure className={["w-full", className ?? ""].join(" ").trim()}>
       {/* Titling only — the surrounding section owns the heading level. */}
       <figcaption className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <span className="font-serif text-lg font-light tracking-tight text-[#ede4d3]">
+        <span className="font-serif text-lg font-light tracking-tight text-[#f3f0ea]">
           Psychometric readout
         </span>
-        <span className="font-mono text-[10px] tracking-[0.24em] uppercase text-[#8d867a]">
+        <span className="font-mono text-[10px] tracking-[0.24em] uppercase text-[#7d7a74]">
           {AXES.length} axes · scored 0–1
         </span>
       </figcaption>
@@ -746,12 +746,12 @@ export default function PsychometricRadar({
         <p
           ref={statusRef}
           aria-hidden="true"
-          className="min-h-[1.35em] font-mono text-[11px] leading-[1.35] tracking-[0.1em] text-[#c8a45c]"
+          className="min-h-[1.35em] font-mono text-[11px] leading-[1.35] tracking-[0.1em] text-[#ff5b1f]"
         />
         <p
           ref={narrativeRef}
           aria-hidden="true"
-          className="min-h-[4.2em] max-w-[62ch] font-mono text-[12px] leading-relaxed text-[#c9c0b1] sm:min-h-[3.4em]"
+          className="min-h-[4.2em] max-w-[62ch] font-mono text-[12px] leading-relaxed text-[#b9b5ad] sm:min-h-[3.4em]"
         />
       </div>
 
@@ -770,8 +770,8 @@ export default function PsychometricRadar({
               className={[
                 chipBase,
                 active === i
-                  ? "border-[#c8a45c]/60 bg-[#c8a45c]/10 text-[#e0c184] focus-visible:ring-[#e0c184]"
-                  : "border-[#ede4d3]/12 text-[#8d867a] hover:border-[#ede4d3]/30 hover:text-[#c9c0b1] focus-visible:ring-[#c8a45c]",
+                  ? "border-[#ff5b1f]/60 bg-[#ff5b1f]/10 text-[#ff8a5c] focus-visible:ring-[#ff8a5c]"
+                  : "border-[#f3f0ea]/12 text-[#7d7a74] hover:border-[#f3f0ea]/30 hover:text-[#b9b5ad] focus-visible:ring-[#ff5b1f]",
               ].join(" ")}
             >
               {profile.id}
@@ -785,7 +785,7 @@ export default function PsychometricRadar({
             onClick={() => controllerRef.current?.setAutoplay(!autoplay)}
             className={[
               chipBase,
-              "border-[#ede4d3]/12 text-[#8d867a] hover:border-[#ede4d3]/30 hover:text-[#c9c0b1] focus-visible:ring-[#c8a45c]",
+              "border-[#f3f0ea]/12 text-[#7d7a74] hover:border-[#f3f0ea]/30 hover:text-[#b9b5ad] focus-visible:ring-[#ff5b1f]",
             ].join(" ")}
           >
             {autoplay ? "Pause loop" : "Resume loop"}
@@ -793,7 +793,7 @@ export default function PsychometricRadar({
         )}
       </div>
 
-      <p className="mt-4 max-w-[62ch] font-mono text-[10px] leading-relaxed tracking-[0.06em] text-[#8d867a]">
+      <p className="mt-4 max-w-[62ch] font-mono text-[10px] leading-relaxed tracking-[0.06em] text-[#7d7a74]">
         Simulated readout. The query lines and the profile copy are composed on
         the client from the scores shown — a demo of the OopsCupid output
         surface, not a live model call.

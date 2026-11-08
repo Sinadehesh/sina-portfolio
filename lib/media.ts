@@ -17,7 +17,7 @@ export const posterFor = (video: string) => video.replace(/\.mp4$/, ".jpg");
 const hues: Record<string, string> = {
   optimolds: "#5f8f86",
   oopscupid: "#b8667a",
-  costly: "#c8a45c",
+  costly: "#ff5b1f",
   "interview-simulation-study": "#6a86b0",
   "workflow-automation-engine": "#7f9a68",
   "daily-sublime": "#b0704f",
@@ -32,4 +32,4 @@ const hues: Record<string, string> = {
   "tao-app": "#8a8070",
   "merge-farmstead": "#c0a040",
 };
-export const hueFor = (slug: string) => hues[slug] ?? "#c8a45c";
+export const hueFor = (slug: string) => hues[slug] ?? "#ff5b1f";

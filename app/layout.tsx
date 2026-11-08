@@ -3,16 +3,15 @@ import localFont from "next/font/local";
 import { personalInfo, site } from "@/lib/content";
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
-import ScrollFX from "@/components/ScrollFX";
+import Motion from "@/components/Motion";
 import "./globals.css";
 
 // Fonts are bundled in app/fonts (Google Fonts' latin variable files, SIL OFL)
-// so the build never depends on reaching Google's servers.
+// so the build never depends on reaching Google's servers. Archivo carries a
+// width axis (62–125%): headings run it wide and heavy.
 const display = localFont({
-  src: [
-    { path: "./fonts/cormorant-garamond-latin.woff2", weight: "300 700", style: "normal" },
-    { path: "./fonts/cormorant-garamond-italic-latin.woff2", weight: "300 700", style: "italic" },
-  ],
+  src: [{ path: "./fonts/archivo-latin.woff2", weight: "100 900", style: "normal" }],
+  declarations: [{ prop: "font-stretch", value: "62% 125%" }],
   variable: "--font-display",
   display: "swap",
 });
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0c",
+  themeColor: "#08090b",
   colorScheme: "dark",
 };
 
@@ -65,7 +64,7 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <body className="js-off antialiased">
-        <ScrollFX />
+        <Motion />
         <SiteNav />
         <main>{children}</main>
         <Footer />

@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
 
 /**
- * Sections alternate between two grounds: "stage" (charcoal, cinematic media)
- * and "paper" (ivory, anything people need to read). One heading rhythm —
- * eyebrow, serif title, optional lede — keeps the page reading as one document.
+ * Sections alternate between two grounds: "stage" (graphite) and "paper"
+ * (bone, for anything people need to read closely). One heading rhythm — an
+ * index rule, a heavy Archivo title, an optional lede — keeps the page reading
+ * as one document.
  */
 export function Section({
   id,
@@ -19,19 +20,10 @@ export function Section({
   innerClassName?: string;
 }) {
   // Paper grounds carry a faint grain, so ivory reads as paper, not flat colour.
-  const ground =
-    tone === "stage" ? "stage" : tone === "paper" ? "paper grain" : "paper grain bg-paper-deep";
+  const ground = tone === "stage" ? "stage" : tone === "paper" ? "paper grain" : "paper grain bg-paper-deep";
   return (
-    <section
-      id={id}
-      aria-labelledby={id ? `${id}-heading` : undefined}
-      className={`${ground} relative ${className}`}
-    >
-      <div
-        className={`mx-auto w-full max-w-[1280px] px-5 py-24 sm:px-10 md:py-32 ${innerClassName}`}
-      >
-        {children}
-      </div>
+    <section id={id} aria-labelledby={id ? `${id}-heading` : undefined} className={`${ground} relative ${className}`}>
+      <div className={`mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-10 md:py-36 ${innerClassName}`}>{children}</div>
     </section>
   );
 }
@@ -47,7 +39,7 @@ export function SectionHeading({
 }: {
   id?: string;
   eyebrow: string;
-  /** Roman numeral shown before the eyebrow, like a chapter in a catalogue. */
+  /** Section index shown on the rule, e.g. "01". */
   numeral?: string;
   title: ReactNode;
   lede?: ReactNode;
@@ -55,23 +47,24 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <header className={`reveal mb-14 max-w-[60rem] md:mb-20 ${className}`}>
-      <p className="eyebrow flex items-center gap-4">
-        {numeral && (
-          <>
-            <span className="numeral">{numeral}</span>
-            <span aria-hidden="true" className="h-px w-10 bg-current opacity-50" />
-          </>
-        )}
-        {eyebrow}
+    <header className={`mb-14 md:mb-20 ${className}`}>
+      <p className="reveal flex items-center gap-4 border-t border-current/15 pt-4 font-mono text-[0.75rem] tracking-[0.2em] uppercase">
+        {numeral && <span className="section-index">({numeral})</span>}
+        <span className="opacity-70">{eyebrow}</span>
+        <span aria-hidden="true" className="ml-auto hidden opacity-40 sm:inline">
+          Sina Dehesh
+        </span>
       </p>
-      <Tag
-        id={id ? `${id}-heading` : undefined}
-        className="display mt-5 text-[clamp(2.4rem,5.4vw,4.5rem)]"
-      >
-        {title}
-      </Tag>
-      {lede ? <p className="lede mt-6 max-w-[58ch] opacity-80">{lede}</p> : null}
+      <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
+        <Tag
+          id={id ? `${id}-heading` : undefined}
+          data-split
+          className={`display text-[clamp(2.4rem,5.7vw,5.5rem)] ${lede ? "lg:col-span-8" : "lg:col-span-12"}`}
+        >
+          {title}
+        </Tag>
+        {lede ? <p className="reveal lede max-w-[46ch] opacity-75 lg:col-span-4 lg:pb-2">{lede}</p> : null}
+      </div>
     </header>
   );
 }
@@ -86,10 +79,7 @@ export function FactList({
   return (
     <dl className={className}>
       {facts.map((f) => (
-        <div
-          key={f.k}
-          className="flex items-baseline justify-between gap-6 border-t py-3 first:border-t-0"
-        >
+        <div key={f.k} className="flex items-baseline justify-between gap-6 border-t py-3 first:border-t-0">
           <dt className="text-sm opacity-65">{f.k}</dt>
           <dd className="text-right text-sm font-medium">{f.v}</dd>
         </div>
