@@ -1,5 +1,7 @@
 import type {
+  BlogPosting,
   BreadcrumbList,
+  CollectionPage,
   CreativeWork,
   FAQPage,
   Graph,
@@ -21,6 +23,7 @@ import {
   type CaseStudy,
 } from "./content";
 import type { FaqItem } from "./faq";
+import { articlePath, getTopic, type Article } from "./articles";
 
 export const absoluteUrl = (path: string) => new URL(path, site.url).href;
 
@@ -197,6 +200,62 @@ export function breadcrumbNode(crumbs: { name: string; path: string }[]): Breadc
       name: c.name,
       item: absoluteUrl(c.path),
     })),
+  };
+}
+
+/** An Insights article, authored and published by the Person. */
+export function articleNode(a: Article): BlogPosting {
+  const url = absoluteUrl(articlePath(a.slug));
+  return {
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    headline: a.title,
+    description: a.description,
+    url,
+    mainEntityOfPage: url,
+    datePublished: a.date,
+    dateModified: a.updated ?? a.date,
+    inLanguage: "en",
+    author: personRef,
+    publisher: personRef,
+    image: absoluteUrl("/images/portrait.jpg"),
+    articleSection: getTopic(a.topic)?.title,
+    keywords: a.keywords.join(", "),
+    wordCount: a.words,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: a.keywords.slice(0, 4).map((name) => ({ "@type": "Thing", name })),
+    mentions: a.caseStudies.map((slug) => ({ "@id": caseStudyId(slug) })),
+  };
+}
+
+/** The questions answered at the end of an article. */
+export function articleFaqNode(a: Article): FAQPage {
+  const path = articlePath(a.slug);
+  return {
+    "@type": "FAQPage",
+    "@id": absoluteUrl(`${path}#faq`),
+    url: absoluteUrl(path),
+    isPartOf: { "@id": WEBSITE_ID },
+    author: personRef,
+    mainEntity: a.faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a, author: personRef },
+    })),
+  };
+}
+
+/** A listing of articles (the Insights hub or a topic page). */
+export function articleCollectionNode(path: string, name: string, description: string, list: Article[]): CollectionPage {
+  return {
+    "@type": "CollectionPage",
+    "@id": absoluteUrl(path),
+    url: absoluteUrl(path),
+    name,
+    description,
+    isPartOf: { "@id": WEBSITE_ID },
+    author: personRef,
+    hasPart: list.map((a) => ({ "@id": `${absoluteUrl(articlePath(a.slug))}#article` })),
   };
 }
 

@@ -1,12 +1,14 @@
 import { personalInfo } from "@/lib/content";
 
+/** `wide` links only show in the desktop bar from 1280px; all show in the phone menu. */
 const links = [
   { href: "/#method", label: "Method" },
   { href: "/#consulting", label: "Consulting" },
-  { href: "/#experience", label: "Experience" },
+  { href: "/#experience", label: "Experience", wide: true },
   { href: "/#work", label: "Apps" },
-  { href: "/#games", label: "Games" },
-  { href: "/#books", label: "Books" },
+  { href: "/#games", label: "Games", wide: true },
+  { href: "/#books", label: "Books", wide: true },
+  { href: "/insights", label: "Insights", spy: "insights" },
   { href: "/#about", label: "About" },
 ];
 
@@ -37,10 +39,14 @@ export default function SiteNav() {
             <span className="font-serif text-[1.15rem] font-bold tracking-[-0.03em]">{personalInfo.name}</span>
           </a>
 
-          <ul className="hidden items-center gap-8 font-mono text-[0.75rem] tracking-[0.16em] uppercase lg:flex">
+          <ul className="hidden items-center gap-7 font-mono text-[0.75rem] tracking-[0.16em] uppercase lg:flex xl:gap-8">
             {links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="nav-link text-ivory-dim transition-colors hover:text-ivory">
+              <li key={l.href} className={l.wide ? "hidden xl:block" : undefined}>
+                <a
+                  href={l.href}
+                  data-spy={l.spy}
+                  className="nav-link text-ivory-dim transition-colors hover:text-ivory"
+                >
                   {l.label}
                 </a>
               </li>

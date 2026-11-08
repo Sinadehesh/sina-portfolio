@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useScrollyProgress } from "@/components/scrolly/Scrolly";
+import { gates } from "@/lib/gates";
 
 /**
  * The "How I work" diagram. Visitors stream through four decision gates
@@ -17,12 +18,7 @@ import { useScrollyProgress } from "@/components/scrolly/Scrolly";
  * desktop and top-to-bottom on phones.
  */
 
-export const moments = [
-  { n: "01", name: "Understand", doubt: "“What is this, exactly?”", barrier: "Uncertainty", fix: "One clear promise" },
-  { n: "02", name: "Trust", doubt: "“Can I trust them?”", barrier: "Low trust", fix: "Proof & social signals" },
-  { n: "03", name: "Try", doubt: "“Looks like work.”", barrier: "Effort", fix: "A shorter path" },
-  { n: "04", name: "Commit", doubt: "“What if it goes wrong?”", barrier: "Perceived risk", fix: "Risk reversal" },
-];
+const moments = gates;
 
 const GATES = [0.18, 0.38, 0.58, 0.78];
 const POOL = 0.86;

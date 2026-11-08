@@ -8,6 +8,7 @@ import WorkGrid from "@/components/home/WorkGrid";
 import Games from "@/components/home/Games";
 import Books from "@/components/home/Books";
 import About from "@/components/home/About";
+import Insights from "@/components/home/Insights";
 import Faq from "@/components/home/Faq";
 import Contact from "@/components/home/Contact";
 import JsonLd from "@/components/seo/JsonLd";
@@ -30,7 +31,8 @@ export default function Page() {
       <Games />
       <Books />
       <About />
-      <Faq items={homeFaqs} numeral="08" />
+      <Insights />
+      <Faq items={homeFaqs} numeral="09" />
       <Contact />
     </>
   );

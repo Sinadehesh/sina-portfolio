@@ -67,16 +67,20 @@ export default function Motion() {
     }
 
     // Nav: mark the chapter currently on screen.
-    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".nav-link[href*='#']"));
+    // A link to a page (e.g. /insights) can name its section on this page with data-spy.
+    const navLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>(".nav-link[href*='#'], .nav-link[data-spy]"),
+    );
+    const spyId = (a: HTMLAnchorElement) => a.dataset.spy ?? new URL(a.href).hash.slice(1);
     const chapters = navLinks
-      .map((a) => document.getElementById(new URL(a.href).hash.slice(1)))
+      .map((a) => document.getElementById(spyId(a)))
       .filter((el): el is HTMLElement => el !== null);
     if (chapters.length) {
       const spy = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
             if (!entry.isIntersecting) continue;
-            navLinks.forEach((a) => a.classList.toggle("is-current", a.hash === `#${entry.target.id}`));
+            navLinks.forEach((a) => a.classList.toggle("is-current", spyId(a) === entry.target.id));
           }
         },
         { rootMargin: "-45% 0px -50% 0px" },
@@ -228,7 +232,12 @@ export default function Motion() {
       });
 
       gsap.utils.toArray<HTMLElement>("[data-draw]").forEach((el) => {
-        ScrollTrigger.create({ trigger: el, start: "top 82%", once: true, onEnter: () => el.classList.add("is-drawn") });
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 82%",
+          once: true,
+          onEnter: () => el.classList.add("is-drawn"),
+        });
       });
 
       // Experience timeline: the line fills as you read, each entry lights up.

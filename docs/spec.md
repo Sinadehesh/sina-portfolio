@@ -76,6 +76,12 @@ codebase against it; keep this file in sync when the brief changes.
 17. `/llms.txt`, `/llms-full.txt`, `/sitemap.xml` and `/robots.txt` (AI
     crawlers explicitly allowed) are generated from `lib/content.ts`.
 18. Each page has one `<h1>`, a canonical URL and OpenGraph metadata.
+18a. Insights: `/insights`, topic pages and one page per article in
+     `content/articles/`, each written in the first person by Sina Dehesh with an
+     answer-first opening, key takeaways, an FAQ, an author box and links to related
+     articles and case studies; `BlogPosting` + `FAQPage` + `BreadcrumbList` JSON-LD;
+     listed in the sitemap, `llms.txt`, `llms-full.txt` and the RSS feed. Articles
+     cite only real work and verifiable research, and pass `npm run check:articles`.
 
 ## Standing quality bars
 

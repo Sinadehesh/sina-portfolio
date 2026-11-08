@@ -5,6 +5,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { MediaSlot } from "@/components/ui/MediaSlot";
 import CaseViz from "@/components/work/CaseViz";
 import InvestmentSection from "@/components/work/Investment";
+import ArticleCard from "@/components/insights/ArticleCard";
+import { getArticles } from "@/lib/articles";
 import { getCaseStudy, personalInfo, publishedCaseStudies } from "@/lib/content";
 import { hueFor, workVideo } from "@/lib/media";
 import { breadcrumbNode, caseStudyNode, caseStudyPageNode, caseStudyPath } from "@/lib/schema";
@@ -38,6 +40,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   const index = publishedCaseStudies.findIndex((s) => s.slug === c.slug);
   const next = publishedCaseStudies[(index + 1) % publishedCaseStudies.length];
+  const writing = getArticles()
+    .filter((a) => a.caseStudies.includes(c.slug))
+    .slice(0, 3);
   const impact = [
     { k: "Problem", v: c.impact.problem },
     { k: "Psychology used", v: c.impact.mechanism },
@@ -245,6 +250,17 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <p className="mt-6 text-sm text-ink-faint">{c.keywords.join(" · ")}</p>
             </div>
           </div>
+
+          {writing.length > 0 && (
+            <div>
+              <h2 className="display text-[clamp(2rem,4vw,3.25rem)]">Writing that draws on {c.name}</h2>
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                {writing.map((a) => (
+                  <ArticleCard key={a.slug} article={a} />
+                ))}
+              </div>
+            </div>
+          )}
 
           <a
             href={caseStudyPath(next.slug)}
