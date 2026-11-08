@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { personal } from "@/lib/data";
+import { ogFonts } from "@/lib/og-fonts";
 
 // Rendered once at build time so the OG card ships as a plain PNG with the
 // rest of the static export.
@@ -23,6 +24,8 @@ export default function OpengraphImage() {
             "radial-gradient(ellipse 70% 60% at 30% 40%, #16191d 0%, #08090b 60%, #040506 100%)",
           padding: "72px 80px",
           color: "#f3f0ea",
+          fontFamily: "Archivo",
+          fontWeight: 500,
         }}
       >
         <div
@@ -41,7 +44,7 @@ export default function OpengraphImage() {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", height: 2, background: "#ff5b1f", width: 180 }} />
-          <div style={{ display: "flex", fontSize: 104, marginTop: 34, letterSpacing: -2 }}>
+          <div style={{ display: "flex", fontSize: 104, marginTop: 34, letterSpacing: -3, fontWeight: 800 }}>
             {personal.name}
           </div>
           <div style={{ display: "flex", fontSize: 40, marginTop: 20, color: "#ff5b1f" }}>
@@ -61,6 +64,6 @@ export default function OpengraphImage() {
         </div>
       </div>
     ),
-    size,
+    { ...size, fonts: ogFonts() },
   );
 }

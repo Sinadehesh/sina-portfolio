@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Contact from "@/components/home/Contact";
+import ArticleCard from "@/components/insights/ArticleCard";
+import { articlesIn } from "@/lib/articles";
 import Faq from "@/components/home/Faq";
 import JsonLd from "@/components/seo/JsonLd";
 import { MediaSlot } from "@/components/ui/MediaSlot";
@@ -167,6 +169,23 @@ export default function ConsumerPsychologyPage() {
             <WorkTile key={c.slug} study={c} />
           ))}
         </div>
+      </Section>
+
+      <Section id="writing" tone="paper-deep">
+        <SectionHeading
+          id="writing"
+          eyebrow="Writing"
+          title="Articles on consumer psychology"
+          lede="How I think about hesitation, trust, pricing and persuasion — with the methods behind each."
+        />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {articlesIn("consumer-psychology").map((a) => (
+            <ArticleCard key={a.slug} article={a} showTopic={false} />
+          ))}
+        </div>
+        <a href="/insights" className="link-arrow mt-10 text-ink">
+          All articles <span aria-hidden="true">→</span>
+        </a>
       </Section>
 
       <Faq items={topicFaqs} title="Consumer psychology consulting: questions" tone="paper" />

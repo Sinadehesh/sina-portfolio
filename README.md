@@ -36,8 +36,32 @@ npm run typecheck
 | `/work` | `app/work/page.tsx` | All case studies |
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Answer-first summary, impact, interactive chart (`components/work/CaseViz.tsx`), comparison, trade-offs, decision log |
 | `/consumer-psychology` | `app/consumer-psychology/page.tsx` | Service page: services, principles, process, proof, FAQ |
+| `/insights` | `app/insights/page.tsx` | Articles hub, grouped by topic |
+| `/insights/[slug]` | `app/insights/[slug]/page.tsx` ← `content/articles/*.md` | Article: takeaways, body, FAQ, author box, related articles |
+| `/insights/topic/[topic]` | `app/insights/topic/[topic]/page.tsx` | Topic hub pages |
+| `/insights/feed.xml` | `app/insights/feed.xml/route.ts` | RSS feed of every article |
 | `/llms.txt`, `/llms-full.txt` | `app/llms*.txt/route.ts` → `lib/llms.ts` | [llmstxt.org](https://llmstxt.org) dossiers for AI assistants |
 | `/sitemap.xml`, `/robots.txt` | `app/sitemap.ts`, `app/robots.ts` | AI crawlers explicitly allowed |
+
+## Writing an article (Insights)
+
+Each article is one markdown file, `content/articles/<slug>.md`. It opens with a JSON
+frontmatter block between `---` lines — `title`, `description`, `topic` (one of the
+topics in `lib/articles.ts`), `order`, `date`, `keywords`, `takeaways` (3–5),
+`faq` (3–6 `{ "q", "a" }`), `related` (article slugs) and `caseStudies` (case-study
+slugs) — then the body. Use `##` headings (they become the table of contents) and a
+line containing only `[[four-gates]]` to embed the Four Gates figure. Files starting
+with `_` are ignored.
+
+```bash
+npm run check:articles             # fields, length, links, wording (errors fail)
+npm run check:articles -- <slug>   # one article
+ARTICLES_DRAFT=1 npm run build     # preview while related articles are still unwritten
+```
+
+Articles are rendered at build time with `marked` and published with `BlogPosting`,
+`FAQPage` and `BreadcrumbList` JSON-LD, in the sitemap, in `llms.txt` / `llms-full.txt`
+and in the RSS feed. Case-study pages list the articles that cite them.
 
 ## Where the content lives
 

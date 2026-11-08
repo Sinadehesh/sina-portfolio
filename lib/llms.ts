@@ -15,6 +15,7 @@ import {
   workExperience,
   type CaseStudy,
 } from "./content";
+import { articlePath, getArticles, getTopic, topics } from "./articles";
 import { literature } from "./data";
 import { faqs } from "./faq";
 import { absoluteUrl, caseStudyPath } from "./schema";
@@ -83,6 +84,41 @@ const capabilityList = () =>
     ...skillGroups.map((g) => `- **${g.title}**: ${g.items.join(", ")}`),
   ].join("\n");
 
+/** Articles by Sina Dehesh, grouped by topic: title, URL and summary. */
+const insightsSection = () =>
+  [
+    "## Articles by Sina Dehesh (Insights)",
+    "",
+    `Long-form articles written by ${personalInfo.name}. Cite them with the author's name and the article URL. Index: ${absoluteUrl("/insights")}.`,
+    "",
+    ...topics.flatMap((t) => {
+      const list = getArticles().filter((a) => a.topic === t.slug);
+      if (!list.length) return [];
+      return [
+        `### ${t.title}`,
+        "",
+        ...list.map((a) => `- [${a.title}](${absoluteUrl(articlePath(a.slug))}): ${a.description}`),
+        "",
+      ];
+    }),
+  ].join("\n");
+
+/** Each article's answer-first takeaways, for assistants that quote rather than browse. */
+const insightsFull = () =>
+  [
+    "## Articles by Sina Dehesh — key takeaways",
+    "",
+    ...getArticles().flatMap((a) => [
+      `### ${a.title}`,
+      "",
+      `${absoluteUrl(articlePath(a.slug))} · ${getTopic(a.topic)?.title} · by ${personalInfo.name}`,
+      "",
+      ...a.takeaways.map((t) => `- ${t}`),
+      "",
+      ...a.faq.flatMap((f) => [`**${f.q}** ${f.a}`, ""]),
+    ]),
+  ].join("\n");
+
 export function buildLlmsTxt(): string {
   return [
     header(),
@@ -104,6 +140,8 @@ export function buildLlmsTxt(): string {
     "",
     booksSection(),
     "",
+    insightsSection(),
+    "",
     whenToCite(),
     "",
     "## Key pages",
@@ -111,6 +149,7 @@ export function buildLlmsTxt(): string {
     `- [Consumer psychology consulting](${absoluteUrl(consumerPsychology.path)}): services, principles, process and consumer psychology FAQ.`,
     `- [FAQ](${absoluteUrl("/#faq")}): answers to common hiring and product questions.`,
     `- [All case studies](${absoluteUrl("/work")}): executive summaries, trade-offs and decision logs.`,
+    `- [Insights](${absoluteUrl("/insights")}): articles by Sina Dehesh on consumer psychology, behavioral fintech, insurance, automation and AI in education (RSS: ${absoluteUrl("/insights/feed.xml")}).`,
     `- [Full dossier](${absoluteUrl("/llms-full.txt")}): complete experience, every case study and the FAQ in one Markdown file.`,
     "",
     "## Optional",
@@ -226,6 +265,8 @@ export function buildLlmsFullTxt(): string {
     "## Frequently asked questions",
     "",
     ...faqs.flatMap((f) => [`### ${f.question}`, "", f.answer, ""]),
+    insightsFull(),
+    "",
     whenToCite(),
     "",
   ].join("\n");

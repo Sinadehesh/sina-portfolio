@@ -1071,6 +1071,189 @@ body::after {
   .nav-link.is-current::after {
     transform: scaleX(1);
   }
+
+  /* ============================================================
+     Insights: long-form reading on bone
+     ============================================================ */
+  .article-glow {
+    background:
+      radial-gradient(45% 60% at 85% 20%, color-mix(in oklab, var(--color-ember) 13%, transparent), transparent 70%),
+      radial-gradient(40% 50% at 0% 100%, color-mix(in oklab, var(--color-ivory) 4%, transparent), transparent 70%);
+  }
+  .toc[open] .faq-plus { transform: rotate(45deg); }
+
+  .prose-article {
+    font-size: 1.125rem;
+    line-height: 1.78;
+    color: color-mix(in oklab, var(--color-ink) 86%, transparent);
+    text-wrap: pretty;
+  }
+  .prose-article > * + * { margin-top: 1.3em; }
+  .prose-article h2 {
+    position: relative;
+    margin-top: 2.6em;
+    scroll-margin-top: 6rem;
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    font-weight: 750;
+    font-stretch: 110%;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+  .prose-article h3 {
+    position: relative;
+    margin-top: 2em;
+    scroll-margin-top: 6rem;
+    font-family: var(--font-serif);
+    font-size: 1.32rem;
+    font-weight: 700;
+    font-stretch: 106%;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+  .prose-article h2 + *,
+  .prose-article h3 + * { margin-top: 0.8em; }
+  .prose-article .anchor {
+    position: absolute;
+    left: -1.1em;
+    padding-right: 0.3em;
+    opacity: 0;
+    color: var(--color-ember-ink);
+    text-decoration: none;
+    transition: opacity 300ms;
+  }
+  .prose-article h2:hover .anchor,
+  .prose-article h3:hover .anchor { opacity: 1; }
+  .prose-article a {
+    color: var(--color-ink);
+    font-weight: 550;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--color-ember-ink) 70%, transparent);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 300ms;
+  }
+  .prose-article a:hover { text-decoration-color: var(--color-ember-ink); }
+  .prose-article strong { color: var(--color-ink); font-weight: 650; }
+  /* The site sets no italics: emphasis reads as weight instead. */
+  .prose-article em { font-style: normal; font-weight: 600; color: var(--color-ink); }
+  .prose-article ul,
+  .prose-article ol { padding-left: 1.3em; }
+  .prose-article ul { list-style: disc; }
+  .prose-article ol { list-style: decimal; }
+  .prose-article li + li { margin-top: 0.5em; }
+  .prose-article li::marker { color: var(--color-ember-ink); }
+  .prose-article ol > li::marker { font-family: var(--font-mono); font-size: 0.85em; }
+  .prose-article blockquote {
+    border-left: 3px solid var(--color-ember);
+    padding: 0.15em 0 0.15em 1.25em;
+    font-family: var(--font-serif);
+    font-size: 1.32rem;
+    font-weight: 600;
+    line-height: 1.42;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+  }
+  .prose-article blockquote p + p { margin-top: 0.6em; }
+  .prose-article code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    background: color-mix(in oklab, var(--color-ink) 7%, transparent);
+  }
+  .prose-article hr {
+    margin: 3em 0;
+    border: 0;
+    border-top: 1px solid color-mix(in oklab, var(--color-ink) 15%, transparent);
+  }
+  .prose-article .table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+    background: color-mix(in oklab, white 40%, transparent);
+  }
+  .prose-article table {
+    width: 100%;
+    min-width: 34rem;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .prose-article th,
+  .prose-article td {
+    padding: 0.75em 0.95em;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid color-mix(in oklab, var(--color-ink) 10%, transparent);
+  }
+  .prose-article tr:last-child td { border-bottom: 0; }
+  .prose-article th {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+    background: color-mix(in oklab, var(--color-ink) 4%, transparent);
+  }
+
+  /* [[four-gates]] inside an article */
+  .gates-figure { margin: 2.4em 0; }
+  .gates-figure ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+    gap: 0.6rem;
+    padding: 0;
+    list-style: none;
+  }
+  .gates-figure li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 1.05rem 1.1rem 1.15rem;
+    border-radius: 8px;
+    background: var(--color-charcoal-900);
+    color: var(--color-ivory);
+    line-height: 1.35;
+  }
+  .gates-figure li + li { margin-top: 0; }
+  .gates-figure .g-head {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ivory-faint);
+  }
+  .gates-figure .g-n { color: var(--color-ember); }
+  .gates-figure .g-doubt { font-size: 1rem; font-weight: 500; }
+  .gates-figure .g-barrier {
+    margin-top: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ember-bright);
+  }
+  .gates-figure .g-fix {
+    align-self: flex-start;
+    margin-top: 0.2rem;
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+    background: var(--color-ember);
+    color: var(--color-void);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .gates-figure figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--color-ink-faint);
+  }
 }
 
 /* ============================================================

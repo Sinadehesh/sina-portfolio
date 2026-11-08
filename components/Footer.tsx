@@ -7,6 +7,7 @@ const columns = [
     links: [
       { href: "/work", label: "All case studies" },
       { href: "/consumer-psychology", label: "Consumer psychology consulting" },
+      { href: "/insights", label: "Insights (articles)" },
       { href: "/#games", label: "Games" },
       { href: "/#books", label: "Books" },
     ],
@@ -25,6 +26,7 @@ const columns = [
     links: [
       { href: "/llms.txt", label: "llms.txt" },
       { href: "/llms-full.txt", label: "llms-full.txt" },
+      { href: "/insights/feed.xml", label: "RSS feed" },
       { href: "/sitemap.xml", label: "Sitemap" },
     ],
   },

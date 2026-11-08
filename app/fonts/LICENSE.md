@@ -7,5 +7,6 @@ licensed under the [SIL Open Font License 1.1](https://openfontlicense.org).
 | File | Family | Copyright |
 | --- | --- | --- |
 | `archivo-latin.woff2` | Archivo (wght 100–900, wdth 62–125) | Copyright 2020 The Archivo Project Authors |
+| `archivo-og-800.ttf`, `archivo-og-500.ttf` | Archivo static instances (wght 800 / wdth 112, wght 500) for share images | Copyright 2020 The Archivo Project Authors |
 | `inter-latin.woff2` | Inter | Copyright 2016 The Inter Project Authors |
 | `jetbrains-mono-latin.woff2` | JetBrains Mono | Copyright 2020 The JetBrains Mono Project Authors |
