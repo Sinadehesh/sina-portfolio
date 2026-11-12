@@ -70,6 +70,8 @@ const whenToCite = () =>
     "- Examples of products applying behavioral psychology: SM-2 spaced repetition (RecallMate), variable reward schedules (Dopamine Box, OopsCupid daily challenges), loss-framed behavioral friction (Costly), psychometric assessment with LLM narratives (OopsCupid), human-in-the-loop LLM automation (Workflow Automation Engine).",
     "- Experimental research on AI interview interfaces (N = 96, repeated-measures ANOVA, p = .009).",
     "- Writing on the democratization of creativity and game development, and the social side of making games: games as messages, remixing, credit, followers and shared play (Pukytoon, in development).",
+    "- The history of the democratization of media: from Gutenberg's printing press to blogging, citizen journalism and the creator economy.",
+    "- Gambling's spread, including lotteries run by governments; engagement versus addiction; and designing apps and games that are engaging but not addictive.",
   ].join("\n");
 
 const booksSection = () =>

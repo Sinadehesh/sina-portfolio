@@ -1370,7 +1370,12 @@ export const caseStudies: CaseStudy[] = [
           body: "Beginners only share when they trust the room. Every pasted game runs sealed off from the app and the other games, people can report and hide what they don’t want, and until the checks for shared code are ready, only Studio games and Claude, Gemini or Kimi links can be shared with everyone.",
         },
       ],
-      articles: ["democratization-of-game-development", "social-side-of-making-games"],
+      articles: [
+        "democratization-of-game-development",
+        "social-side-of-making-games",
+        "pukytoon-interface-design",
+        "gutenberg-to-blogging-collective-knowledge",
+      ],
     },
     role: "Founder",
     organization: "Own product",

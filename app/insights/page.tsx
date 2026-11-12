@@ -45,8 +45,9 @@ export default function InsightsPage() {
           </h1>
           <p className="lede mt-8 max-w-[60ch] text-ivory-dim">
             I’m {personalInfo.name}, an applied psychologist and consumer psychology consultant in Milan. I write about the behavioral science
-            behind conversion, fintech, insurance, automation with humans in the loop, AI products, AI in education, and
-            games and the democratization of creativity — from research I ran and products I designed and tested.
+            behind conversion, fintech, insurance, automation with humans in the loop, AI products, AI in education, the
+            democratization of creativity and games, and where engagement ends and addiction begins — from research I ran
+            and products I designed and tested.
           </p>
           <nav aria-label="Topics" className="mt-10 flex flex-wrap gap-2">
             {topics.map((t) => (
