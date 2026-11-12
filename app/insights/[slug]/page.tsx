@@ -99,7 +99,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                   {personalInfo.name}
                 </a>
               </p>
-              <p className="mt-1 text-sm text-ivory-faint">Consumer psychology consultant · Milan</p>
+              <p className="mt-1 text-sm text-ivory-faint">Applied psychologist · Milan</p>
             </div>
             <p className="font-mono text-[0.75rem] tracking-[0.16em] text-ivory-faint uppercase sm:ml-auto">
               <time dateTime={a.date}>{formatDate(a.date)}</time> · {a.minutes} min read

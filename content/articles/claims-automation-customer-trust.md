@@ -36,7 +36,7 @@
 ---
 The way to automate claims without breaking trust is to automate the paperwork, not the judgment and not the empathy. Data capture, document checks, policy lookups and status updates can run on their own; ambiguous evidence, denials and distressed customers need a person, early. The claim is the moment a customer finds out what they actually bought, and automation should make that moment faster and clearer, never colder.
 
-I have not worked in claims at an insurer. What I bring is the other half of the problem: I build automations with a human in the loop, including a shipped pipeline whose whole design is about knowing when a machine should stop and ask. Here is how I'd apply that thinking to claims.
+I have not worked in claims at an insurer. What I bring is the other half of the problem: as a product owner, I design automations with a human in the loop, including a shipped pipeline whose whole logic is about knowing when a machine should stop and ask. Here is how I'd apply that thinking to claims.
 
 ## Why is the claim the moment of truth?
 
@@ -65,7 +65,7 @@ The top-left lane is where straight-through processing shines. The bottom-right 
 
 ## How do you know when the system is unsure?
 
-This is where my own work comes in. My [Workflow Automation Engine](/work/workflow-automation-engine) captures signal from sales calls and email threads, extracts deal fields with an LLM and writes them to Pipedrive, with a confidence gate on every write path. Ambiguous extractions go to a human review queue, and no ambiguous write reaches the CRM without human approval. The invariant: the pipeline may be slow, never wrong. I describe the build in [human-in-the-loop CRM automation with n8n](/insights/human-in-the-loop-crm-automation-n8n).
+This is where my own work comes in. My [Workflow Automation Engine](/work/workflow-automation-engine) captures signal from sales calls and email threads, extracts deal fields with an LLM and writes them to Pipedrive, with a confidence gate on every write path. Ambiguous extractions go to a human review queue, and no ambiguous write reaches the CRM without human approval. The invariant: the pipeline may be slow, never wrong. I describe the design in [human-in-the-loop CRM automation with n8n](/insights/human-in-the-loop-crm-automation-n8n).
 
 Two lessons transfer to claims. First, a model's own confidence is not enough on its own. I'd combine it with checks that are harder to fool: required documents present, fields that agree with each other, a policy that actually matches. I go into how to build that in [confidence thresholds for LLM automations](/insights/llm-confidence-thresholds-human-review).
 

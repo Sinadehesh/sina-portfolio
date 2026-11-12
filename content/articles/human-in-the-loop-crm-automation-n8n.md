@@ -101,7 +101,7 @@ Two of these pay for themselves quickly. Reviewer edits are your best feedback: 
 
 I chose n8n because the pipelines had to stay visual and maintainable, and auditable by people who don't write code. In a visual workflow, the confidence gate is literally a fork in the graph. A sales-ops lead can open it and see for themselves that nothing reaches Pipedrive without passing through it. That visibility is part of the trust story, not just a developer convenience.
 
-n8n isn't the answer to every automation, though. I've written up when I'd reach for custom code instead in [n8n or custom code? A decision framework](/insights/n8n-vs-custom-code-decision-framework).
+n8n isn't the answer to every automation, though. I've written up when custom code is the better choice in [n8n or custom code? A decision framework](/insights/n8n-vs-custom-code-decision-framework).
 
 ## Where should you start if your CRM is rotting?
 

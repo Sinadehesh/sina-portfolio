@@ -76,7 +76,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontSize: 26 }}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ fontWeight: 800 }}>{personalInfo.name}</span>
-          <span style={{ color: "#b9b5ad", fontSize: 22, marginTop: 6 }}>Consumer psychology consultant · Milan</span>
+          <span style={{ color: "#b9b5ad", fontSize: 22, marginTop: 6 }}>Applied psychologist & consumer psychology consultant · Milan</span>
         </div>
         <span style={{ color: "#7d7a74", fontSize: 22, letterSpacing: 3 }}>SINADEHESH.COM/INSIGHTS</span>
       </div>

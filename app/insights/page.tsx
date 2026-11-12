@@ -44,9 +44,9 @@ export default function InsightsPage() {
             Notes on why people choose — <span className="text-ember">and how to build for it.</span>
           </h1>
           <p className="lede mt-8 max-w-[60ch] text-ivory-dim">
-            I’m {personalInfo.name}, a consumer psychology consultant in Milan. I write about the behavioral science
+            I’m {personalInfo.name}, an applied psychologist and consumer psychology consultant in Milan. I write about the behavioral science
             behind conversion, fintech, insurance, automation with humans in the loop, AI products and AI in education —
-            from research I ran and products I built.
+            from research I ran and products I designed and tested.
           </p>
           <nav aria-label="Topics" className="mt-10 flex flex-wrap gap-2">
             {topics.map((t) => (

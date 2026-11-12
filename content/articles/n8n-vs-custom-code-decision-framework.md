@@ -36,7 +36,7 @@
 ---
 Use n8n when an automation is mostly about connecting systems and the people who maintain it need to see how it works. Write custom code when the logic itself is the hard part: intricate validation, anything you'd want unit tests for, or volume that a visual tool makes awkward. For many business automations, the honest answer is both: n8n orchestrates, and small code services do the parts that need tests.
 
-I've built on both sides of that line: n8n pipelines for my [Workflow Automation Engine](/work/workflow-automation-engine), and coded backends such as the roughly 20 API routes behind Costly's Stripe hold-and-capture lifecycle. Here's the framework I use to decide, so the choice is made on purpose rather than by habit.
+My own products sit on both sides of that line: the n8n pipelines of my [Workflow Automation Engine](/work/workflow-automation-engine), where I'm the product owner, and Costly's Stripe flow for holding money and giving it back, a long-lived, stateful process of the kind that belongs in code. Here's the framework I use to decide, from a product owner's view, so the choice is made on purpose rather than by habit.
 
 ## When should you use n8n?
 
@@ -50,7 +50,7 @@ n8n earns its place when the shape of a workflow matters more than its arithmeti
 
 ## When is custom code the better choice?
 
-Code wins when the logic is the product:
+Code wins when the logic is the product. From a product owner's seat, these are the signs that a part belongs in an engineer's code rather than in a workflow:
 
 - **The rules are intricate.** Parsing, scoring and validation with many edge cases are easier to read, and far easier to test, as functions than as a chain of nodes.
 - **You need tests you trust.** Unit tests, fixtures and type checks are native to code. In a visual tool, testing usually means running the workflow on sample data and looking.

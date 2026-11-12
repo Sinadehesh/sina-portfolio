@@ -36,7 +36,7 @@
 ---
 The EU AI Act regulates education in layers. Emotion recognition in educational institutions has been prohibited since 2 February 2025. AI used for admissions, evaluating learning, placement and exam monitoring is high-risk, with those obligations now applying from 2 December 2027. And since 2 August 2026, people have had to be told when they are interacting with an AI system.
 
-I'm a product builder, not a lawyer. I've designed learning products — [RecallMate](/work/recallmate), an AI-assisted study app, and [Passway](/work/passway), a curriculum-gap tracker — and this is how I'd sort education features before anyone writes code. The law is Regulation (EU) 2024/1689, and the details of any real product belong with counsel.
+I'm not a lawyer. I've designed learning products — [RecallMate](/work/recallmate), an AI-assisted study app, and [Passway](/work/passway), a curriculum-gap tracker co-created with engineer friends — and this is how I'd sort education features before anyone writes code. The law is Regulation (EU) 2024/1689, and the details of any real product belong with counsel.
 
 ## What does the AI Act ban in education?
 

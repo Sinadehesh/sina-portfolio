@@ -78,31 +78,64 @@ export default function Books({ numeral = "06" }: { numeral?: string }) {
         title="Two books, both finished."
         lede="Both manuscripts are complete and waiting for editorial work."
       />
-      <div className="relative grid gap-16 md:grid-cols-2 md:gap-10" data-stagger>
+      <div className="relative space-y-20 md:space-y-24" data-stagger>
         {literature.map((book, i) => (
           <article
             key={book.title}
-            className="reveal group grid items-end gap-8 sm:grid-cols-[minmax(0,13.5rem)_1fr] sm:gap-10"
+            className={`reveal group grid items-center gap-8 sm:gap-10 ${
+              i === 0
+                ? "sm:grid-cols-[minmax(0,15rem)_1fr] lg:grid-cols-[17rem_1fr_minmax(0,22rem)]"
+                : "sm:grid-cols-[minmax(0,15rem)_1fr]"
+            }`}
           >
             <div aria-hidden="true" className="w-48 sm:w-auto">
               {i === 0 ? <TaoCover /> : <MomentCover />}
             </div>
-            <div className="pb-2">
+            <div>
               <p className="font-mono text-[0.75rem] tracking-[0.18em] text-ember uppercase">{book.genre}</p>
-              <h3 className="mt-3 font-serif text-[clamp(1.9rem,3vw,2.6rem)] leading-[1.02] font-bold tracking-[-0.03em]">
+              <h3 className="mt-3 font-serif text-[clamp(1.9rem,3.4vw,3rem)] leading-[1.02] font-bold tracking-[-0.03em]">
                 {book.title}
               </h3>
               <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-ivory/20 px-3 py-1.5 font-mono text-[0.75rem] tracking-[0.14em] text-ivory-dim uppercase">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-ember" />
                 {book.status}
               </p>
-              {book.body && <p className="mt-5 max-w-[46ch] text-[0.9375rem] text-ivory-dim">{book.body}</p>}
+              {book.body && (
+                <p className="mt-5 max-w-[58ch] text-[0.9375rem] leading-relaxed text-ivory-dim">{book.body}</p>
+              )}
+              {book.themes.length > 0 && (
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {book.themes.map((t) => (
+                    <li
+                      key={t}
+                      className="rounded-full bg-ivory/[0.06] px-3 py-1.5 font-mono text-[0.75rem] tracking-[0.1em] text-ivory-dim uppercase"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {i === 0 && (
-                <a href={caseStudyPath("tao-app")} className="link-arrow mt-5 text-sm text-ivory">
+                <a href={caseStudyPath("tao-app")} className="link-arrow mt-6 text-sm text-ivory">
                   The companion Android app <span aria-hidden="true">→</span>
                 </a>
               )}
             </div>
+            {book.quotes.length > 0 && (
+              <figure className="border-l-2 border-ember pl-6 sm:col-span-2 lg:col-span-1">
+                {book.quotes.map((q) => (
+                  <blockquote
+                    key={q}
+                    className="font-serif text-[clamp(1.25rem,1.8vw,1.55rem)] leading-snug font-bold tracking-[-0.02em] text-ivory [&+&]:mt-6"
+                  >
+                    “{q}”
+                  </blockquote>
+                ))}
+                <figcaption className="mt-5 font-mono text-[0.75rem] tracking-[0.16em] text-ivory-faint uppercase">
+                  From the manuscript
+                </figcaption>
+              </figure>
+            )}
           </article>
         ))}
       </div>

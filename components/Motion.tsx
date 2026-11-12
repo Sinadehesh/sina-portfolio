@@ -382,6 +382,12 @@ export default function Motion() {
       );
       listen(document, "pointerover", (e) => {
         const t = e.target as Element | null;
+        // Over an embedded game the pointer belongs to the game: hide ours until it comes back.
+        if (t instanceof HTMLIFrameElement) {
+          shown = false;
+          gsap.to([dot, ring], { opacity: 0, duration: 0.2 });
+          return;
+        }
         const labelled = t?.closest?.<HTMLElement>("[data-cursor]");
         const link = t?.closest?.("a, button, summary, [role='button']");
         ring.classList.toggle("is-label", Boolean(labelled));

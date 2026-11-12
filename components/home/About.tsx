@@ -15,7 +15,7 @@ export default function About() {
         eyebrow="About"
         title={
           <>
-            Trained in experimental psychology. <span className="text-ink-faint">Fluent in code.</span>
+            Trained in experimental psychology. <span className="text-ink-faint">Tested with real people.</span>
           </>
         }
       />

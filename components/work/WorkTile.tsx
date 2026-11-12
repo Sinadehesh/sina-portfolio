@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { MediaSlot } from "@/components/ui/MediaSlot";
 import type { CaseStudy } from "@/lib/content";
 import { hueFor, workVideo } from "@/lib/media";
+import { playPath } from "@/lib/play";
 import { caseStudyPath } from "@/lib/schema";
 
 type Tone = "stage" | "paper";
@@ -38,6 +39,15 @@ const focus: Record<string, string> = {
 export function liveLabel(c: CaseStudy) {
   return c.category === "Game" ? "Play in your browser ↗" : "Open the live product ↗";
 }
+
+/** Where a project's main "try it" link goes: its play page on this site, or its live product. */
+export function liveLink(c: CaseStudy): { href: string; label: string; external: boolean } | null {
+  if (c.play) return { href: playPath(c.slug), label: `▶ Play ${c.name}`, external: false };
+  if (c.url) return { href: c.url, label: liveLabel(c), external: true };
+  return null;
+}
+
+const ext = (l: { external: boolean }) => (l.external ? { target: "_blank", rel: "noopener" } : {});
 
 /** The image (or video, or tinted canvas) of a project, framed as a plate. */
 function Plate({ study: c, className = "" }: { study: CaseStudy; className?: string }) {
@@ -115,9 +125,9 @@ export function WorkTile({
           </span>
         </div>
       </a>
-      {c.url && (
-        <a href={c.url} target="_blank" rel="noopener" className={`link-arrow mt-3 text-sm ${t.link}`}>
-          {liveLabel(c)}
+      {liveLink(c) && (
+        <a href={liveLink(c)!.href} {...ext(liveLink(c)!)} className={`link-arrow mt-3 text-sm ${t.link}`}>
+          {liveLink(c)!.label}
         </a>
       )}
     </article>
@@ -159,15 +169,14 @@ export function DeckCard({ study: c, index, total }: { study: CaseStudy; index: 
               <a href={caseStudyPath(c.slug)} data-magnetic="0.25" className="btn btn-ember !px-5 !py-3.5 text-sm">
                 Case study <span aria-hidden="true">→</span>
               </a>
-              {c.url && (
+              {liveLink(c) && (
                 <a
-                  href={c.url}
-                  target="_blank"
-                  rel="noopener"
+                  href={liveLink(c)!.href}
+                  {...ext(liveLink(c)!)}
                   data-magnetic="0.25"
                   className="btn btn-ghost !px-5 !py-3.5 text-sm"
                 >
-                  {liveLabel(c)}
+                  {liveLink(c)!.label}
                 </a>
               )}
             </div>
@@ -266,14 +275,13 @@ export function BentoTile({
           <p className={`mt-2 text-ivory-dim ${big ? "max-w-[44ch] text-[1.0625rem]" : "text-[0.9375rem]"}`}>
             {c.tagline}
           </p>
-          {c.url && (
+          {liveLink(c) && (
             <a
-              href={c.url}
-              target="_blank"
-              rel="noopener"
+              href={liveLink(c)!.href}
+              {...ext(liveLink(c)!)}
               className="pointer-events-auto mt-5 inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-sm font-semibold text-void transition-colors hover:bg-ember-bright"
             >
-              Play in your browser <span aria-hidden="true">↗</span>
+              {c.play ? "▶ Play now" : liveLink(c)!.label}
             </a>
           )}
         </div>

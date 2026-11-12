@@ -96,7 +96,7 @@ The same hypothetical home insurance notice, written two ways:
 
 ## What my own products taught me about exits
 
-I build my own products on the principle that the exit has to exist and has to be honest. In [Costly](/work/costly), my commitment app, leaving costs a deletion fee, but the user sets that fee in advance, while calm, so the exit is priced openly instead of hidden. In [DeBubble](/work/debubble), my self-care app, progress only goes up and there are no streaks to lose, because I'd rather people come back for the value than stay out of fear of losing something.
+I design my own products on the principle that the exit has to exist and has to be honest. In [Costly](/work/costly), my commitment app, leaving costs a deletion fee, but the user sets that fee in advance, while calm, so the exit is priced openly instead of hidden. In [DeBubble](/work/debubble), my self-care app, progress only goes up and there are no streaks to lose, because I'd rather people come back for the value than stay out of fear of losing something.
 
 Renewals face the same choice at a larger scale: keep customers because leaving is hard, or because staying is worth it. Before shipping any renewal flow, I'd run it through [my five-question test for dark patterns](/insights/persuasion-or-dark-pattern-test).
 

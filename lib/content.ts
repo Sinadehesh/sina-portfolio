@@ -302,6 +302,13 @@ export interface CaseStudy {
   featured?: boolean;
   /** Fundraising details, rendered as an Investment section on the case page. */
   investment?: Investment;
+  /**
+   * A playable build, embedded at /play/<slug>. `src` is the live web build, so the site always shows the
+   * latest version. `device` sets the player's shape: a phone frame, or a wide screen for computer games.
+   */
+  play?: { src: string; device: "phone" | "computer"; note?: string };
+  /** Google Play listing, shown as a "Get it on Google Play" link. */
+  googlePlay?: { label: string; url: string }[];
 }
 
 export interface Investment {
@@ -1250,6 +1257,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
     url: "https://sinadehesh.github.io/animal-farm-merge/",
+    play: { src: "https://sinadehesh.github.io/animal-farm-merge/", device: "phone" },
     role: "Founder & game designer",
     organization: "Own product",
     summary:
@@ -1297,74 +1305,80 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "pukytoon",
     image: "/images/work/pukytoon.webp",
-    cover: { metric: "1 swipe", caption: "to the next game, like a video feed" },
+    cover: { metric: "1 link", caption: "turns a Claude, Gemini or Kimi game into a card in the feed" },
     featured: true,
     name: "Pukytoon",
-    tagline: "A swipe feed for games made with Claude, Gemini and Kimi",
+    tagline: "A feed of games anyone can make, share and play",
     published: true,
-    category: "Consumer app",
+    category: "Game",
     status: "Live",
     schemaType: "MobileApplication",
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
     url: "https://sinadehesh.github.io/pukytoon/",
+    play: {
+      src: "https://sinadehesh.github.io/pukytoon/",
+      device: "phone",
+      note: "Swipe up for the next game. Making and sharing your own games works best in Pukytoon itself.",
+    },
     role: "Founder",
     organization: "Own product",
     summary:
-      "Pukytoon turns games made with AI into a feed you swipe through like short videos. Drop in a Claude, Gemini or Kimi share link and it becomes a card in the feed; tap Play and the game takes the whole screen, with a Back to feed button to return. Next, I am building bundles of assets and game mechanics that players combine into their own games, with the Ludo.ai API so they can create new assets and games on the spot and share them. Making videos became something everyone can do; I believe making games will go the same way, and that the social platforms of the future will be gamified.",
+      "Pukytoon is a feed of games you swipe through like short videos, and anyone can add to it. Make a game in the Creator Studio with no code — four game types, six looks, 74 pictures, your own rules, so hundreds of different games — or copy the link of a game you made as a Claude artifact or with Gemini or Kimi and paste it in: it becomes a card in the feed. Sign in to share your games with everyone, like other people's, send a game to a friend with one link, or make your own version of someone else's. Making videos became something everyone can do; I believe making games will go the same way, and that the social platforms of the future will be gamified.",
     impact: {
       problem:
-        "People make small games with AI chatbots every day, but they stay stuck behind share links that the chat sites won't let other apps embed, so nobody browses them.",
+        "People make small games with AI chatbots every day, but they stay stuck behind share links that nobody browses, and making a game from scratch is still far harder than making a video.",
       mechanism:
-        "Feed-style browsing — one game per screen, snapping like video — cuts the cost of trying a game to a single swipe; link games open full screen inside the app.",
-      stack: ["Feed design: one swipe to try a game", "Creator tools: asset and mechanic bundles (in development)", "Ludo.ai API for new assets (in development)", "Android app and web"],
+        "Feed-style browsing cuts the cost of trying a game to one swipe; a no-code Creator Studio turns players into makers; pasting a link turns an AI-made artifact into a game in the feed; likes, share links and remixing make every game social.",
+      stack: ["Feed design: one swipe to try a game", "No-code Creator Studio", "Paste a link: Claude artifacts, Gemini, Kimi", "Accounts, likes, share links and remixing", "Android app and web"],
       outcome:
-        "Live on the web, with an Android test build; the feed opens with two original merge games.",
+        "Live on the web with an Android test build: the swipe feed, the Creator Studio, games added by link or code, and a shared feed with accounts, likes, share links, reports and remixing.",
     },
     metrics: [
-      { value: "3", label: "AI platforms: Claude, Gemini, Kimi" },
-      { value: "1 swipe", label: "Between games" },
-      { value: "2", label: "Original merge games open the feed" },
+      { value: "4 × 6", label: "Game types × looks in the Creator Studio" },
+      { value: "74", label: "Pictures to swap into any game" },
+      { value: "1 link", label: "To add a game made with Claude, Gemini or Kimi" },
     ],
     tradeoffs: [
-      "Claude, Gemini and Kimi do not let other apps embed their games, so link games open full screen inside the app instead of playing in the feed.",
-      "Each game is kept separate from the app and from the other games, and the app keeps its saved progress.",
-      "Zombie Bomber loads live from its web address, so updates appear without a new app build — at the cost of needing the internet.",
+      "Claude, Gemini and Kimi don't let other apps embed their pages, so a link game plays full screen in the app's own view (a new tab on the website); pasting the game's code plays it right in the feed.",
+      "A Creator Studio game is saved as a few hundred bytes of data — the game type, settings, look and rules — so it loads instantly, works offline and can be shared and remixed safely.",
+      "Every pasted game runs sealed off from the app and from the other games, and only Studio games and links to Claude, Gemini or Kimi can be shared with everyone until the safety checks for shared code are ready.",
     ],
     decisionLog: [
       {
         challenge: "AI-made games are scattered across share links.",
         hypothesis: "A swipeable feed makes trying a game as cheap as watching a clip.",
-        method: "One game per screen with video-style snapping and a live preview behind each cover.",
-        outcome: "A feed that plays games made with AI and opens AI share links.",
-      },
-      {
-        challenge: "Chat sites refuse to be embedded.",
-        hypothesis: "A full-screen in-app view keeps players inside the app instead of a browser.",
-        method: "A full-screen view inside the app with Back to feed; a new tab on the website.",
-        outcome: "Link games play full screen and return to the same place in the feed.",
+        method: "One game per screen with video-style snapping, each game waiting under its cover.",
+        outcome: "A feed that plays built-in games, pasted code and AI share links.",
       },
       {
         challenge: "Making a game is still much harder than making a video.",
-        hypothesis: "Ready-made bundles of assets and mechanics turn players into creators.",
-        method: "Bundles that players combine into their own games, the Ludo.ai API for new assets on the spot, and sharing.",
-        outcome: "In development.",
+        hypothesis: "If making a game means choosing and tuning instead of coding, players become creators.",
+        method: "A Creator Studio: pick a game type and a look, tune it while a live preview plays, set how to win and lose, publish.",
+        outcome: "Drop-and-merge, endless runner, match-3 and whack-a-mole games in six looks, made without code.",
+      },
+      {
+        challenge: "A game nobody can find or share stays a private toy.",
+        hypothesis: "Names, likes, share links and remixing make each game a reason to come back and invite someone.",
+        method: "Email sign-in with no password, a shared feed, likes, a share link for every game, Make your own version, reports and hiding.",
+        outcome: "Shared games carry their creator's name and @handle; following creators, community mechanics and an asset library come next.",
       },
     ],
     featureList: [
       "Swipe feed, one game per screen",
-      "Add games by share link",
-      "Full-screen play with Back to feed",
-      "Each game kept separate and safe",
-      "Saved progress per game",
+      "Creator Studio: four game types, six looks, 74 pictures, no code",
+      "Your own rules for winning and losing",
+      "Add a game by pasting a Claude, Gemini or Kimi link, or its code",
+      "Share with everyone, likes and one-link sharing",
+      "Make your own version of any shared Studio game",
       "Android app and web",
     ],
-    keywords: ["Feed Design", "AI-generated Games", "Engagement Design", "Creator Tools", "Gamified Social Platforms"],
+    keywords: ["Feed Design", "AI-generated Games", "Claude Artifacts", "No-code Game Maker", "Creator Tools", "Gamified Social Platforms"],
   },
   {
     slug: "the-loop",
     image: "/images/work/the-loop.webp",
-    cover: { metric: "5 acts", caption: "2027–2030: being the human in the loop" },
+    cover: { metric: "4 acts", caption: "playable now, 2027–2030: being the human in the loop" },
     name: "The Loop",
     tagline: "A story game about being the human in the loop as AI takes over work",
     published: true,
@@ -1374,20 +1388,25 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Web",
     url: "https://sinadehesh.github.io/extention/",
+    play: {
+      src: "https://sinadehesh.github.io/extention/",
+      device: "computer",
+      note: "Made for a computer: play it on a laptop or desktop, with sound on.",
+    },
     role: "Writer & game designer",
     organization: "Own product",
     summary:
-      "The Loop is a story game in five acts, set between 2027 and 2030, about being the human in the loop. Your laptop is on the left, where you make the decisions; your apartment is on the right, where you live with them. Every button you press makes sense at the time. Acts I and II are playable in the browser.",
+      "The Loop is a story game in five acts, set between 2027 and 2030, about being the human in the loop. Your apartment fills the screen: the laptop where the work comes in, the phone, the fridge, the radiator and a rent day that keeps coming. You lose your job to an AI, train the AI, write election content for it and end up reviewing what it decides for the city, and every button you press makes sense at the time. Acts I to IV are playable in the browser, with 23 endings to find; Act V is planned.",
     impact: {
       problem: "Stories about AI and work are told from far away, so the small, reasonable decisions that add up are hard to feel.",
       mechanism:
-        "Papers-Please-style daily queues of documents, gigs and agent reports where every scam has one tell, an economy of rent, RAM prices and internet bills that makes each shortcut tempting, and a split screen that shows what every decision costs at home.",
+        "Papers-Please-style daily queues of documents, gigs and agent reports where every scam has one tell, an economy of rent, RAM prices and internet bills that makes each shortcut tempting, and an apartment where every decision shows up at home: the heat, the fridge, the neighbours at the door.",
       stack: ["Narrative design", "In-game economy", "Marketing through streamers", "Readable pixel type"],
-      outcome: "Acts I and II playable in the browser, twelve endings to find, Acts III–V planned.",
+      outcome: "Acts I to IV playable in the browser, 23 endings, real recorded sound and a step-by-step tutorial; Act V planned.",
     },
     metrics: [
-      { value: "5", label: "Acts, 2027–2030 (two playable)" },
-      { value: "12", label: "Endings to find" },
+      { value: "4 of 5", label: "Acts playable, 2027–2030" },
+      { value: "23", label: "Endings to find" },
       { value: "0", label: "Installs needed: it plays in any browser" },
     ],
     tradeoffs: [
@@ -1414,7 +1433,7 @@ export const caseStudies: CaseStudy[] = [
       "Freelance and job sites inside the game",
       "Hardware, rent and price shocks",
       "Automation that hands work to agents, at a cost",
-      "Twelve endings",
+      "23 endings and a save you can continue",
       "Plays in the browser",
     ],
     keywords: ["Narrative Design", "Game Economy", "AI Fiction", "Systems Design", "Streamer Marketing"],
@@ -1432,6 +1451,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
     url: "https://sinadehesh.github.io/Happy-Fruit-merge/gems/",
+    play: { src: "https://sinadehesh.github.io/Happy-Fruit-merge/gems/", device: "phone" },
     role: "Game designer",
     organization: "Own product",
     summary:
@@ -1496,6 +1516,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Web",
     url: "https://sinadehesh.github.io/Happy-Fruit-merge/bomber/",
+    play: { src: "https://sinadehesh.github.io/Happy-Fruit-merge/bomber/", device: "phone" },
     role: "Game designer",
     organization: "Own product",
     summary:
@@ -1532,55 +1553,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     featureList: ["Merge and Bomb modes", "300 levels", "12 zombie types", "Upgrade shop", "Plays in the browser"],
     keywords: ["Game Design", "Progression Systems", "Difficulty Design", "Game Economy"],
-  },
-  {
-    slug: "thermite-dominoes",
-    image: "/images/work/thermite-dominoes.webp",
-    cover: { metric: "15", caption: "vaults to crack with thermite, acid and C4" },
-    name: "Thermite Dominoes",
-    tagline: "A physics heist puzzle: plan the chain reaction, then ignite",
-    published: true,
-    category: "Game",
-    status: "Built",
-    schemaType: "WebApplication",
-    applicationCategory: "GameApplication",
-    operatingSystem: "Web",
-    role: "Game designer",
-    organization: "Own product",
-    summary:
-      "Thermite Dominoes is a physics puzzle about planning a heist. While the vault is frozen you paint your gear — thermite that burns through steel, acid that eats concrete, cryo-foam that swells to block lasers, C4 and fuses — then press Ignite and watch the chain reaction carry the gold into the getaway pipe.",
-    impact: {
-      problem: "Physics puzzles often reward trial and error rather than planning.",
-      mechanism:
-        "Plan, then ignite: every material follows clear rules (thermite fizzles near water, acid seeps through gold), so players reason about the whole chain before committing, with a loot quota and a best score to beat.",
-      stack: ["Puzzle design", "Physics simulation"],
-      outcome: "Fifteen vaults across chapters, with security systems such as lasers, sprinklers and conveyors, and random vaults checked to be solvable.",
-    },
-    metrics: [
-      { value: "15", label: "Vaults" },
-      { value: "6+", label: "Tools: thermite, acid, cryo-foam, C4, fuse, oil" },
-      { value: "1", label: "Press of Ignite, then physics decides" },
-    ],
-    tradeoffs: [
-      "The vault is frozen while you plan, so the puzzle is about foresight rather than reflexes.",
-      "Each tool has one simple rule, so complex chains come from combining them rather than from special cases.",
-    ],
-    decisionLog: [
-      {
-        challenge: "Players should plan, not guess.",
-        hypothesis: "A frozen planning phase rewards reasoning about cause and effect.",
-        method: "Paint gear while the vault is frozen, then ignite.",
-        outcome: "Plan-then-ignite structure in every vault.",
-      },
-      {
-        challenge: "Later vaults need new problems, not just harder ones.",
-        hypothesis: "Security systems that react to materials create fresh puzzles.",
-        method: "Lasers, tripwires, sprinklers and conveyors that interact with the tools.",
-        outcome: "Chapters that introduce a new tool or hazard each time.",
-      },
-    ],
-    featureList: ["Plan-then-ignite puzzles", "15 vaults in chapters", "Thermite, acid, cryo-foam, C4, fuses and oil", "Security systems", "Hints and best scores"],
-    keywords: ["Puzzle Design", "Physics Simulation", "Systems Thinking", "Chain Reactions"],
   },
 ];
 

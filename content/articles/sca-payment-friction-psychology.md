@@ -36,7 +36,7 @@
 ---
 Strong customer authentication adds a step to many online payments, and whether that step costs you customers or earns their trust depends mostly on one thing: whether people understand what it's for. Friction that is explained, expected and proportionate reads as protection. The same friction arriving unannounced, in an unfamiliar window, reads as something going wrong.
 
-That's why I think of SCA as a natural experiment in friction. Across the EU, many online payments gained an extra step, and the lesson for product teams isn't "remove friction." It's that friction carries a meaning, and you can design the meaning. Below is how I think about it, a three-part test for any friction step, and what building the payment lifecycle for [Costly](/work/costly) taught me about money moving through states people need to understand.
+That's why I think of SCA as a natural experiment in friction. Across the EU, many online payments gained an extra step, and the lesson for product teams isn't "remove friction." It's that friction carries a meaning, and you can design the meaning. Below is how I think about it, a three-part test for any friction step, and what designing the payment lifecycle for [Costly](/work/costly) taught me about money moving through states people need to understand.
 
 ## What is strong customer authentication?
 
@@ -79,13 +79,13 @@ Here is the sequence I'd follow on any checkout.
 5. **Design the failure path first.** Keep entered details, explain the failure in one sentence, and offer a retry and an alternative method.
 6. **Confirm in plain words.** After success, say what was paid, to whom, and what happens next.
 
-## What building Costly's payment lifecycle taught me
+## What designing Costly's payment lifecycle taught me
 
-Costly charges real money for doomscrolling, so I built the full Stripe hold-and-capture lifecycle myself: about 20 API routes covering how a stake is held, released or captured. Each session uses two separate Stripe payments, because Stripe cannot partially capture a payment and keep the rest on hold. A fifth of the loss is captured; 80% is held for 24 hours and released if the user walks it off. An expiry sweep deals with holds whose window has closed.
+Costly charges real money for doomscrolling, so at its core is the full flow of holding money and giving it back through Stripe: a stake can be held, released or captured. Each session uses two separate Stripe payments, because Stripe cannot partially capture a payment and keep the rest on hold. A fifth of the loss is captured; 80% is held for 24 hours and released if the user walks it off. An expiry sweep deals with holds whose window has closed.
 
 The lesson for friction design: money in a held state is invisible and confusing unless you name it. A card hold typically shows up in the customer's banking app as a pending payment, so the product has to explain it first, in its own words. Otherwise a protective mechanism, where the money is held rather than taken, reads as a charge nobody expected.
 
-There's a second lesson. Costly charges on an automated trigger rather than at a checkout, which concentrates the meaningful moment at setup, where a person agrees to the stake, the rate and the rules. Friction there isn't a cost to minimize. It's the step that makes every later charge legitimate. Costly is pre-launch with no users, so these are principles I've built for, not results I can report.
+There's a second lesson. Costly charges on an automated trigger rather than at a checkout, which concentrates the meaningful moment at setup, where a person agrees to the stake, the rate and the rules. Friction there isn't a cost to minimize. It's the step that makes every later charge legitimate. Costly is pre-launch with no users, so these are principles I've designed for, not results I can report.
 
 ## Where does friction belong in a payment flow?
 

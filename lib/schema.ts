@@ -9,6 +9,7 @@ import type {
   ProfilePage,
   SoftwareApplication,
   Thing,
+  VideoGame,
   WebPage,
   WebSite,
 } from "schema-dts";
@@ -24,6 +25,7 @@ import {
 } from "./content";
 import type { FaqItem } from "./faq";
 import { articlePath, getTopic, type Article } from "./articles";
+import { playPath } from "./play";
 
 export const absoluteUrl = (path: string) => new URL(path, site.url).href;
 
@@ -200,6 +202,34 @@ export function breadcrumbNode(crumbs: { name: string; path: string }[]): Breadc
       name: c.name,
       item: absoluteUrl(c.path),
     })),
+  };
+}
+
+/** A game playable on the site, at /play/<slug>. */
+export function videoGameNode(c: CaseStudy): VideoGame {
+  const url = absoluteUrl(playPath(c.slug));
+  return {
+    "@type": "VideoGame",
+    "@id": `${url}#game`,
+    name: c.name,
+    alternateName: c.tagline,
+    description: c.summary,
+    url,
+    mainEntityOfPage: url,
+    sameAs: c.play?.src,
+    image: absoluteUrl(c.image ?? site.ogImage),
+    author: personRef,
+    creator: personRef,
+    publisher: personRef,
+    applicationCategory: "Game",
+    operatingSystem: "Web browser",
+    gamePlatform: c.play?.device === "computer" ? ["Web browser on a computer"] : ["Web browser", "Mobile web"],
+    playMode: "SinglePlayer",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR", availability: "https://schema.org/InStock" },
+    keywords: c.keywords.join(", "),
+    isPartOf: { "@id": WEBSITE_ID },
+    subjectOf: { "@id": caseStudyId(c.slug) },
   };
 }
 
