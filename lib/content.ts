@@ -1249,21 +1249,23 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "MobileApplication",
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
+    url: "https://sinadehesh.github.io/animal-farm-merge/",
     role: "Founder & game designer",
     organization: "Own product",
     summary:
-      "Merge Farmstead: Tycoon Edition is a farm merge game wrapped in a mystery: find the town's lost Golden Bell before a land developer takes the valley. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start.",
+      "Merge Farmstead is a farm merge game wrapped in a mystery: for a hundred years the Golden Bell rang over Sunnyvale every night, and now it is gone. As Clara, the new farmer, you fix the farm and follow the clues to find it before a land developer takes the valley. The new version adds the town itself: seven places in Sunnyvale to restore and townspeople to help, plus a Market, Land Deeds, a Growth Guide that makes merges one size bigger, Daily Deals, a Wishing Well, Missions and a 28-day Season Pass. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start.",
     impact: {
       problem:
         "Merge games are sticky but hollow, and many aimed at children monetize through ad and purchase flows that were never designed for them.",
       mechanism:
-        "Merge-and-upgrade progression for steady competence wins, a chaptered mystery with clues and suspects for curiosity, and child-directed, non-personalized ad requests.",
-      stack: ["Game design", "Story written for young readers", "Child-directed, non-personalized ads", "Android app and web"],
-      outcome: "Playable game with a full story bible, an Android build and a web build, prepared for release.",
+        "Merge-and-upgrade progression for steady competence wins, a chaptered mystery with clues and suspects for curiosity, a town that visibly comes back to life as you restore it, daily and seasonal goals (Daily Deals, Missions, a 28-day Season Pass), and child-directed, non-personalized ad requests.",
+      stack: ["Game design", "Story written for young readers", "Town restoration and a 28-day season pass", "Child-directed, non-personalized ads"],
+      outcome: "The new version is playable on the web, with a full story bible and an Android build prepared for release.",
     },
     metrics: [
       { value: "7–9", label: "Reading age for all story text" },
-      { value: "2", label: "Platforms: Android and web" },
+      { value: "7", label: "Places in Sunnyvale to restore" },
+      { value: "28", label: "Days in each Season Pass" },
     ],
     tradeoffs: [
       "Short sentences and easy words everywhere, even in the mystery: readability for young players over richer prose.",
@@ -1277,14 +1279,20 @@ export const caseStudies: CaseStudy[] = [
         outcome: "Story beats unlocked through farm progress.",
       },
       {
+        challenge: "Players need goals beyond the next merge.",
+        hypothesis: "A town that visibly comes back to life, plus daily and seasonal goals, gives every session a purpose.",
+        method: "Seven places in Sunnyvale to restore, townspeople to help, Missions, Daily Deals and a 28-day Season Pass.",
+        outcome: "Live in the new web version.",
+      },
+      {
         challenge: "Kids' games often monetize unsafely.",
         hypothesis: "Designing monetization as child-directed from day one avoids retrofitting compliance.",
         method: "Child-directed, non-personalized ad requests.",
         outcome: "Monetization layer built for a young audience.",
       },
     ],
-    featureList: ["Merge-and-upgrade farm", "Town deliveries", "Chaptered mystery story", "Android app", "Playable on the web"],
-    keywords: ["Game Design", "Progression Systems", "Child-directed Design", "Narrative Design"],
+    featureList: ["Merge-and-upgrade farm", "Seven places in Sunnyvale to restore", "Town deliveries", "Chaptered mystery story", "Market, Land Deeds and Growth Guide", "Missions, Daily Deals and a Season Pass", "Android app", "Playable on the web"],
+    keywords: ["Game Design", "Progression Systems", "Child-directed Design", "Narrative Design", "Season Pass"],
   },
   {
     slug: "pukytoon",
@@ -1414,7 +1422,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "gem-jar",
     image: "/images/work/gem-jar.webp",
-    cover: { metric: "132", caption: "gems across 11 sets to collect" },
+    cover: { metric: "5", caption: "ways to play, from the Gem Mine to Gem Rush" },
     name: "Gem Jar",
     tagline: "A drop-and-merge jewel puzzle: make the Diamond before the jar fills",
     published: true,
@@ -1427,30 +1435,37 @@ export const caseStudies: CaseStudy[] = [
     role: "Game designer",
     organization: "Own product",
     summary:
-      "Gem Jar is a physics merge puzzle: drop gems into a jar, merge two of a kind into a better one, and make the Diamond before the jar fills. A Daily Challenge gives everyone the same goal each day, a Zap booster clears a gem, and 11 gem sets unlock as you play — 132 gems in all.",
+      "Gem Jar is a physics merge puzzle: drop gems into a jar, merge two of a kind into a better one, and make the Diamond before the jar fills. The new version has five ways to play: the classic game, a Daily Challenge that is the same for everyone, the Gem Mine (60 stages, each with goals, a limited number of drops and stars to earn), Gem Rush against the clock, and Quests, three at a time with new ones every 8 hours. Players level up with XP and titles, open new gem sets and jar colours, and collect a Daily Gift that grows each day in a row.",
     impact: {
       problem: "Merge puzzles are easy to start but repetitive, so without a reason to return players drift away after a few rounds.",
       mechanism:
-        "A daily challenge picked from the date, the same for everyone; collectible gem sets unlocked by playing; combo praise (SWEET! JUICY! INCREDIBLE!) with sound and haptics; a booster earned from the daily; and game feel from tuned gravity, heavier precious gems and new sound effects.",
-      stack: ["Game design", "Physics tuning: gravity and gem weight", "Sound design and haptics", "Ad breaks ready for AdMob"],
-      outcome: "Android release bundle and a complete Google Play listing with eight screenshots of real screens; it also plays in the browser.",
+        "Reasons to come back on different time scales: Quests that refresh every 8 hours, a Daily Challenge, a Daily Gift that grows over seven days in a row, levels with XP and titles, and gem sets and jar colours to unlock. Combo praise (SWEET! JUICY! INCREDIBLE!) with sound and haptics makes each merge feel earned, and game feel comes from tuned gravity, heavier precious gems and new sound effects. Ads in the Android app are rewarded and optional: five more drops in the Gem Mine, 15 more seconds in Gem Rush, or double XP for 10 minutes.",
+      stack: ["Game design", "Physics tuning: gravity and gem weight", "Retention loops: quests, daily gift, levels", "Rewarded, optional ads"],
+      outcome: "Android release bundle and a complete Google Play listing; the new version, with all five ways to play, plays in the browser.",
     },
     metrics: [
-      { value: "132", label: "Gems in 11 sets" },
-      { value: "12", label: "Merge tiers, Pebble to Diamond" },
-      { value: "1", label: "Daily challenge, same for everyone" },
+      { value: "5", label: "Ways to play" },
+      { value: "60", label: "Gem Mine stages with goals and stars" },
+      { value: "8 h", label: "Until new quests arrive" },
     ],
     tradeoffs: [
       "Each gem's hitbox is its sprite's real outline, so gems rest where the art touches instead of overlapping.",
       "It shares an engine with Happy Fruit Merge and Zombie Bomber, so every improvement reaches all three games.",
       "Gems merge only after they land, so dropping fast can't game the board.",
+      "Ads are rewarded and optional: the player chooses to watch one for more drops, more time or double XP, so an ad never breaks a run.",
     ],
     decisionLog: [
       {
         challenge: "Players need a reason to come back tomorrow.",
         hypothesis: "A shared daily goal and collections create a light habit.",
         method: "Date-seeded Daily Challenge, earned boosters and unlockable gem sets.",
-        outcome: "Daily Challenge, Zap booster and 11 gem sets.",
+        outcome: "Daily Challenge, Zap booster and gem sets to unlock.",
+      },
+      {
+        challenge: "One way to play wears thin, even with a daily challenge.",
+        hypothesis: "Goals on different time scales give players more reasons to return.",
+        method: "A Gem Mine map of 60 stages, Gem Rush against the clock, Quests every 8 hours, levels with XP and titles, a Daily Gift streak and a Lucky Wheel.",
+        outcome: "Five ways to play in the new version.",
       },
       {
         challenge: "Merges should feel rewarding, not mechanical.",
@@ -1465,8 +1480,8 @@ export const caseStudies: CaseStudy[] = [
         outcome: "Play became much more satisfying; together the changes made a big difference in how the game feels.",
       },
     ],
-    featureList: ["Drop-and-merge physics", "Daily Challenge", "Zap booster", "11 gem sets", "Sound, music and haptics", "Android and web"],
-    keywords: ["Game Design", "Game Feel", "Retention Loops", "Daily Challenges", "Physics Tuning"],
+    featureList: ["Drop-and-merge physics", "Classic, Daily Challenge, Gem Mine, Gem Rush and Quests", "Levels with XP and titles", "Daily Gift and Lucky Wheel", "Gem sets and jar colours", "Sound, music and haptics", "Android and web"],
+    keywords: ["Game Design", "Game Feel", "Retention Loops", "Daily Challenges", "Rewarded Ads"],
   },
   {
     slug: "zombie-bomber",
