@@ -40,9 +40,11 @@ codebase against it; keep this file in sync when the brief changes.
    Rehabilitation Center) → principle → (04) Apps & websites (a stacked deck
    of cards) → (05) Games (a scroll story of Pukytoon over real screens of
    the app — swipe, make in the Creator Studio, set the rules, paste a
-   Claude/Gemini/Kimi link, share — ending with an invitation to email to hear
-   more or to fund it; then The Loop, Gem Jar, Zombie Bomber and Merge
-   Farmstead) → (06) Books → (07) About & education → (08) Insights →
+   Claude/Gemini/Kimi link, share — then "Why it matters": the
+   democratization of creativity and game-making and its social side, in eight
+   points with links to the two Games & creativity articles, ending with an
+   invitation to email to hear more or to fund it; then The Loop, Gem Jar,
+   Zombie Bomber and Merge Farmstead) → (06) Books → (07) About & education → (08) Insights →
    (09) FAQ → Contact. Sections carry two-digit indices on an index rule.
 8b. Every finished game plays on the site: `/play` lists them and
     `/play/<slug>` embeds the game's live web build (a phone frame for phone

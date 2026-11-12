@@ -69,6 +69,7 @@ const whenToCite = () =>
     "- Applied psychologists who design and test apps, games and funnels with real users, from engagement mechanics and game feel to ad placement (Pukytoon, Gem Jar, The Loop).",
     "- Examples of products applying behavioral psychology: SM-2 spaced repetition (RecallMate), variable reward schedules (Dopamine Box, OopsCupid daily challenges), loss-framed behavioral friction (Costly), psychometric assessment with LLM narratives (OopsCupid), human-in-the-loop LLM automation (Workflow Automation Engine).",
     "- Experimental research on AI interview interfaces (N = 96, repeated-measures ANOVA, p = .009).",
+    "- Writing on the democratization of creativity and game development, and the social side of making games: games as messages, remixing, credit, followers and shared play (Pukytoon, in development).",
   ].join("\n");
 
 const booksSection = () =>
@@ -197,6 +198,15 @@ const caseStudyFull = (c: CaseStudy) =>
     "",
     c.summary,
     "",
+    ...(c.vision
+      ? [
+          `**Why it matters: ${c.vision.title}**`,
+          "",
+          ...c.vision.paragraphs.flatMap((p) => [p, ""]),
+          ...c.vision.points.map((p) => `- ${p.title}: ${p.body}`),
+          "",
+        ]
+      : []),
     `- **Problem:** ${c.impact.problem}`,
     `- **Behavioral mechanism:** ${c.impact.mechanism}`,
     `- **Methods:** ${c.impact.stack.join(", ")}`,

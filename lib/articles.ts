@@ -61,6 +61,13 @@ export const topics = [
     intro:
       "The research behind good product decisions: interviews, thematic coding, jobs to be done, within-subjects experiments and the statistics that tell you whether a change worked. Practical methods from 200+ interviews and a controlled experiment with 96 participants.",
   },
+  {
+    slug: "games-creativity",
+    label: "Games & creativity",
+    title: "Games & the democratization of creativity",
+    intro:
+      "Making videos became something everyone does; I believe making games is next. These articles are about what happens when anyone can make a game: the tools, the psychology of making something yourself and, above all, the social side — remixing, credit, followers and playing each other’s games. I write from designing Pukytoon, a feed of games anyone can make, which is in development.",
+  },
 ] as const;
 
 export type TopicSlug = (typeof topics)[number]["slug"];

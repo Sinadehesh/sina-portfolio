@@ -312,6 +312,12 @@ export interface CaseStudy {
    * people to email to hear more or to fund it.
    */
   inDevelopment?: { note: string };
+  /**
+   * The bigger idea behind a product, for people who want to know why it exists: a heading, a few
+   * paragraphs and the points that make it up, plus slugs of Insights articles that go deeper. Rendered as
+   * its own section on the case page (and, for Pukytoon, under its story on the homepage).
+   */
+  vision?: { title: string; paragraphs: string[]; points: { title: string; body: string }[]; articles?: string[] };
   /** Google Play listing, shown as a "Get it on Google Play" link. */
   googlePlay?: { label: string; url: string }[];
 }
@@ -1323,6 +1329,49 @@ export const caseStudies: CaseStudy[] = [
     inDevelopment: {
       note: "Pukytoon is still in development, so it isn’t open to play yet. If you’d like to know more, or to fund it, email me.",
     },
+    vision: {
+      title: "Everyone makes videos now. Next, everyone makes games.",
+      paragraphs: [
+        "Every medium opened up the same way. Writing, photos, music and video were once made by specialists for everyone else; then the tools got easy, a place to share appeared, and making became something people do for each other. Games are the last big medium still made mostly by specialists, because even a small game needs rules, pictures, sound and code.",
+        "AI has started to change that: anyone can describe a game to Claude, Gemini or Kimi and play it a minute later. But those games end at a share link nobody browses. What’s missing isn’t a better tool. It’s the social part: a feed where games get seen, and people who play them, answer them and make their own.",
+        "That’s why Pukytoon is built around people as much as games. When anyone can make a game, games become messages, gifts, jokes and replies — a new way for people to spend time together.",
+      ],
+      points: [
+        {
+          title: "A game becomes a message",
+          body: "When a game takes minutes to make, you can make one for a single person: a birthday, an inside joke, a quiz only your class can pass. Its value is who made it and who it’s for, not how polished it is.",
+        },
+        {
+          title: "From player to maker, one small step at a time",
+          body: "In most communities, most people only watch. So every step is small: swipe to play, tap to like, share with one link, make your own version of someone’s game, then make one from scratch.",
+        },
+        {
+          title: "Remixing is how makers talk",
+          body: "Making your own version of someone’s game is a reply: I liked this, here’s mine. Starting from a game that already works is also the gentlest way to learn how games are made.",
+        },
+        {
+          title: "Credit travels with every game",
+          body: "Every shared game carries its maker’s name and @handle. Among makers, credit is the currency: it turns a copy into a conversation and a run of games into a reputation.",
+        },
+        {
+          title: "An audience is the reason to make a second game",
+          body: "Likes tell a maker that someone played and enjoyed their game. Following makers, which comes next, will gather each maker’s games in one place, so every new one reaches the people who liked the last.",
+        },
+        {
+          title: "Playing together, even apart",
+          body: "One link per game means a game travels through the group chats people already use. Playing a game a friend made is a way to spend time with them when you can’t be in the same place.",
+        },
+        {
+          title: "Games about everyone’s lives",
+          body: "When only studios make games, games reflect a narrow set of people and tastes. When anyone can make one, there can be games in every language, about every town, school and family.",
+        },
+        {
+          title: "Safety keeps the room open",
+          body: "Beginners only share when they trust the room. Every pasted game runs sealed off from the app and the other games, people can report and hide what they don’t want, and until the checks for shared code are ready, only Studio games and Claude, Gemini or Kimi links can be shared with everyone.",
+        },
+      ],
+      articles: ["democratization-of-game-development", "social-side-of-making-games"],
+    },
     role: "Founder",
     organization: "Own product",
     summary:
@@ -1375,7 +1424,7 @@ export const caseStudies: CaseStudy[] = [
       "Make your own version of any shared Studio game",
       "Android app and web",
     ],
-    keywords: ["Feed Design", "AI-generated Games", "Claude Artifacts", "No-code Game Maker", "Creator Tools", "Gamified Social Platforms"],
+    keywords: ["Feed Design", "AI-generated Games", "Claude Artifacts", "No-code Game Maker", "Creator Tools", "Gamified Social Platforms", "Democratization of Game Development", "Remix Culture"],
   },
   {
     slug: "the-loop",
