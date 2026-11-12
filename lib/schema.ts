@@ -145,6 +145,19 @@ export function caseStudyNode(c: CaseStudy): SoftwareApplication | CreativeWork 
     creator: personRef,
     author: personRef,
     creativeWorkStatus: c.status,
+    ...(c.demo
+      ? {
+          video: c.demo.map((d) => ({
+            "@type": "VideoObject" as const,
+            name: `${c.name}: ${d.title}`,
+            description: d.caption,
+            contentUrl: absoluteUrl(d.src),
+            thumbnailUrl: d.poster ? absoluteUrl(d.poster) : undefined,
+            uploadDate: d.uploaded,
+            duration: d.duration,
+          })),
+        }
+      : {}),
   };
 
   if (c.schemaType === "CreativeWork") {

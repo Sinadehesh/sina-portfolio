@@ -13,6 +13,36 @@ export function publicFileExists(src: string): boolean {
 export const workVideo = (slug: string) => `/videos/work-${slug}.mp4`;
 export const posterFor = (video: string) => video.replace(/\.mp4$/, ".jpg");
 
+export interface VideoFiles {
+  /** H.264 MP4, played wherever the browser supports it. */
+  src: string;
+  /** A lighter cut for phones. */
+  mobile?: string;
+  /** VP9 WebM copies, for browsers without H.264. */
+  webm?: string;
+  mobileWebm?: string;
+  poster?: string;
+}
+
+/** The files that exist next to an MP4 in /public: its WebM copy, phone cut and poster. Server components only. */
+export function videoFiles(src: string): VideoFiles {
+  const has = (f: string) => (publicFileExists(f) ? f : undefined);
+  const mobile = src.replace(/\.mp4$/, "-mobile.mp4");
+  return {
+    src,
+    mobile: has(mobile),
+    webm: has(src.replace(/\.mp4$/, ".webm")),
+    mobileWebm: has(mobile.replace(/\.mp4$/, ".webm")),
+    poster: has(posterFor(src)),
+  };
+}
+
+/** A project's silent preview loop, if `public/videos/work-<slug>.mp4` exists. Server components only. */
+export function previewFor(slug: string): VideoFiles | null {
+  const src = workVideo(slug);
+  return publicFileExists(src) ? videoFiles(src) : null;
+}
+
 /** Tint for each project's fallback canvas, so tiles differ before videos exist. */
 const hues: Record<string, string> = {
   optimolds: "#5f8f86",
