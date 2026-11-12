@@ -130,9 +130,10 @@ screen:
 
 - **Passway heatmap** — observed-coverage values come from a seeded generator in
   `components/viz/CurriculumHeatmap.tsx`; identical on every load.
-- **ANOVA plot** — the per-participant point cloud is simulated from the
-  reported means and SDs. The means, CIs, N = 96 and *p* = .009 are the real
-  reported values.
+- **ANOVA plot** — not shown at the moment: its means came from an earlier draft
+  and contradict the thesis result (candidates were more expressive with the AI
+  avatar than with self-view, *p* = .009). Add the real means to `lib/data.ts`
+  before showing it again.
 
 The OopsCupid radar labels its own readout as a demo of the platform's output
 surface rather than a live model call.

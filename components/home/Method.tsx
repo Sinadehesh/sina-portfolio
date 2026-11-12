@@ -31,10 +31,10 @@ const steps = [
     body: "One clear promise, proof where trust is needed, a shorter path and risk reversal — each placed at the moment its doubt appears.",
   },
   {
-    kicker: "Engineering",
-    discipline: "Engineer",
-    title: "And I build it — then measure it.",
-    body: "I ship the website, funnel or app myself and instrument every step, so the result is checked against the original hypothesis. Research, strategy and engineering: one person, no hand-offs.",
+    kicker: "Testing",
+    discipline: "Experimenter",
+    title: "And I test it — then measure it.",
+    body: "The website, funnel, app or game goes in front of real people and every step is measured, so the result is checked against the original hypothesis. Research, strategy and testing: one person, no hand-offs.",
   },
 ];
 

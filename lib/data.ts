@@ -54,8 +54,8 @@ export interface AnovaCondition {
 
 export const personal = {
   name: "Sina Dehesh",
-  tagline: "Consumer psychology, engineered into products people choose.",
-  headline: "Sina Dehesh — Consumer Psychology Consultant & Behavioral Product Builder",
+  tagline: "Consumer psychology, applied to products people choose.",
+  headline: "Sina Dehesh — Applied Psychologist & Consumer Psychology Consultant",
   location: "Milan, Italy",
   email: "sinadehesh@gmail.com",
 } as const;
@@ -112,7 +112,7 @@ export const costly: {
   facts: Fact[];
 } = {
   name: "Costly",
-  kicker: "Android companion · Next.js · Stripe",
+  kicker: "Android companion · real-money stakes",
   summary:
     "Real money for every minute of doomscrolling, at the hourly rate you set for your own time — 80% of it earned back by walking it off within 24 hours.",
   premise:
@@ -121,8 +121,8 @@ export const costly: {
   goalAmount: 500,
   hourlyRate: 15,
   facts: [
-    { k: "Platform", v: "Kotlin companion + Next.js web app" },
-    { k: "Signal", v: "UsageStats + gyroscope heuristics" },
+    { k: "Platform", v: "Android companion + web app" },
+    { k: "Signal", v: "Screen time + walking detection" },
     { k: "Stakes", v: "Stripe hold, 20% captured / 80% held" },
     { k: "Redemption", v: "2 min walked per min scrolled" },
   ],
@@ -137,11 +137,11 @@ export const oopsCupid: {
   profiles: Profile[];
 } = {
   name: "OopsCupid",
-  kicker: "Solo-built platform",
+  kicker: "Own platform",
   summary:
-    "A relationship assessment platform, built end to end alone: instrument design, database, LLM profiling layer, and interface. Responses are scored into a psychometric profile and read back as a live radar.",
+    "A relationship assessment platform, designed end to end: psychometric instrument, scoring, AI-written narrative and interface. Responses are scored into a psychometric profile and read back as a live radar.",
   facts: [
-    { k: "Build", v: "Solo — full stack" },
+    { k: "Design", v: "Own platform, end to end" },
     { k: "Profiling", v: "LLM-generated narrative" },
     { k: "Store", v: "Live profile database" },
     { k: "Readout", v: "Multi-axis psychometric radar" },
@@ -259,11 +259,13 @@ export const thesis: {
   name: "Automated interview simulation",
   kicker: "MSc thesis · repeated-measures ANOVA",
   summary:
-    "An automated interview simulation testing how self-referential visual feedback changes candidate behavior. Repeated-measures ANOVA over N = 96 shows significantly greater expressiveness when candidates see themselves.",
+    "An automated interview simulation testing how what candidates see on screen changes how they behave. Repeated-measures ANOVA over N = 96 shows that candidates were significantly more expressive with the AI avatar than when they saw themselves.",
   n: 96,
   pValue: ".009",
   finding:
-    "Greater candidate expressiveness under self-referential visual feedback, p = .009.",
+    "Candidates were more expressive with the AI avatar than with self-view, p = .009.",
+  // Not shown on the site: these means come from an earlier draft and do not match the thesis result
+  // (candidates were most expressive with the AI avatar). Replace them with the real values before showing AnovaPlot again.
   conditions: [
     { id: "no-feedback", label: "No visual feedback", mean: 3.41, sd: 0.82, ci: 0.17 },
     { id: "other-feedback", label: "Interviewer-image feedback", mean: 3.62, sd: 0.79, ci: 0.16 },
@@ -273,7 +275,7 @@ export const thesis: {
     { k: "Design", v: "Within-subjects, repeated measures" },
     { k: "Sample", v: "N = 96" },
     { k: "Test", v: "Repeated-measures ANOVA" },
-    { k: "Key contrast", v: "Self vs. none, p = .009" },
+    { k: "Key contrast", v: "AI avatar vs. self-view, p = .009" },
   ],
 };
 

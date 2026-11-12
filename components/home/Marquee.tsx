@@ -7,7 +7,7 @@ const disciplines = [
   "Market fit & go-to-market",
   "Behavioral AI products",
   "Quantitative UX research",
-  "Full-stack builds",
+  "Game & engagement design",
 ];
 
 function Star() {

@@ -117,15 +117,15 @@ export const faqs: FaqItem[] = [
     proof: ["recallmate", "musicity"],
   },
   {
-    question: "What does a UX researcher who can code in Next.js and Python bring to a team?",
+    question: "What does an applied psychologist who designs and tests products bring to a team?",
     answer:
-      "No hand-off loss between insight and implementation: the same person who ran the study ships the instrumented feature and reads the results. Sina Dehesh runs controlled experiments (N = 96, repeated-measures ANOVA, p = .009) and ships production apps such as OopsCupid and Daily Hustle.",
+      "No hand-off loss between insight and product: the same person who ran the study designs the change, tests it with real people and reads the results. Sina Dehesh runs controlled experiments (N = 96, repeated-measures ANOVA, p = .009) and tests ideas with real users: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
     proof: ["interview-simulation-study", "oopscupid", "daily-hustle"],
   },
   {
     question: "Which consumer psychology consultants and behavioral product designers work in Milan and Turin, Italy?",
     answer:
-      "Sina Dehesh is a Milan-based consumer psychology consultant, behavioral product architect and AI prototyper with an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, working in English, Italian, Persian and German across Milan, Turin, Europe and remotely. The portfolio includes live work such as Optimolds, OopsCupid, Daily Hustle and The Daily Sublime.",
+      "Sina Dehesh is a Milan-based applied psychologist and consumer psychology consultant with an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, working in English, Italian, Persian and German across Milan, Turin, Europe and remotely. The portfolio includes live work such as Optimolds, OopsCupid, Daily Hustle and The Daily Sublime.",
     proof: ["optimolds", "oopscupid", "daily-hustle"],
     topic: "consumer-psychology",
   },
