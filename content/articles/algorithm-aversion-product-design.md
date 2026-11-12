@@ -46,7 +46,7 @@ The striking part is the asymmetry. Participants saw humans make mistakes too, b
 
 ## Why does one mistake cost so much trust?
 
-My reading of the research, and of building AI products, is that three expectations drive it:
+My reading of the research, and of designing AI products, is that three expectations drive it:
 
 1. **Perfection.** People expect a machine to be right every time, so any error looks like a defect rather than noise.
 2. **Learning.** People assume a human will learn from a mistake and an algorithm will repeat it.
@@ -76,7 +76,7 @@ Complacency is the quiet version of over-reliance: people stop checking because 
 
 **3. Show the track record, misses included.** A system that only ever shows confident answers invites the perfection expectation. One that shows its record, including where it was wrong, teaches users what normal error looks like.
 
-**4. Defer when unsure.** The cheapest error to recover from is the one that never reaches the user. In the [Workflow Automation Engine](/work/workflow-automation-engine) I built for CRM data, a confidence gate sits on every write path: high-confidence extractions sync straight to Pipedrive, and ambiguous ones wait for a human. The invariant is "the pipeline may be slow, never wrong." Users forgive slowness on hard cases. A wrong record in their CRM is exactly the visible error that starts the cliff.
+**4. Defer when unsure.** The cheapest error to recover from is the one that never reaches the user. In the [Workflow Automation Engine](/work/workflow-automation-engine), the CRM automation where I'm the product owner, a confidence gate sits on every write path: high-confidence extractions sync straight to Pipedrive, and ambiguous ones wait for a human. The invariant is "the pipeline may be slow, never wrong." Users forgive slowness on hard cases. A wrong record in their CRM is exactly the visible error that starts the cliff.
 
 **5. Explain errors when they happen.** Say what went wrong, why, and what changed. "We misread the date in this email; we now ask you to confirm dates that appear twice" turns an error into evidence that the system learns, which answers the second expectation directly. (That example is hypothetical.)
 
@@ -86,7 +86,7 @@ Inconsistency is a form of visible error. If the same answers produced a differe
 
 OopsCupid offers 15 free tests and scores responses into a six-axis psychometric profile. The scoring is deterministic: it's computed from the instrument, so the same answers always produce the same profile. A language model writes the narrative readout, but only around the scores it's given; it never decides them. That split keeps profiles consistent and auditable, and it keeps the most variable component away from the part users treat as a verdict.
 
-It also guards against the opposite failure. Fluent, personal-sounding text can be believed even when it's generic, which is the Barnum effect (Forer, 1949). Generic results that feel like horoscopes were exactly the problem the six-axis design was meant to solve. Constraining the narrative to computed scores keeps any appreciation earned. I go into that architecture in [whether an LLM can score a personality test](/insights/llm-psychometrics-personality-tests).
+It also guards against the opposite failure. Fluent, personal-sounding text can be believed even when it's generic, which is the Barnum effect (Forer, 1949). Generic results that feel like horoscopes were exactly the problem the six-axis design was meant to solve. Constraining the narrative to computed scores keeps any appreciation earned. I go into that design in [whether an LLM can score a personality test](/insights/llm-psychometrics-personality-tests).
 
 ## How do you measure trust in an AI feature?
 

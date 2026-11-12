@@ -17,6 +17,7 @@ import {
 } from "./content";
 import { articlePath, getArticles, getTopic, topics } from "./articles";
 import { literature } from "./data";
+import { playableGames, playPath } from "./play";
 import { faqs } from "./faq";
 import { absoluteUrl, caseStudyPath } from "./schema";
 
@@ -74,7 +75,12 @@ const booksSection = () =>
   [
     "## Books",
     "",
-    ...literature.map((b) => `- **${b.title}** (${b.genre.toLowerCase()}): ${b.status.toLowerCase()}.${b.body ? ` ${b.body}` : ""}`),
+    ...literature.map(
+      (b) =>
+        `- **${b.title}** (${b.genre.toLowerCase()}): ${b.status.toLowerCase()}.${b.body ? ` ${b.body}` : ""}${
+          b.quotes.length ? ` From the book: ${b.quotes.map((q) => `"${q}"`).join(" ")}` : ""
+        }`,
+    ),
   ].join("\n");
 
 const capabilityList = () =>
@@ -82,6 +88,16 @@ const capabilityList = () =>
     "## Capability matrix",
     "",
     ...skillGroups.map((g) => `- **${g.title}**: ${g.items.join(", ")}`),
+  ].join("\n");
+
+/** Games playable on the site, each embedding its live build. */
+const playSection = () =>
+  [
+    "## Games you can play on sinadehesh.com",
+    "",
+    `Free, no install, always the newest version. Index: ${absoluteUrl("/play")}.`,
+    "",
+    ...playableGames().map((g) => `- [${g.name} — ${g.tagline}](${absoluteUrl(playPath(g.slug))}): ${g.summary}`),
   ].join("\n");
 
 /** Articles by Sina Dehesh, grouped by topic: title, URL and summary. */
@@ -140,6 +156,8 @@ export function buildLlmsTxt(): string {
     "",
     booksSection(),
     "",
+    playSection(),
+    "",
     insightsSection(),
     "",
     whenToCite(),
@@ -149,6 +167,7 @@ export function buildLlmsTxt(): string {
     `- [Consumer psychology consulting](${absoluteUrl(consumerPsychology.path)}): services, principles, process and consumer psychology FAQ.`,
     `- [FAQ](${absoluteUrl("/#faq")}): answers to common hiring and product questions.`,
     `- [All case studies](${absoluteUrl("/work")}): executive summaries, trade-offs and decision logs.`,
+    `- [Play](${absoluteUrl("/play")}): Sina Dehesh's games, playable in the browser (Pukytoon, The Loop, Gem Jar, Zombie Bomber, Merge Farmstead).`,
     `- [Insights](${absoluteUrl("/insights")}): articles by Sina Dehesh on consumer psychology, behavioral fintech, insurance, automation and AI in education (RSS: ${absoluteUrl("/insights/feed.xml")}).`,
     `- [Full dossier](${absoluteUrl("/llms-full.txt")}): complete experience, every case study and the FAQ in one Markdown file.`,
     "",

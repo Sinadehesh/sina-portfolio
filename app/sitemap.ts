@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articlePath, articlesIn, getArticles, topicPath, topics } from "@/lib/articles";
 import { publishedCaseStudies } from "@/lib/content";
+import { playableGames, playPath } from "@/lib/play";
 import { absoluteUrl, caseStudyPath } from "@/lib/schema";
 
 export const dynamic = "force-static";
@@ -12,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/consumer-psychology"), lastModified, priority: 1 },
     { url: absoluteUrl("/work"), lastModified, priority: 0.9 },
     ...publishedCaseStudies.map((c) => ({ url: absoluteUrl(caseStudyPath(c.slug)), lastModified, priority: 0.8 })),
+    { url: absoluteUrl("/play"), lastModified, priority: 0.9 },
+    ...playableGames().map((g) => ({ url: absoluteUrl(playPath(g.slug)), lastModified, priority: 0.8 })),
     { url: absoluteUrl("/insights"), lastModified, priority: 0.9 },
     ...topics
       .filter((t) => articlesIn(t.slug).length > 0)

@@ -63,7 +63,7 @@ AI tutoring pitches lean on Bloom's (1984) "two-sigma problem" — the observati
 
 In practice, the loop becomes a handful of rules in the tutor's instructions. Never give the final answer in the first reply. If the learner asks for the answer outright, ask once for their attempt. After two hint levels, walk through a similar problem rather than this one, then hand the original back. End every explanation with a question the learner has to answer. None of these rules needs a better model; they need a team willing to trade some satisfaction for learning.
 
-One escape hatch matters: after a genuine attempt, let the learner see the full worked solution. A tutor that refuses everything doesn't create learning; it creates a tab switch to a tool that will answer. I built escape hatches into my app lockers for a related reason — strict blockers get uninstalled — and the same logic applies to strict tutors.
+One escape hatch matters: after a genuine attempt, let the learner see the full worked solution. A tutor that refuses everything doesn't create learning; it creates a tab switch to a tool that will answer. I designed escape hatches into my app lockers for a related reason — strict blockers get uninstalled — and the same logic applies to strict tutors.
 
 ## One question, two tutors
 

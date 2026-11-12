@@ -9,6 +9,7 @@ import ArticleCard from "@/components/insights/ArticleCard";
 import { getArticles } from "@/lib/articles";
 import { getCaseStudy, personalInfo, publishedCaseStudies } from "@/lib/content";
 import { hueFor, workVideo } from "@/lib/media";
+import { playPath } from "@/lib/play";
 import { breadcrumbNode, caseStudyNode, caseStudyPageNode, caseStudyPath } from "@/lib/schema";
 
 export const dynamicParams = false;
@@ -70,8 +71,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <div aria-hidden="true" className="hero-scrim absolute inset-0 z-[2]" />
         <div className="relative z-10 mx-auto max-w-[1440px] px-5 pt-36 pb-16 sm:px-10 md:pt-44 md:pb-20">
           <nav aria-label="Breadcrumb" className="text-sm text-ivory-faint">
-            <a href="/" className="hover:text-ivory">Home</a> / <a href="/work" className="hover:text-ivory">Work</a> /{" "}
-            <span className="text-ivory">{c.name}</span>
+            <a href="/" className="hover:text-ivory">
+              Home
+            </a>{" "}
+            /{" "}
+            <a href="/work" className="hover:text-ivory">
+              Work
+            </a>{" "}
+            / <span className="text-ivory">{c.name}</span>
           </nav>
           <p className="eyebrow mt-8">
             {c.category} · {c.status}
@@ -95,11 +102,27 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </dd>
             </div>
           </dl>
-          {c.url && (
-            <a href={c.url} target="_blank" rel="noopener" className="btn btn-ember mt-10">
-              {c.category === "Game" ? "Play in your browser ↗" : "Open the live product ↗"}
-            </a>
-          )}
+          <div className="mt-10 flex flex-wrap gap-3">
+            {c.play && (
+              <a href={playPath(c.slug)} className="btn btn-ember">
+                ▶ Play {c.name} here
+              </a>
+            )}
+            {c.url && (
+              <a href={c.url} target="_blank" rel="noopener" className={c.play ? "btn btn-ghost" : "btn btn-ember"}>
+                {c.play
+                  ? "Open it on its own ↗"
+                  : c.category === "Game"
+                    ? "Play in your browser ↗"
+                    : "Open the live product ↗"}
+              </a>
+            )}
+            {c.googlePlay?.map((g) => (
+              <a key={g.url} href={g.url} target="_blank" rel="noopener" className="btn btn-ghost">
+                {g.label} on Google Play ↗
+              </a>
+            ))}
+          </div>
         </div>
       </header>
 
@@ -108,7 +131,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <div className="mx-auto max-w-[1440px] px-5 pb-16 sm:px-10 md:pb-24">
             <figure className="overflow-hidden rounded-2xl shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] ring-1 ring-ivory/10">
               {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset */}
-              <img src={c.image} alt={`${c.name} — ${c.tagline}`} width={1600} height={1000} className="block h-auto w-full" />
+              <img
+                src={c.image}
+                alt={`${c.name} — ${c.tagline}`}
+                width={1600}
+                height={1000}
+                className="block h-auto w-full"
+              />
             </figure>
           </div>
         </section>
@@ -179,15 +208,23 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <table className="w-full min-w-[36rem] bg-white/40">
                   <thead className="bg-ink/[0.05]">
                     <tr>
-                      <th scope="col" className={thCls}>Product</th>
-                      <th scope="col" className={thCls}>Strength</th>
-                      <th scope="col" className={thCls}>Gap</th>
+                      <th scope="col" className={thCls}>
+                        Product
+                      </th>
+                      <th scope="col" className={thCls}>
+                        Strength
+                      </th>
+                      <th scope="col" className={thCls}>
+                        Gap
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-ink/10">
                     {c.benchmarks.map((b) => (
                       <tr key={b.name} className={b.name === c.name ? "bg-ember/10" : ""}>
-                        <th scope="row" className={`${thCls} align-top`}>{b.name}</th>
+                        <th scope="row" className={`${thCls} align-top`}>
+                          {b.name}
+                        </th>
                         <td className={tdCls}>{b.strength}</td>
                         <td className={tdCls}>{b.gap}</td>
                       </tr>
@@ -212,15 +249,25 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
           <div>
             <h2 className="display text-[clamp(2rem,4vw,3.25rem)]">Decision log</h2>
-            <p className="mt-3 text-ink-dim">Each decision, the hypothesis behind it, how it was tested, and what came of it.</p>
+            <p className="mt-3 text-ink-dim">
+              Each decision, the hypothesis behind it, how it was tested, and what came of it.
+            </p>
             <div className="mt-8 overflow-x-auto rounded-2xl ring-1 ring-ink/10">
               <table className="w-full min-w-[48rem] bg-white/40">
                 <thead className="bg-ink/[0.05]">
                   <tr>
-                    <th scope="col" className={thCls}>Challenge</th>
-                    <th scope="col" className={thCls}>Hypothesis</th>
-                    <th scope="col" className={thCls}>Method</th>
-                    <th scope="col" className={thCls}>Outcome</th>
+                    <th scope="col" className={thCls}>
+                      Challenge
+                    </th>
+                    <th scope="col" className={thCls}>
+                      Hypothesis
+                    </th>
+                    <th scope="col" className={thCls}>
+                      Method
+                    </th>
+                    <th scope="col" className={thCls}>
+                      Outcome
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-ink/10">
@@ -272,7 +319,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 {next.name}: {next.tagline}
               </span>
             </span>
-            <span aria-hidden="true" className="text-3xl transition-transform group-hover:translate-x-2">→</span>
+            <span aria-hidden="true" className="text-3xl transition-transform group-hover:translate-x-2">
+              →
+            </span>
           </a>
         </div>
       </section>

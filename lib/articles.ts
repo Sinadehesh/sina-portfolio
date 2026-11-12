@@ -24,7 +24,7 @@ export const topics = [
     label: "Behavioral fintech",
     title: "Behavioral fintech",
     intro:
-      "Money is where behavioral economics stops being theory: loss aversion, present bias and the pain of paying shape every savings, payments and credit product. I write from building Costly, a commitment app with real-money stakes, and from designing funnels where trust has to be earned fast.",
+      "Money is where behavioral economics stops being theory: loss aversion, present bias and the pain of paying shape every savings, payments and credit product. I write from designing Costly, a commitment app with real-money stakes, and from designing funnels where trust has to be earned fast.",
   },
   {
     slug: "insurance",
@@ -45,7 +45,7 @@ export const topics = [
     label: "AI products",
     title: "The psychology of AI products",
     intro:
-      "How people trust, distrust, over-rely on and get steered by AI — and how to design for appropriate trust instead. Drawn from my controlled experiment on self-referential feedback in automated interviews (N = 96), psychometric products like OopsCupid, and behavioral design work.",
+      "How people trust, distrust, over-rely on and get steered by AI — and how to design for appropriate trust instead. Drawn from my controlled experiment on self-view, an AI avatar and text in automated interviews (N = 96), psychometric products like OopsCupid, and behavioral design work.",
   },
   {
     slug: "ai-education",

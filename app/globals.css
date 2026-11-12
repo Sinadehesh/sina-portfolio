@@ -1254,6 +1254,233 @@ body::after {
     font-size: 0.9rem;
     color: var(--color-ink-faint);
   }
+
+  /* ============================================================
+     Play: games embedded from their live builds
+     ============================================================ */
+  .play-stage { min-height: 100svh; }
+  .player {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .player-screen {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-void);
+  }
+  /* Phones: the game fills the width and nearly all the height. */
+  .player-phone .player-screen { height: calc(100svh - 4rem - 3.25rem); }
+  .player-computer .player-screen { aspect-ratio: 16 / 10; }
+  @media (min-width: 64rem) {
+    .player-phone {
+      width: auto;
+      align-items: center;
+    }
+    .player-phone .player-device {
+      padding: 10px;
+      border-radius: 46px;
+      background: linear-gradient(150deg, #23262c, #0b0c0e);
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--color-ivory) 14%, transparent),
+        0 60px 120px -40px rgba(0, 0, 0, 0.95),
+        0 0 80px -20px color-mix(in oklab, var(--color-ember) 35%, transparent);
+    }
+    .player-phone .player-screen {
+      height: min(calc(100svh - 13rem), 844px);
+      aspect-ratio: 390 / 844;
+      border-radius: 36px;
+    }
+    .player-computer .player-screen {
+      width: min(100%, calc((100svh - 21rem) * 1.6));
+      margin-inline: auto;
+      border-radius: 12px;
+      border: 1px solid color-mix(in oklab, var(--color-ivory) 14%, transparent);
+      box-shadow: 0 60px 120px -50px rgba(0, 0, 0, 0.95);
+    }
+  }
+  .player-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-ivory-dim);
+    background: radial-gradient(60% 50% at 50% 45%, color-mix(in oklab, var(--color-ember) 14%, transparent), transparent 70%), var(--color-void);
+    pointer-events: none;
+  }
+  .player-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem 1.4rem;
+    min-height: 3.25rem;
+    padding: 0.5rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ivory-dim);
+  }
+  .player-controls > * {
+    padding: 0.35rem 0;
+    transition: color 300ms var(--ease-cinema);
+  }
+  .player-controls > *:hover { color: var(--color-ember-bright); }
+
+  /* ============================================================
+     Phone story (Pukytoon)
+     ============================================================ */
+  .paper .scrolly-stage { background: transparent; }
+  @media (max-width: 63.999rem) {
+    .paper .scrolly-stage { background: var(--color-paper); }
+    .paper .scrolly-stage::after { background: linear-gradient(var(--color-paper), transparent); }
+  }
+  .phone-stage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+  }
+  .phone-wrap {
+    position: relative;
+    height: calc(100% - 1.5rem);
+    max-height: 780px;
+  }
+  .phone {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 410 / 864;
+    padding: 10px;
+    border-radius: 46px;
+    background: linear-gradient(150deg, #23262c, #0b0c0e);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--color-ink) 30%, transparent),
+      0 50px 90px -40px rgba(0, 0, 0, 0.7),
+      0 0 70px -24px color-mix(in oklab, var(--color-ember) 45%, transparent);
+  }
+  .phone-notch {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    z-index: 3;
+    width: 26%;
+    height: 18px;
+    border-radius: 999px;
+    background: #050506;
+    transform: translateX(-50%);
+  }
+  .phone-screen {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 36px;
+    background: #0d0f12;
+  }
+  .phone-shot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 700ms var(--ease-cinema), transform 1200ms var(--ease-cinema);
+  }
+  .phone-shot.is-on { opacity: 1; transform: none; }
+  .phone-ring {
+    position: absolute;
+    z-index: 2;
+    border-radius: 14px;
+    border: 2px solid var(--color-ember);
+    box-shadow:
+      0 0 0 9999px rgba(4, 5, 6, 0.45),
+      0 0 24px 2px rgba(255, 91, 31, 0.6);
+    opacity: 0;
+    transform: scale(1.06);
+    transition: opacity 500ms var(--ease-cinema) 250ms, transform 700ms var(--ease-cinema) 250ms;
+    pointer-events: none;
+  }
+  .phone-ring.is-on { opacity: 1; transform: none; }
+  .phone-label {
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    z-index: 4;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: var(--color-ember);
+    color: var(--color-void);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.6);
+    transform: translateX(-50%);
+    animation: chip-in 600ms var(--ease-out-expo) both;
+  }
+  .phone-chips { display: none; }
+  @media (min-width: 64rem) {
+    .phone-label {
+      left: calc(100% + 1.25rem);
+      top: 14%;
+      bottom: auto;
+      transform: none;
+    }
+    .phone-chips {
+      position: absolute;
+      right: calc(100% + 1.5rem);
+      top: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.6rem;
+      list-style: none;
+    }
+    .phone-chips li {
+      padding: 0.6rem 0.95rem;
+      border-radius: 8px;
+      background: var(--color-charcoal-900);
+      color: var(--color-ivory);
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.7);
+      animation: chip-in 700ms var(--ease-out-expo) both;
+    }
+  }
+  @keyframes chip-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+  .phone-dots {
+    display: none;
+    gap: 0.45rem;
+    list-style: none;
+  }
+  @media (min-width: 64rem) { .phone-dots { display: flex; } }
+  .phone-dots li {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--color-ink) 22%, transparent);
+    transition: width 400ms var(--ease-cinema), background-color 400ms var(--ease-cinema);
+  }
+  .phone-dots li.is-on { width: 22px; background: var(--color-ember-ink); }
 }
 
 /* ============================================================

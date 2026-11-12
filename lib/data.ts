@@ -285,7 +285,12 @@ export const literature = [
     genre: "Non-fiction",
     status: "Finished · awaiting editorial work",
     body:
-      "A body of teachings about the Observer, the Everything and the point of observation: Nothingness, the Self, wanting and needing, and flow.",
+      "A book of teachings that starts from one claim: what we take for truth is often only the point we observe from. Seven chapters move from the sky and the Earth — connected by inclusion, not by the rain between them — to the Everything, Nothingness and the Observer; to worry as a failed attempt to connect to the future, and time as the stream of what happens; to the original lie that splits the self, and the ego that grows from it. It ends with a way out: observing instead of wanting, and being free.",
+    quotes: [
+      "Worrying is a failed attempt at connecting to the future.",
+      "What one sees defines what one comprehends. What one comprehends determines what will be experienced.",
+    ],
+    themes: ["The point of observation", "The Everything and Nothingness", "Worry and time", "The self and the ego", "Freedom"],
     progress: 1,
   },
   {
@@ -293,6 +298,8 @@ export const literature = [
     genre: "Novel",
     status: "Finished · awaiting editorial work",
     body: "",
+    quotes: [],
+    themes: [],
     progress: 1,
   },
 ] as const;

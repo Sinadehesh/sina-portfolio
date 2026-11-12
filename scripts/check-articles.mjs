@@ -88,11 +88,24 @@ for (const file of files) {
   const text = `${JSON.stringify(fm)}\n${body}`;
   for (const re of banned) if (re.test(text)) E.push(`filler phrase: ${re}`);
   for (const re of soft) if (re.test(text)) W.push(`soft filler: ${re}`);
-  if (/\b(i am|i['’]m|as an?|a qualified|a licensed)\s+(consumer\s+|business\s+|licensed\s+)?psychologist\b/i.test(text))
-    E.push('calls the author a psychologist (use "consumer psychology consultant")');
-  else if (/psychologist/i.test(text)) W.push('mentions "psychologist" — check it does not describe the author');
+  // Sina presents as an applied psychologist and consumer psychology consultant, never as licensed or clinical.
+  if (/\b(i am|i['’]m|as)\s+an?\s+(licensed|registered|clinical|certified|chartered)\s+psychologist\b/i.test(text))
+    E.push("claims a licensed or clinical psychologist title");
+  // Facts corrected on 12 Nov 2026: the thesis result, no programming claims, removed games.
+  const guards = [
+    [/\b4\.18\b|\b3\.41\b|\b0\.77\b/, "uses the old, wrong thesis means (no means are published)"],
+    [/more expressive (when|if|once) (they|candidates|people|participants) (saw|see|could see|can see) themselves/i, "states the old thesis direction (the finding: more expressive with the AI avatar than with self-view)"],
+    [/self-referential (visual )?feedback (made|makes|increased|raised)/i, "states the old thesis direction"],
+    [/\bAPI routes?\b/i, "programming claim (API routes)"],
+    [/\bbuilt (it |them )?(solo|alone)\b|\bsolo[- ](engineer|builder|developer|full[- ]stack)/i, "programming claim (built solo)"],
+    [/\bfull[- ]stack\b/i, "programming claim (full-stack)"],
+    [/\bI (wrote|write|coded|code|program(med)?) (the |its |my )?(code|backend|app|routes|scripts?)\b/i, "programming claim (writing code)"],
+    [/\bcoded backends?\b/i, "programming claim (coded backend)"],
+    [/thermite/i, "mentions Thermite Dominoes, which was removed"],
+    [/\bthriller\b/i, 'mentions a "thriller"'],
+  ];
+  for (const [re, msg] of guards) if (re.test(text)) E.push(msg);
   if (/Sina[^.!?]{0,140}\b(he|him|his|she|her|hers)\b/i.test(text)) E.push("third-person pronoun about Sina (use first person or the name)");
-  if (/thriller/i.test(text)) E.push('mentions a "thriller"');
   const pct = [...body.matchAll(/\b\d+(\.\d+)?\s?%/g)].map((m) => m[0]);
   if (pct.length) W.push(`percentages to verify: ${[...new Set(pct)].join(", ")}`);
 

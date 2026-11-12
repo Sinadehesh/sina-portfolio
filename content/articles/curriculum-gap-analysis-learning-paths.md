@@ -15,7 +15,7 @@
   "faq": [
     {
       "q": "What is curriculum gap analysis?",
-      "a": "Curriculum gap analysis compares a reference curriculum — what a field considers core — with what a specific program actually teaches, topic by topic. The difference is the gap. In Passway, my prototype engineering learning tracker, both sources sit on one grid of 10 core topics across 6 university programs, with coverage scored from 0 to 1 so partial coverage stays visible."
+      "a": "Curriculum gap analysis compares a reference curriculum — what a field considers core — with what a specific program actually teaches, topic by topic. The difference is the gap. In Passway, a prototype engineering learning tracker I co-created with engineer friends, both sources sit on one grid of 10 core topics across 6 university programs, with coverage scored from 0 to 1 so partial coverage stays visible."
     },
     {
       "q": "How do you build a personalized learning path?",
@@ -36,7 +36,7 @@
 ---
 Curriculum gap analysis compares what a field expects you to know with what your program actually teaches, and puts the difference on one grid. For a learner, that difference is the most useful thing a learning tool can show: a map of what they still need, instead of another catalog of courses.
 
-I built [Passway](/work/passway), a prototype engineering learning tracker, around this idea. It maps a canonical engineering curriculum and six university programs onto one grid of ten core topics. Below is the method, a worked example with made-up numbers, how to show the result, and where AI could extend it without breaking trust.
+[Passway](/work/passway), a prototype engineering learning tracker I co-created with engineer friends, is designed around this idea; my part was the product and behavioral design. It maps a canonical engineering curriculum and six university programs onto one grid of ten core topics. Below is the method, a worked example with made-up numbers, how to show the result, and where AI could extend it without breaking trust.
 
 ## What problem does curriculum gap analysis solve?
 
@@ -63,7 +63,9 @@ The second decision matters just as much: coverage is weighted, not binary. "Tau
 4. **Set a threshold that means "act on this".** Passway highlights a topic when coverage falls at least 0.25 below its canonical weight. A threshold turns a wall of numbers into a short list.
 5. **Turn gaps into a path.** Order the flagged topics by size of gap and by prerequisites, so the learner starts with what everything else depends on.
 
-Steps one to four are what the prototype does: a canonical matrix, per-program coverage and gap highlighting. Step five is where a gap map becomes a learning path, and it's where I'd take Passway next.
+Steps one to four are what the prototype does: a canonical matrix, per-program coverage and gap highlighting. Step five is where a gap map becomes a learning path, and it's the next step I'd propose for Passway.
+
+The map also depends on students: it only works if they enter what their courses cover, and they weren't entering enough. So I suggested the swipe from dating apps, changed to fit data entry, so that each entry is one quick decision. In a test with engineering students, they entered much more data and enjoyed it more, and the team settled on swiping plus a few specific input types.
 
 ## A worked example (with made-up numbers)
 

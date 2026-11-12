@@ -84,7 +84,7 @@ For two conditions, a paired t-test is enough. For three or more, the workhorse 
 
 It brings one assumption an ordinary ANOVA doesn't have: sphericity, meaning the variances of the differences between every pair of conditions are roughly equal. With two conditions it's automatically satisfied; with three or more, test it. SPSS reports Mauchly's test next to the main result. If sphericity is violated, the F-test becomes too liberal, so report the Greenhouse-Geisser or Huynh-Feldt corrected degrees of freedom instead.
 
-A significant overall F tells you the conditions differ somewhere. To say where, follow up with pairwise comparisons corrected for multiple testing, such as Bonferroni. Report means per condition and effect sizes, not only p-values, so a reader can see how big the difference is.
+A significant overall F tells you the conditions differ somewhere. To say where, follow up with pairwise comparisons corrected for multiple testing, such as Holm or Bonferroni. Report means per condition and effect sizes, not only p-values, so a reader can see how big the difference is.
 
 When some participants miss a condition or the design is unbalanced, a linear mixed model is often the better tool, because it doesn't drop everyone with a gap.
 
@@ -92,11 +92,11 @@ When some participants miss a condition or the design is unbalanced, a linear mi
 
 My M.Sc. thesis at the University of Milano-Bicocca asked a question that matters more as AI-led interviews spread: does the interface of an automated interview change how candidates present themselves?
 
-The design was within-subjects. Each of the 96 participants took part in an automated interview simulation under three feedback conditions: no visual feedback, an image of an interviewer, and self-referential feedback, meaning they could see themselves. Order effects were controlled across conditions, and the analysis was a repeated-measures ANOVA on candidate expressiveness.
+The design was within-subjects. Each of the 96 participants took part in an automated interview simulation in three formats: self-view, meaning they could see themselves; an AI avatar; and text only. Order effects were controlled across conditions, and the analysis was a repeated-measures ANOVA on candidate expressiveness, with Holm-corrected post hoc tests to compare the formats pair by pair.
 
-Candidates were significantly more expressive when they could see themselves (M = 4.18) than with no feedback (M = 3.41), p = .009. I chose the within-subjects design for statistical power with a moderate sample: every participant contributed to every condition, so the comparison wasn't swamped by how naturally expressive different people are.
+Candidates were significantly more expressive with the AI avatar than when they saw themselves, p = .009. I chose the within-subjects design for statistical power with a moderate sample: every participant contributed to every condition, so the comparison wasn't swamped by how naturally expressive different people are.
 
-What the result means for AI interview design is in [seeing yourself changes how you interview](/insights/ai-interview-self-view-experiment), and the study is summarized on the [interview simulation case study](/work/interview-simulation-study) page.
+What the result means for AI interview design is in [self-view vs. an AI avatar](/insights/ai-interview-self-view-experiment), and the study is summarized on the [interview simulation case study](/work/interview-simulation-study) page.
 
 ## A checklist for your first within-subjects UX test
 

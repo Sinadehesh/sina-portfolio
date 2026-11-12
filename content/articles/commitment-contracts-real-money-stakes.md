@@ -36,7 +36,7 @@
 ---
 A commitment contract with real money changes behavior because it moves the cost of a lapse into the moment of temptation. Without it, the cost of doomscrolling — a lost evening, a worse night — arrives later and feels abstract. With it, the cost is now, it is concrete, and it has a number on it.
 
-That is the idea behind [Costly](/work/costly), the app I have been building: every minute of doomscrolling costs real money, at an hourly rate you set for your own time, and you can earn 80% of each loss back by walking it off within 24 hours. Here is why I built it that way, what the research says about commitment devices, and the design decisions I would make again.
+That is the idea behind [Costly](/work/costly), the app I have been building: every minute of doomscrolling costs real money, at an hourly rate you set for your own time, and you can earn 80% of each loss back by walking it off within 24 hours. Here is why I designed it that way, what the research says about commitment devices, and the design decisions I would make again.
 
 ## Why do soft app blockers fail?
 
@@ -74,9 +74,9 @@ When I designed Costly, I ended up thinking of a commitment contract as five dia
 
 ## Real money is real engineering
 
-Moving money, even small amounts, turns a habit app into a payments product. I built Costly solo in June and July 2026: about 20 API routes covering the full Stripe hold-and-capture lifecycle, so a stake can be held, released or captured as the rules require, plus an Android companion with a live overlay meter that passes Google Play's policies.
+Moving money, even small amounts, turns a habit app into a payments product. Costly was built in June and July 2026: the full flow of holding money and giving it back through Stripe, so a stake can be held, released or captured as the rules require, plus an Android companion app with a live meter on screen, designed to stay within Google Play's rules. Each session uses two Stripe payments, a fifth captured and the rest held for 24 hours, because Stripe cannot partially capture a payment and keep the rest on hold.
 
-That engineering is part of the psychology. A meter that lags, a charge that looks wrong or a refund that takes days would destroy the sense of fairness the whole contract depends on. In a commitment product, reliability is a trust signal.
+How the money moves is part of the psychology. A meter that lags, a charge that looks wrong or a refund that takes days would destroy the sense of fairness the whole contract depends on. In a commitment product, reliability is a trust signal.
 
 ## What I don't know yet
 

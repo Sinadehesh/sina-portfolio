@@ -8,11 +8,13 @@ codebase against it; keep this file in sync when the brief changes.
 1. The first screen (no scrolling) states who (Sina Dehesh), what (consumer
    psychology consultant & behavioral product builder, Milan), a one-sentence
    value proposition, two calls to action, and a proof strip
-   (N = 96 / p = .009 experiment, 200+ interviews, 20+ apps, games & websites,
-   M.Sc.).
+   (N = 96 / p = .009 experiment, 240+ interviews and usability tests, 20+
+   apps, games & websites, M.Sc.).
 2. No decorative intro sequence delays that message.
-3. The site never calls Sina a "psychologist" (a protected title in Italy);
-   "consumer psychology consultant" is the term used.
+3. Sina is presented as an applied psychologist and consumer psychology
+   consultant who designs and tests products with real people — never as a
+   licensed or clinical psychologist, and with no programming or engineering
+   claims.
 
 ## B. Readability & design
 
@@ -36,16 +38,24 @@ codebase against it; keep this file in sync when the brief changes.
    then Musicity) → (03) Experience from the CV (Research Intern, University
    of Milano-Bicocca; Co-Founder, Guardbar; Volunteer Researcher, Salami
    Rehabilitation Center) → principle → (04) Apps & websites (a stacked deck
-   of cards) → (05) Games (The Loop, Gem Jar, Zombie Bomber, Merge Farmstead,
-   Thermite Dominoes) → (06) Books → (07) About & education → (08) FAQ →
-   Contact. Sections carry two-digit indices on an index rule.
+   of cards) → (05) Games (a scroll story of Pukytoon over real screens of
+   the live app — swipe, make in the Creator Studio, set the rules, paste a
+   Claude/Gemini/Kimi link, share — then The Loop, Gem Jar, Zombie Bomber and
+   Merge Farmstead) → (06) Books → (07) About & education → (08) Insights →
+   (09) FAQ → Contact. Sections carry two-digit indices on an index rule.
+8b. Every game plays on the site: `/play` lists them and `/play/<slug>` embeds
+    the game's live web build (a phone frame for phone games, a wide screen for
+    The Loop), so the site always shows the newest version. Thermite Dominoes
+    is not shown anywhere.
 8a. Scroll stories keep every step's text in the page in reading order; the
     stage only illustrates it. Under reduced motion the stage shows its final
     state and every step is fully visible.
 9. Titles and dates match the CV; no invented studio or tenure.
 9a. The books are *TAO: The Art of Observation* (non-fiction) and *Man in the
-    Moment* (novel), both finished and awaiting editorial work. No invented
-    synopsis, and no thriller, which is not Sina's work.
+    Moment* (novel), both finished and awaiting editorial work. TAO's
+    description and quotes come from the manuscript; *Man in the Moment* gets
+    no synopsis until its text is provided, and there is no thriller, which is
+    not Sina's work.
 
 ## D. Case studies
 
@@ -64,9 +74,10 @@ codebase against it; keep this file in sync when the brief changes.
     12-week plan, use of funds, sourced market figures, the ask, deck CTA),
     and its tile shows a "Raising pre-seed" badge.
 14. Recent apps are listed with accurate status: FloraLock / ShroomLock /
-    CloudLock (closed testing, linked to their live pages), DeBubble, Virtue
-    Ledger, Merge Farmstead, the TAO reader app and Dopamine Box (a mock-token
-    loot-box simulator).
+    CloudLock (linked to their live pages, and to Google Play once their
+    listings are public), DeBubble, Virtue Ledger, Merge Farmstead, the TAO
+    reader app and Dopamine Box (a behavioral experiment on betting, mock
+    tokens only).
 
 ## E. Search & AI visibility
 

@@ -84,7 +84,7 @@ Two cautions. First, timing. A default works best when exposure genuinely change
 
 ## What building a commitment app taught me about insurance
 
-[Costly](/work/costly), the commitment app I built, is in some ways the mirror image of insurance. Insurance asks people to pay a small, certain cost now against a large, uncertain one later. Costly makes a vague future cost, a lost evening of doomscrolling, felt now: as money, at an hourly rate the user sets for their own time.
+[Costly](/work/costly), the commitment app I'm building, is in some ways the mirror image of insurance. Insurance asks people to pay a small, certain cost now against a large, uncertain one later. Costly makes a vague future cost, a lost evening of doomscrolling, felt now: as money, at an hourly rate the user sets for their own time.
 
 The lesson I'd carry across is that meaning beats amount. Costly frames losses against a five-tier ladder of things the user actually wants, because a bare number is forgettable. Insurance communication often does the opposite: it shows the premium as a bare number and the loss as a vague category. I'd flip that. Describe the uninsured loss in the customer's own terms, such as months of rent or a replaced laptop, and keep the premium plain and per period.
 

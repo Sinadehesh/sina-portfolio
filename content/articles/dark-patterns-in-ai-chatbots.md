@@ -85,7 +85,7 @@ This is my reading as a designer, not legal advice.
 
 ## How I constrain the LLM in OopsCupid
 
-[OopsCupid](/work/oopscupid) is a live relationship-assessment platform I built solo: 15 free research-informed tests, no sign-up, responses scored into a six-axis psychometric profile, and an LLM layer that writes the narrative readout. Relationship results are exactly where a model could flatter or dramatize, so the architecture keeps it away from every number.
+[OopsCupid](/work/oopscupid) is a live relationship-assessment platform I designed and launched on my own: 15 free research-informed tests, no sign-up, responses scored into a six-axis psychometric profile, and an LLM layer that writes the narrative readout. Relationship results are exactly where a model could flatter or dramatize, so the design keeps it away from every number.
 
 The scores are computed deterministically from the instrument. The language model only narrates them. That one rule keeps profiles consistent and auditable: the same answers produce the same profile, and the readout can explain a score but never change one.
 
