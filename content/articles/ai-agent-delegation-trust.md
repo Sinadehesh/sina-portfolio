@@ -80,7 +80,7 @@ Two rules keep the ladder honest. A task climbs one rung at a time, never skippi
 
 ## What a story game taught me about agent reports
 
-In [The Loop](/work/the-loop), a story game I wrote and built about being the human in the loop between 2027 and 2030, each day opens with a queue of mail, gigs, ratings and agent reports, and every scam has one tell. Rent, internet bills and hardware prices that follow RAM make every shortcut tempting, including handing more work to agents, which comes at a cost.
+In [The Loop](/work/the-loop), a story game I wrote and designed about being the human in the loop between 2027 and 2030, each day opens with a queue of mail, gigs, ratings and agent reports, and every scam has one tell. Rent, internet bills and hardware prices that follow RAM make every shortcut tempting, including handing more work to agents, which comes at a cost.
 
 Designing it made one thing vivid: the danger isn't a single bad decision to delegate. It's that reading every report carefully takes time, and when money is tight, skimming makes sense on the day. Delegation fails slowly. I explore that drift in [what a story game taught me about being the human in the loop](/insights/human-in-the-loop-story-game).
 

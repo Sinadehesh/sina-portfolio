@@ -8,7 +8,7 @@
   "keywords": ["LLM psychometrics", "AI personality test reliability", "psychometric test with ChatGPT", "LLM personality assessment scoring", "Barnum effect AI readouts"],
   "takeaways": [
     "An LLM can produce a personality score, but not a reliable measurement: the same answers can yield different profiles across runs and model versions.",
-    "Let deterministic code measure and the language model explain; OopsCupid scores a six-axis profile in code and uses an LLM only for the readout.",
+    "Let deterministic scoring measure and the language model explain; OopsCupid scores a six-axis profile with fixed rules and uses an LLM only for the readout.",
     "Fluent AI readouts invite the Barnum effect: warm, general statements feel accurate whatever the scores say.",
     "Use the swap test: if someone with the opposite profile would accept the readout too, it describes everyone rather than the person."
   ],
@@ -27,7 +27,7 @@
     },
     {
       "q": "How do you combine psychometric scoring with an LLM?",
-      "a": "Score responses deterministically in code, map scores to fixed bands, and pass only the computed scores to the LLM to write a narrative. Forbid new numbers and diagnostic language, require contrast as well as praise, check the output automatically, and version the instrument, scoring and prompt. OopsCupid uses this split: a six-axis profile from code, a readout from the LLM."
+      "a": "Score responses deterministically in code, map scores to fixed bands, and pass only the computed scores to the LLM to write a narrative. Forbid new numbers and diagnostic language, require contrast as well as praise, check the output automatically, and version the instrument, scoring and prompt. OopsCupid uses this split: a six-axis profile from fixed scoring rules, a readout from the LLM."
     }
   ],
   "related": ["algorithm-aversion-product-design", "dark-patterns-in-ai-chatbots", "within-subjects-ux-experiments"],
@@ -36,7 +36,7 @@
 ---
 An LLM can produce a personality score, but it shouldn't be your measurement instrument. Run the same answers through it twice and you may get two different profiles; update the model and the whole scale can drift, with nobody able to say exactly why. Psychometric scoring needs to be deterministic, and the LLM's job is to explain the result, not to produce it.
 
-That's the architecture behind [OopsCupid](/work/oopscupid), the relationship-assessment platform I built: responses are scored in code into a six-axis profile, and an LLM writes the narrative readout around numbers it isn't allowed to change. Here's why I split it that way, the trap that fluent AI readouts fall into, and the guardrails I'd put on any AI product that measures people.
+That's how [OopsCupid](/work/oopscupid) works, the relationship-assessment platform I designed and launched on my own: responses are scored by fixed rules into a six-axis profile, and an LLM writes the narrative readout around numbers it isn't allowed to change. Here's why I split it that way, the trap that fluent AI readouts fall into, and the guardrails I'd put on any AI product that measures people.
 
 ## Why isn't an LLM a measurement instrument?
 
@@ -59,7 +59,7 @@ Fixed scoring doesn't make a test valid on its own. Validity needs evidence that
 
 OopsCupid turns relationship psychology into 15 free, research-informed tests that need no sign-up. Behind each one, the work is split in two.
 
-1. **Measurement, in code.** Responses are scored deterministically from the instrument into a six-axis psychometric profile, displayed as a radar. The same answers always produce the same profile.
+1. **Measurement, by fixed rules.** Responses are scored deterministically from the instrument into a six-axis psychometric profile, displayed as a radar. The same answers always produce the same profile.
 2. **Meaning, from the LLM.** An LLM layer takes the computed scores and writes the narrative readout, the part that turns six numbers into something a person wants to read.
 
 The split answers a specific problem: generic results feel like horoscopes. Multi-axis scores make a profile specific, and a well-written narrative makes it readable. Keeping the scoring out of the model's hands is what keeps profiles consistent and auditable.

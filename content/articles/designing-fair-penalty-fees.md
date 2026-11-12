@@ -75,7 +75,7 @@ A pure penalty only tells people what not to do. A penalty with a way back tells
 
 Costly's per-minute losses have one: walk 2 minutes for every minute scrolled, within 24 hours, and 80% of the loss comes back. Under the hood, each session uses two Stripe payments — a fifth is captured, and the rest is held for 24 hours and released when Health Connect verifies the walking goal — because Stripe cannot partially capture a payment and keep the rest on hold.
 
-That engineering detail is a fairness detail. A hold that gets released feels like nothing was lost. A charge followed by a refund is a loss followed by a wait. For someone who walks, the effective penalty is a fifth of the headline figure, and the rest of the stake did its job without ever being taken.
+That payment detail is a fairness detail. A hold that gets released feels like nothing was lost. A charge followed by a refund is a loss followed by a wait. For someone who walks, the effective penalty is a fifth of the headline figure, and the rest of the stake did its job without ever being taken.
 
 ## Who gains when the user fails?
 
@@ -87,7 +87,7 @@ This is the uncomfortable line on the scorecard. Any product that keeps part of 
 
 ## A fair fee needs a fair process
 
-Automated penalties depend on measurement, and measurement can be wrong. Costly detects scrolling with Android's usage statistics plus gyroscope heuristics, without an accessibility service, so it stays within Google Play's policies. That's a deliberate trade-off, and it means thresholds need tuning on real devices, which is why hardening detection is the first block of Costly's 12-week plan.
+Automated penalties depend on measurement, and measurement can be wrong. Costly detects scrolling from screen time and phone movement instead of reading the screen, so it stays within Google Play's rules. That's a deliberate trade-off, and it means detection needs tuning on each phone, which is why hardening detection is the first block of Costly's 12-week plan.
 
 The principle generalizes. Every automated charge needs a readable record of what was charged, when and why, and a cheap way to say "that wasn't me." People can accept losing a bet they understood. They don't accept being charged by a system they can't question.
 

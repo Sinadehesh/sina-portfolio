@@ -77,7 +77,7 @@ I call this the two-key workflow, because nothing becomes a finding without both
 6. **Build themes yourself, then attack them.** Group codes into themes by hand. Then ask the model for the strongest quotes against each theme, and for the participants who don't fit.
 7. **Keep an audit trail.** Prompts, model and version, codebook versions, raw outputs and every human change. Anyone should be able to trace a sentence in the report back to quotes.
 
-Step four is the one I'd never skip. I think of it as "no quote, no code": it turns invention from a hidden risk into a visible, countable failure. The same principle runs through the automation I've built. My CRM automation engine sends ambiguous extractions to a person for review instead of writing them, on the rule that the pipeline may be slow, never wrong. Research deserves at least that standard.
+Step four is the one I'd never skip. I think of it as "no quote, no code": it turns invention from a hidden risk into a visible, countable failure. The same principle runs through the automation I've designed. My CRM automation engine sends ambiguous extractions to a person for review instead of writing them, on the rule that the pipeline may be slow, never wrong. Research deserves at least that standard.
 
 If you plan to turn codes into variables for a statistical model, the codebook has to be stricter still; I explain why in [interviews plus logistic regression](/insights/interviews-and-logistic-regression).
 

@@ -32,10 +32,12 @@ npm run typecheck
 
 | Route | Source | Notes |
 | --- | --- | --- |
-| `/` | `app/page.tsx` → `components/home/*` | Hero → tapes → How I work → Consulting → Experience → Principle → Apps & websites → Games → Books → About → FAQ → Contact |
+| `/` | `app/page.tsx` → `components/home/*` | Hero → tapes → How I work → Consulting → Experience → Principle → Apps & websites → Games (Pukytoon story + bento) → Books → About → Insights → FAQ → Contact |
 | `/work` | `app/work/page.tsx` | All case studies |
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Answer-first summary, impact, interactive chart (`components/work/CaseViz.tsx`), comparison, trade-offs, decision log |
 | `/consumer-psychology` | `app/consumer-psychology/page.tsx` | Service page: services, principles, process, proof, FAQ |
+| `/play` | `app/play/page.tsx` | The arcade: every playable game |
+| `/play/[slug]` | `app/play/[slug]/page.tsx` | One game, embedded from its live web build (`play` in `lib/content.ts`) |
 | `/insights` | `app/insights/page.tsx` | Articles hub, grouped by topic |
 | `/insights/[slug]` | `app/insights/[slug]/page.tsx` ← `content/articles/*.md` | Article: takeaways, body, FAQ, author box, related articles |
 | `/insights/topic/[topic]` | `app/insights/topic/[topic]/page.tsx` | Topic hub pages |
@@ -112,6 +114,15 @@ data attributes (`data-split`,
 `data-scrub-words`, `data-beam`, `data-deck`, `data-magnetic`, `data-tilt`,
 `data-cursor`, …). Under `prefers-reduced-motion` nothing moves and every
 section renders in its final state.
+
+## Playable games
+
+A game with a `play` entry in `lib/content.ts` (`{ src, device }`) gets a page at
+`/play/<slug>` that embeds `src`, its live web build (GitHub Pages). Whatever is
+pushed to the game's own repository is what plays here, so the site never needs a
+new build for a game update. `device: "phone"` shows a phone frame on wide screens;
+`"computer"` a wide screen (The Loop). `googlePlay` adds Google Play links to a
+case study once a listing is public.
 
 ## Images and videos
 

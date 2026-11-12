@@ -36,7 +36,7 @@
 ---
 Telematics insurance is most likely to change driving behavior when it works like a coach rather than a speed camera: feedback soon after the trip, about a specific moment, with one thing to do differently, and stakes the driver sees as fair. A monthly score followed by a premium change is measurement. It tells the insurer something; it teaches the driver very little.
 
-I haven't built a telematics product or worked for an insurer. But I build behavior-change products, including one that puts a live price on a habit and one that refuses to punish missed days, and the design questions they raise are the same ones usage-based insurance faces. Here's how I'd think about the feedback loop.
+I haven't worked on a telematics product or for an insurer. But I design behavior-change products, including one that puts a live price on a habit and one that refuses to punish missed days, and the design questions they raise are the same ones usage-based insurance faces. Here's how I'd think about the feedback loop.
 
 ## What is usage-based insurance actually trying to change?
 

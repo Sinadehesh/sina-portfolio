@@ -3,11 +3,11 @@ import { DeckCard, WorkRow } from "@/components/work/WorkTile";
 import { publishedCaseStudies, type CaseStudy } from "@/lib/content";
 
 /** Apps in deck order, then the games (their own section). */
-const appsOrder = ["costly", "app-lockers", "oopscupid", "debubble", "pukytoon", "virtue-ledger", "daily-sublime"];
-export const gamesOrder = ["the-loop", "gem-jar", "zombie-bomber", "merge-farmstead", "thermite-dominoes"];
+const appsOrder = ["costly", "app-lockers", "oopscupid", "debubble", "virtue-ledger", "daily-sublime"];
+export const gamesOrder = ["the-loop", "gem-jar", "zombie-bomber", "merge-farmstead"];
 
-/** Shown in their own homepage sections (consulting, experience, books, about). */
-const elsewhereOnHome = ["optimolds", "musicity", "recallmate", "interview-simulation-study", "tao-app"];
+/** Shown in their own homepage sections (consulting, experience, games, books, about). */
+const elsewhereOnHome = ["optimolds", "musicity", "recallmate", "interview-simulation-study", "tao-app", "pukytoon"];
 
 export const pick = (slugs: string[]) =>
   slugs.map((slug) => publishedCaseStudies.find((c) => c.slug === slug)).filter((c): c is CaseStudy => c !== undefined);

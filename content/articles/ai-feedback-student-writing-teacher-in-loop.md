@@ -36,7 +36,7 @@
 ---
 AI feedback on student writing works when the AI drafts and the teacher decides. A model can read a draft in seconds and flag an unsupported claim or a paragraph that drifts; the teacher knows the student, the assignment and what matters this week. Put those two in the wrong order and you get generic feedback at scale, or grades nobody really checked.
 
-I haven't built a grading product, and I won't pretend otherwise. What I have built is a shipped pipeline where an LLM extracts information and a human approves anything ambiguous before it is written anywhere. I've also run a controlled experiment showing that one interface choice, whether people could see themselves, changed how they behaved. Both transfer to the classroom. Here is the workflow I'd design.
+I haven't worked on a grading product, and I won't pretend otherwise. What I have designed, as its product owner, is a shipped pipeline where an LLM extracts information and a human approves anything ambiguous before it is written anywhere. I've also run a controlled experiment showing that one interface choice, whether candidates saw themselves or an AI avatar, changed how they behaved. Both transfer to the classroom. Here is the workflow I'd design.
 
 ## What makes feedback change learning?
 
@@ -68,7 +68,7 @@ Lane three is where the confidence gate earns its keep. A comment the system is 
 
 There is a design reason and a legal one. The design reason is that a grade is a judgment about a person, and the person deserves a judge who can be asked why.
 
-The legal context points the same way. Under the EU AI Act (Regulation (EU) 2024/1689), AI used to evaluate learning outcomes, including when that evaluation steers the learning process, is a high-risk use listed in Annex III. The obligations for those systems, which include human oversight under Article 14, now apply from 2 December 2027, after the Digital Omnibus (Regulation (EU) 2026/1744) moved them. Separately, GDPR Article 22 gives people a right not to be subject to decisions based solely on automated processing that produce legal or similarly significant effects, and EDPB and Article 29 Working Party guidance on automated decision-making says human involvement must be meaningful, not a token gesture. A teacher clicking "approve all" on a stack of AI-suggested grades is the token gesture. I cover the wider rules in [the EU AI Act in education](/insights/eu-ai-act-education-high-risk). This is a builder's reading, not legal advice.
+The legal context points the same way. Under the EU AI Act (Regulation (EU) 2024/1689), AI used to evaluate learning outcomes, including when that evaluation steers the learning process, is a high-risk use listed in Annex III. The obligations for those systems, which include human oversight under Article 14, now apply from 2 December 2027, after the Digital Omnibus (Regulation (EU) 2026/1744) moved them. Separately, GDPR Article 22 gives people a right not to be subject to decisions based solely on automated processing that produce legal or similarly significant effects, and EDPB and Article 29 Working Party guidance on automated decision-making says human involvement must be meaningful, not a token gesture. A teacher clicking "approve all" on a stack of AI-suggested grades is the token gesture. I cover the wider rules in [the EU AI Act in education](/insights/eu-ai-act-education-high-risk). This is a designer's reading, not legal advice.
 
 ## How do you stop teachers rubber-stamping AI?
 
@@ -86,7 +86,7 @@ I go deeper on review-queue design in [why reviewers rubber-stamp AI](/insights/
 
 ## Why the review screen matters as much as the model
 
-My M.Sc. thesis was a controlled experiment on automated interview simulation: 96 participants, a within-subjects design and a repeated-measures ANOVA. Candidates were significantly more expressive when they could see themselves (M = 4.18) than with no visual feedback (M = 3.41), p = .009. The [interview simulation study](/work/interview-simulation-study) was about candidates, not teachers, but the lesson travels: what an interface shows people changes what they do.
+My M.Sc. thesis was a controlled experiment on automated interview simulation: 96 participants, a within-subjects design and a repeated-measures ANOVA. Candidates were significantly more expressive with an AI avatar on screen than when they saw themselves, p = .009. The [interview simulation study](/work/interview-simulation-study) was about candidates, not teachers, but the lesson travels: what an interface shows people changes what they do.
 
 Applied to feedback review, my working hypothesis is that showing the AI's suggestion before the teacher has formed a view pulls the teacher toward it, and that a suggested score pulls harder than a suggested comment. Those are hypotheses, not findings. They are also cheap to test with a within-subjects design, the same approach I used in my thesis, because each teacher can review under both conditions.
 

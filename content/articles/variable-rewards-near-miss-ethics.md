@@ -1,7 +1,7 @@
 ---
 {
-  "title": "Variable Rewards and Near-Misses: What a Loot-Box Simulator Shows",
-  "description": "How a variable reward schedule and near-misses keep people spinning, shown in Dopamine Box, my mock-token loot-box simulator, plus where the ethical line sits.",
+  "title": "Variable Rewards and Near-Misses: Inside a Betting Experiment",
+  "description": "How a variable reward schedule and near-misses keep people spinning, seen in Dopamine Box, my mock-token betting experiment, and where the ethical line sits.",
   "topic": "ai-products",
   "order": 4,
   "date": "2026-11-08",
@@ -9,7 +9,7 @@
   "takeaways": [
     "Variable rewards hold attention because when any attempt might pay, there's never an obvious place to stop.",
     "A near-miss is objectively a loss, but it feels like progress, which makes the next try feel like continuing rather than placing a new bet.",
-    "Dopamine Box uses mock tokens to make loot-box mechanics visible: variable payouts, near-misses, shard progress, and scarcity and social-proof labels.",
+    "Dopamine Box is a behavioral experiment on betting: on a mock-token loop of variable payouts, near-misses, shard progress and scarcity tags, it is designed to compare how people bet with the Kelly criterion.",
     "The ethical line is crossed when variability is tied to spending and engineered to remove stopping points, not when an app has surprises."
   ],
   "faq": [
@@ -23,7 +23,7 @@
     },
     {
       "q": "What is the psychology behind loot boxes?",
-      "a": "Loot boxes combine several well-studied mechanics: variable-ratio rewards that make every attempt feel like it could pay, near-misses that make losses feel like progress, progress bars that intensify effort near the goal, scarcity and social-proof labels, and tokens that loosen the link between spending and paying. My Dopamine Box simulator puts them all on one screen, using mock tokens."
+      "a": "Loot boxes combine several well-studied mechanics: variable-ratio rewards that make every attempt feel like it could pay, near-misses that make losses feel like progress, progress bars that intensify effort near the goal, scarcity and social-proof labels, and tokens that loosen the link between spending and paying. Dopamine Box, my behavioral experiment on betting, runs on all of them at once, with mock tokens only."
     },
     {
       "q": "Are variable rewards always unethical?",
@@ -36,7 +36,7 @@
 ---
 A variable reward schedule keeps people coming back because the next win is always possible and never predictable. Add near-misses that look almost like wins, a progress bar that's nearly full and a "Low Stock" label, and you have the core of loot-box psychology: the same loop that is now spreading from games into shopping apps.
 
-I built [Dopamine Box](/work/dopamine-box) to make that loop visible. It's a mock-token simulator of "spin to claim" monetization: each spin adds shards toward a target item, with micro hits, solid hits and rare jackpots on a variable schedule, plus engineered near-misses and scarcity tags. No real money is involved. Here's what each mechanic does, why it works and where I think the ethical line sits.
+[Dopamine Box](/work/dopamine-box) is my behavioral experiment on betting. It's designed to observe how people bet compared with the Kelly criterion, the mathematically optimal stake, and which attitudes and cognitive biases pull them off course. It runs on a mock-token "spin to claim" loop: each spin adds shards toward a target item, with micro hits, solid hits and rare jackpots on a variable schedule, plus near-misses and scarcity tags. No real money is involved. Here's what each mechanic does, why it works and where I think the ethical line sits.
 
 ## What is a variable reward schedule?
 
@@ -51,7 +51,7 @@ Dopamine Box puts the whole loop on one screen. Each mechanic maps to a well-stu
 | Mechanic | In Dopamine Box | Why it pulls | Where else it shows up |
 | --- | --- | --- | --- |
 | Variable payouts | Micro, solid and jackpot outcomes on an unpredictable schedule | Variable-ratio reinforcement (Ferster & Skinner, 1957) | Spin-to-win discounts, mystery boxes |
-| Near-misses | Outcomes engineered to land just short of a big win | A loss that feels like progress | "So close!" animations |
+| Near-misses | Outcomes that land just short of a big win | A loss that feels like progress | "So close!" animations |
 | Shard progress | Shards build toward 100% of a target item | The goal-gradient effect (Kivetz, Urminsky & Zheng, 2006) | Collect-to-unlock rewards |
 | Scarcity label | "Low Stock" | Scarcity (Cialdini, 1984) | Low-stock and countdown banners |
 | Social-proof label | "1 User Won Today" | Social proof (Cialdini, 1984) | "Others are looking at this" messages |
@@ -59,19 +59,19 @@ Dopamine Box puts the whole loop on one screen. Each mechanic maps to a well-stu
 
 Three of these deserve a closer look.
 
-**Near-misses are losses dressed as progress.** A near-miss is objectively the same as any other losing spin. But it feels like you were close, which makes the next spin feel like a continuation rather than a new bet. In a simulator you can see the trick, because you know the outcome was designed to look close.
+**Near-misses are losses dressed as progress.** A near-miss is objectively the same as any other losing spin. But it feels like you were close, which makes the next spin feel like a continuation rather than a new bet. That pull is one of the things Dopamine Box is designed to observe: whether a near-miss moves the next stake further from the optimal one.
 
 **Progress bars turn waiting into wanting.** Kivetz, Urminsky and Zheng (2006) found that people speed up as they approach a reward: members of a café reward program bought coffee more often the closer they got to a free one. A shard bar that's nearly full is the goal gradient at its strongest, which is exactly where a monetized design is tempted to make the last stretch slow.
 
 **Tokens hide the price.** A token puts a layer between spending and paying, which dulls the pain of paying (Prelec & Loewenstein, 1998), much as people tend to pay more with credit cards than with cash (Prelec & Simester, 2001). Ten tokens don't feel like money, even when they were bought with it.
 
-## Why build a simulator instead of writing about it?
+## Why design an experiment instead of writing about it?
 
-Because loot-box mechanics are hard to explain in the abstract. "Variable-ratio reinforcement" sounds academic until you catch yourself pressing the button once more because the bar was almost full. A working simulator makes the pull of each mechanic felt, not just described.
+Because loot-box mechanics are hard to judge in the abstract. "Variable-ratio reinforcement" sounds academic until you catch yourself pressing the button once more because the bar was almost full. An experiment gives that moment a benchmark. The Kelly criterion (Kelly, 1956) defines the mathematically optimal stake for a bet, given its odds and payout, so every stake a person places can be compared with it, and the experiment looks at which attitudes and cognitive biases pull people away from it.
 
 The mock tokens are the point, not a limitation. Dopamine Box exists to study and demonstrate the loop, not to monetize it. Its target items span four tiers of pull, from high-value tech and status items to aspirational purchases and speculative assets, so different framings can be compared side by side.
 
-It's a prototype, and I'm not reporting results from it. Think of it as a teaching and design tool: something to put in front of a product team before anyone adds a "spin to win" banner to a checkout.
+It's a prototype, and I'm not reporting results from it. Even so, the loop it runs on is worth putting in front of a product team before anyone adds a "spin to win" banner to a checkout.
 
 ## Where is the ethical line with variable rewards?
 
@@ -96,4 +96,4 @@ If you want the motivation of progress without the exploitation:
 - **Build in endings.** Let a session finish, and let people leave satisfied rather than drained.
 - **Watch what rewards do to motivation.** Rewards can crowd out the reasons people started, the overjustification problem I cover in [gamification that doesn't backfire](/insights/gamification-overjustification-edtech).
 
-If you're about to add a spin, a mystery box or a progress bar with a payout, try it on yourself first, and notice the moment you press once more because you were almost there. That moment is the mechanic working. Before you ship it, decide whether you'd be comfortable showing your users exactly how it works, because a simulator like Dopamine Box shows that anyone can.
+If you're about to add a spin, a mystery box or a progress bar with a payout, try it on yourself first, and notice the moment you press once more because you were almost there. That moment is the mechanic working. Before you ship it, decide whether you'd be comfortable showing your users exactly how it works, odds and all.

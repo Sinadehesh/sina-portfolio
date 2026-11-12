@@ -36,7 +36,7 @@
 ---
 Buy now, pay later works because it separates the pleasure of buying from the pain of paying. The purchase happens now, whole; the cost arrives later, sliced into pieces that each feel small. That decoupling is a large part of why BNPL converts, and it's exactly why the design around it decides whether it helps people spread a cost or quietly overextends them.
 
-The rules are changing too. The EU's revised Consumer Credit Directive applies from 20 November 2026 and brings BNPL into the scope of consumer credit rules, with some narrow exemptions. I haven't built a BNPL product, so this is design analysis from someone who builds payment flows and studies how people decide: the psychology, the four design choices that matter most, what's changing, and the checklist I'd want in place before the new rules apply.
+The rules are changing too. The EU's revised Consumer Credit Directive applies from 20 November 2026 and brings BNPL into the scope of consumer credit rules, with some narrow exemptions. I haven't built a BNPL product, so this is design analysis from someone who designs payment flows and studies how people decide: the psychology, the four design choices that matter most, what's changing, and the checklist I'd want in place before the new rules apply.
 
 ## Why does BNPL feel painless?
 
