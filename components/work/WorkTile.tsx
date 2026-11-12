@@ -1,7 +1,8 @@
 import type { CSSProperties } from "react";
+import AutoVideo from "@/components/ui/AutoVideo";
 import { MediaSlot } from "@/components/ui/MediaSlot";
 import type { CaseStudy } from "@/lib/content";
-import { hueFor, workVideo } from "@/lib/media";
+import { hueFor, previewFor, workVideo } from "@/lib/media";
 import { playPath } from "@/lib/play";
 import { caseStudyPath } from "@/lib/schema";
 
@@ -227,6 +228,8 @@ export function DeckCard({ study: c, index, total }: { study: CaseStudy; index: 
 /**
  * A tile in the games bento: the screenshot fills the tile and the title sits
  * on a dark scrim. The whole tile opens the case study; "Play" opens the game.
+ * When the game has a silent preview loop (public/videos/work-<slug>.mp4), the
+ * loop plays in place of the screenshot and the whole tile opens the game.
  */
 export function BentoTile({
   study: c,
@@ -237,28 +240,34 @@ export function BentoTile({
   big?: boolean;
   className?: string;
 }) {
+  const preview = previewFor(c.slug);
+  const opensGame = Boolean(preview && c.play);
+  const media =
+    "absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-cinema)] group-hover:scale-[1.04]";
   return (
     <article
       className={`reveal group relative isolate min-h-[19rem] overflow-hidden rounded-[8px] bg-charcoal-900 text-ivory ${className}`}
     >
-      {c.image && (
-        // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
-        <img
-          src={c.image}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-cinema)] group-hover:scale-[1.04]"
-        />
+      {preview ? (
+        <AutoVideo {...preview} className={media} />
+      ) : (
+        c.image && (
+          // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
+          <img src={c.image} alt="" loading="lazy" decoding="async" className={media} />
+        )
       )}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-void from-10% via-void/80 via-45% to-void/15"
+        className={`absolute inset-0 -z-10 bg-gradient-to-t ${
+          preview
+            ? "from-void from-5% via-void/70 via-30% to-transparent to-65%"
+            : "from-void from-10% via-void/80 via-45% to-void/15"
+        }`}
       />
       <a
-        href={caseStudyPath(c.slug)}
-        data-cursor="View"
-        aria-label={`${c.name} case study`}
+        href={opensGame ? playPath(c.slug) : caseStudyPath(c.slug)}
+        data-cursor={opensGame ? "Play" : "View"}
+        aria-label={opensGame ? `Play ${c.name}` : `${c.name} case study`}
         className="absolute inset-0 z-[1]"
       />
       <div className="pointer-events-none relative z-[2] flex h-full flex-col justify-between p-6 md:p-7">
@@ -275,15 +284,25 @@ export function BentoTile({
           <p className={`mt-2 text-ivory-dim ${big ? "max-w-[44ch] text-[1.0625rem]" : "text-[0.9375rem]"}`}>
             {c.tagline}
           </p>
-          {liveLink(c) && (
-            <a
-              href={liveLink(c)!.href}
-              {...ext(liveLink(c)!)}
-              className="pointer-events-auto mt-5 inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-sm font-semibold text-void transition-colors hover:bg-ember-bright"
-            >
-              {c.play ? "▶ Play now" : liveLink(c)!.label}
-            </a>
-          )}
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            {liveLink(c) && (
+              <a
+                href={liveLink(c)!.href}
+                {...ext(liveLink(c)!)}
+                className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-sm font-semibold text-void transition-colors hover:bg-ember-bright"
+              >
+                {c.play ? "▶ Play now" : liveLink(c)!.label}
+              </a>
+            )}
+            {opensGame && (
+              <a
+                href={caseStudyPath(c.slug)}
+                className="pointer-events-auto inline-flex items-center rounded-full border border-ivory/30 bg-void/40 px-4 py-2 text-sm font-semibold text-ivory backdrop-blur-sm transition-colors hover:border-ivory"
+              >
+                Case study
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </article>

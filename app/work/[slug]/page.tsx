@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Contact from "@/components/home/Contact";
 import JsonLd from "@/components/seo/JsonLd";
+import AutoVideo from "@/components/ui/AutoVideo";
 import { MediaSlot } from "@/components/ui/MediaSlot";
 import CaseViz from "@/components/work/CaseViz";
 import InvestmentSection from "@/components/work/Investment";
@@ -9,7 +10,7 @@ import VisionSection from "@/components/work/Vision";
 import ArticleCard from "@/components/insights/ArticleCard";
 import { getArticles } from "@/lib/articles";
 import { getCaseStudy, personalInfo, publishedCaseStudies } from "@/lib/content";
-import { hueFor, workVideo } from "@/lib/media";
+import { hueFor, videoFiles, workVideo } from "@/lib/media";
 import { playPath } from "@/lib/play";
 import { breadcrumbNode, caseStudyNode, caseStudyPageNode, caseStudyPath } from "@/lib/schema";
 
@@ -68,7 +69,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
       {/* Header */}
       <header className="stage relative overflow-hidden">
-        <MediaSlot video={workVideo(c.slug)} hue={hueFor(c.slug)} priority className="vignette absolute inset-0" />
+        {/* With gameplay clips right below, the header stays calm instead of playing the loop behind the title. */}
+        <MediaSlot
+          video={c.demo ? undefined : workVideo(c.slug)}
+          hue={hueFor(c.slug)}
+          priority
+          className="vignette absolute inset-0"
+        />
         <div aria-hidden="true" className="hero-scrim absolute inset-0 z-[2]" />
         <div className="relative z-10 mx-auto max-w-[1440px] px-5 pt-36 pb-16 sm:px-10 md:pt-44 md:pb-20">
           <nav aria-label="Breadcrumb" className="text-sm text-ivory-faint">
@@ -141,7 +148,54 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
       </header>
 
-      {c.image && (
+      {c.demo ? (
+        <section className="stage" aria-labelledby="demo-heading">
+          <div className="mx-auto max-w-[1440px] px-5 pb-16 sm:px-10 md:pb-24">
+            <div className="flex flex-wrap items-end justify-between gap-6 border-t border-ivory/15 pt-8">
+              <div>
+                <p className="eyebrow">See it in action</p>
+                <h2 id="demo-heading" className="display mt-4 text-[clamp(2rem,4vw,3.25rem)]">
+                  {c.name}, playing
+                </h2>
+              </div>
+              {c.play && (
+                <a href={playPath(c.slug)} className="btn btn-ember">
+                  ▶ Play {c.name} here
+                </a>
+              )}
+            </div>
+            <ul className="mx-auto mt-10 grid max-w-[44rem] grid-cols-2 gap-4 sm:gap-10">
+              {c.demo.map((d) => {
+                const body = (
+                  <>
+                    <span className="relative block aspect-[9/16] overflow-hidden rounded-[1.6rem] border-[6px] border-charcoal-600 bg-charcoal-900 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] ring-1 ring-ivory/10 transition-transform duration-500 group-hover:-translate-y-1 sm:rounded-[2.2rem] sm:border-[8px]">
+                      <AutoVideo
+                        {...videoFiles(d.src)}
+                        poster={d.poster}
+                        label={`${c.name}: ${d.title}`}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    </span>
+                    <span className="mt-4 block font-serif text-[1.15rem] font-semibold sm:text-[1.35rem]">{d.title}</span>
+                    <span className="mt-1 block text-sm leading-relaxed text-ivory-dim">{d.caption}</span>
+                  </>
+                );
+                return (
+                  <li key={d.src}>
+                    {c.play ? (
+                      <a href={playPath(c.slug)} data-cursor="Play" aria-label={`Play ${c.name}`} className="group block">
+                        {body}
+                      </a>
+                    ) : (
+                      body
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+      ) : c.image && (
         <section className="stage" aria-label={`${c.name} screenshot`}>
           <div className="mx-auto max-w-[1440px] px-5 pb-16 sm:px-10 md:pb-24">
             <figure className="overflow-hidden rounded-2xl shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] ring-1 ring-ivory/10">

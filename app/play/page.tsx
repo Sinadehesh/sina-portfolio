@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Contact from "@/components/home/Contact";
 import JsonLd from "@/components/seo/JsonLd";
+import AutoVideo from "@/components/ui/AutoVideo";
 import { personalInfo, publishedCaseStudies } from "@/lib/content";
+import { previewFor } from "@/lib/media";
 import { playableGames, playPath } from "@/lib/play";
 import { absoluteUrl, breadcrumbNode, caseStudyPath, videoGameNode } from "@/lib/schema";
 
@@ -59,7 +61,9 @@ export default function PlayIndex() {
 
       <div className="paper grain relative">
         <ul className="relative mx-auto grid max-w-[1440px] gap-5 px-5 py-16 sm:px-10 md:grid-cols-2 md:py-24">
-          {games.map((g, i) => (
+          {games.map((g, i) => {
+            const preview = previewFor(g.slug);
+            return (
             <li key={g.slug} className={i === 0 ? "md:col-span-2" : ""}>
               <article className="group grid h-full overflow-hidden rounded-[10px] bg-charcoal-900 text-ivory md:grid-cols-2">
                 <a
@@ -68,14 +72,23 @@ export default function PlayIndex() {
                   aria-label={`Play ${g.name}`}
                   className={`relative block aspect-[16/10] overflow-hidden md:aspect-auto ${i === 0 ? "md:min-h-[26rem]" : "md:min-h-[19rem]"}`}
                 >
-                  {g.image && (
-                    // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
-                    <img
-                      src={g.image}
-                      alt={`${g.name} — ${g.tagline}`}
-                      loading={i < 2 ? "eager" : "lazy"}
+                  {preview ? (
+                    <AutoVideo
+                      {...preview}
+                      label={`${g.name} gameplay`}
+                      eager={i < 2}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
                     />
+                  ) : (
+                    g.image && (
+                      // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
+                      <img
+                        src={g.image}
+                        alt={`${g.name} — ${g.tagline}`}
+                        loading={i < 2 ? "eager" : "lazy"}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
+                      />
+                    )
                   )}
                   <span className="absolute top-4 left-4 rounded-full bg-void/75 px-3 py-1.5 font-mono text-[0.75rem] tracking-[0.14em] uppercase backdrop-blur-sm">
                     {g.play.device === "computer" ? "Computer" : "Phone & computer"}
@@ -103,7 +116,8 @@ export default function PlayIndex() {
                 </div>
               </article>
             </li>
-          ))}
+            );
+          })}
           {upcoming.map((c) => (
             <li key={c.slug}>
               <article className="group grid h-full overflow-hidden rounded-[10px] bg-charcoal-900 text-ivory md:grid-cols-2">

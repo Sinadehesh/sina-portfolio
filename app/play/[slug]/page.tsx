@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import Contact from "@/components/home/Contact";
 import GamePlayer from "@/components/play/GamePlayer";
 import JsonLd from "@/components/seo/JsonLd";
+import AutoVideo from "@/components/ui/AutoVideo";
 import { personalInfo } from "@/lib/content";
+import { previewFor } from "@/lib/media";
 import { getPlayable, playableGames, playPath } from "@/lib/play";
 import { breadcrumbNode, caseStudyPath, videoGameNode } from "@/lib/schema";
 
@@ -155,20 +157,29 @@ export default async function PlayPage({ params }: { params: Promise<{ slug: str
           <div className="relative mx-auto max-w-[1440px] px-5 pb-20 sm:px-10 md:pb-28">
             <h2 className="font-mono text-[0.75rem] tracking-[0.2em] text-ink-faint uppercase">More games to play</h2>
             <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {others.map((o) => (
+              {others.map((o) => {
+                const preview = previewFor(o.slug);
+                return (
                 <li key={o.slug}>
                   <a
                     href={playPath(o.slug)}
                     className="group flex h-full flex-col overflow-hidden rounded-[8px] bg-white/45 ring-1 ring-ink/10 transition-colors hover:bg-white/80"
                   >
-                    {o.image && (
-                      // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
-                      <img
-                        src={o.image}
-                        alt=""
-                        loading="lazy"
+                    {preview ? (
+                      <AutoVideo
+                        {...preview}
                         className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                       />
+                    ) : (
+                      o.image && (
+                        // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
+                        <img
+                          src={o.image}
+                          alt=""
+                          loading="lazy"
+                          className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
+                      )
                     )}
                     <span className="flex flex-1 flex-col p-5">
                       <span className="font-serif text-[1.2rem] font-bold tracking-[-0.02em] text-ink">{o.name}</span>
@@ -179,7 +190,8 @@ export default async function PlayPage({ params }: { params: Promise<{ slug: str
                     </span>
                   </a>
                 </li>
-              ))}
+                );
+              })}
             </ul>
           </div>
         )}

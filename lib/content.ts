@@ -318,6 +318,12 @@ export interface CaseStudy {
    * its own section on the case page (and, for Pukytoon, under its story on the homepage).
    */
   vision?: { title: string; paragraphs: string[]; points: { title: string; body: string }[]; articles?: string[] };
+  /**
+   * Silent gameplay clips (public/videos), shown in phone frames on the case page and listed as VideoObjects
+   * in its schema. Each loops while on screen; clicking one opens the game when it plays on the site.
+   * `duration` is ISO 8601 (e.g. "PT20S"); `uploaded` is the date the clip went on the site.
+   */
+  demo?: { src: string; poster?: string; title: string; caption: string; duration: string; uploaded: string }[];
   /** Google Play listing, shown as a "Get it on Google Play" link. */
   googlePlay?: { label: string; url: string }[];
 }
@@ -1497,6 +1503,24 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "gem-jar",
     image: "/images/work/gem-jar.webp",
+    demo: [
+      {
+        src: "/videos/gem-jar-cosmic.mp4",
+        poster: "/videos/gem-jar-cosmic.jpg",
+        title: "Cosmic Gems",
+        caption: "Drop two alike planets and they merge into a bigger one; chain merges for combos.",
+        duration: "PT20S",
+        uploaded: "2026-11-12",
+      },
+      {
+        src: "/videos/gem-jar-sets.mp4",
+        poster: "/videos/gem-jar-sets.jpg",
+        title: "Every gem set",
+        caption: "Rocks & Gems, Ocean Jewels, Royal Treasury, Volcano Gems, Pixel Treasure and more: each set gives the jar a new look.",
+        duration: "PT25S",
+        uploaded: "2026-11-12",
+      },
+    ],
     cover: { metric: "5", caption: "ways to play, from the Gem Mine to Gem Rush" },
     name: "Gem Jar",
     tagline: "A drop-and-merge jewel puzzle: make the Diamond before the jar fills",
