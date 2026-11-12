@@ -27,8 +27,8 @@ export default function Page() {
       <Consulting />
       <Experience />
       <Quote />
+      <Games numeral="04" />
       <WorkGrid />
-      <Games />
       <Books />
       <About />
       <Insights />

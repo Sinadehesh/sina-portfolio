@@ -3,11 +3,12 @@ import { DeckCard, WorkRow } from "@/components/work/WorkTile";
 import { publishedCaseStudies, type CaseStudy } from "@/lib/content";
 
 /** Apps in deck order, then the games (their own section). */
-const appsOrder = ["costly", "app-lockers", "oopscupid", "debubble", "virtue-ledger", "daily-sublime"];
-export const gamesOrder = ["the-loop", "gem-jar", "zombie-bomber", "merge-farmstead"];
+const appsOrder = ["costly", "app-lockers", "oopscupid", "debubble", "daily-sublime"];
+/** Games with a silent preview loop come first, so the homepage shows them moving. */
+export const gamesOrder = ["gem-jar", "zombie-bomber", "the-loop", "merge-farmstead"];
 
 /** Shown in their own homepage sections (consulting, experience, games, books, about). */
-const elsewhereOnHome = ["optimolds", "musicity", "recallmate", "interview-simulation-study", "tao-app", "pukytoon"];
+const elsewhereOnHome = ["optimolds", "musicity", "recallmate", "interview-simulation-study", "pukytoon"];
 
 export const pick = (slugs: string[]) =>
   slugs.map((slug) => publishedCaseStudies.find((c) => c.slug === slug)).filter((c): c is CaseStudy => c !== undefined);
@@ -22,7 +23,7 @@ export default function WorkGrid({ asPage = false }: { asPage?: boolean }) {
       <SectionHeading
         id="work"
         as={asPage ? "h1" : "h2"}
-        numeral={asPage ? undefined : "04"}
+        numeral={asPage ? undefined : "05"}
         eyebrow={asPage ? "All work" : "Apps & websites"}
         title={asPage ? "Every product, engagement and study." : "Products I designed, built and shipped."}
         lede="Real screenshots from the products. Each case study covers the problem, the psychology used, and the decisions behind the build."

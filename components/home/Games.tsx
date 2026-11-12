@@ -12,7 +12,8 @@ const layout = [
   "md:col-start-1 md:row-start-3",
 ];
 
-export default function Games({ numeral = "05", withPukytoon = true }: { numeral?: string; withPukytoon?: boolean }) {
+/** The games first, playing silently in their tiles; then the Pukytoon story. */
+export default function Games({ numeral = "04", withPukytoon = true }: { numeral?: string; withPukytoon?: boolean }) {
   const games = pick(gamesOrder);
   const playable = playableGames().length;
   return (
@@ -22,9 +23,8 @@ export default function Games({ numeral = "05", withPukytoon = true }: { numeral
         numeral={numeral || undefined}
         eyebrow="Games"
         title="Small worlds for testing ideas about play."
-        lede="A feed of games anyone can make, which I’m still building, a story game about AI and work, and merge games built around reward, choice and attention. The story game and the merge games play right here, in your browser."
+        lede="Merge games built around reward, choice and attention, a story game about AI and work, and a feed of games anyone can make, which I’m still building. All but the last play right here, in your browser."
       />
-      {withPukytoon && <Pukytoon />}
       <div className="grid gap-4 md:grid-cols-3 md:grid-rows-[repeat(3,minmax(17rem,auto))]" data-stagger>
         {games.map((c, i) => (
           <BentoTile key={c.slug} study={c} big={i === 0} className={layout[i] ?? ""} />
@@ -54,6 +54,7 @@ export default function Games({ numeral = "05", withPukytoon = true }: { numeral
           </div>
         </a>
       </div>
+      {withPukytoon && <Pukytoon />}
     </Section>
   );
 }

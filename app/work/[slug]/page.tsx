@@ -155,7 +155,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <div>
                 <p className="eyebrow">See it in action</p>
                 <h2 id="demo-heading" className="display mt-4 text-[clamp(2rem,4vw,3.25rem)]">
-                  {c.name}, playing
+                  {c.name}, {c.category === "Game" ? "playing" : "in use"}
                 </h2>
               </div>
               {c.play && (
@@ -164,7 +164,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 </a>
               )}
             </div>
-            <ul className="mx-auto mt-10 grid max-w-[44rem] grid-cols-2 gap-4 sm:gap-10">
+            <ul
+              className={`mx-auto mt-10 grid gap-4 sm:gap-10 ${
+                c.demo.length > 1 ? "max-w-[44rem] grid-cols-2" : "max-w-[19rem] grid-cols-1 sm:max-w-[21rem]"
+              }`}
+            >
               {c.demo.map((d) => {
                 const body = (
                   <>

@@ -80,9 +80,7 @@ const booksSection = () =>
     "",
     ...literature.map(
       (b) =>
-        `- **${b.title}** (${b.genre.toLowerCase()}): ${b.status.toLowerCase()}.${b.body ? ` ${b.body}` : ""}${
-          b.quotes.length ? ` From the book: ${b.quotes.map((q) => `"${q}"`).join(" ")}` : ""
-        }`,
+        `- **${b.title}** (${b.genre.toLowerCase()}): ${b.status.toLowerCase()}.${b.body ? ` ${b.body}` : ""}`,
     ),
   ].join("\n");
 

@@ -141,6 +141,7 @@ export function WorkTile({
  * the one before, so the deck builds up as you scroll.
  */
 export function DeckCard({ study: c, index, total }: { study: CaseStudy; index: number; total: number }) {
+  const preview = previewFor(c.slug);
   return (
     <article data-deck-card className="deck-card" style={{ "--i": index - 1 } as CSSProperties}>
       <div
@@ -189,7 +190,13 @@ export function DeckCard({ study: c, index, total }: { study: CaseStudy; index: 
           aria-label={`${c.name} case study`}
           className="plate relative order-first block aspect-[16/10] overflow-hidden lg:order-none lg:col-span-7 lg:aspect-auto lg:h-full"
         >
-          {c.image ? (
+          {preview ? (
+            <AutoVideo
+              {...preview}
+              label={`${c.name} in use`}
+              className={`absolute inset-0 h-full w-full object-cover ${focus[c.slug] ?? ""}`}
+            />
+          ) : c.image ? (
             // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
             <img
               src={c.image}

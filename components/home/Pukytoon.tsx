@@ -81,7 +81,7 @@ export default function Pukytoon() {
   if (!study) return null;
   const email = `mailto:${personalInfo.email}?subject=${encodeURIComponent(`About ${study.name}`)}`;
   return (
-    <div className="pukytoon-story mb-24 md:mb-32">
+    <div className="pukytoon-story mt-24 md:mt-32">
       <div className="grid gap-6 border-t border-ink/15 pt-6 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
           <p className="flex items-center gap-3 font-mono text-[0.75rem] tracking-[0.2em] text-ember-ink uppercase">

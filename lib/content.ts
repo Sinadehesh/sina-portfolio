@@ -1087,7 +1087,7 @@ export const caseStudies: CaseStudy[] = [
     cover: { metric: "13 × 7", caption: "Franklin's virtues across a week, one tap per cell" },
     name: "Virtue Ledger",
     tagline: "Benjamin Franklin's thirteen-virtue audit, rebuilt as a one-tap app",
-    published: true,
+    published: false,
     category: "Consumer app",
     status: "Built",
     schemaType: "MobileApplication",
@@ -1144,7 +1144,7 @@ export const caseStudies: CaseStudy[] = [
     cover: { metric: "1", caption: "passage a day, chosen by the date" },
     name: "The Art of Observation (app)",
     tagline: "A distraction-free Android reader and study guide for TAO",
-    published: true,
+    published: false,
     category: "Media product",
     status: "Built",
     schemaType: "MobileApplication",
@@ -1188,6 +1188,16 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "debubble",
     image: "/images/work/debubble.webp",
+    demo: [
+      {
+        src: "/videos/debubble-tour.mp4",
+        poster: "/videos/debubble-tour.jpg",
+        title: "A day in DeBubble",
+        caption: "Four tiny things a day, one brave step outside, and a room that comes alive, with no streaks to break.",
+        duration: "PT16S",
+        uploaded: "2026-11-12",
+      },
+    ],
     cover: { metric: "4", caption: "tiny things a day: body, room, heart, one step outside" },
     featured: true,
     name: "DeBubble",
@@ -1586,6 +1596,16 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "zombie-bomber",
     image: "/images/work/zombie-bomber.webp",
+    demo: [
+      {
+        src: "/videos/zombie-bomber-gameplay.mp4",
+        poster: "/videos/zombie-bomber-gameplay.jpg",
+        title: "Merge, then bomb",
+        caption: "Merge bombs into bigger ones, drop them from the plane and hold the base, all the way to the Zombie King.",
+        duration: "PT19S",
+        uploaded: "2026-11-12",
+      },
+    ],
     cover: { metric: "300", caption: "levels of merge-and-bomb defence" },
     name: "Zombie Bomber",
     tagline: "Merge bombs, drop them on the horde, upgrade the base",
