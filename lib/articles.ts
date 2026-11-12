@@ -63,10 +63,10 @@ export const topics = [
   },
   {
     slug: "games-creativity",
-    label: "Games & creativity",
-    title: "Games & the democratization of creativity",
+    label: "Creativity & games",
+    title: "The democratization of creativity, from the printing press to games",
     intro:
-      "Making videos became something everyone does; I believe making games is next. These articles are about what happens when anyone can make a game: the tools, the psychology of making something yourself and, above all, the social side — remixing, credit, followers and playing each other’s games. I write from designing Pukytoon, a feed of games anyone can make, which is in development.",
+      "Every medium opened up the same way, from Gutenberg’s press to blogs, citizen journalism and creators — and making games is next. These articles follow how knowledge, news and entertainment became something everyone makes, and what happens when anyone can make a game: the psychology of game creators, the tools, and above all the social side — remixing, credit, followers and playing each other’s games. I write from designing Pukytoon, a feed of games anyone can make, which is in development.",
   },
 ] as const;
 
