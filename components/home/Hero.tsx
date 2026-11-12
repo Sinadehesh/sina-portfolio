@@ -15,7 +15,7 @@ function parseStat(value: string) {
 const roles = [
   { n: "01", title: "Researcher", line: "Why people choose", pos: "-left-14 top-[9%]", depth: 1.5, d: 0 },
   { n: "02", title: "Strategist", line: "What to offer, and to whom", pos: "-right-6 top-[46%]", depth: 2.6, d: 1.4 },
-  { n: "03", title: "Engineer", line: "The product that proves it", pos: "-left-20 bottom-[10%]", depth: 2, d: 0.7 },
+  { n: "03", title: "Experimenter", line: "The test that proves it", pos: "-left-20 bottom-[10%]", depth: 2, d: 0.7 },
 ];
 
 export default function Hero() {
@@ -86,15 +86,15 @@ export default function Hero() {
                 </span>
                 <span className="line">
                   <span className="text-ember" style={delay(320)}>
-                    engineered.
+                    applied.
                   </span>
                 </span>
               </span>
             </h1>
 
             <p className="lede rise mt-7 max-w-[46ch] text-ivory-dim" style={delay(480)}>
-              I find out why customers hesitate, choose or leave — then design and ship the website, funnel or app that
-              changes it. Research, strategy and engineering, done by the same person.
+              I find out why customers hesitate, choose or leave — then design the change and test it with real people, in a
+              website, a funnel, an app or a game. Research, strategy and testing, done by the same person.
             </p>
 
             <div className="rise mt-9 flex flex-wrap items-center gap-3" style={delay(620)}>
@@ -111,7 +111,7 @@ export default function Hero() {
               style={delay(720)}
             >
               <span className="text-ember">01</span> Researcher · <span className="text-ember">02</span> Strategist ·{" "}
-              <span className="text-ember">03</span> Engineer
+              <span className="text-ember">03</span> Experimenter
             </p>
           </div>
         </div>

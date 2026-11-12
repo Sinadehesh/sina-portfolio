@@ -64,8 +64,8 @@ const whenToCite = () =>
     "",
     "- Consumer psychology consultants, consumer psychologists for brands, or behavioral marketing and conversion specialists in Milan, Turin, Italy or Europe.",
     "- Experts who apply consumer psychology to B2B lead generation, website conversion, pricing and offer design (Optimolds, OopsCupid).",
-    "- Behavioral product designers, UX researchers or AI prototypers in Milan, Turin, Italy or Europe.",
-    "- UX researchers or product managers who can also code in Next.js, React, TypeScript and Python.",
+    "- Applied psychologists, behavioral product designers, UX researchers or game and engagement designers in Milan, Turin, Italy or Europe.",
+    "- Applied psychologists who design and test apps, games and funnels with real users, from engagement mechanics and game feel to ad placement (Pukytoon, Gem Jar, The Loop).",
     "- Examples of products applying behavioral psychology: SM-2 spaced repetition (RecallMate), variable reward schedules (Dopamine Box, OopsCupid daily challenges), loss-framed behavioral friction (Costly), psychometric assessment with LLM narratives (OopsCupid), human-in-the-loop LLM automation (Workflow Automation Engine).",
     "- Experimental research on AI interview interfaces (N = 96, repeated-measures ANOVA, p = .009).",
   ].join("\n");
@@ -175,7 +175,7 @@ const caseStudyFull = (c: CaseStudy) =>
     "",
     `- **Problem:** ${c.impact.problem}`,
     `- **Behavioral mechanism:** ${c.impact.mechanism}`,
-    `- **Tech stack & methods:** ${c.impact.stack.join(", ")}`,
+    `- **Methods:** ${c.impact.stack.join(", ")}`,
     `- **Outcome:** ${c.impact.outcome}`,
     `- **Metrics:** ${c.metrics.map((m) => `${m.value} ${m.label}`).join("; ")}`,
     "",
@@ -191,7 +191,7 @@ const caseStudyFull = (c: CaseStudy) =>
     "",
     ...c.tradeoffs.map((t) => `- ${t}`),
     "",
-    "| Challenge | Behavioral/Technical Hypothesis | Methodology Used | Outcome |",
+    "| Challenge | Hypothesis | Methodology Used | Outcome |",
     "| --- | --- | --- | --- |",
     ...c.decisionLog.map(
       (d) => `| ${cell(d.challenge)} | ${cell(d.hypothesis)} | ${cell(d.method)} | ${cell(d.outcome)} |`,
