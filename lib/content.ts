@@ -35,7 +35,7 @@ export const personalInfo = {
   heroDescription:
     "Good ideas fail when nobody checks them with real people. I diagnose the psychological barrier that stops customers, design the fix, test it with real users, and measure whether it worked, in a website, a funnel, an app or a game.",
   summary:
-    "Sina Dehesh is an applied psychologist and consumer psychology consultant based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in designing and testing the websites, funnels, apps and games that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, including 29/30 in Consumer Psychology, 29/30 in Elements of Human-Technology Interaction and 28/30 in Cognitive Ergonomics. Sina has designed and released consumer products and games including Pukytoon (a swipe feed of hyper-casual games), Gem Jar and Zombie Bomber (merge games), The Loop (a story game about AI and work), Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), DeBubble (gamified self-care), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (240+ interviews and usability tests, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile), idea generation with TRIZ, and tests with real people: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
+    "Sina Dehesh is an applied psychologist and consumer psychology consultant based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in designing and testing the websites, funnels, apps and games that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, including 29/30 in Consumer Psychology, 29/30 in Elements of Human-Technology Interaction and 28/30 in Cognitive Ergonomics. Sina has designed and released consumer products and games including Pukytoon (a swipe feed of hyper-casual games), Gem Jar and Zombie Bomber (merge games), The Loop (a story game about AI and work), Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), DeBubble (gamified self-care), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (240+ interviews and usability tests, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and tests with real people: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
   languages: [
     { name: "English", code: "en", level: "C1" },
     { name: "Persian", code: "fa", level: "Native" },
@@ -54,7 +54,7 @@ export const proofStats = [
 /** First-person bio for the homepage About section. */
 export const about = [
   "I'm Sina Dehesh, an applied psychologist and consumer psychology consultant based in Milan. My M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca covered research design, psychometrics, quantitative methods, cognitive ergonomics, human-technology interaction and consumer psychology — how people perceive, decide and buy. My best marks were in Consumer Psychology (29/30), Elements of Human-Technology Interaction (29/30) and Cognitive Ergonomics (28/30).",
-  "I consult on consumer psychology and growth, and I make my own apps and games to test ideas on real people: the apps, games and websites below were researched, designed and tested end to end. I come up with new ideas with the TRIZ method of creativity, and then I test them. My thesis was a controlled experiment with 96 participants; before that I ran 200 research interviews as a volunteer researcher and co-founded Guardbar.",
+  "I consult on consumer psychology and growth, and I make my own apps and games to test ideas on real people: the apps, games and websites below were researched, designed and tested end to end. My thesis was a controlled experiment with 96 participants; before that I ran 200 research interviews as a volunteer researcher and co-founded Guardbar.",
   "Two of my small ideas moved a number. In one of my games the first ad came after 25 clicks, and my friends played for about five minutes before saying it was getting annoying. After reading how Block Blast uses the game itself as the reason to watch ads, I moved the ads to the start and the end of a game, and playing time went up dramatically. On a platform for university students that I worked on with engineer friends, students were not entering enough data, so I suggested the swipe from dating apps, changed to fit data entry; in a test with engineering students they entered much more data and enjoyed it more.",
   "I work in English, Italian, Persian and German, with teams in Milan, Turin, across Europe and remotely.",
 ];
@@ -242,7 +242,7 @@ export const skillGroups = [
       "Ad Placement",
       "Playtesting",
       "A/B Comparisons",
-      "Idea Generation with TRIZ",
+      "Idea Generation & Testing",
       "n8n Automation",
       "AI Tools & Conversational AI",
       "Power BI",
@@ -1649,7 +1649,6 @@ export const knowsAbout: { name: string; sameAs?: string }[] = [
   { name: "Conversational AI Prototyping" },
   { name: "LLM Agentic Workflows" },
   { name: "Figma", sameAs: "https://en.wikipedia.org/wiki/Figma" },
-  { name: "TRIZ", sameAs: "https://en.wikipedia.org/wiki/TRIZ" },
   { name: "Game Design", sameAs: "https://en.wikipedia.org/wiki/Game_design" },
   { name: "Gamification", sameAs: "https://en.wikipedia.org/wiki/Gamification" },
   { name: "n8n" },
