@@ -1,3 +1,7 @@
 # Cloudflare Pages redirects
 # Thermite Dominoes was removed from the site; its old case-study address goes to the games.
 /work/thermite-dominoes /play 301
+/work/thermite-dominoes/ /play 301
+# Pukytoon is still in development and can't be played on the site; its old play page goes to the case study.
+/play/pukytoon /work/pukytoon 302
+/play/pukytoon/ /work/pukytoon 302

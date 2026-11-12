@@ -1,7 +1,7 @@
 import { publishedCaseStudies, type CaseStudy } from "./content";
 
 /** Playable games, in the order the arcade shows them. Each embeds its live web build. */
-const order = ["pukytoon", "the-loop", "gem-jar", "zombie-bomber", "merge-farmstead"];
+const order = ["the-loop", "gem-jar", "zombie-bomber", "merge-farmstead"];
 
 export const playPath = (slug: string) => `/play/${slug}`;
 

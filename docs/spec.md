@@ -39,14 +39,18 @@ codebase against it; keep this file in sync when the brief changes.
    of Milano-Bicocca; Co-Founder, Guardbar; Volunteer Researcher, Salami
    Rehabilitation Center) → principle → (04) Apps & websites (a stacked deck
    of cards) → (05) Games (a scroll story of Pukytoon over real screens of
-   the live app — swipe, make in the Creator Studio, set the rules, paste a
-   Claude/Gemini/Kimi link, share — then The Loop, Gem Jar, Zombie Bomber and
-   Merge Farmstead) → (06) Books → (07) About & education → (08) Insights →
+   the app — swipe, make in the Creator Studio, set the rules, paste a
+   Claude/Gemini/Kimi link, share — ending with an invitation to email to hear
+   more or to fund it; then The Loop, Gem Jar, Zombie Bomber and Merge
+   Farmstead) → (06) Books → (07) About & education → (08) Insights →
    (09) FAQ → Contact. Sections carry two-digit indices on an index rule.
-8b. Every game plays on the site: `/play` lists them and `/play/<slug>` embeds
-    the game's live web build (a phone frame for phone games, a wide screen for
-    The Loop), so the site always shows the newest version. Thermite Dominoes
-    is not shown anywhere.
+8b. Every finished game plays on the site: `/play` lists them and
+    `/play/<slug>` embeds the game's live web build (a phone frame for phone
+    games, a wide screen for The Loop), so the site always shows the newest
+    version. Pukytoon is still in development: it is never playable or linked
+    to a build from the site; its pages say it is in development and invite
+    people to email to hear more or to fund it (`/play/pukytoon` redirects to
+    its case study). Thermite Dominoes is not shown anywhere.
 8a. Scroll stories keep every step's text in the page in reading order; the
     stage only illustrates it. Under reduced motion the stage shows its final
     state and every step is fully visible.

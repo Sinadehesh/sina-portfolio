@@ -102,7 +102,21 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </dd>
             </div>
           </dl>
-          <div className="mt-10 flex flex-wrap gap-3">
+          {c.inDevelopment && (
+            <p className="mt-10 flex max-w-[60ch] items-start gap-3 text-ivory-dim">
+              <span aria-hidden="true" className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-ember" />
+              {c.inDevelopment.note}
+            </p>
+          )}
+          <div className={`${c.inDevelopment ? "mt-6" : "mt-10"} flex flex-wrap gap-3`}>
+            {c.inDevelopment && (
+              <a
+                href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(`About ${c.name}`)}`}
+                className="btn btn-ember"
+              >
+                Email me about {c.name}
+              </a>
+            )}
             {c.play && (
               <a href={playPath(c.slug)} className="btn btn-ember">
                 ▶ Play {c.name} here
@@ -326,7 +340,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
       </section>
 
-      <Contact title={`Need ${c.category === "Research" ? "research" : "work"} like ${c.name} on your team?`} />
+      {c.inDevelopment ? (
+        <Contact title={`Want to know more about ${c.name}, or to fund it? Email me.`} subject={`About ${c.name}`} />
+      ) : (
+        <Contact title={`Need ${c.category === "Research" ? "research" : "work"} like ${c.name} on your team?`} />
+      )}
     </article>
   );
 }

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Contact from "@/components/home/Contact";
 import JsonLd from "@/components/seo/JsonLd";
-import { personalInfo } from "@/lib/content";
+import { personalInfo, publishedCaseStudies } from "@/lib/content";
 import { playableGames, playPath } from "@/lib/play";
 import { absoluteUrl, breadcrumbNode, caseStudyPath, videoGameNode } from "@/lib/schema";
 
-const title = `Play free browser games by ${personalInfo.name}: Pukytoon, The Loop, Gem Jar and more`;
-const description = `Play ${personalInfo.name}'s games free in your browser, no install: Pukytoon, a feed of games anyone can make; The Loop, a story game about AI and work; and the merge games Gem Jar, Zombie Bomber and Merge Farmstead.`;
+const title = `Play free browser games by ${personalInfo.name}: The Loop, Gem Jar and more`;
+const description = `Play ${personalInfo.name}'s games free in your browser, no install: The Loop, a story game about AI and work, and the merge games Gem Jar, Zombie Bomber and Merge Farmstead.`;
 
 export const metadata: Metadata = {
   title,
@@ -17,6 +17,8 @@ export const metadata: Metadata = {
 
 export default function PlayIndex() {
   const games = playableGames();
+  /** Games that aren't open yet: shown last, with an invitation to email instead of a play button. */
+  const upcoming = publishedCaseStudies.filter((c) => c.category === "Game" && c.inDevelopment);
   return (
     <>
       <JsonLd
@@ -48,8 +50,9 @@ export default function PlayIndex() {
             Play my games, <span className="text-ember">right here.</span>
           </h1>
           <p className="lede mt-8 max-w-[58ch] text-ivory-dim">
-            Every game below runs in your browser, on a phone or a laptop, and always in its newest version. I make them
-            to test ideas about play, reward and attention with real people.
+            Every game below runs in your browser, on a phone or a laptop, and always in its newest version — except
+            Pukytoon, which is still in development. I make them to test ideas about play, reward and attention with
+            real people.
           </p>
         </div>
       </header>
@@ -94,6 +97,49 @@ export default function PlayIndex() {
                       ▶ Play {g.name}
                     </a>
                     <a href={caseStudyPath(g.slug)} className="btn btn-ghost !px-5 !py-3.5 text-sm">
+                      Case study
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          ))}
+          {upcoming.map((c) => (
+            <li key={c.slug}>
+              <article className="group grid h-full overflow-hidden rounded-[10px] bg-charcoal-900 text-ivory md:grid-cols-2">
+                <a
+                  href={caseStudyPath(c.slug)}
+                  aria-label={`${c.name} case study`}
+                  className="relative block aspect-[16/10] overflow-hidden md:aspect-auto md:min-h-[19rem]"
+                >
+                  {c.image && (
+                    // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized asset
+                    <img
+                      src={c.image}
+                      alt={`${c.name} — ${c.tagline}`}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
+                    />
+                  )}
+                  <span className="absolute top-4 left-4 rounded-full bg-void/75 px-3 py-1.5 font-mono text-[0.75rem] tracking-[0.14em] uppercase backdrop-blur-sm">
+                    In development
+                  </span>
+                </a>
+                <div className="flex flex-col p-7 md:p-9">
+                  <p className="font-mono text-[0.75rem] tracking-[0.16em] text-ember uppercase">Not open to play yet</p>
+                  <h2 className="display mt-4 text-[clamp(2rem,3.2vw,3rem)]">{c.name}</h2>
+                  <p className="mt-3 text-ivory-dim">{c.tagline}</p>
+                  <p className="mt-4 text-[0.9375rem] text-ivory-faint">{c.inDevelopment?.note}</p>
+                  <div className="mt-auto flex flex-wrap gap-3 pt-8">
+                    <a
+                      href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(`About ${c.name}`)}`}
+                      data-magnetic="0.25"
+                      data-cursor="Email"
+                      className="btn btn-ember !px-5 !py-3.5 text-sm"
+                    >
+                      Email me about {c.name}
+                    </a>
+                    <a href={caseStudyPath(c.slug)} className="btn btn-ghost !px-5 !py-3.5 text-sm">
                       Case study
                     </a>
                   </div>

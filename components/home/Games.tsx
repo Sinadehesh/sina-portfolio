@@ -22,7 +22,7 @@ export default function Games({ numeral = "05", withPukytoon = true }: { numeral
         numeral={numeral || undefined}
         eyebrow="Games"
         title="Small worlds for testing ideas about play."
-        lede="A feed of games anyone can make, a story game about AI and work, and merge games built around reward, choice and attention. Every one plays right here, in your browser."
+        lede="A feed of games anyone can make, which I’m still building, a story game about AI and work, and merge games built around reward, choice and attention. The story game and the merge games play right here, in your browser."
       />
       {withPukytoon && <Pukytoon />}
       <div className="grid gap-4 md:grid-cols-3 md:grid-rows-[repeat(3,minmax(17rem,auto))]" data-stagger>

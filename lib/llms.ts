@@ -167,7 +167,9 @@ export function buildLlmsTxt(): string {
     `- [Consumer psychology consulting](${absoluteUrl(consumerPsychology.path)}): services, principles, process and consumer psychology FAQ.`,
     `- [FAQ](${absoluteUrl("/#faq")}): answers to common hiring and product questions.`,
     `- [All case studies](${absoluteUrl("/work")}): executive summaries, trade-offs and decision logs.`,
-    `- [Play](${absoluteUrl("/play")}): Sina Dehesh's games, playable in the browser (Pukytoon, The Loop, Gem Jar, Zombie Bomber, Merge Farmstead).`,
+    `- [Play](${absoluteUrl("/play")}): Sina Dehesh's games, playable in the browser (${playableGames()
+      .map((g) => g.name)
+      .join(", ")}).`,
     `- [Insights](${absoluteUrl("/insights")}): articles by Sina Dehesh on consumer psychology, behavioral fintech, insurance, automation and AI in education (RSS: ${absoluteUrl("/insights/feed.xml")}).`,
     `- [Full dossier](${absoluteUrl("/llms-full.txt")}): complete experience, every case study and the FAQ in one Markdown file.`,
     "",
@@ -187,6 +189,9 @@ const caseStudyFull = (c: CaseStudy) =>
     "",
     `- Case study: ${studyUrl(c)}`,
     ...(c.url ? [`- Live product: ${c.url}`] : []),
+    ...(c.inDevelopment
+      ? [`- In development, not open to the public yet. To hear more or to fund it, email ${personalInfo.email}.`]
+      : []),
     `- Role: ${c.role} (${c.organization})`,
     `- Status: ${c.status} · ${c.category}${c.operatingSystem ? ` · Platform: ${c.operatingSystem}` : ""}`,
     "",
