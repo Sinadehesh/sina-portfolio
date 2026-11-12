@@ -1,14 +1,17 @@
 import type { CSSProperties, ReactNode } from "react";
 import { personalInfo } from "@/lib/content";
 
-const mailto = `mailto:${personalInfo.email}?subject=${encodeURIComponent("Working together")}`;
 const band = ["Available for consulting", "Product & research roles", "Milan · Turin · Europe · Remote"];
 
 export default function Contact({
   title = <>Customers doing something you can&rsquo;t explain? Let&rsquo;s find out why.</>,
+  subject = "Working together",
 }: {
   title?: ReactNode;
+  /** Subject line of the emails this section starts. */
+  subject?: string;
 }) {
+  const mailto = `mailto:${personalInfo.email}?subject=${encodeURIComponent(subject)}`;
   return (
     <section id="contact" aria-labelledby="contact-heading" className="ember-ground relative overflow-hidden">
       <div aria-hidden="true" className="marquee-wrap border-b border-void/20 py-4">

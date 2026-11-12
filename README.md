@@ -36,7 +36,7 @@ npm run typecheck
 | `/work` | `app/work/page.tsx` | All case studies |
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Answer-first summary, impact, interactive chart (`components/work/CaseViz.tsx`), comparison, trade-offs, decision log |
 | `/consumer-psychology` | `app/consumer-psychology/page.tsx` | Service page: services, principles, process, proof, FAQ |
-| `/play` | `app/play/page.tsx` | The arcade: every playable game |
+| `/play` | `app/play/page.tsx` | The arcade: every playable game, then games still in development |
 | `/play/[slug]` | `app/play/[slug]/page.tsx` | One game, embedded from its live web build (`play` in `lib/content.ts`) |
 | `/insights` | `app/insights/page.tsx` | Articles hub, grouped by topic |
 | `/insights/[slug]` | `app/insights/[slug]/page.tsx` ← `content/articles/*.md` | Article: takeaways, body, FAQ, author box, related articles |
@@ -123,6 +123,10 @@ pushed to the game's own repository is what plays here, so the site never needs 
 new build for a game update. `device: "phone"` shows a phone frame on wide screens;
 `"computer"` a wide screen (The Loop). `googlePlay` adds Google Play links to a
 case study once a listing is public.
+
+A product still in development (Pukytoon) has `inDevelopment: { note }` and no
+`play` or `url`: nothing links to or embeds a build, and its story, arcade card and
+case study show the note with an "Email me about …" button instead.
 
 ## Images and videos
 

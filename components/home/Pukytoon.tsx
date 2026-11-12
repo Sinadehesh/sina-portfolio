@@ -1,10 +1,9 @@
 import Scrolly from "@/components/scrolly/Scrolly";
 import PhoneStage, { type PhoneShot } from "@/components/scrolly/PhoneStage";
-import { getCaseStudy } from "@/lib/content";
-import { playPath } from "@/lib/play";
+import { getCaseStudy, personalInfo } from "@/lib/content";
 import { caseStudyPath } from "@/lib/schema";
 
-/** Real screens of the live app, taken at 390 × 844; rings are in the same pixels. */
+/** Real screens of the app in development, taken at 390 × 844; rings are in the same pixels. */
 const shots: PhoneShot[] = [
   {
     src: "/images/pukytoon/feed.webp",
@@ -71,25 +70,29 @@ const steps = [
   },
 ];
 
-/** Pukytoon, told as a scroll story over real screens of the live app. */
+/**
+ * Pukytoon, told as a scroll story over real screens of the app. It is still in development, so the story
+ * ends with an invitation to email (to hear more, or to fund it) instead of a way to play it.
+ */
 export default function Pukytoon() {
   const study = getCaseStudy("pukytoon");
   if (!study) return null;
+  const email = `mailto:${personalInfo.email}?subject=${encodeURIComponent(`About ${study.name}`)}`;
   return (
     <div className="pukytoon-story mb-24 md:mb-32">
       <div className="grid gap-6 border-t border-ink/15 pt-6 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
           <p className="flex items-center gap-3 font-mono text-[0.75rem] tracking-[0.2em] text-ember-ink uppercase">
-            <span aria-hidden="true" className="live-dot !h-1.5 !w-1.5" />
-            Pukytoon · live
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full border border-ember-ink" />
+            Pukytoon · in development
           </p>
           <h3 className="display mt-5 text-[clamp(2.4rem,5.2vw,5rem)]">
             A feed of games <span className="text-ember-ink">anyone can make.</span>
           </h3>
         </div>
         <p className="lede max-w-[46ch] text-ink-dim lg:col-span-5">
-          Making videos became something everyone can do. I believe making games will go the same way — so I made the
-          place where people make them, share them and play each other’s.
+          Making videos became something everyone can do. I believe making games will go the same way — so I’m
+          building the place where people make them, share them and play each other’s.
         </p>
       </div>
 
@@ -110,14 +113,25 @@ export default function Pukytoon() {
             </p>
             <h4 className="display mt-5 max-w-[15ch] text-[clamp(2rem,3.5vw,3.4rem)]">{s.title}</h4>
             <p className="mt-5 max-w-[44ch] text-[1.0625rem] leading-relaxed text-ink-dim">{s.body}</p>
-            {i === steps.length - 1 && (
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href={playPath("pukytoon")} data-magnetic="0.25" className="btn btn-ember !px-5 !py-3.5 text-sm">
-                  ▶ Try Pukytoon here
-                </a>
-                <a href={caseStudyPath(study.slug)} className="btn btn-ghost !px-5 !py-3.5 text-sm">
-                  Case study
-                </a>
+            {i === steps.length - 1 && study.inDevelopment && (
+              <div className="mt-8 max-w-[46ch] rounded-[8px] border border-ink/15 p-5 sm:p-6">
+                <p className="font-mono text-[0.75rem] tracking-[0.18em] text-ember-ink uppercase">
+                  Still in development
+                </p>
+                <p className="mt-3 text-[1.0625rem] leading-relaxed text-ink">{study.inDevelopment.note}</p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <a
+                    href={email}
+                    data-magnetic="0.25"
+                    data-cursor="Email"
+                    className="btn btn-ember !px-5 !py-3.5 text-sm"
+                  >
+                    Email me about {study.name} →
+                  </a>
+                  <a href={caseStudyPath(study.slug)} className="btn btn-ghost !px-5 !py-3.5 text-sm">
+                    Case study
+                  </a>
+                </div>
               </div>
             )}
           </div>

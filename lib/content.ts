@@ -35,7 +35,7 @@ export const personalInfo = {
   heroDescription:
     "Good ideas fail when nobody checks them with real people. I diagnose the psychological barrier that stops customers, design the fix, test it with real users, and measure whether it worked, in a website, a funnel, an app or a game.",
   summary:
-    "Sina Dehesh is an applied psychologist and consumer psychology consultant based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in designing and testing the websites, funnels, apps and games that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, including 29/30 in Consumer Psychology, 29/30 in Elements of Human-Technology Interaction and 28/30 in Cognitive Ergonomics. Sina has designed and released consumer products and games including Pukytoon (a swipe feed of hyper-casual games), Gem Jar and Zombie Bomber (merge games), The Loop (a story game about AI and work), Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), DeBubble (gamified self-care), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (240+ interviews and usability tests, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and tests with real people: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
+    "Sina Dehesh is an applied psychologist and consumer psychology consultant based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in designing and testing the websites, funnels, apps and games that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, including 29/30 in Consumer Psychology, 29/30 in Elements of Human-Technology Interaction and 28/30 in Cognitive Ergonomics. Sina has designed and released consumer products and games including Pukytoon (a feed of games anyone can make, in development), Gem Jar and Zombie Bomber (merge games), The Loop (a story game about AI and work), Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), DeBubble (gamified self-care), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (240+ interviews and usability tests, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and tests with real people: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
   languages: [
     { name: "English", code: "en", level: "C1" },
     { name: "Persian", code: "fa", level: "Native" },
@@ -273,7 +273,7 @@ export interface CaseStudy {
   /** Hidden from every page, schema, llms.txt and sitemap until set to true. */
   published: boolean;
   category: "Consumer app" | "Game" | "B2B automation" | "Research" | "Consulting" | "Growth consulting" | "Media product" | "EdTech";
-  status: "Live" | "Shipped" | "Closed testing" | "Pre-launch" | "Playable" | "Built" | "Prototype" | "Completed";
+  status: "Live" | "Shipped" | "Closed testing" | "Pre-launch" | "In development" | "Playable" | "Built" | "Prototype" | "Completed";
   schemaType: SchemaType;
   applicationCategory?: string;
   operatingSystem?: string;
@@ -307,6 +307,11 @@ export interface CaseStudy {
    * latest version. `device` sets the player's shape: a phone frame, or a wide screen for computer games.
    */
   play?: { src: string; device: "phone" | "computer"; note?: string };
+  /**
+   * Not open to the public yet: nothing links to or embeds a build. The pages show `note` instead and invite
+   * people to email to hear more or to fund it.
+   */
+  inDevelopment?: { note: string };
   /** Google Play listing, shown as a "Get it on Google Play" link. */
   googlePlay?: { label: string; url: string }[];
 }
@@ -1311,20 +1316,17 @@ export const caseStudies: CaseStudy[] = [
     tagline: "A feed of games anyone can make, share and play",
     published: true,
     category: "Game",
-    status: "Live",
+    status: "In development",
     schemaType: "MobileApplication",
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
-    url: "https://sinadehesh.github.io/pukytoon/",
-    play: {
-      src: "https://sinadehesh.github.io/pukytoon/",
-      device: "phone",
-      note: "Swipe up for the next game. Making and sharing your own games works best in Pukytoon itself.",
+    inDevelopment: {
+      note: "Pukytoon is still in development, so it isn’t open to play yet. If you’d like to know more, or to fund it, email me.",
     },
     role: "Founder",
     organization: "Own product",
     summary:
-      "Pukytoon is a feed of games you swipe through like short videos, and anyone can add to it. Make a game in the Creator Studio with no code — four game types, six looks, 74 pictures, your own rules, so hundreds of different games — or copy the link of a game you made as a Claude artifact or with Gemini or Kimi and paste it in: it becomes a card in the feed. Sign in to share your games with everyone, like other people's, send a game to a friend with one link, or make your own version of someone else's. Making videos became something everyone can do; I believe making games will go the same way, and that the social platforms of the future will be gamified.",
+      "Pukytoon, still in development, is a feed of games you swipe through like short videos, and anyone can add to it. Make a game in the Creator Studio with no code — four game types, six looks, 74 pictures, your own rules, so hundreds of different games — or copy the link of a game you made as a Claude artifact or with Gemini or Kimi and paste it in: it becomes a card in the feed. Sign in to share your games with everyone, like other people's, send a game to a friend with one link, or make your own version of someone else's. Making videos became something everyone can do; I believe making games will go the same way, and that the social platforms of the future will be gamified.",
     impact: {
       problem:
         "People make small games with AI chatbots every day, but they stay stuck behind share links that nobody browses, and making a game from scratch is still far harder than making a video.",
@@ -1332,7 +1334,7 @@ export const caseStudies: CaseStudy[] = [
         "Feed-style browsing cuts the cost of trying a game to one swipe; a no-code Creator Studio turns players into makers; pasting a link turns an AI-made artifact into a game in the feed; likes, share links and remixing make every game social.",
       stack: ["Feed design: one swipe to try a game", "No-code Creator Studio", "Paste a link: Claude artifacts, Gemini, Kimi", "Accounts, likes, share links and remixing", "Android app and web"],
       outcome:
-        "Live on the web with an Android test build: the swipe feed, the Creator Studio, games added by link or code, and a shared feed with accounts, likes, share links, reports and remixing.",
+        "In development. The swipe feed, the Creator Studio, adding games by link or code, and a shared feed with accounts, likes, share links, reports and remixing work in a web build and an Android test build.",
     },
     metrics: [
       { value: "4 × 6", label: "Game types × looks in the Creator Studio" },
@@ -1340,7 +1342,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "1 link", label: "To add a game made with Claude, Gemini or Kimi" },
     ],
     tradeoffs: [
-      "Claude, Gemini and Kimi don't let other apps embed their pages, so a link game plays full screen in the app's own view (a new tab on the website); pasting the game's code plays it right in the feed.",
+      "Claude, Gemini and Kimi don't let other apps embed their pages, so a link game plays full screen in the app's own view (a new tab in the web version); pasting the game's code plays it right in the feed.",
       "A Creator Studio game is saved as a few hundred bytes of data — the game type, settings, look and rules — so it loads instantly, works offline and can be shared and remixed safely.",
       "Every pasted game runs sealed off from the app and from the other games, and only Studio games and links to Claude, Gemini or Kimi can be shared with everyone until the safety checks for shared code are ready.",
     ],
@@ -1526,7 +1528,7 @@ export const caseStudies: CaseStudy[] = [
       mechanism:
         "Two modes tie merging to action — merge to build bigger bombs, then spend them to survive — and an upgrade shop after each level turns coins into visible progress.",
       stack: ["Game design", "Difficulty curve", "Upgrade economy", "Shared merge engine"],
-      outcome: "Live in the browser with 300 levels, 12 zombie types and an upgrade shop; also playable inside Pukytoon.",
+      outcome: "Live in the browser with 300 levels, 12 zombie types and an upgrade shop; it is also one of the games in Pukytoon, which is in development.",
     },
     metrics: [
       { value: "300", label: "Levels" },
