@@ -1,5 +1,6 @@
 import Scrolly from "@/components/scrolly/Scrolly";
 import PhoneStage, { type PhoneShot } from "@/components/scrolly/PhoneStage";
+import { VisionBody } from "@/components/work/Vision";
 import { getCaseStudy, personalInfo } from "@/lib/content";
 import { caseStudyPath } from "@/lib/schema";
 
@@ -71,8 +72,9 @@ const steps = [
 ];
 
 /**
- * Pukytoon, told as a scroll story over real screens of the app. It is still in development, so the story
- * ends with an invitation to email (to hear more, or to fund it) instead of a way to play it.
+ * Pukytoon, told as a scroll story over real screens of the app, then why it matters (the democratization of
+ * game-making and its social side). It is still in development, so it ends with an invitation to email (to
+ * hear more, or to fund it) instead of a way to play it.
  */
 export default function Pukytoon() {
   const study = getCaseStudy("pukytoon");
@@ -113,30 +115,39 @@ export default function Pukytoon() {
             </p>
             <h4 className="display mt-5 max-w-[15ch] text-[clamp(2rem,3.5vw,3.4rem)]">{s.title}</h4>
             <p className="mt-5 max-w-[44ch] text-[1.0625rem] leading-relaxed text-ink-dim">{s.body}</p>
-            {i === steps.length - 1 && study.inDevelopment && (
-              <div className="mt-8 max-w-[46ch] rounded-[8px] border border-ink/15 p-5 sm:p-6">
-                <p className="font-mono text-[0.75rem] tracking-[0.18em] text-ember-ink uppercase">
-                  Still in development
-                </p>
-                <p className="mt-3 text-[1.0625rem] leading-relaxed text-ink">{study.inDevelopment.note}</p>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <a
-                    href={email}
-                    data-magnetic="0.25"
-                    data-cursor="Email"
-                    className="btn btn-ember !px-5 !py-3.5 text-sm"
-                  >
-                    Email me about {study.name} →
-                  </a>
-                  <a href={caseStudyPath(study.slug)} className="btn btn-ghost !px-5 !py-3.5 text-sm">
-                    Case study
-                  </a>
-                </div>
-              </div>
-            )}
           </div>
         ))}
       </Scrolly>
+
+      {/* Why it matters: the democratization of game-making and its social side. */}
+      {study.vision && (
+        <div className="mt-16 border-t border-ink/15 pt-12 md:mt-24 md:pt-16">
+          <VisionBody study={study} tone="paper" headingLevel="h4" />
+        </div>
+      )}
+
+      {study.inDevelopment && (
+        <div className="mt-16 rounded-[10px] bg-charcoal-900 p-7 text-ivory sm:p-10 md:mt-20">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-8">
+              <p className="font-mono text-[0.75rem] tracking-[0.18em] text-ember uppercase">
+                Still in development · not open to play yet
+              </p>
+              <p className="display mt-4 max-w-[22ch] text-[clamp(1.9rem,3.4vw,3rem)]">
+                Want to know more about {study.name}, or to fund it? Email me.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
+              <a href={email} data-magnetic="0.25" data-cursor="Email" className="btn btn-ember !px-5 !py-3.5 text-sm">
+                Email me about {study.name} →
+              </a>
+              <a href={caseStudyPath(study.slug)} className="btn btn-ghost !px-5 !py-3.5 text-sm">
+                Case study
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

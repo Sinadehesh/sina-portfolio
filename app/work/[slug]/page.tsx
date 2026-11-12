@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { MediaSlot } from "@/components/ui/MediaSlot";
 import CaseViz from "@/components/work/CaseViz";
 import InvestmentSection from "@/components/work/Investment";
+import VisionSection from "@/components/work/Vision";
 import ArticleCard from "@/components/insights/ArticleCard";
 import { getArticles } from "@/lib/articles";
 import { getCaseStudy, personalInfo, publishedCaseStudies } from "@/lib/content";
@@ -189,6 +190,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </div>
         </div>
       </section>
+
+      {c.vision && <VisionSection study={c} />}
 
       {c.investment && <InvestmentSection study={c} inv={c.investment} />}
 
