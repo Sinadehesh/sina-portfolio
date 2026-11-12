@@ -23,7 +23,7 @@ export default function Insights() {
             Writing on why people choose. <span className="text-ink-faint">And what to build for it.</span>
           </>
         }
-        lede={`${all.length} articles on consumer psychology, behavioral fintech, insurance, automation, AI products, AI in education, and games and creativity — from research I ran and products I designed and tested.`}
+        lede={`${all.length} articles on consumer psychology, behavioral fintech, insurance, automation, AI products, AI in education, creativity and games, and engagement and addiction — from research I ran and products I designed and tested.`}
       />
 
       <a

@@ -99,6 +99,12 @@ codebase against it; keep this file in sync when the brief changes.
      articles and case studies; `BlogPosting` + `FAQPage` + `BreadcrumbList` JSON-LD;
      listed in the sitemap, `llms.txt`, `llms-full.txt` and the RSS feed. Articles
      cite only real work and verifiable research, and pass `npm run check:articles`.
+     Topics include Creativity & games (the democratization of media, from
+     Gutenberg to blogging, news and entertainment, to game creators and
+     Pukytoon) and Engagement & addiction (gambling's spread, engagement versus
+     addiction, and how Sina's products are designed to be engaging, not
+     addictive). Claims about a product's mechanics come from its code or its
+     entry in `lib/content.ts`, never from assumption.
 
 ## Standing quality bars
 
