@@ -25,10 +25,10 @@ pause off screen and stay on their poster under reduced motion
 
 Current files:
 
-- `work-gem-jar.mp4` (1600 × 1000, 19.6 s), `work-gem-jar-mobile.mp4`
-  (960 × 600) and `work-gem-jar.jpg`: two phones, the Cosmic Gems ad on the
-  left and the all-sets ad on the right (sped up to the same length), end cards
-  cut.
-- `gem-jar-cosmic.mp4` and `gem-jar-sets.mp4` (540 × 960) with `.jpg` posters:
-  the two ads at normal speed, end cards cut.
-- A `.webm` copy of each of the above.
+- Homepage previews, 8 seconds each, 1600 × 1000 (+ `-mobile` at 960 × 600,
+  a `.jpg` poster and `.webm` copies): `work-gem-jar` (two phones, Cosmic
+  Gems and the gem sets), `work-zombie-bomber` (gameplay in a phone, next to
+  the zombie) and `work-debubble` (the ad playing in the middle card).
+- Case-study clips, 540 × 960, full length with end cards cut (+ `.jpg` and
+  `.webm`): `gem-jar-cosmic`, `gem-jar-sets`, `zombie-bomber-gameplay` and
+  `debubble-tour`.

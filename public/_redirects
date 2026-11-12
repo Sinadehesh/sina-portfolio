@@ -5,3 +5,8 @@
 # Pukytoon is still in development and can't be played on the site; its old play page goes to the case study.
 /play/pukytoon /work/pukytoon 302
 /play/pukytoon/ /work/pukytoon 302
+# Virtue Ledger and the TAO companion app were taken off the site.
+/work/virtue-ledger /work 301
+/work/virtue-ledger/ /work 301
+/work/tao-app /#books 301
+/work/tao-app/ /#books 301

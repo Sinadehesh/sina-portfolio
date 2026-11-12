@@ -1,7 +1,6 @@
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { personalInfo } from "@/lib/content";
 import { literature } from "@/lib/data";
-import { caseStudyPath } from "@/lib/schema";
 
 /** TAO: concentric rings around one point — the point of observation. */
 function TaoCover() {
@@ -82,11 +81,7 @@ export default function Books({ numeral = "06" }: { numeral?: string }) {
         {literature.map((book, i) => (
           <article
             key={book.title}
-            className={`reveal group grid items-center gap-8 sm:gap-10 ${
-              i === 0
-                ? "sm:grid-cols-[minmax(0,15rem)_1fr] lg:grid-cols-[17rem_1fr_minmax(0,22rem)]"
-                : "sm:grid-cols-[minmax(0,15rem)_1fr]"
-            }`}
+            className="reveal group grid items-center gap-8 sm:grid-cols-[minmax(0,15rem)_1fr] sm:gap-10"
           >
             <div aria-hidden="true" className="w-48 sm:w-auto">
               {i === 0 ? <TaoCover /> : <MomentCover />}
@@ -115,27 +110,7 @@ export default function Books({ numeral = "06" }: { numeral?: string }) {
                   ))}
                 </ul>
               )}
-              {i === 0 && (
-                <a href={caseStudyPath("tao-app")} className="link-arrow mt-6 text-sm text-ivory">
-                  The companion Android app <span aria-hidden="true">→</span>
-                </a>
-              )}
             </div>
-            {book.quotes.length > 0 && (
-              <figure className="border-l-2 border-ember pl-6 sm:col-span-2 lg:col-span-1">
-                {book.quotes.map((q) => (
-                  <blockquote
-                    key={q}
-                    className="font-serif text-[clamp(1.25rem,1.8vw,1.55rem)] leading-snug font-bold tracking-[-0.02em] text-ivory [&+&]:mt-6"
-                  >
-                    “{q}”
-                  </blockquote>
-                ))}
-                <figcaption className="mt-5 font-mono text-[0.75rem] tracking-[0.16em] text-ivory-faint uppercase">
-                  From the manuscript
-                </figcaption>
-              </figure>
-            )}
           </article>
         ))}
       </div>

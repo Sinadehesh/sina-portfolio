@@ -37,15 +37,19 @@ codebase against it; keep this file in sync when the brief changes.
    psychology & growth: Optimolds as a guided scroll tour of the live site,
    then Musicity) → (03) Experience from the CV (Research Intern, University
    of Milano-Bicocca; Co-Founder, Guardbar; Volunteer Researcher, Salami
-   Rehabilitation Center) → principle → (04) Apps & websites (a stacked deck
-   of cards) → (05) Games (a scroll story of Pukytoon over real screens of
-   the app — swipe, make in the Creator Studio, set the rules, paste a
-   Claude/Gemini/Kimi link, share — then "Why it matters": the
-   democratization of creativity and game-making and its social side, in eight
-   points with links to the two Games & creativity articles, ending with an
-   invitation to email to hear more or to fund it; then The Loop, Gem Jar,
-   Zombie Bomber and Merge Farmstead) → (06) Books → (07) About & education → (08) Insights →
-   (09) FAQ → Contact. Sections carry two-digit indices on an index rule.
+   Rehabilitation Center) → principle (a humble line: "I don't assume I know
+   why people choose. I watch, I ask, I test — and let them change my mind.")
+   → (04) Games, above the apps: first the bento, where Gem Jar (the lead
+   tile) and Zombie Bomber play silent 8-second previews, then The Loop,
+   Merge Farmstead and the arcade tile; then a scroll story of Pukytoon over
+   real screens of the app — swipe, make in the Creator Studio, set the
+   rules, paste a Claude/Gemini/Kimi link, share — then "Why it matters": the
+   democratization of creativity and game-making and its social side, in
+   eight points with links to the Games & creativity articles, ending with an
+   invitation to email to hear more or to fund it → (05) Apps & websites (a
+   stacked deck of cards; DeBubble's card plays its silent preview) → (06)
+   Books → (07) About & education → (08) Insights → (09) FAQ → Contact.
+   Sections carry two-digit indices on an index rule.
 8b. Every finished game plays on the site: `/play` lists them and
     `/play/<slug>` embeds the game's live web build (a phone frame for phone
     games, a wide screen for The Loop), so the site always shows the newest
@@ -59,9 +63,9 @@ codebase against it; keep this file in sync when the brief changes.
 9. Titles and dates match the CV; no invented studio or tenure.
 9a. The books are *TAO: The Art of Observation* (non-fiction) and *Man in the
     Moment* (novel), both finished and awaiting editorial work. TAO's
-    description and quotes come from the manuscript; *Man in the Moment* gets
-    no synopsis until its text is provided, and there is no thriller, which is
-    not Sina's work.
+    description comes from the manuscript, with no quotes and no companion-app
+    link; *Man in the Moment* gets no synopsis until its text is provided, and
+    there is no thriller, which is not Sina's work.
 
 ## D. Case studies
 
@@ -81,9 +85,13 @@ codebase against it; keep this file in sync when the brief changes.
     and its tile shows a "Raising pre-seed" badge.
 14. Recent apps are listed with accurate status: FloraLock / ShroomLock /
     CloudLock (linked to their live pages, and to Google Play once their
-    listings are public), DeBubble, Virtue Ledger, Merge Farmstead, the TAO
-    reader app and Dopamine Box (a behavioral experiment on betting, mock
-    tokens only).
+    listings are public), DeBubble, Merge Farmstead and Dopamine Box (a
+    behavioral experiment on betting, mock tokens only). Virtue Ledger and the
+    TAO companion app are not shown (their old pages redirect).
+14a. Silent previews: Gem Jar, Zombie Bomber and DeBubble play muted 8-second
+    loops in their tiles, and their case pages have a "See it in action"
+    section with the full clips (no audio, end cards cut). See
+    `public/videos/README.md`.
 
 ## E. Search & AI visibility
 
