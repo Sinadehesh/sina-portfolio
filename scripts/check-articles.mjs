@@ -8,7 +8,7 @@ const root = process.cwd();
 const dir = join(root, "content", "articles");
 const only = process.argv.slice(2);
 
-const topics = new Set(["consumer-psychology", "fintech", "insurance", "automation", "ai-products", "ai-education", "research", "games-creativity"]);
+const topics = new Set(["consumer-psychology", "fintech", "insurance", "automation", "ai-products", "ai-education", "research", "games-creativity", "engagement-addiction"]);
 const content = readFileSync(join(root, "lib", "content.ts"), "utf8");
 const caseStudies = new Set([...content.matchAll(/\n    slug: "([a-z0-9-]+)"/g)].map((m) => m[1]));
 const files = readdirSync(dir).filter((f) => f.endsWith(".md") && !f.startsWith("_"));

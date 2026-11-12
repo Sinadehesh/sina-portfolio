@@ -68,6 +68,13 @@ export const topics = [
     intro:
       "Every medium opened up the same way, from Gutenberg’s press to blogs, citizen journalism and creators — and making games is next. These articles follow how knowledge, news and entertainment became something everyone makes, and what happens when anyone can make a game: the psychology of game creators, the tools, and above all the social side — remixing, credit, followers and playing each other’s games. I write from designing Pukytoon, a feed of games anyone can make, which is in development.",
   },
+  {
+    slug: "engagement-addiction",
+    label: "Engagement & addiction",
+    title: "Engagement, addiction and healthy design",
+    intro:
+      "Where does engaging end and addictive begin? These articles look at how gambling is spreading, including the lotteries and betting that governments run, what the research says separates healthy engagement from compulsion, and how I design apps and games people come back to because they want to, not because they can’t stop. They are analysis, not medical or legal advice.",
+  },
 ] as const;
 
 export type TopicSlug = (typeof topics)[number]["slug"];
