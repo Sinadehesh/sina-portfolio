@@ -43,6 +43,12 @@ export default function GamePlayer({
     };
   }, [device]);
 
+  // The game can finish loading before this component hydrates, so its load event may never reach us.
+  useEffect(() => {
+    const t = window.setTimeout(() => setLoaded(true), 6000);
+    return () => window.clearTimeout(t);
+  }, [run]);
+
   const fullscreen = () => {
     const el = frame.current;
     if (!el) return;
@@ -54,6 +60,13 @@ export default function GamePlayer({
     <div className={`player player-${device}`}>
       <div className="player-device">
         <div ref={screen} className="player-screen">
+          {/* Behind the game: it shows through only until the game draws. */}
+          {!loaded && (
+            <div aria-hidden="true" className="player-loading">
+              <span className="live-dot" />
+              Loading {title}…
+            </div>
+          )}
           <iframe
             key={run}
             ref={frame}
@@ -69,12 +82,6 @@ export default function GamePlayer({
             }
             className={scale ? "absolute top-0 left-0 border-0" : "absolute inset-0 h-full w-full border-0"}
           />
-          {!loaded && (
-            <div aria-hidden="true" className="player-loading">
-              <span className="live-dot" />
-              Loading {title}…
-            </div>
-          )}
         </div>
       </div>
       <div className="player-controls">
