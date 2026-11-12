@@ -438,7 +438,7 @@ export const caseStudies: CaseStudy[] = [
         "Worthwhile friction that interrupts the automatic tap-and-scroll loop, spaced repetition (reviews after 1, 3, 7, 14 and 30 days), real look-alikes as wrong answers, a 10-second \"Genius Penalty\" against random tapping, and escape hatches that respect autonomy to reduce reactance.",
       stack: ["Behavioral friction design", "Spaced repetition", "Android apps on Google Play", "Offline, on-device data"],
       outcome:
-        "Three apps on one design — 70 plants, 71 mushrooms and 36 clouds with real photos — each with its own landing page and a closed test on Google Play.",
+        "Three apps on one design — 70 plants, 71 mushrooms and 36 clouds with real photos — each with its own landing page and a closed test on Google Play. In November 2026 Google cleared ShroomLock and CloudLock for public release.",
     },
     metrics: [
       { value: "177", label: "Species and cloud types with real photos" },
