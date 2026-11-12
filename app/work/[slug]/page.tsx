@@ -46,7 +46,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const impact = [
     { k: "Problem", v: c.impact.problem },
     { k: "Psychology used", v: c.impact.mechanism },
-    { k: "Stack & methods", v: c.impact.stack.join(" · ") },
+    { k: "Methods", v: c.impact.stack.join(" · ") },
     { k: "Outcome", v: c.impact.outcome },
   ];
 
@@ -218,7 +218,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <thead className="bg-ink/[0.05]">
                   <tr>
                     <th scope="col" className={thCls}>Challenge</th>
-                    <th scope="col" className={thCls}>Behavioral / technical hypothesis</th>
+                    <th scope="col" className={thCls}>Hypothesis</th>
                     <th scope="col" className={thCls}>Method</th>
                     <th scope="col" className={thCls}>Outcome</th>
                   </tr>

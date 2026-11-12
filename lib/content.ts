@@ -6,21 +6,21 @@
 
 export const site = {
   url: "https://sinadehesh.com",
-  title: "Sina Dehesh — Consumer Psychology Consultant & Behavioral AI Product Architect, Milan",
+  title: "Sina Dehesh — Applied Psychologist & Consumer Psychology Consultant, Milan",
   description:
-    "Sina Dehesh is a consumer psychology consultant and behavioral product architect in Milan, Italy: consumer decision-making research, conversion and lead-generation strategy, and full-stack AI products (Next.js, Python, LLMs).",
+    "Sina Dehesh is an applied psychologist and consumer psychology consultant in Milan, Italy: consumer decision-making research, conversion and lead-generation strategy, and engagement design for apps and games, tested with real people.",
   ogImage: "/opengraph-image",
   locale: "en_US",
 };
 
 export const personalInfo = {
   name: "Sina Dehesh",
-  headline: "Consumer Psychology Consultant & Behavioral AI Product Architect",
+  headline: "Applied Psychologist & Consumer Psychology Consultant",
   jobTitles: [
+    "Applied Psychologist",
     "Consumer Psychology Consultant",
-    "AI Product Manager",
-    "Lead UX Researcher",
-    "Behavioral Product Engineer",
+    "UX Researcher",
+    "Behavioral & Game Designer",
   ],
   location: "Milan, Italy",
   locality: "Milan",
@@ -29,33 +29,33 @@ export const personalInfo = {
   serviceArea: ["Milan", "Turin", "Italy", "Europe", "Remote"],
   email: "sinadehesh@gmail.com",
   github: "https://github.com/sinadehesh",
-  // TODO: add the LinkedIn profile URL; it is rendered and added to `sameAs` once set.
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/sina-dehesh-39b487127",
   heroHeadline:
-    "I engineer why people choose, buy and stay—combining Consumer Psychology, Quantitative UX Research, and Full-Stack AI Engineering.",
+    "I work out why people choose, buy and stay—combining Consumer Psychology, Quantitative UX Research and Behavior Design.",
   heroDescription:
-    "Most teams hire a consumer researcher, a product manager and an engineer, then lose weeks in the hand-offs. I do all three in a single sprint: I diagnose the psychological barrier that stops customers, test the fix with real users, and ship the website, funnel or product that measures whether it worked.",
+    "Good ideas fail when nobody checks them with real people. I diagnose the psychological barrier that stops customers, design the fix, test it with real users, and measure whether it worked, in a website, a funnel, an app or a game.",
   summary:
-    "Sina Dehesh is a consumer psychology consultant and full-stack behavioral AI product builder based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in building the websites, funnels and products that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca and has built consumer and B2B products including Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (200+ research interviews, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and engineering (Next.js, React, TypeScript, Python, Kotlin, n8n, PostgreSQL, LLM APIs).",
+    "Sina Dehesh is an applied psychologist and consumer psychology consultant based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in designing and testing the websites, funnels, apps and games that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, including 29/30 in Consumer Psychology, 29/30 in Elements of Human-Technology Interaction and 28/30 in Cognitive Ergonomics. Sina has designed and released consumer products and games including Pukytoon (a swipe feed of hyper-casual games), Gem Jar and Zombie Bomber (merge games), The Loop (a story game about AI and work), Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), DeBubble (gamified self-care), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (240+ interviews and usability tests, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile), idea generation with TRIZ, and tests with real people: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
   languages: [
-    { name: "English", code: "en", level: "C2" },
+    { name: "English", code: "en", level: "C1" },
     { name: "Persian", code: "fa", level: "Native" },
-    { name: "Italian", code: "it", level: "B1" },
+    { name: "Italian", code: "it", level: "A2" },
     { name: "German", code: "de", level: "A2" },
   ],
 };
 
 export const proofStats = [
   { value: "N = 96", label: "Controlled experiment, p = .009" },
-  { value: "200+", label: "Research interviews conducted & analyzed" },
-  { value: "20+", label: "Apps, games & websites built" },
+  { value: "240+", label: "Interviews & usability tests conducted and analyzed" },
+  { value: "20+", label: "Apps, games & websites designed and tested" },
   { value: "M.Sc.", label: "Experimental psychology, Milano-Bicocca" },
 ];
 
 /** First-person bio for the homepage About section. */
 export const about = [
-  "I'm Sina Dehesh, a consumer psychology consultant and behavioral product builder based in Milan. My M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca covered research design, psychometrics, quantitative methods, cognitive ergonomics, human-technology interaction and consumer psychology — how people perceive, decide and buy.",
-  "I consult on consumer psychology and growth, and I build the products myself: the apps and websites below were designed, researched and engineered end to end. My thesis was a controlled experiment with 96 participants; before that I ran 200 research interviews as a volunteer researcher and co-founded Guardbar.",
+  "I'm Sina Dehesh, an applied psychologist and consumer psychology consultant based in Milan. My M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca covered research design, psychometrics, quantitative methods, cognitive ergonomics, human-technology interaction and consumer psychology — how people perceive, decide and buy. My best marks were in Consumer Psychology (29/30), Elements of Human-Technology Interaction (29/30) and Cognitive Ergonomics (28/30).",
+  "I consult on consumer psychology and growth, and I make my own apps and games to test ideas on real people: the apps, games and websites below were researched, designed and tested end to end. I come up with new ideas with the TRIZ method of creativity, and then I test them. My thesis was a controlled experiment with 96 participants; before that I ran 200 research interviews as a volunteer researcher and co-founded Guardbar.",
+  "Two of my small ideas moved a number. In one of my games the first ad came after 25 clicks, and my friends played for about five minutes before saying it was getting annoying. After reading how Block Blast uses the game itself as the reason to watch ads, I moved the ads to the start and the end of a game, and playing time went up dramatically. On a platform for university students that I worked on with engineer friends, students were not entering enough data, so I suggested the swipe from dating apps, changed to fit data entry; in a test with engineering students they entered much more data and enjoyed it more.",
   "I work in English, Italian, Persian and German, with teams in Milan, Turin, across Europe and remotely.",
 ];
 
@@ -69,20 +69,20 @@ export const targetRoles = [
   {
     title: "AI Product Manager / 0-to-1 Product Builder",
     pitch:
-      "Takes an AI product from problem framing and business plan to a shipped, instrumented release — without waiting on a separate design or engineering team.",
+      "Takes an AI product from problem framing and business plan to a tested, measured release, with user research and behavioral design built in from the start.",
     proof: ["recallmate", "oopscupid", "daily-hustle"],
   },
   {
-    title: "Senior UX Researcher & Behavioral Designer",
+    title: "UX Researcher & Behavioral Designer",
     pitch:
       "Runs mixed-methods research — semi-structured interviews, thematic coding, controlled experiments, psychometric instruments — and turns findings into prioritized product decisions.",
     proof: ["interview-simulation-study", "musicity", "recallmate"],
   },
   {
-    title: "AI Prototyper & Growth Engineer",
+    title: "Engagement, Game & Growth Designer",
     pitch:
-      "Builds functional AI prototypes and automation pipelines in days, then wires in the retention mechanics and measurement that prove whether they work.",
-    proof: ["workflow-automation-engine", "costly", "daily-sublime"],
+      "Turns an engagement idea into a quick prototype, a game mechanic or an automation, then adds the retention mechanics and the measurement that show whether it works.",
+    proof: ["gem-jar", "workflow-automation-engine", "daily-sublime"],
   },
 ];
 
@@ -169,7 +169,8 @@ export const education = [
     period: "Sep 2022 – Jul 2026",
     achievements: [
       "Focus: cognitive ergonomics, human-technology interaction, psychometrics, consumer psychology, and quantitative/computational behavioral measurement.",
-      "Thesis: automated interview simulation (within-subjects, N = 96). Repeated-measures ANOVA showed significantly greater candidate expressiveness under self-referential visual feedback (p = .009).",
+      "Best marks: Consumer Psychology (29/30), Elements of Human-Technology Interaction (29/30), Cognitive Ergonomics (28/30).",
+      "Thesis: \"The Psychological Effects of Self-Referential Information in Asynchronous Automated Interviews: A Comparison of Self-View, Avatar, and Text-Only Formats\" (within-subjects, N = 96). Candidates were significantly more expressive with the AI avatar than when they saw themselves (repeated-measures ANOVA, p = .009).",
     ],
   },
 ];
@@ -211,7 +212,7 @@ export const skillGroups = [
       "Thematic Coding",
       "Repeated-measures ANOVA",
       "Binary Logistic Regression",
-      "SPSS",
+      "R and SPSS",
     ],
   },
   {
@@ -231,21 +232,19 @@ export const skillGroups = [
     ],
   },
   {
-    title: "Full-Stack AI Engineering",
-    icon: "⚙️",
+    title: "Engagement & Game Design",
+    icon: "🎮",
     items: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Python",
-      "Kotlin (Android)",
-      "PostgreSQL",
-      "SQL",
-      "n8n",
-      "LLM APIs & Agentic Workflows",
-      "Conversational AI",
-      "Vercel",
-      "Git",
+      "Game Mechanics & Game Feel",
+      "Retention Loops",
+      "Daily Challenges & Collections",
+      "Reward Schedules",
+      "Ad Placement",
+      "Playtesting",
+      "A/B Comparisons",
+      "Idea Generation with TRIZ",
+      "n8n Automation",
+      "AI Tools & Conversational AI",
       "Power BI",
     ],
   },
@@ -404,7 +403,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "EducationalApplication",
     operatingSystem: "Android",
     url: "https://www.sinadehesh.com/app-lockers/",
-    role: "Founder & solo builder",
+    role: "Founder",
     organization: "Own product",
     summary:
       "FloraLock, ShroomLock and CloudLock are Android app lockers that replace \"no\" with a question. To open Instagram or TikTok, you name the plant, mushroom or cloud in a photo. Every urge to scroll becomes a five-second lesson, reinforced by spaced review — and built-in escape hatches keep people from uninstalling.",
@@ -413,9 +412,9 @@ export const caseStudies: CaseStudy[] = [
         "Most app blockers just say no, so people switch them off: the friction feels like punishment rather than something worth paying.",
       mechanism:
         "Worthwhile friction that interrupts the automatic tap-and-scroll loop, spaced repetition (reviews after 1, 3, 7, 14 and 30 days), real look-alikes as wrong answers, a 10-second \"Genius Penalty\" against random tapping, and escape hatches that respect autonomy to reduce reactance.",
-      stack: ["React Native (Expo)", "Native Android module: UsageStats + foreground service", "Google Play Billing", "Offline, on-device data"],
+      stack: ["Behavioral friction design", "Spaced repetition", "Android apps on Google Play", "Offline, on-device data"],
       outcome:
-        "Three apps from one codebase — 70 plants, 71 mushrooms and 36 clouds with real photos — each with its own landing page and a closed test on Google Play.",
+        "Three apps on one design — 70 plants, 71 mushrooms and 36 clouds with real photos — each with its own landing page and a closed test on Google Play.",
     },
     metrics: [
       { value: "177", label: "Species and cloud types with real photos" },
@@ -426,7 +425,7 @@ export const caseStudies: CaseStudy[] = [
       "Escape hatches (\"I don't need Instagram right now\", a few emergency unlocks) trade some blocking strength for not being uninstalled — closing the app is the best outcome, not beating the quiz.",
       "Wrong answers are real look-alikes, not random names, so every mistake teaches a distinction that matters — including deadly mushroom look-alikes.",
       "Fully offline and private: nothing leaves the phone, at the cost of no cloud sync.",
-      "One codebase, three subjects: content packs swap while the lock, lesson and review engine stays identical.",
+      "One design, three subjects: the content changes while the lock, the lesson and the review stay the same.",
     ],
     decisionLog: [
       {
@@ -464,7 +463,7 @@ export const caseStudies: CaseStudy[] = [
       "Offline and private",
       "FloraLock Plus via Google Play Billing",
     ],
-    keywords: ["Behavioral Friction", "Spaced Repetition", "Digital Wellbeing", "Reactance", "React Native", "Android"],
+    keywords: ["Behavioral Friction", "Spaced Repetition", "Digital Wellbeing", "Reactance", "Habit Formation", "Android"],
   },
   {
     slug: "recallmate",
@@ -567,16 +566,16 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "LifestyleApplication",
     operatingSystem: "Web",
     url: "https://www.oopscupid.com",
-    role: "Founder & solo full-stack builder",
+    role: "Founder",
     organization: "Own product",
     summary:
-      "OopsCupid is a live relationship-assessment platform I built solo, end to end. It turns attachment and relationship psychology into short, no-sign-up tests and games, scores responses into a six-axis psychometric profile, and uses an LLM layer to write the readout — with daily challenges and streaks driving return visits.",
+      "OopsCupid is a live relationship-assessment platform I designed and launched on my own. It turns attachment and relationship psychology into short, no-sign-up tests and games, scores responses into a six-axis psychometric profile, and uses an LLM layer to write the readout — with daily challenges and streaks driving return visits.",
     impact: {
       problem:
         "Relationship self-help content is either unscientific listicles or long clinical questionnaires that people abandon before finishing.",
       mechanism:
         "Zero-friction entry (no sign-up, no email), psychometric scoring, variable daily challenges and streaks as a habit loop, and LLM-generated narrative feedback.",
-      stack: ["Full-stack web app", "Live profile database", "LLM API (narrative profiling)", "Psychometric instrument design"],
+      stack: ["Psychometric instrument design", "Six-axis scoring", "AI-written narrative profiles", "Funnel design and SEO"],
       outcome:
         "Live product with 15 free research-informed tests, a 16-level game, daily challenges and a merch storefront as a first monetization channel.",
     },
@@ -635,7 +634,7 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "MobileApplication",
     applicationCategory: "HealthApplication",
     operatingSystem: "Android, Web",
-    role: "Founder & solo engineer",
+    role: "Founder",
     organization: "Costly",
     summary:
       "Costly is a habit-reversal app that charges real money for every minute of doomscrolling, at the hourly rate you set for your own time — then lets you earn 80% of it back by walking it off within 24 hours. A self-priced commitment contract stops you deleting it when it starts to hurt.",
@@ -644,9 +643,9 @@ export const caseStudies: CaseStudy[] = [
         "App blockers rely on soft friction, so people switch them off — competitor reviews are full of \"I just turn it off.\" Commitment-contract apps work, but make users define and track a goal first.",
       mechanism:
         "Real stakes and loss aversion (money held per minute scrolled), losses framed against a five-tier ladder of things the user actually wants, redemption through exercise (2 minutes walked per minute scrolled), and precommitment through a self-priced deletion fee.",
-      stack: ["Next.js", "PostgreSQL + Prisma", "Stripe pre-auth holds & captures", "Kotlin / Jetpack Compose", "UsageStats + gyroscope detection", "Health Connect"],
+      stack: ["Loss aversion and precommitment design", "Real-money holds through Stripe", "Android companion app", "Walking detection to earn money back"],
       outcome:
-        "Built solo in June–July 2026: about 20 API routes with the full Stripe hold-and-capture lifecycle, and a Play-compliant Android companion with a live overlay meter, APK green in CI. No users yet — the first live loop on real hardware is the next milestone.",
+        "Built in June–July 2026: the full flow of holding money and giving it back through Stripe, and an Android companion app with a live meter on screen. No users yet — the first live loop on real hardware is the next milestone.",
     },
     metrics: [
       { value: "80%", label: "Of each loss redeemable by walking" },
@@ -654,7 +653,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "24 h", label: "Window to walk it off" },
     ],
     tradeoffs: [
-      "No AccessibilityService: scroll detection uses UsageStats plus gyroscope heuristics so the app stays Google Play compliant, at the cost of on-device threshold tuning.",
+      "Scrolling is detected from screen time and phone movement instead of reading the screen, so the app stays within Google Play's rules, at the cost of tuning it on each phone.",
       "Two Stripe PaymentIntents per session — 20% captured, 80% held for 24 hours — because Stripe cannot partially capture a payment and keep the rest on hold.",
       "The user sets the deletion fee (€0–€1000, zero allowed) and a fixed 7- or 30-day term, so the contract is self-priced rather than an imposed penalty.",
       "If the redemption rate comes back low, Costly is a punishment app and needs rebalancing — the alpha is designed to find that out early.",
@@ -693,7 +692,7 @@ export const caseStudies: CaseStudy[] = [
       "Commitment contract with dead man's switch",
       "Live overlay meter on Android",
     ],
-    keywords: ["Loss Aversion", "Commitment Devices", "Behavioral Friction", "Habit Reversal", "Stripe", "Kotlin"],
+    keywords: ["Loss Aversion", "Commitment Devices", "Behavioral Friction", "Habit Reversal", "Precommitment", "Digital Wellbeing"],
     investment: {
       stage: "Accelerator programme + pre-seed",
       // TODO: add the round size once decided, e.g. "€150K".
@@ -745,7 +744,7 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "SoftwareApplication",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    role: "Automation architect & engineer",
+    role: "Product owner",
     organization: "Own product",
     summary:
       "The Workflow Automation Engine captures CRM signal from sales calls and email threads and writes it to Pipedrive automatically. Custom n8n pipelines transcribe and extract deal fields, a confidence gate routes ambiguous extractions to human review, and data integrity is the invariant: the pipeline may be slow, never wrong.",
@@ -754,7 +753,7 @@ export const caseStudies: CaseStudy[] = [
         "Sales teams skip CRM data entry, so pipelines rot; naive AI auto-fill makes it worse by writing wrong data.",
       mechanism:
         "Human-in-the-loop automation: high-confidence LLM extractions sync straight through, low-confidence ones wait for a human, matching automation to trust.",
-      stack: ["n8n", "Pipedrive API", "Speech-to-text", "LLM entity extraction"],
+      stack: ["n8n", "Pipedrive", "Speech-to-text", "AI extraction with human review"],
       outcome:
         "Production pipeline that removes manual CRM entry while guaranteeing no unreviewed ambiguous writes.",
     },
@@ -803,7 +802,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",
     url: "https://hustle.sinadehesh.com/",
-    role: "Founder & full-stack builder",
+    role: "Founder",
     organization: "Own product",
     summary:
       "Daily Hustle is a live web platform that guides creators from idea to first income. It breaks a launch into a 27-day program of daily action steps with built-in workbooks and a progress dashboard — using task chunking and goal-gradient feedback to keep people moving where open-ended courses stall.",
@@ -811,7 +810,7 @@ export const caseStudies: CaseStudy[] = [
       problem: "Online courses have notoriously low completion; open-ended content leaves learners without a next step.",
       mechanism:
         "Implementation intentions and chunking (one concrete action per day) plus goal-gradient progress feedback in a personal dashboard.",
-      stack: ["Full-stack web app", "Authentication", "User dashboard", "Admin console", "Payments"],
+      stack: ["Goal-gradient design", "Daily action steps", "User dashboard", "Payments"],
       outcome: "Live product with a 27-day launch program, workbooks, accounts, pricing and admin tooling.",
     },
     metrics: [
@@ -846,13 +845,13 @@ export const caseStudies: CaseStudy[] = [
     viz: "email",
     featured: true,
     name: "The Daily Sublime",
-    tagline: "A 30-issue art-meditation email magazine engineered for engagement signal",
+    tagline: "A 30-issue art-meditation email magazine designed for engagement signal",
     published: true,
     category: "Media product",
     status: "Live",
     schemaType: "CreativeWork",
     url: "https://daily.sinadehesh.com/",
-    role: "Founder, editor & builder",
+    role: "Founder & editor",
     organization: "Own product",
     summary:
       "The Daily Sublime is a 30-issue digital art magazine and visual-mindfulness course delivered by email. Each issue is a five-minute guided observation of one painting, ending in one-click reply buttons — the lowest-friction response surface an inbox allows — turning passive readers into a measurable engagement signal.",
@@ -861,7 +860,7 @@ export const caseStudies: CaseStudy[] = [
         "Newsletters cannot tell what lands: open rates are noisy and replies take effort, so most readers never signal anything.",
       mechanism:
         "Friction reduction at the response step (one-click replies) plus a fixed daily ritual that builds a reading habit.",
-      stack: ["HTML email", "Landing page", "Gumroad checkout", "YouTube companion channel"],
+      stack: ["Email magazine", "One-click reply buttons", "Landing page", "Gumroad checkout", "YouTube companion channel"],
       outcome: "30 issues shipped with per-issue reply signal, a paid course offer and a companion meditation channel.",
     },
     metrics: [
@@ -902,14 +901,14 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "WebApplication",
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",
-    role: "Founder & builder",
-    organization: "Own product",
+    role: "Co-creator: product and behavioral design",
+    organization: "Team project with engineer friends",
     summary:
-      "Passway is an engineering learning tracker built on a two-source data model: the canonical engineering curriculum on one axis and what universities actually teach on the other. Mapping both onto one topic grid exposes the gap between them, which is the product — a personal map of what a learner still needs.",
+      "Passway is an engineering learning tracker built on a two-source data model: the canonical engineering curriculum on one axis and what universities actually teach on the other. Mapping both onto one topic grid exposes the gap between them, which is the product — a personal map of what a learner still needs. The map only works if students enter what their courses cover, and they were not entering enough, so I suggested the swipe from dating apps, changed to fit data entry; in a test with engineering students they entered much more data and enjoyed it more.",
     impact: {
       problem: "Engineering learners cannot see which core topics their program under-covers until it shows up in interviews.",
       mechanism: "Gap analysis between a canonical topic matrix and observed per-program coverage, rendered as a comparable grid.",
-      stack: ["Web app", "Two-source data model", "Data visualization"],
+      stack: ["Swipe-based data entry", "User testing with engineering students", "Two-source data model", "Gap analysis"],
       outcome: "Working prototype comparing 10 core topics across 6 university programs.",
     },
     metrics: [
@@ -924,32 +923,38 @@ export const caseStudies: CaseStudy[] = [
         method: "Two-source model: canonical weights vs. observed coverage.",
         outcome: "Gap matrix highlighting topics at least 0.25 below canonical weight.",
       },
+      {
+        challenge: "The map only works if students enter what their courses cover, and they were not entering enough.",
+        hypothesis: "If each entry is one quick, low-effort decision, students will enter far more.",
+        method: "Borrowed the swipe from dating apps and changed it to fit data entry; tested several ways of entering data with engineering students.",
+        outcome: "Students entered much more data and enjoyed it more; the team settled on swiping plus a few specific input types.",
+      },
     ],
-    featureList: ["Canonical curriculum matrix", "Per-program coverage mapping", "Gap highlighting"],
-    keywords: ["Data Modeling", "Gap Analysis", "EdTech", "Data Visualization"],
+    featureList: ["Canonical curriculum matrix", "Per-program coverage mapping", "Gap highlighting", "Swipe-based data entry"],
+    keywords: ["Gap Analysis", "EdTech", "Swipe Interaction", "Friction Reduction", "User Testing"],
   },
   {
     slug: "dopamine-box",
     cover: { metric: "99%", caption: "the near-miss that keeps you spinning" },
     name: "Dopamine Box",
-    tagline: "A loot-box psychology simulator: near-misses, shards and scarcity",
+    tagline: "A behavioral experiment on betting: the Kelly criterion, near-misses and scarcity",
     published: true,
     category: "Consumer app",
     status: "Prototype",
     schemaType: "WebApplication",
     applicationCategory: "GameApplication",
     operatingSystem: "Web",
-    role: "Founder & builder",
+    role: "Founder & researcher",
     organization: "Own product",
     summary:
-      "Dopamine Box is a mock-token simulator of \"spin to claim\" monetization. Each spin adds shards toward a target item — micro hits, solid hits and rare jackpots on a variable schedule — with engineered near-misses and scarcity tags, to make visible exactly how these loops hold attention. No real money is involved.",
+      "Dopamine Box is a behavioral experiment on betting. It was built to observe how people bet compared with the Kelly criterion (the mathematically optimal stake), and which attitudes and cognitive biases pull them off course. The experiment runs on a mock-token \"spin to claim\" loop: each spin adds shards toward a target item, with micro hits, solid hits and rare jackpots on a variable schedule, near-misses and scarcity tags. No real money is involved.",
     impact: {
       problem:
         "Spin-to-win and shard-collection mechanics are spreading from games into shopping apps, but their psychology is rarely shown plainly to the people who design or use them.",
       mechanism:
-        "Variable-ratio reinforcement (micro, solid and jackpot outcomes), near-miss effects, goal-gradient progress toward 100%, and scarcity and social-proof labels such as \"Low Stock\" and \"1 User Won Today\".",
-      stack: ["Next.js", "React", "Zustand", "Tailwind CSS"],
-      outcome: "Working simulator with mock tokens, tiered target items and live feedback on every spin.",
+        "The Kelly criterion as the benchmark for each stake, tested against variable-ratio reinforcement (micro, solid and jackpot outcomes), near-miss effects, goal-gradient progress toward 100%, and scarcity and social-proof labels such as \"Low Stock\" and \"1 User Won Today\".",
+      stack: ["Behavioral experiment design", "Kelly criterion benchmark", "Variable-ratio rewards", "Mock tokens only"],
+      outcome: "Working prototype of the experiment with mock tokens, tiered target items and live feedback on every spin.",
     },
     metrics: [
       { value: "3", label: "Reward sizes: micro, solid, jackpot" },
@@ -962,14 +967,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     decisionLog: [
       {
-        challenge: "Loot-box mechanics are hard to explain in the abstract.",
-        hypothesis: "A working simulator makes the pull of each mechanic felt, not just described.",
-        method: "Spin loop with variable progress, near-miss snaps and scarcity tags.",
-        outcome: "Interactive simulator of the full spin-to-claim loop.",
+        challenge: "How far do people's bets drift from the optimal stake, and why?",
+        hypothesis: "Near-misses, scarcity labels and variable rewards pull people away from the Kelly-optimal stake.",
+        method: "Spin loop with variable progress, near-miss snaps and scarcity tags, with each stake compared with the Kelly criterion.",
+        outcome: "A working prototype of the experiment, with mock tokens only.",
       },
     ],
     featureList: ["Spin-to-claim shard progress", "Micro / solid / jackpot variable rewards", "Near-miss feedback", "Scarcity and social-proof tags", "Mock-token wallet"],
-    keywords: ["Variable Reward Schedules", "Near-Miss Effect", "Loot Boxes", "Dark Patterns", "Goal-Gradient Effect"],
+    keywords: ["Kelly Criterion", "Cognitive Biases", "Variable Reward Schedules", "Near-Miss Effect", "Loot Boxes", "Behavioral Experiment"],
   },
   {
     slug: "musicity",
@@ -1018,10 +1023,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "interview-simulation-study",
     cover: { metric: "p = .009", caption: "N = 96 controlled experiment" },
-    viz: "anova",
     featured: true,
     name: "Automated Interview Simulation Study",
-    tagline: "How self-referential visual feedback changes candidate behavior",
+    tagline: "How what candidates see on screen shapes their behavior",
     published: true,
     category: "Research",
     status: "Completed",
@@ -1029,25 +1033,25 @@ export const caseStudies: CaseStudy[] = [
     role: "Principal investigator (M.Sc. thesis)",
     organization: "University of Milano-Bicocca",
     summary:
-      "This controlled experiment tested how visual feedback in an automated interview changes candidate behavior. In a within-subjects design with 96 participants, repeated-measures ANOVA showed significantly greater expressiveness when candidates saw themselves (M = 4.18) than with no feedback (M = 3.41), p = .009.",
+      "This controlled experiment tested how what candidates see on screen in an automated interview changes how they behave. In a within-subjects design with 96 participants and three conditions (self-view, AI avatar and text only), repeated-measures ANOVA with Holm-corrected post hoc tests showed that candidates were significantly more expressive with the AI avatar than when they saw themselves, p = .009.",
     impact: {
       problem: "AI-led interviews are spreading, but little is known about how their interface design shapes candidate behavior.",
-      mechanism: "Self-referential visual feedback (seeing oneself) as a manipulation of self-awareness and expressiveness.",
-      stack: ["Automated interview simulation", "Within-subjects design", "Repeated-measures ANOVA"],
-      outcome: "Significant effect of self-referential feedback on expressiveness (p = .009), with direct implications for AI interview UX.",
+      mechanism: "Three ways of presenting the interview (self-view, an AI avatar and text only) as a manipulation of self-awareness and expressiveness.",
+      stack: ["Automated interview simulation", "Within-subjects design", "Repeated-measures ANOVA", "Holm-corrected post hoc tests"],
+      outcome: "Candidates were significantly more expressive with the AI avatar than with self-view (p = .009), with direct implications for the design of AI interview tools.",
     },
     metrics: [
       { value: "N = 96", label: "Participants, within-subjects" },
-      { value: "p = .009", label: "Self vs. no feedback contrast" },
-      { value: "4.18 vs 3.41", label: "Mean expressiveness, self vs. none" },
+      { value: "p = .009", label: "AI avatar vs. self-view" },
+      { value: "3", label: "Conditions: self-view, AI avatar, text only" },
     ],
     tradeoffs: ["Within-subjects design for statistical power with a moderate sample, controlling order effects across conditions."],
     decisionLog: [
       {
         challenge: "Does interface feedback change how candidates present themselves?",
-        hypothesis: "Self-referential feedback increases expressiveness.",
-        method: "Three conditions (none, interviewer image, self); repeated-measures ANOVA, N = 96.",
-        outcome: "Self condition significantly higher than none, p = .009.",
+        hypothesis: "What candidates see of themselves on screen changes how expressive they are.",
+        method: "Three conditions (self-view, AI avatar, text only); repeated-measures ANOVA with Holm-corrected post hoc tests, N = 96.",
+        outcome: "Candidates were significantly more expressive with the AI avatar than with self-view, p = .009.",
       },
     ],
     featureList: ["Automated interview simulator", "Three feedback conditions", "Repeated-measures analysis"],
@@ -1065,7 +1069,7 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "MobileApplication",
     applicationCategory: "LifestyleApplication",
     operatingSystem: "Android",
-    role: "Founder & builder",
+    role: "Founder",
     organization: "Own product",
     summary:
       "Virtue Ledger turns Benjamin Franklin's thirteen-virtue notebook into a mobile behavioral audit: a 13 × 7 grid where logging a day costs one tap and no decisions. When it raises a virtue there is no \"dismiss\" — only Now, or a named hour it holds you to.",
@@ -1074,7 +1078,7 @@ export const caseStudies: CaseStudy[] = [
         "Habit trackers ask for too many decisions per entry, and their \"remind me later\" buttons let intentions quietly evaporate.",
       mechanism:
         "Minimal-effort logging (one tap cycles not logged → fault → kept), honest fault-first ordering, and implementation intentions: \"Later\" means naming an hour, backed by a real scheduled notification.",
-      stack: ["Next.js (static export)", "React + TypeScript", "Zustand (persisted)", "Capacitor (Android)", "Haptics"],
+      stack: ["Implementation intentions", "One-tap daily tracking", "Android app and web", "Haptic feedback"],
       outcome:
         "Working Android app with a one-tap matrix, marks readable without colour, and Now-or-named-hour resolutions.",
     },
@@ -1109,7 +1113,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     featureList: ["13 × 7 virtue matrix", "One-tap tri-state logging", "Haptic feedback", "Now-or-named-hour resolutions", "Colour-blind-safe marks"],
-    keywords: ["Implementation Intentions", "Habit Tracking", "Friction Reduction", "Capacitor", "Next.js"],
+    keywords: ["Implementation Intentions", "Habit Tracking", "Friction Reduction", "Self-Improvement", "Habit Formation"],
   },
   {
     slug: "tao-app",
@@ -1122,7 +1126,7 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "MobileApplication",
     applicationCategory: "EducationalApplication",
     operatingSystem: "Android",
-    role: "Author & Android developer",
+    role: "Author & designer",
     organization: "Own product",
     summary:
       "An Android app for reading and studying TAO: The Art of Observation. The full text appears verbatim in a distraction-free reader, with a key-concepts study guide linked back to each chapter and one passage of the day chosen deterministically by date.",
@@ -1130,7 +1134,7 @@ export const caseStudies: CaseStudy[] = [
       problem: "Reflective texts are hard to return to on a phone full of interruptions.",
       mechanism:
         "A single daily passage as a low-effort ritual, and a study guide that links every concept back to the chapter that teaches it.",
-      stack: ["Kotlin", "Jetpack Compose", "Bundled JSON content"],
+      stack: ["Distraction-free reading design", "Android app", "Offline content"],
       outcome: "Complete reader, key-concepts study guide and passage-of-the-day features.",
     },
     metrics: [
@@ -1155,7 +1159,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     featureList: ["Full text, chapter by chapter", "Key-concepts study guide", "Passage of the Day", "Distraction-free reader"],
-    keywords: ["Reading Experience", "Habit Formation", "Kotlin", "Jetpack Compose"],
+    keywords: ["Reading Experience", "Habit Formation", "Distraction-free Design", "Self-Improvement"],
   },
   {
     slug: "debubble",
@@ -1171,7 +1175,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "HealthApplication",
     operatingSystem: "Android",
     url: "https://www.sinadehesh.com/debubble/",
-    role: "Founder & solo builder",
+    role: "Founder",
     organization: "Own product",
     summary:
       "DeBubble: Cozy Self-Care is an Android app where a pixel-art room grows as you look after yourself. Every day there are four tiny things to do — one for your body, your room, your heart, and one small step outside — and as you go further out of your bubble the room opens up: a window, then a door, then the street.",
@@ -1180,9 +1184,9 @@ export const caseStudies: CaseStudy[] = [
         "Self-care and confidence apps lean on streaks and guilt, so one missed day feels like failure and people quit — and \"leave your comfort zone\" advice gives no first step.",
       mechanism:
         "Tiny habits tied to cues the user already has (\"when I put the kettle on\"), graded steps outside the comfort zone one rung at a time, a prediction-versus-outcome check that shows a mission was easier than feared, and progress that only goes up — no streaks to lose.",
-      stack: ["Kotlin (Android)", "Pixel-art room renderer", "Home-screen widget", "Signed release builds in CI", "Offline: no internet permission"],
+      stack: ["Tiny habits", "Graded exposure", "Pixel-art room that grows", "Home-screen widget", "Offline: no internet permission"],
       outcome:
-        "Signed release bundle built in CI for Android 16, with a complete Google Play listing and seven captioned screenshots of the real app.",
+        "Signed release build for Android, with a complete Google Play listing and seven captioned screenshots of the real app.",
     },
     metrics: [
       { value: "4", label: "Tiny things a day" },
@@ -1231,7 +1235,7 @@ export const caseStudies: CaseStudy[] = [
       "Gentle reminders",
       "Offline and private",
     ],
-    keywords: ["Tiny Habits", "Graded Exposure", "Self-Care", "Habit Formation", "Kotlin", "Android"],
+    keywords: ["Tiny Habits", "Graded Exposure", "Self-Care", "Habit Formation", "Gamification", "Android"],
   },
   {
     slug: "merge-farmstead",
@@ -1245,7 +1249,7 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "MobileApplication",
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
-    role: "Founder & game developer",
+    role: "Founder & game designer",
     organization: "Own product",
     summary:
       "Merge Farmstead: Tycoon Edition is a farm merge game wrapped in a mystery: find the town's lost Golden Bell before a land developer takes the valley. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start.",
@@ -1254,7 +1258,7 @@ export const caseStudies: CaseStudy[] = [
         "Merge games are sticky but hollow, and many aimed at children monetize through ad and purchase flows that were never designed for them.",
       mechanism:
         "Merge-and-upgrade progression for steady competence wins, a chaptered mystery with clues and suspects for curiosity, and child-directed, non-personalized ad requests.",
-      stack: ["PixiJS", "JavaScript", "Capacitor (Android)", "Progressive web app"],
+      stack: ["Game design", "Story written for young readers", "Child-directed, non-personalized ads", "Android app and web"],
       outcome: "Playable game with a full story bible, an Android build and a web build, prepared for release.",
     },
     metrics: [
@@ -1279,8 +1283,8 @@ export const caseStudies: CaseStudy[] = [
         outcome: "Monetization layer built for a young audience.",
       },
     ],
-    featureList: ["Merge-and-upgrade farm", "Town deliveries", "Chaptered mystery story", "Android app (Capacitor)", "Playable on the web"],
-    keywords: ["Game Design", "Progression Systems", "Child-directed Design", "PixiJS", "Capacitor"],
+    featureList: ["Merge-and-upgrade farm", "Town deliveries", "Chaptered mystery story", "Android app", "Playable on the web"],
+    keywords: ["Game Design", "Progression Systems", "Child-directed Design", "Narrative Design"],
   },
   {
     slug: "pukytoon",
@@ -1296,27 +1300,27 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
     url: "https://sinadehesh.github.io/pukytoon/",
-    role: "Founder & solo builder",
+    role: "Founder",
     organization: "Own product",
     summary:
-      "Pukytoon turns games made with AI into a feed you swipe through like short videos. Drop in a Claude, Gemini or Kimi share link — or paste the game's code — and it becomes a card in the feed; tap Play and the game takes the whole screen, with a Back to feed button to return.",
+      "Pukytoon turns games made with AI into a feed you swipe through like short videos. Drop in a Claude, Gemini or Kimi share link and it becomes a card in the feed; tap Play and the game takes the whole screen, with a Back to feed button to return. Next, I am building bundles of assets and game mechanics that players combine into their own games, with the Ludo.ai API so they can create new assets and games on the spot and share them. Making videos became something everyone can do; I believe making games will go the same way, and that the social platforms of the future will be gamified.",
     impact: {
       problem:
         "People make small games with AI chatbots every day, but they stay stuck behind share links that the chat sites won't let other apps embed, so nobody browses them.",
       mechanism:
-        "Feed-style browsing — one game per screen, snapping like video — cuts the cost of trying a game to a single swipe; pasted code plays inside the feed, and link games open full screen in an in-app web view.",
-      stack: ["JavaScript", "Capacitor (Android)", "In-app browser", "Sandboxed iframes", "React and Tailwind from a CDN for pasted code"],
+        "Feed-style browsing — one game per screen, snapping like video — cuts the cost of trying a game to a single swipe; link games open full screen inside the app.",
+      stack: ["Feed design: one swipe to try a game", "Creator tools: asset and mechanic bundles (in development)", "Ludo.ai API for new assets (in development)", "Android app and web"],
       outcome:
-        "Live on the web, with an Android test build on GitHub Releases rebuilt on every push; the feed opens with two original merge games.",
+        "Live on the web, with an Android test build; the feed opens with two original merge games.",
     },
     metrics: [
       { value: "3", label: "AI platforms: Claude, Gemini, Kimi" },
       { value: "1 swipe", label: "Between games" },
-      { value: "Sandboxed", label: "Every pasted game runs isolated" },
+      { value: "2", label: "Original merge games open the feed" },
     ],
     tradeoffs: [
-      "Claude, Gemini and Kimi block framing, so link games open full screen in an in-app web view instead of playing inside the feed; pasted code plays in the feed itself.",
-      "Each code game runs in a sandboxed frame that can't reach the app or the other games, while its saved progress is kept by the app.",
+      "Claude, Gemini and Kimi do not let other apps embed their games, so link games open full screen inside the app instead of playing in the feed.",
+      "Each game is kept separate from the app and from the other games, and the app keeps its saved progress.",
       "Zombie Bomber loads live from its web address, so updates appear without a new app build — at the cost of needing the internet.",
     ],
     decisionLog: [
@@ -1324,24 +1328,30 @@ export const caseStudies: CaseStudy[] = [
         challenge: "AI-made games are scattered across share links.",
         hypothesis: "A swipeable feed makes trying a game as cheap as watching a clip.",
         method: "One game per screen with video-style snapping and a live preview behind each cover.",
-        outcome: "A feed that plays HTML, React and JavaScript games and opens AI share links.",
+        outcome: "A feed that plays games made with AI and opens AI share links.",
       },
       {
         challenge: "Chat sites refuse to be embedded.",
         hypothesis: "A full-screen in-app view keeps players inside the app instead of a browser.",
-        method: "In-app web view with Back to feed; a new tab on the website.",
+        method: "A full-screen view inside the app with Back to feed; a new tab on the website.",
         outcome: "Link games play full screen and return to the same place in the feed.",
+      },
+      {
+        challenge: "Making a game is still much harder than making a video.",
+        hypothesis: "Ready-made bundles of assets and mechanics turn players into creators.",
+        method: "Bundles that players combine into their own games, the Ludo.ai API for new assets on the spot, and sharing.",
+        outcome: "In development.",
       },
     ],
     featureList: [
       "Swipe feed, one game per screen",
-      "Add games by link or pasted code",
+      "Add games by share link",
       "Full-screen play with Back to feed",
-      "Sandboxed code games",
+      "Each game kept separate and safe",
       "Saved progress per game",
       "Android app and web",
     ],
-    keywords: ["Feed Design", "AI-generated Games", "Engagement Design", "Capacitor", "Sandboxing"],
+    keywords: ["Feed Design", "AI-generated Games", "Engagement Design", "Creator Tools", "Gamified Social Platforms"],
   },
   {
     slug: "the-loop",
@@ -1356,7 +1366,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Web",
     url: "https://sinadehesh.github.io/extention/",
-    role: "Writer, designer & developer",
+    role: "Writer & game designer",
     organization: "Own product",
     summary:
       "The Loop is a story game in five acts, set between 2027 and 2030, about being the human in the loop. Your laptop is on the left, where you make the decisions; your apartment is on the right, where you live with them. Every button you press makes sense at the time. Acts I and II are playable in the browser.",
@@ -1364,17 +1374,17 @@ export const caseStudies: CaseStudy[] = [
       problem: "Stories about AI and work are told from far away, so the small, reasonable decisions that add up are hard to feel.",
       mechanism:
         "Papers-Please-style daily queues of documents, gigs and agent reports where every scam has one tell, an economy of rent, RAM prices and internet bills that makes each shortcut tempting, and a split screen that shows what every decision costs at home.",
-      stack: ["Single-file HTML and JavaScript", "Motion animation library", "Atkinson Hyperlegible and pixel type"],
+      stack: ["Narrative design", "In-game economy", "Marketing through streamers", "Readable pixel type"],
       outcome: "Acts I and II playable in the browser, twelve endings to find, Acts III–V planned.",
     },
     metrics: [
       { value: "5", label: "Acts, 2027–2030 (two playable)" },
       { value: "12", label: "Endings to find" },
-      { value: "1 file", label: "No build step, plays in any browser" },
+      { value: "0", label: "Installs needed: it plays in any browser" },
     ],
     tradeoffs: [
       "Reading text is set in Atkinson Hyperlegible and the pixel font is kept for labels and numbers: atmosphere without hurting readability.",
-      "Everything lives in one HTML file with no build step, so it runs anywhere and is easy to share.",
+      "It plays in any browser with nothing to install, so it runs anywhere and is easy to share.",
       "Fiction for adults about AI catastrophe, told through ordinary choices rather than spectacle.",
     ],
     decisionLog: [
@@ -1399,7 +1409,7 @@ export const caseStudies: CaseStudy[] = [
       "Twelve endings",
       "Plays in the browser",
     ],
-    keywords: ["Narrative Design", "Game Economy", "AI Fiction", "Systems Design", "JavaScript"],
+    keywords: ["Narrative Design", "Game Economy", "AI Fiction", "Systems Design", "Streamer Marketing"],
   },
   {
     slug: "gem-jar",
@@ -1414,15 +1424,15 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
     url: "https://sinadehesh.github.io/Happy-Fruit-merge/gems/",
-    role: "Game designer & developer",
+    role: "Game designer",
     organization: "Own product",
     summary:
       "Gem Jar is a physics merge puzzle: drop gems into a jar, merge two of a kind into a better one, and make the Diamond before the jar fills. A Daily Challenge gives everyone the same goal each day, a Zap booster clears a gem, and 11 gem sets unlock as you play — 132 gems in all.",
     impact: {
       problem: "Merge puzzles are easy to start but repetitive, so without a reason to return players drift away after a few rounds.",
       mechanism:
-        "A daily challenge picked from the date, the same for everyone; collectible gem sets unlocked by playing; combo praise (SWEET! JUICY! INCREDIBLE!) with sound and haptics; and a booster earned from the daily.",
-      stack: ["HTML5 Canvas", "Matter.js physics", "Capacitor (Android)", "Ad breaks ready for AdMob"],
+        "A daily challenge picked from the date, the same for everyone; collectible gem sets unlocked by playing; combo praise (SWEET! JUICY! INCREDIBLE!) with sound and haptics; a booster earned from the daily; and game feel from tuned gravity, heavier precious gems and new sound effects.",
+      stack: ["Game design", "Physics tuning: gravity and gem weight", "Sound design and haptics", "Ad breaks ready for AdMob"],
       outcome: "Android release bundle and a complete Google Play listing with eight screenshots of real screens; it also plays in the browser.",
     },
     metrics: [
@@ -1448,9 +1458,15 @@ export const caseStudies: CaseStudy[] = [
         method: "Bursts, praise words, a narrator, sound effects and haptics scaled to the merge.",
         outcome: "Combo feedback on every chain.",
       },
+      {
+        challenge: "The mechanic is extremely simple: drop gems and merge them into higher gems.",
+        hypothesis: "Physics that matches each gem's value makes every merge more satisfying.",
+        method: "Tuned the gravity, made the more precious gems heavier and changed the sound effects.",
+        outcome: "Play became much more satisfying; together the changes made a big difference in how the game feels.",
+      },
     ],
     featureList: ["Drop-and-merge physics", "Daily Challenge", "Zap booster", "11 gem sets", "Sound, music and haptics", "Android and web"],
-    keywords: ["Game Design", "Retention Loops", "Daily Challenges", "Matter.js", "Capacitor"],
+    keywords: ["Game Design", "Game Feel", "Retention Loops", "Daily Challenges", "Physics Tuning"],
   },
   {
     slug: "zombie-bomber",
@@ -1465,7 +1481,7 @@ export const caseStudies: CaseStudy[] = [
     applicationCategory: "GameApplication",
     operatingSystem: "Web",
     url: "https://sinadehesh.github.io/Happy-Fruit-merge/bomber/",
-    role: "Game designer & developer",
+    role: "Game designer",
     organization: "Own product",
     summary:
       "Zombie Bomber is a second game on the same drop-and-merge engine. Merge bombs from firecrackers up to bunker busters, switch to Bomb mode to drop them from a plane, and hold the base against 12 zombie types across 300 levels, spending coins on soldiers, weapons, base and bombs between levels.",
@@ -1473,7 +1489,7 @@ export const caseStudies: CaseStudy[] = [
       problem: "Merge games rarely give the merging a purpose beyond the score.",
       mechanism:
         "Two modes tie merging to action — merge to build bigger bombs, then spend them to survive — and an upgrade shop after each level turns coins into visible progress.",
-      stack: ["HTML5 Canvas", "Matter.js physics", "Shared merge engine"],
+      stack: ["Game design", "Difficulty curve", "Upgrade economy", "Shared merge engine"],
       outcome: "Live in the browser with 300 levels, 12 zombie types and an upgrade shop; also playable inside Pukytoon.",
     },
     metrics: [
@@ -1500,7 +1516,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     featureList: ["Merge and Bomb modes", "300 levels", "12 zombie types", "Upgrade shop", "Plays in the browser"],
-    keywords: ["Game Design", "Progression Systems", "Matter.js", "JavaScript"],
+    keywords: ["Game Design", "Progression Systems", "Difficulty Design", "Game Economy"],
   },
   {
     slug: "thermite-dominoes",
@@ -1514,7 +1530,7 @@ export const caseStudies: CaseStudy[] = [
     schemaType: "WebApplication",
     applicationCategory: "GameApplication",
     operatingSystem: "Web",
-    role: "Game designer & developer",
+    role: "Game designer",
     organization: "Own product",
     summary:
       "Thermite Dominoes is a physics puzzle about planning a heist. While the vault is frozen you paint your gear — thermite that burns through steel, acid that eats concrete, cryo-foam that swells to block lasers, C4 and fuses — then press Ignite and watch the chain reaction carry the gold into the getaway pipe.",
@@ -1522,7 +1538,7 @@ export const caseStudies: CaseStudy[] = [
       problem: "Physics puzzles often reward trial and error rather than planning.",
       mechanism:
         "Plan, then ignite: every material follows clear rules (thermite fizzles near water, acid seeps through gold), so players reason about the whole chain before committing, with a loot quota and a best score to beat.",
-      stack: ["Single-file HTML and JavaScript", "Pixel physics simulation"],
+      stack: ["Puzzle design", "Physics simulation"],
       outcome: "Fifteen vaults across chapters, with security systems such as lasers, sprinklers and conveyors, and random vaults checked to be solvable.",
     },
     metrics: [
@@ -1549,7 +1565,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     featureList: ["Plan-then-ignite puzzles", "15 vaults in chapters", "Thermite, acid, cryo-foam, C4, fuses and oil", "Security systems", "Hints and best scores"],
-    keywords: ["Puzzle Design", "Physics Simulation", "Systems Thinking", "JavaScript"],
+    keywords: ["Puzzle Design", "Physics Simulation", "Systems Thinking", "Chain Reactions"],
   },
 ];
 
@@ -1572,7 +1588,7 @@ export const problemMatrix = [
   {
     question: "Need to fix user drop-off and retention?",
     answer:
-      "I engineer habit loops from behavioral science, not guesswork: behavioral friction and loss framing that make costs salient, variable reward schedules that sustain engagement, and psychometric assessment that makes feedback feel personal.",
+      "I design habit loops from behavioral science, not guesswork: behavioral friction and loss framing that make costs salient, variable reward schedules that sustain engagement, and psychometric assessment that makes feedback feel personal.",
     proof: [
       { slug: "costly", note: "real stakes with a walk-it-back path" },
       { slug: "app-lockers", note: "friction worth paying, without uninstalls" },
@@ -1583,20 +1599,20 @@ export const problemMatrix = [
   {
     question: "Need to validate an AI feature before wasting engineering budget?",
     answer:
-      "I run multi-round usability testing and interviews, code them thematically, prioritize with Kano and MoSCoW, and build a functional prototype in days — so the build decision rests on evidence.",
+      "I run multi-round usability testing and interviews, code them thematically, prioritize with Kano and MoSCoW, and test a working prototype in days — so the build decision rests on evidence.",
     proof: [
       { slug: "recallmate", note: "interviews → MoSCoW → SM-2 + AI prototype" },
       { slug: "musicity", note: "market-fit interviews → go-to-market plan" },
     ],
   },
   {
-    question: "Need someone who bridges research and engineering?",
+    question: "Need someone who bridges research and product?",
     answer:
-      "My pipeline runs from SPSS and ANOVA modeling and Figma wireframes straight to production Next.js, PostgreSQL, n8n and LLM API deployments — one person, no hand-off loss.",
+      "I take research from SPSS and ANOVA models and Figma wireframes to a tested product: an app, a game, a funnel or an n8n automation, with the measurement built in. One person, no hand-off loss.",
     proof: [
       { slug: "interview-simulation-study", note: "N = 96 experiment, p = .009" },
       { slug: "workflow-automation-engine", note: "LLM extraction with human-in-the-loop" },
-      { slug: "daily-hustle", note: "full-stack product with dashboards" },
+      { slug: "daily-hustle", note: "product with dashboards" },
     ],
   },
 ];
@@ -1633,11 +1649,9 @@ export const knowsAbout: { name: string; sameAs?: string }[] = [
   { name: "Conversational AI Prototyping" },
   { name: "LLM Agentic Workflows" },
   { name: "Figma", sameAs: "https://en.wikipedia.org/wiki/Figma" },
-  { name: "Next.js", sameAs: "https://en.wikipedia.org/wiki/Next.js" },
-  { name: "React", sameAs: "https://en.wikipedia.org/wiki/React_(software)" },
-  { name: "TypeScript", sameAs: "https://en.wikipedia.org/wiki/TypeScript" },
-  { name: "Python", sameAs: "https://en.wikipedia.org/wiki/Python_(programming_language)" },
-  { name: "PostgreSQL", sameAs: "https://en.wikipedia.org/wiki/PostgreSQL" },
+  { name: "TRIZ", sameAs: "https://en.wikipedia.org/wiki/TRIZ" },
+  { name: "Game Design", sameAs: "https://en.wikipedia.org/wiki/Game_design" },
+  { name: "Gamification", sameAs: "https://en.wikipedia.org/wiki/Gamification" },
   { name: "n8n" },
 ];
 
