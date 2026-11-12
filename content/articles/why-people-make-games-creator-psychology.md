@@ -61,7 +61,7 @@ Then there's ownership. Norton, Mochon and Ariely (2012) found that people value
 
 ## Is making games a way of learning?
 
-Yes, and that's one of the oldest findings in this area. Seymour Papert (1980) argued that people learn especially well when they build things they care about, an idea called constructionism. Yasmin Kafai (1995) showed that designing games can be a rich context for children's learning.
+Yes, and that's one of the oldest findings in this area. Seymour Papert, from Mindstorms (1980) on, argued that people learn especially well when they build things they care about, an idea later named constructionism. Yasmin Kafai (1995) showed that designing games can be a rich context for children's learning.
 
 What I find striking is that the learning hides inside the fun. Someone tuning the speed of an endless runner is reasoning about difficulty curves. Someone writing a rule like score ≥ 1000 is writing a condition, one of the basic building blocks of programming, without calling it that. That's another reason to make the first steps of game-making as easy as possible: the learning starts with them.
 
