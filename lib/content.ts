@@ -1283,23 +1283,24 @@ export const caseStudies: CaseStudy[] = [
     tagline: "A story-driven merge tycoon game for young players",
     published: true,
     category: "Game",
-    status: "Pre-launch",
+    status: "Live",
     schemaType: "MobileApplication",
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
     url: "https://sinadehesh.github.io/animal-farm-merge/",
     play: { src: "https://sinadehesh.github.io/animal-farm-merge/", device: "phone" },
+    googlePlay: [{ label: "Merge Keeper", url: "https://play.google.com/store/apps/details?id=com.sinadehesh.mergefarmstead" }],
     role: "Founder & game designer",
     organization: "Own product",
     summary:
-      "Merge Farmstead is a farm merge game wrapped in a mystery: for a hundred years the Golden Bell rang over Sunnyvale every night, and now it is gone. As Clara, the new farmer, you fix the farm and follow the clues to find it before a land developer takes the valley. The new version adds the town itself: seven places in Sunnyvale to restore and townspeople to help, plus a Market, Land Deeds, a Growth Guide that makes merges one size bigger, Daily Deals, a Wishing Well, Missions and a 28-day Season Pass. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start.",
+      "Merge Farmstead is a farm merge game wrapped in a mystery: for a hundred years the Golden Bell rang over Sunnyvale every night, and now it is gone. As Clara, the new farmer, you fix the farm and follow the clues to find it before a land developer takes the valley. The new version adds the town itself: seven places in Sunnyvale to restore and townspeople to help, plus a Market, Land Deeds, a Growth Guide that makes merges one size bigger, Daily Deals, a Wishing Well, Missions and a 28-day Season Pass. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start. On Google Play it is called Merge Keeper: Mystery & Puzzle.",
     impact: {
       problem:
         "Merge games are sticky but hollow, and many aimed at children monetize through ad and purchase flows that were never designed for them.",
       mechanism:
         "Merge-and-upgrade progression for steady competence wins, a chaptered mystery with clues and suspects for curiosity, a town that visibly comes back to life as you restore it, daily and seasonal goals (Daily Deals, Missions, a 28-day Season Pass), and child-directed, non-personalized ad requests.",
       stack: ["Game design", "Story written for young readers", "Town restoration and a 28-day season pass", "Child-directed, non-personalized ads"],
-      outcome: "The new version is playable on the web, with a full story bible and an Android build prepared for release.",
+      outcome: "The new version is playable on the web, and the Android version went into production on Google Play in November 2026 as Merge Keeper: Mystery & Puzzle, which Sina now promotes with short video ads on TikTok. A full story bible backs every chapter.",
     },
     metrics: [
       { value: "7–9", label: "Reading age for all story text" },
