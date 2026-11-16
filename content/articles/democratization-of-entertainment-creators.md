@@ -37,7 +37,7 @@
 ---
 The democratization of entertainment is the shift from a few studios, labels and broadcasters deciding what millions of people watch and hear, to anyone being able to make something and find an audience for it. It happened one medium at a time: music, then video, then audio and live streaming. Each time, two things arrived together: making got cheap, and a place to be found appeared.
 
-I'm an applied psychologist, and I'm designing [Pukytoon](/work/pukytoon), a feed of games anyone can make, which is in development. I think games are the last big form of entertainment still waiting for this shift. Here's how it happened to the others, the psychology of why creators hold our attention, and what it costs.
+I'm a behavioral scientist, and I'm designing [Pukytoon](/work/pukytoon), a feed of games anyone can make, which is in development. I think games are the last big form of entertainment still waiting for this shift. Here's how it happened to the others, the psychology of why creators hold our attention, and what it costs.
 
 ## Who made entertainment in the broadcast era?
 

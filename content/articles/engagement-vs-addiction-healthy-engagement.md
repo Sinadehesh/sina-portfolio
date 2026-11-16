@@ -41,7 +41,7 @@
 ---
 Engagement is coming back to something because it adds to your life, and being able to stop whenever you want. Addiction is coming back after you've lost control, while the activity takes priority over things you value and you keep going despite the harm. From the outside the two can look the same: lots of time, lots of returns. The research shows they're different on the inside, and that design can push people toward one or the other.
 
-I'm an applied psychologist, and I design apps and games that I want people to love using. That makes this distinction the most important one in my work. Here's what the research says, the warning signs, and the test I use. This is about design and everyday judgment, not a clinical diagnosis.
+I'm a behavioral scientist, and I design apps and games that I want people to love using. That makes this distinction the most important one in my work. Here's what the research says, the warning signs, and the test I use. This is about design and everyday judgment, not a clinical diagnosis.
 
 ## What is the difference between engagement and addiction?
 

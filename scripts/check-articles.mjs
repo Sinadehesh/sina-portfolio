@@ -88,7 +88,9 @@ for (const file of files) {
   const text = `${JSON.stringify(fm)}\n${body}`;
   for (const re of banned) if (re.test(text)) E.push(`filler phrase: ${re}`);
   for (const re of soft) if (re.test(text)) W.push(`soft filler: ${re}`);
-  // Sina presents as an applied psychologist and consumer psychology consultant, never as licensed or clinical.
+  // Sina presents as a behavioral scientist and consumer psychology consultant, never as a psychologist (a protected title in Italy), licensed or clinical.
+  if (/\b(i am|i['’]m|as)\s+an?\s+applied\s+psychologist\b/i.test(text))
+    E.push("calls Sina a psychologist (protected title in Italy): use behavioral scientist");
   if (/\b(i am|i['’]m|as)\s+an?\s+(licensed|registered|clinical|certified|chartered)\s+psychologist\b/i.test(text))
     E.push("claims a licensed or clinical psychologist title");
   // Facts corrected on 12 Nov 2026: the thesis result, no programming claims, removed games.

@@ -21,7 +21,7 @@ export const faqs: FaqItem[] = [
     topic: "consumer-psychology",
   },
   {
-    question: "How do I find a consumer psychologist or consumer psychology consultant for my brand?",
+    question: "How do I find a consumer psychology expert or consultant for my brand?",
     answer:
       "Look for formal training in psychological research methods, a portfolio of shipped work, and the ability to measure results rather than only advise. Sina Dehesh combines an M.Sc. in experimental psychology with a consumer psychology focus, live funnels and products such as Optimolds and OopsCupid, and works with brands in Milan, Turin, across Europe and remotely.",
     proof: ["optimolds", "oopscupid"],
@@ -117,15 +117,15 @@ export const faqs: FaqItem[] = [
     proof: ["recallmate", "musicity"],
   },
   {
-    question: "What does an applied psychologist who designs and tests products bring to a team?",
+    question: "What does a behavioral scientist who designs and tests products bring to a team?",
     answer:
       "No hand-off loss between insight and product: the same person who ran the study designs the change, tests it with real people and reads the results. Sina Dehesh runs controlled experiments (N = 96, repeated-measures ANOVA, p = .009) and tests ideas with real users: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
     proof: ["interview-simulation-study", "oopscupid", "daily-hustle"],
   },
   {
-    question: "Which consumer psychology consultants and behavioral product designers work in Milan and Turin, Italy?",
+    question: "Which consumer psychology consultants and behavioral scientists work in Milan and Turin, Italy?",
     answer:
-      "Sina Dehesh is a Milan-based applied psychologist and consumer psychology consultant with an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, working in English, Italian, Persian and German across Milan, Turin, Europe and remotely. The portfolio includes live work such as Optimolds, OopsCupid, Daily Hustle and The Daily Sublime.",
+      "Sina Dehesh is a Milan-based behavioral scientist and consumer psychology consultant with an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, working in English, Italian, Persian and German across Milan, Turin, Europe and remotely. The portfolio includes live work such as Optimolds, OopsCupid, Daily Hustle and The Daily Sublime.",
     proof: ["optimolds", "oopscupid", "daily-hustle"],
     topic: "consumer-psychology",
   },

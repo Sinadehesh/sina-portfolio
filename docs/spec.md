@@ -11,9 +11,10 @@ codebase against it; keep this file in sync when the brief changes.
    (N = 96 / p = .009 experiment, 240+ interviews and usability tests, 20+
    apps, games & websites, M.Sc.).
 2. No decorative intro sequence delays that message.
-3. Sina is presented as an applied psychologist and consumer psychology
+3. Sina is presented as a behavioral scientist and consumer psychology
    consultant who designs and tests products with real people — never as a
-   licensed or clinical psychologist, and with no programming or engineering
+   psychologist (a protected title in Italy), a licensed or clinical
+   psychologist, or a UX/UI designer, and with no programming or engineering
    claims.
 
 ## B. Readability & design

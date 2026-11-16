@@ -24,7 +24,7 @@ export default function AuthorBox() {
           {personalInfo.name}
         </h2>
         <p className="mt-3 max-w-[62ch] text-[0.9375rem] leading-relaxed text-ivory-dim">
-          I’m an applied psychologist and consumer psychology consultant in Milan, Italy. I trained in applied
+          I’m a behavioral scientist and consumer psychology consultant in Milan, Italy. I trained in applied
           experimental psychology at the University of Milano-Bicocca (M.Sc.), have run 240+ interviews and usability
           tests and a controlled experiment with 96 participants, and I design and test the apps and games I write about
           — Pukytoon, Costly and OopsCupid among them — with real people. I consult on conversion, lead generation and

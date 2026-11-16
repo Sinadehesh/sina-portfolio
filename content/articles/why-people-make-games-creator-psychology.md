@@ -36,7 +36,7 @@
 ---
 People become game creators for the same reasons people write, draw or make music: to say something, to get good at something and to share it with others. Money is rarely the first reason. Self-expression, mastery, giving, recognition, belonging and the plain fun of tinkering come first, and the platforms that keep creators making are the ones that feed those motives instead of replacing them.
 
-I'm an applied psychologist, and I'm designing [Pukytoon](/work/pukytoon), a feed of games anyone can make, which is still in development. Understanding why people make games is most of my job right now. Here's what the research says, what I've seen, and what it means for anyone building tools or platforms for game creators.
+I'm a behavioral scientist, and I'm designing [Pukytoon](/work/pukytoon), a feed of games anyone can make, which is still in development. Understanding why people make games is most of my job right now. Here's what the research says, what I've seen, and what it means for anyone building tools or platforms for game creators.
 
 ## What are the six reasons people make games?
 
