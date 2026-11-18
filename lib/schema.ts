@@ -153,7 +153,8 @@ export function caseStudyNode(c: CaseStudy): SoftwareApplication | CreativeWork 
             description: d.caption,
             contentUrl: absoluteUrl(d.src),
             thumbnailUrl: d.poster ? absoluteUrl(d.poster) : undefined,
-            uploadDate: d.uploaded,
+            // Google wants a full datetime with a timezone; content keeps plain dates (Milan time).
+            uploadDate: /T/.test(d.uploaded) ? d.uploaded : `${d.uploaded}T12:00:00+01:00`,
             duration: d.duration,
           })),
         }
