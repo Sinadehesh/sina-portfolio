@@ -9,7 +9,7 @@
   "takeaways": [
     "\"Behavior expert\" covers several professions, and the right one depends on whose behavior you want to understand and why: a child's, an animal's, a citizen's or a customer's.",
     "Behavior analysts can hold the BCBA certification from the Behavior Analyst Certification Board; behavioral scientists have no single credential and usually work on decisions across many people.",
-    "A consumer behavior expert works with companies on why customers buy, hesitate, switch or stay; a \"consumer expert\" in the media usually helps people with complaints and refunds.",
+    "A consumer behavior expert works with companies on why customers buy, hesitate, switch or stay; a \"consumer expert\" in the media often helps people with complaints and refunds.",
     "Before hiring any behavior expert, ask which behavior they will study, which method they'll start with, what they're not qualified to do and what would change their mind.",
     "I'm a behavioral scientist and consumer psychology consultant: I work on buying decisions and products, not on clinical, developmental or animal behavior."
   ],
@@ -20,7 +20,7 @@
     },
     {
       "q": "What is the difference between a behavioral scientist and a behavior analyst?",
-      "a": "A behavior analyst applies behavior analysis, typically with one person and the people around them, and can hold the BCBA certification from the Behavior Analyst Certification Board. A behavioral scientist studies and changes behavior across many people, in policy, products and markets, using experiments, data and interviews, and has no single credential. I'm a behavioral scientist, not a behavior analyst, and I don't work with clients' individual behavior."
+      "a": "A behavior analyst applies behavior analysis, typically with one person and the people around them, and can hold the BCBA certification from the Behavior Analyst Certification Board. A behavioral scientist studies and changes behavior across many people, in policy, products and markets, using experiments, data and interviews, and has no single credential. I'm a behavioral scientist, not a behavior analyst: I work on customer decisions and products, not on one person's behavior."
     },
     {
       "q": "When does a company need a consumer behavior expert?",
@@ -28,16 +28,16 @@
     },
     {
       "q": "What is a consumer expert?",
-      "a": "The term is used in two main ways. In the media, a consumer expert is usually a consumer-rights journalist, adviser or advocate who helps people with complaints, refunds and scams. In business, it is shorthand for a consumer behavior expert, who works with companies on how customers decide, buy and stay. A third, related group are consultants who specialize in the consumer-goods and retail industries."
+      "a": "The term is used in two main ways. In the media, a consumer expert is usually a consumer-rights journalist, adviser or advocate who helps people with complaints, refunds and scams. In business, people often use it as shorthand for a consumer behavior expert, who works with companies on how customers decide, buy and stay. A third, related group are consultants who specialize in the consumer-goods and retail industries."
     }
   ],
   "related": ["what-does-a-behavioral-scientist-do", "what-does-a-consumer-psychologist-do", "what-does-a-ux-researcher-do"],
   "caseStudies": ["optimolds", "interview-simulation-study"]
 }
 ---
-A behavior expert can be several different professionals, and the one you need depends on whose behavior you want to understand and why. A parent looking for help with a child's development, a dog owner, a ministry that wants taxes paid on time and a company whose customers abandon checkout all need different experts, with different training and different credentials.
+A behavior expert can be several different professionals, and the one you need depends on whose behavior you want to understand and why. A parent looking for help with a child's behavior, a dog owner, a ministry that wants taxes paid on time and a company whose customers abandon checkout all need different experts, with different training and different credentials.
 
-I'm one specific kind: a behavioral scientist and consumer psychology consultant in Milan, working on how customers decide, buy and stay. This is the map I'd give a friend: who does what, which credentials to check, and, if you run a business, when you need a consumer behavior expert and what to ask one.
+I'm one specific kind: a behavioral scientist and consumer psychology consultant in Milan, working on how customers decide, buy and stay. Here is the map I'd give a friend: who does what, which credentials to check, and when a business needs a consumer behavior expert.
 
 ## Which behavior expert do you need?
 
@@ -53,11 +53,11 @@ Start from your question, not from the title. This "who do you need?" table is s
 | Can people use our product, and what do they need? | UX researcher | Psychology, human-computer interaction or design research | Interviews, usability tests, experiments |
 | A purchase went wrong: a refund, a complaint, a scam | Consumer-rights adviser or journalist, often called a "consumer expert" | Varies by country and service | Explain your rights and help you act on them |
 
-If two rows seem to fit, settle one thing first: are you trying to help one individual, person or animal, or to change what many people do? The first points to the top two rows; the second, to the rest. UX research has its own guide: [what a UX researcher does](/insights/what-does-a-ux-researcher-do).
+If two rows seem to fit, settle one thing first: do you want to help one individual, person or animal, or change what many people do? Helping one individual points to the first two rows; changing what many people do points to the middle four. UX research has its own guide: [what a UX researcher does](/insights/what-does-a-ux-researcher-do).
 
 ## Which behavior experts hold a credential?
 
-Some of these roles come with formal credentials, and they're worth checking.
+Some of these roles come with formal credentials worth checking.
 
 **Behavior analysts:** the credential to look for is the Board Certified Behavior Analyst (BCBA), a graduate-level certification for independent practitioners issued by the Behavior Analyst Certification Board, a nonprofit established in 1998. In general terms it takes a master's degree or higher, behavior-analytic coursework or an accredited program, supervised fieldwork and a pass in the BCBA exam. The requirements change in 2027, so check the board's current rules rather than any summary, including this one.
 
@@ -77,7 +77,7 @@ Two names that often get confused are behavioral scientist and behavior analyst.
 
 A consumer behavior expert works on why customers buy, hesitate, switch or stay, and turns the answer into a business decision: which customers to serve first, what to offer, how to price it, where the funnel loses people. The work combines behavioral data for where people stop, interviews for why, and experiments to check that a change works. Consumer psychologists cover the mental side of the same question, and I explain their role in [what a consumer psychologist does](/insights/what-does-a-consumer-psychologist-do).
 
-Two near-namesakes do different jobs. "Consumer expert" in the media often means a consumer-rights journalist or advocate who helps people with complaints, refunds and scams, and some consulting practices specialize in consumer-goods and retail companies, where the expertise is the industry rather than the behavior.
+Two near-namesakes do different jobs. "Consumer expert" in the media often means a consumer-rights journalist or advocate who helps people with complaints, refunds and scams, and some consulting practices specialize in consumer-goods and retail companies, where the starting point is the industry rather than the behavior.
 
 A company usually needs a consumer behavior expert when:
 
@@ -98,16 +98,16 @@ The scientist half: my M.Sc. thesis was a controlled within-subjects experiment 
 
 And what I'm not: I'm not a psychologist and don't use the title, I'm not a behavior analyst, and I don't do clinical work or assess or treat people. I'm also not a UX/UI designer: I'm a UX researcher and behavioral scientist who designs the behavior change (what a page asks for, in what order, with what proof) and works with designers and engineers on the rest. If your question sits in another row of the table, I'd rather point you to the right expert.
 
-For customer questions, my [consumer behavior consulting](/consumer-behavior) page explains how I work; for experiments and behavior change more broadly, see [behavioral science consulting](/behavioral-science).
+My [consumer behavior consulting](/consumer-behavior) and [behavioral science consulting](/behavioral-science) pages explain how I work.
 
 ## What should you ask a behavior expert before you hire one?
 
-I call this the five-question screen. Each question comes with what a good answer sounds like:
+I call this the five-question screen, with what a good answer sounds like:
 
 1. **"Which behavior, exactly, will you study?"** A good answer names one behavior and how it will be measured. "Your customers' mindset" is not an answer.
 2. **"Which method will you start with, and why?"** Data shows where, interviews show why, and an experiment shows cause. The method should fit the question.
 3. **"What are you trained and allowed to do, and what not?"** Good experts name their limits plainly, including titles they don't hold.
 4. **"What did your research change last time?"** Look for a decision that changed, not a deck that was delivered.
-5. **"What result would change your recommendation?"** If the answer is "none", you're buying an opinion.
+5. **"What result would change your recommendation?"** If no result could, you're buying an opinion.
 
-Before you contact any behavior expert, write your question as one sentence that names a group of people, a behavior and a setting: "first-time buyers abandon our quote form at the upload step", not "we need better conversion". That sentence tells you which row of the table you're in, and it's the first thing a good expert will ask you for anyway.
+Before you contact any behavior expert, write your question as one sentence that names a group of people, a behavior and a setting. "First-time buyers abandon our quote form at the upload step" is a question an expert can work on; "we need better conversion" isn't. That sentence tells you which row of the table you're in, and it's the first thing a good expert will ask you for anyway.
