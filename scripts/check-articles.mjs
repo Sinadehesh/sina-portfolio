@@ -8,7 +8,7 @@ const root = process.cwd();
 const dir = join(root, "content", "articles");
 const only = process.argv.slice(2);
 
-const topics = new Set(["consumer-psychology", "fintech", "insurance", "automation", "ai-products", "ai-education", "research", "games-creativity", "engagement-addiction"]);
+const topics = new Set(["consumer-psychology", "behavioral-science", "fintech", "insurance", "automation", "ai-products", "ai-education", "research", "games-creativity", "engagement-addiction"]);
 const content = readFileSync(join(root, "lib", "content.ts"), "utf8");
 const caseStudies = new Set([...content.matchAll(/\n    slug: "([a-z0-9-]+)"/g)].map((m) => m[1]));
 const files = readdirSync(dir).filter((f) => f.endsWith(".md") && !f.startsWith("_"));
@@ -83,7 +83,7 @@ for (const file of files) {
     if (w && !caseStudies.has(w[1])) E.push(`link to missing case study ${href}`);
   }
   if (!/\]\(\/insights\/[a-z0-9-]+\)/.test(body)) W.push("no link to another article");
-  if (!/\]\(\/(work\/[a-z0-9-]+|consumer-psychology)\)/.test(body)) W.push("no link to a case study or /consumer-psychology");
+  if (!/\]\(\/(work\/[a-z0-9-]+|consumer-psychology|behavioral-science|consumer-behavior|ux-research|market-insights)\)/.test(body)) W.push("no link to a case study or a service page");
 
   const text = `${JSON.stringify(fm)}\n${body}`;
   for (const re of banned) if (re.test(text)) E.push(`filler phrase: ${re}`);

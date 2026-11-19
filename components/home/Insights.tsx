@@ -56,7 +56,7 @@ export default function Insights() {
         <a href="/insights" className="btn btn-ink mr-3">
           All {all.length} articles <span aria-hidden="true">→</span>
         </a>
-        {topics.map((t) => (
+        {topics.filter((t) => articlesIn(t.slug).length > 0).map((t) => (
           <a
             key={t.slug}
             href={topicPath(t.slug)}

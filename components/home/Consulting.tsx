@@ -2,6 +2,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import Scrolly from "@/components/scrolly/Scrolly";
 import TourStage, { type TourShot } from "@/components/scrolly/TourStage";
 import { getCaseStudy, workExperience } from "@/lib/content";
+import { expertise } from "@/lib/expertise";
 import { caseStudyPath } from "@/lib/schema";
 
 /** Camera stops over the real Optimolds homepage (boxes in 1600 × 1000 screenshot pixels). */
@@ -235,6 +236,14 @@ export default function Consulting() {
       <a href="/consumer-psychology" className="link-arrow reveal mt-12 text-ember">
         Consumer psychology consulting services <span aria-hidden="true">→</span>
       </a>
+      <nav aria-label="Expertise" className="reveal mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[0.9375rem] text-ivory-dim">
+        <span className="font-mono text-[0.75rem] tracking-[0.16em] text-ivory-faint uppercase">Also</span>
+        {expertise.map((e) => (
+          <a key={e.path} href={e.path} className="underline decoration-ivory/25 underline-offset-4 transition-colors hover:text-ivory hover:decoration-ember">
+            {e.name}
+          </a>
+        ))}
+      </nav>
     </Section>
   );
 }

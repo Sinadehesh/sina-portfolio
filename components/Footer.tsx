@@ -1,12 +1,19 @@
 import LocalTime from "@/components/LocalTime";
 import { personalInfo } from "@/lib/content";
+import { expertise } from "@/lib/expertise";
 
 const columns = [
+  {
+    title: "Expertise",
+    links: [
+      { href: "/consumer-psychology", label: "Consumer psychology" },
+      ...expertise.map((e) => ({ href: e.path, label: e.name })),
+    ],
+  },
   {
     title: "Work",
     links: [
       { href: "/work", label: "All case studies" },
-      { href: "/consumer-psychology", label: "Consumer psychology consulting" },
       { href: "/insights", label: "Insights (articles)" },
       { href: "/#games", label: "Games" },
       { href: "/#books", label: "Books" },
@@ -36,7 +43,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-void text-ivory">
       <div className="mx-auto grid max-w-[1440px] gap-12 px-5 pt-20 pb-10 sm:px-10 md:grid-cols-12">
-        <div className="md:col-span-5">
+        <div className="md:col-span-4">
           <p className="font-serif text-[1.6rem] leading-tight font-bold tracking-[-0.03em]">{personalInfo.name}</p>
           <p className="mt-3 max-w-[38ch] text-[0.9375rem] text-ivory-faint">
             {personalInfo.headline} · {personalInfo.location}
@@ -46,7 +53,7 @@ export default function Footer() {
             Milan <LocalTime />
           </p>
         </div>
-        <nav aria-label="Footer" className="grid gap-10 sm:grid-cols-3 md:col-span-7">
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-10 md:col-span-8 lg:grid-cols-4">
           {columns.map((col) => (
             <div key={col.title}>
               <p className="font-mono text-[0.75rem] tracking-[0.2em] text-ember uppercase">{col.title}</p>

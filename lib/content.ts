@@ -19,6 +19,7 @@ export const personalInfo = {
   jobTitles: [
     "Behavioral Scientist",
     "Consumer Psychology Consultant",
+    "Consumer Behavior Consultant",
     "UX Researcher",
     "Behavioral & Game Designer",
   ],
@@ -65,6 +66,12 @@ export const targetRoles = [
     pitch:
       "Diagnoses why customers hesitate, choose or churn — using consumer psychology and behavioral economics — and turns it into positioning, funnels, websites and product changes that move conversion.",
     proof: ["optimolds", "oopscupid", "costly"],
+  },
+  {
+    title: "Behavioral Scientist & Consumer Behavior Consultant",
+    pitch:
+      "Finds the behavior behind a business problem, designs the change that makes the right behavior easier and tests it with real people: behavioral audits, experiments, choice architecture, habit design and market insights.",
+    proof: ["interview-simulation-study", "app-lockers", "musicity"],
   },
   {
     title: "AI Product Manager / 0-to-1 Product Builder",
@@ -1711,7 +1718,11 @@ export const problemMatrix = [
 
 export const knowsAbout: { name: string; sameAs?: string }[] = [
   { name: "Consumer Psychology" },
+  { name: "Behavioral Science", sameAs: "https://en.wikipedia.org/wiki/Behavioural_sciences" },
   { name: "Consumer Behavior", sameAs: "https://en.wikipedia.org/wiki/Consumer_behaviour" },
+  { name: "UX Research", sameAs: "https://en.wikipedia.org/wiki/User_research" },
+  { name: "Consumer Insights", sameAs: "https://en.wikipedia.org/wiki/Customer_insight" },
+  { name: "Market Research", sameAs: "https://en.wikipedia.org/wiki/Market_research" },
   { name: "Choice Architecture", sameAs: "https://en.wikipedia.org/wiki/Choice_architecture" },
   { name: "Nudge Theory", sameAs: "https://en.wikipedia.org/wiki/Nudge_theory" },
   { name: "Psychological Pricing", sameAs: "https://en.wikipedia.org/wiki/Psychological_pricing" },
@@ -1727,7 +1738,8 @@ export const knowsAbout: { name: string; sameAs?: string }[] = [
   { name: "Psychometrics", sameAs: "https://en.wikipedia.org/wiki/Psychometrics" },
   { name: "Spaced Repetition (SM-2 Algorithm)", sameAs: "https://en.wikipedia.org/wiki/Spaced_repetition" },
   { name: "Usability Testing", sameAs: "https://en.wikipedia.org/wiki/Usability_testing" },
-  { name: "User Research" },
+  { name: "Jobs to Be Done" },
+  { name: "Design of Experiments", sameAs: "https://en.wikipedia.org/wiki/Design_of_experiments" },
   { name: "Product Management", sameAs: "https://en.wikipedia.org/wiki/Product_management" },
   { name: "Kano Model", sameAs: "https://en.wikipedia.org/wiki/Kano_model" },
   { name: "MoSCoW Method", sameAs: "https://en.wikipedia.org/wiki/MoSCoW_method" },

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Contact from "@/components/home/Contact";
+import { ExpertiseLinks } from "@/components/expertise/ExpertisePage";
 import ArticleCard from "@/components/insights/ArticleCard";
 import { articlesIn } from "@/lib/articles";
 import Faq from "@/components/home/Faq";
@@ -14,9 +15,9 @@ import { absoluteUrl, breadcrumbNode, caseStudyPath, faqPageNode, PERSON_ID } fr
 const path = consumerPsychology.path.replace(/\/$/, "");
 const title = `Consumer psychology consultant in Milan, Italy — ${personalInfo.name}`;
 const description =
-  "Sina Dehesh is a Milan-based consumer psychology consultant: conversion and funnel psychology audits, B2B lead generation, consumer research, pricing psychology and behavioral product design — researched, built and measured by one person.";
+  "Sina Dehesh is a Milan-based consumer psychology consultant: conversion and funnel psychology audits, B2B lead generation, consumer research, pricing psychology and behavioral product design, researched, tested and measured with real people.";
 const summary =
-  "Sina Dehesh is a Milan-based consumer psychology consultant who turns research on how people decide and buy into websites, funnels and products that convert. Trained in experimental psychology at the University of Milano-Bicocca, Sina diagnoses the psychological barrier, redesigns the offer around it, and builds and measures the fix personally.";
+  "Sina Dehesh is a Milan-based consumer psychology consultant who turns research on how people decide and buy into websites, funnels and products that convert. Trained in experimental psychology at the University of Milano-Bicocca, Sina diagnoses the psychological barrier, redesigns the offer around it, and tests and measures the fix with real people.";
 
 const topicFaqs = faqs.filter((f) => f.topic === "consumer-psychology");
 const proof = ["optimolds", "oopscupid", "costly", "daily-sublime"]
@@ -188,7 +189,8 @@ export default function ConsumerPsychologyPage() {
         </a>
       </Section>
 
-      <Faq items={topicFaqs} title="Consumer psychology consulting: questions" tone="paper" />
+      <ExpertiseLinks current="/consumer-psychology" />
+      <Faq items={topicFaqs} title="Consumer psychology consulting: questions" tone="paper-deep" />
       <Contact />
     </>
   );

@@ -37,7 +37,7 @@ export default function InsightsPage() {
           <p className="flex items-center gap-4 border-t border-ivory/15 pt-4 font-mono text-[0.75rem] tracking-[0.2em] uppercase">
             <span className="text-ember">(Insights)</span>
             <span className="opacity-70">
-              {all.length} articles · {topics.length} topics
+              {all.length} articles · {topics.filter((t) => articlesIn(t.slug).length > 0).length} topics
             </span>
           </p>
           <h1 className="display mt-8 max-w-[18ch] text-[clamp(2.6rem,6.4vw,6rem)]">
@@ -45,12 +45,12 @@ export default function InsightsPage() {
           </h1>
           <p className="lede mt-8 max-w-[60ch] text-ivory-dim">
             I’m {personalInfo.name}, a behavioral scientist and consumer psychology consultant in Milan. I write about the behavioral science
-            behind conversion, fintech, insurance, automation with humans in the loop, AI products, AI in education, the
+            behind conversion, consumer behavior, UX research and market insights, fintech, insurance, automation with humans in the loop, AI products, AI in education, the
             democratization of creativity and games, and where engagement ends and addiction begins — from research I ran
             and products I designed and tested.
           </p>
           <nav aria-label="Topics" className="mt-10 flex flex-wrap gap-2">
-            {topics.map((t) => (
+            {topics.filter((t) => articlesIn(t.slug).length > 0).map((t) => (
               <a
                 key={t.slug}
                 href={topicPath(t.slug)}
