@@ -80,7 +80,7 @@ The same caution applies to any research a consultant cites, this review include
 
 The review says practitioners should market ethically and "proactively communicate the differences between themselves… and the less regulated… fields of practice", meaning title protection, training routes and methods. In sport, that means explaining how a sport psychologist differs from, say, a life coach.
 
-I take the same advice. In Italy, only people enrolled in Section A of the register (Albo) of the Ordine degli Psicologi may use the title "psicologo" or practise the profession (Law 56/1989; DPR 328/2001), and I'm not registered, so I don't call myself a psychologist. I'm a behavioral scientist and consumer psychology consultant, trained in experimental psychology (M.Sc. in Applied Experimental Psychological Sciences, University of Milano-Bicocca), and my methods are research methods: interviews, experiments and measurement. I'd rather a client hear that from me in the first call than wonder about it later.
+I take the same advice. In Italy, only people enrolled in Section A of the register (Albo) of the Ordine degli Psicologi may use the title "psicologo" or practice the profession (Law 56/1989; DPR 328/2001), and I'm not registered, so I don't call myself a psychologist. I'm a behavioral scientist and consumer psychology consultant, trained in experimental psychology (M.Sc. in Applied Experimental Psychological Sciences, University of Milano-Bicocca), and my methods are research methods: interviews, experiments and measurement. I'd rather a client hear that from me in the first call than wonder about it later.
 
 This is general information, not legal advice, and rules change, so check with the national professional body.
 

@@ -28,11 +28,11 @@
     },
     {
       "q": "What does \"theories of studies\" mean?",
-      "a": "It is Pham's term for papers that look like tests of theory but really conceptualize narrow effects that exist only in the authors' contrived lab set-ups. A study of a theory, by contrast, tests an idea about how consumers actually behave. His rule of thumb: \"Studies should provide simplified models of the consumption world, not conceptual models of nothing.\" In company research, I ask whether a test reproduces the real decision."
+      "a": "It is Pham's term for papers that look like tests of theory but really conceptualize narrow effects that exist only in the authors' contrived lab setups. A study of a theory, by contrast, tests an idea about how consumers actually behave. His rule of thumb: \"Studies should provide simplified models of the consumption world, not conceptual models of nothing.\" In company research, I ask whether a test reproduces the real decision."
     },
     {
       "q": "How can businesses use Pham's seven sins?",
-      "a": "My suggestion, not Pham's: use them as an audit of your research plan before the study runs. Ask which stage of consumption it ignores, whether it assumes one favorite explanation, whether it captures what customers want or only a mechanism, whether it generalizes from one test, and whether the sample and set-up resemble the real market. Each weak answer points to a cheap fix made in advance."
+      "a": "My suggestion, not Pham's: use them as an audit of your research plan before the study runs. Ask which stage of consumption it ignores, whether it assumes one favorite explanation, whether it captures what customers want or only a mechanism, whether it generalizes from one test, and whether the sample and setup resemble the real market. Each weak answer points to a cheap fix made in advance."
     }
   ],
   "related": ["what-is-consumer-psychology", "do-nudges-work-evidence-for-product-teams", "jobs-to-be-done-market-fit-interviews"],
@@ -59,7 +59,7 @@ In Pham's order, with his wording from the abstract and the remedies from his co
 4. **Disregard for content:** "an almost exclusive emphasis on psychological processes as opposed to psychological content". Researchers study mechanisms and ignore what consumers actually think, feel, want and value. His content-rich examples include the "unhealthy = tasty" research of Raghunathan and colleagues (2006) and social-norm appeals to reuse hotel towels (Goldstein et al., 2008). Remedy: put content at the center, suspend the search for universals and ground theory in specific consumption contexts.
 5. **Overgeneralization:** "a strong tendency to overgeneralize from finite empirical results, both as authors and as reviewers". Published findings get treated as "gospel". His example is the jam study behind "too much choice" (Iyengar & Lepper, 2000): of the 63 studies in the meta-analysis by Scheibehenne, Greifeneder and Todd (2010), he notes, only 16 found the effect and 7 found the reverse. Remedy, which he calls "promoting knowledge calibration": more replications, larger samples, more nuance, transparent methods.
 6. **Research by convenience:** "a predisposition to design studies based on methodological convenience rather than on substantive considerations". Studies lean too heavily on college students, MTurk workers, North American samples and imagined-scenario vignettes, and cheap online data can steer what gets studied. Remedy: field studies with real consumers and real behavior, broader populations, and more care with vignettes, especially for "hot" emotional states.
-7. **Theories of studies:** "a pervasive confusion between 'theories of studies' and studies of theories". Papers that look like theory tests often conceptualize narrow effects that exist only in the authors' contrived lab set-ups. Remedy: less tolerance for them. In his words: "Studies should provide simplified models of the consumption world, not conceptual models of nothing."
+7. **Theories of studies:** "a pervasive confusion between 'theories of studies' and studies of theories". Papers that look like theory tests often conceptualize narrow effects that exist only in the authors' contrived lab setups. Remedy: less tolerance for them. In his words: "Studies should provide simplified models of the consumption world, not conceptual models of nothing."
 
 ## What else does Pham recommend?
 
@@ -79,7 +79,7 @@ Pham wrote about academic research, but in my view every sin has a company versi
 | Disregard for content | The team can name the mechanism but not what customers want, fear or value. | Write the doubt or desire in the customer's words before picking a mechanism. |
 | Overgeneralization | A famous study becomes a rule: "fewer options always convert better". | Treat a published effect as a hypothesis here, and size the test for a small effect. |
 | Convenience | Tests with colleagues, friends or a cheap panel; "would you buy this?" surveys. | Recruit from the real market and watch behavior, especially for emotional decisions. |
-| Theories of studies | An "insight" that exists only inside one test set-up. | Check that the test models the real decision: the real people, stakes and setting. |
+| Theories of studies | An "insight" that exists only inside one test setup. | Check that the test models the real decision: the real people, stakes and setting. |
 
 In my view, companies import overgeneralization most directly: a famous effect becomes a design rule before anyone checks it with their own customers. Nudges show the pattern: [effects tested at scale by nudge units are much smaller than in published studies](/insights/do-nudges-work-evidence-for-product-teams) (DellaVigna & Linos, 2022).
 
@@ -103,4 +103,4 @@ In client work, my safeguard is to combine methods whose weaknesses differ. For 
 
 Its weak spot mirrors my thesis: interviews are rich in content and thin on control, so I treat any ranking they produce as a strong hypothesis, not proof. Exploring with interviews and then testing with behavior is how I approach [behavioral science consulting](/behavioral-science), and the seven-sins audit is how I check research plans in [consumer psychology projects](/consumer-psychology).
 
-Before your team's next study, put the seven sins next to the plan as questions: which stage of consumption does it ignore, which explanation did we assume, who is in the sample and why, and would the effect survive outside this set-up, with real stakes? If nobody can answer the last one, you may be about to produce a theory of a study rather than a study of your customers.
+Before your team's next study, put the seven sins next to the plan as questions: which stage of consumption does it ignore, which explanation did we assume, who is in the sample and why, and would the effect survive outside this setup, with real stakes? If nobody can answer the last one, you may be about to produce a theory of a study rather than a study of your customers.
