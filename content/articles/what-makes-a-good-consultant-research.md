@@ -35,7 +35,7 @@
   "caseStudies": ["optimolds", "musicity"]
 }
 ---
-Research on what makes a good consultant, at least in clients' eyes and in the sport psychology studies I draw on, points to interpersonal skills and knowledge of the client's world rather than similarity. In a review of 17 studies on how people choose a sport psychology consultant, interpersonal skills were consistently among the most important characteristics, while sharing the client's gender, race and age was preferred but ranked least important (Woolway & Harwood, 2020).
+Research on what makes a good consultant, at least in clients' eyes and in sport psychology, points to interpersonal skills and knowledge of the client's world rather than similarity. In a review of 17 studies on how people choose a sport psychology consultant, interpersonal skills were consistently among the most important characteristics, while sharing the client's gender, race and age was preferred but ranked least important (Woolway & Harwood, 2020).
 
 That review answers a narrower question than the title, and the gap matters: it's about whom people prefer to hire, not who helps most once the work begins. I read it as a consumer psychology consultant, because choosing a consultant is itself a consumer decision under uncertainty: you're buying something you can't inspect before you pay for it.
 
