@@ -70,7 +70,7 @@ Four of the book's questions still apply almost unchanged, in my view.
 
 The changes I notice most are about where decisions happen, not how minds work.
 
-- **Phones and feeds.** The papers date from 2001, when shopping online meant sitting at a computer. Today a first visit often starts on a phone, mid-scroll, on whatever page a link points to, so the first screen has to state the offer before the thumb moves on.
+- **Phones and feeds.** The papers date from 2001, when shopping online mostly meant sitting at a computer. Today a first visit often starts on a phone, mid-scroll, on whatever page a link points to, so the first screen has to state the offer before the thumb moves on.
 - **Social proof at scale.** Reviews sit almost everywhere, and people know they can be gamed. The question has moved from "do we have reviews?" to "can anyone check them?"
 - **Value before commitment.** In my experience, people now expect to get something before they hand over an email address or create an account.
 - **A name for the dark side.** Brignull coined "dark patterns" in 2010, after the book, and Mathur and colleagues (2019) examined about 11,000 shopping websites and found dark patterns in use at scale.

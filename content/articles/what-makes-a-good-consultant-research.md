@@ -1,7 +1,7 @@
 ---
 {
   "title": "What Makes a Good Consultant? What Research on Consultants Shows",
-  "description": "What makes a good consultant? What a review of 17 studies on consultant characteristics found, what it can't tell you, and a scorecard for choosing one.",
+  "description": "What makes a good consultant? What a review of 17 studies on sport psychology consultants found, what it can't tell you, and a scorecard for choosing one.",
   "topic": "consumer-psychology",
   "order": 14,
   "date": "2026-11-19",
@@ -10,7 +10,7 @@
     "In a review of 17 studies, interpersonal skills were consistently among a sport psychology consultant's most important characteristics; shared gender, race and age were preferred but ranked least important.",
     "The research shows whom people prefer to hire, not who helps most once the work begins: preference and performance are different questions.",
     "Woolway and Harwood place consultant characteristics on a continuum of controllability, from age, race and gender to sport knowledge and attire, and conclude the controllable ones matter most for practitioners.",
-    "To choose a consultant, judge controllable, checkable signals: knowledge of your market, listening in the first call, a stated method and measure, honest titles and relevant work.",
+    "To choose a consultant, I'd judge controllable, checkable signals: knowledge of your market, listening in the first call, a stated method and measure, honest titles and relevant work.",
     "Ask every consultant \"What will you measure, and what result would tell us you were wrong?\" A clear answer means they treat your problem as a hypothesis."
   ],
   "faq": [
@@ -28,14 +28,14 @@
     },
     {
       "q": "Do clients prefer consultants who are similar to them?",
-      "a": "In the sport psychology studies reviewed by Woolway and Harwood (2020), clients preferred consultants of the same gender, race and age, but consistently ranked those characteristics least important; interpersonal skills and athletic background ranked higher. My inference for business consulting, which the research didn't test: a familiar profile may make a first meeting feel easier, but it says little about whether the consultant will help."
+      "a": "In the sport psychology studies reviewed by Woolway and Harwood (2020), clients preferred consultants of the same gender, race and age, but ranked those characteristics least important; interpersonal skills and athletic background ranked higher. My inference for business consulting, which the research didn't test: a familiar profile may make a first meeting feel easier, but it says little about whether the consultant will help."
     }
   ],
   "related": ["what-does-a-consumer-psychology-consultant-do", "what-is-a-consumer-consultant", "seven-sins-of-consumer-psychology-pham"],
   "caseStudies": ["optimolds", "musicity"]
 }
 ---
-Research on what makes a good consultant, at least in clients' eyes, points to interpersonal skills and knowledge of the client's world rather than similarity. In a review of 17 studies on how people choose a sport psychology consultant, interpersonal skills were consistently among the most important characteristics, while sharing the client's gender, race and age was preferred but consistently ranked least important (Woolway & Harwood, 2020).
+Research on what makes a good consultant, at least in clients' eyes and in the sport psychology studies I draw on, points to interpersonal skills and knowledge of the client's world rather than similarity. In a review of 17 studies on how people choose a sport psychology consultant, interpersonal skills were consistently among the most important characteristics, while sharing the client's gender, race and age was preferred but ranked least important (Woolway & Harwood, 2020).
 
 That review answers a narrower question than the title, and the gap matters: it's about whom people prefer to hire, not who helps most once the work begins. I read it as a consumer psychology consultant, because choosing a consultant is itself a consumer decision under uncertainty: you're buying something you can't inspect before you pay for it.
 
@@ -43,7 +43,7 @@ That review answers a narrower question than the title, and the gap matters: it'
 
 Woolway and Harwood (2020), both at Loughborough University, published "Consultant characteristics in sport psychology service provision: A critical review and future research directions" in the International Journal of Sport and Exercise Psychology (volume 18, issue 1, pages 46–63; online since April 2018). Despite "critical review" in the title, the method is a systematic narrative review. In May 2017 they searched four databases and hand-searched journals, then screened 246 records down to 17 studies with 2,962 participants: 2,639 athletes, 115 sport psychologists, 8 coaches and 200 students who weren't athletes.
 
-The framing is what makes the review useful outside sport. First impressions and rapport are treated as key to "gaining entry" with a client, the client is treated as a consumer, and the more recent studies use consumer-market methods such as rankings and conjoint analysis, which shows which characteristics drive a choice when several vary at once.
+In my view, the framing is what makes the review useful outside sport. First impressions and rapport are treated as key to "gaining entry" with a client, the client is treated as a consumer, and the more recent studies use consumer-market methods such as rankings and conjoint analysis, which shows which characteristics drive a choice when several vary at once.
 
 ## Which consultant characteristics do clients prefer?
 
@@ -54,7 +54,7 @@ The rankings matter more than the profile:
 - **Interpersonal skills** were consistently among the most important, and one study ranked them first. The definition used was "the ability… to use his or her personality (e.g., approachable, respectful, caring) to build a positive working relationship", which the authors criticize as too broad. A study of coaches found they valued trustworthiness, energy, personality and confidence (Zakrajsek et al., 2013).
 - **Athletic background** ranked second or fourth.
 - **Sport-specific knowledge**, being able to "speak your sport's language", was moderately important.
-- **Same gender, race and age** were preferred but consistently ranked least important.
+- **Same gender, race and age** were preferred but ranked least important, consistently so for gender and race (only one study measured age).
 - **Accreditation** gave mixed results: first in one study, fifth in another. Attire gave the most mixed results of all, and body build mattered but ranked low.
 - **The title** "sport psychologist" carries stigma. After a short educational intervention, it rose from third to first in importance and was preferred over "life coach" and "NLP practitioner" (Woolway & Harwood, 2015).
 
@@ -72,7 +72,7 @@ Put together, I see a pattern. In the reviewed studies, the visible cues ranked 
 
 Not necessarily. The review's scope is the decision to seek or hire a consultant, and as Tod, Pullinger and Lafferty (2024) point out, that's a different question from what makes a practitioner helpful once the work has begun. Preference gets a consultant through the door; it isn't evidence of results.
 
-The authors name further limits: 11 of the 17 studies used student samples, participants were mostly prospective clients, and the samples were mostly Western. They also call for research on gatekeepers, such as performance directors. In a company, that might be a founder or procurement, whose criteria a hire also has to meet.
+The authors name further limits: 11 of the 17 studies used student samples, participants were mostly prospective clients, and the samples were mostly Western. They also call for research on gatekeepers, such as performance directors. In a company, I'd expect that to be a founder or procurement, whose criteria a hire also has to meet.
 
 The same caution applies to any research a consultant cites, this review included: a preference measured in one population isn't a law, which is the overgeneralization Pham warns about in [the seven sins of consumer psychology](/insights/seven-sins-of-consumer-psychology-pham).
 
@@ -80,7 +80,7 @@ The same caution applies to any research a consultant cites, this review include
 
 The review says practitioners should market ethically and "proactively communicate the differences between themselves… and the less regulated… fields of practice", meaning title protection, training routes and methods. In sport, that means explaining how a sport psychologist differs from, say, a life coach.
 
-I take the same advice. In Italy, only people enrolled in Section A of the register (Albo) of the Ordine degli Psicologi may use the title "psicologo" or practice the profession (Law 56/1989; DPR 328/2001), and I'm not registered, so I don't call myself a psychologist. I'm a behavioral scientist and consumer psychology consultant, trained in experimental psychology (M.Sc. in Applied Experimental Psychological Sciences, University of Milano-Bicocca), and my methods are research methods: interviews, experiments and measurement. I'd rather a client hear that from me in the first call than wonder about it later.
+I take the same advice. In Italy, only people enrolled in Section A of the register (Albo) of the Ordine degli Psicologi may use the title "psicologo" or practice the profession (Law 56/1989, art. 2; DPR 328/2001, art. 50), and I'm not registered, so I don't call myself a psychologist. I'm a behavioral scientist and consumer psychology consultant, trained in experimental psychology (M.Sc. in Applied Experimental Psychological Sciences, University of Milano-Bicocca), and my methods are research methods: interviews, experiments and measurement. I'd rather a client hear that from me in the first call than wonder about it later.
 
 This is general information, not legal advice, and rules change, so check with the national professional body.
 
