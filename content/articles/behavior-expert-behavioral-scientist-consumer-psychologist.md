@@ -96,7 +96,7 @@ The consumer behavior half: [Optimolds](/work/optimolds), an Italy-based composi
 
 The scientist half: my M.Sc. thesis was a controlled within-subjects experiment on automated interviews with 96 participants. Candidates were significantly more expressive with an AI avatar than when they saw themselves on screen, p = .009. The [interview simulation study](/work/interview-simulation-study) page has the design.
 
-And what I'm not: I'm not a psychologist and don't use the title, I'm not a behavior analyst, and I don't do clinical work or assess or treat people. I'm also not a UX/UI designer: I'm a UX researcher and behavioral scientist who designs the behavior change (what a page asks for, in what order, with what proof) and works with designers and engineers on the rest. If your question sits in another row of the table, I'd rather point you to the right expert.
+And what I'm not: I'm not a psychologist and don't use the title, I'm not a behavior analyst, and I don't do clinical work or diagnose or treat people. I'm also not a UX/UI designer: I'm a UX researcher and behavioral scientist who designs the behavior change (what a page asks for, in what order, with what proof) and works with designers and engineers on the rest. If your question sits in another row of the table, I'd rather point you to the right expert.
 
 My [consumer behavior consulting](/consumer-behavior) and [behavioral science consulting](/behavioral-science) pages explain how I work.
 

@@ -20,7 +20,7 @@
     },
     {
       "q": "Is a UX researcher the same as a UX designer?",
-      "a": "No, although the roles overlap and small teams often combine them. A UX researcher studies users and tests ideas: interviews, usability tests, surveys and experiments. A UX designer shapes the product: flows, wireframes, interfaces and prototypes. I'm a UX researcher and behavioral scientist, not a designer: I plan and run the research and design the behavior change, and I work with designers and engineers who own the interface and the code."
+      "a": "No, although the roles overlap and small teams often combine them. A UX researcher studies users and tests ideas: interviews, usability tests, surveys and experiments. A UX designer shapes the product: flows, wireframes, interfaces and prototypes. I'm a UX researcher and behavioral scientist, not a UX/UI designer: I plan and run the research and design the behavior change, and I work with designers and engineers who own the interface and the code."
     },
     {
       "q": "What are the main UX research methods?",

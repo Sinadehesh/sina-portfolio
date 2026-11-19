@@ -91,7 +91,7 @@ Rarely from one source: a non-obvious understanding usually needs evidence from 
 | Social listening | How people talk about a category or a rival | Skews toward people who post |
 | Competitor benchmarking | How alternatives solve the same job | Shows offers, not needs |
 
-The pairing I insist on is one source about what people say and one about what they do. Across 422 studies, mostly on health and social behaviors rather than buying, intentions accounted for 28% of the variance in later behavior on average (Sheeran, 2002): a large effect by research standards, yet most of what people did went unexplained. With enough interviews, you can even [code them into variables and test them with logistic regression](/insights/interviews-and-logistic-regression).
+The pairing I insist on is one source about what people say and one about what they do. Across 422 studies, mostly on health and social behaviors rather than buying, intentions accounted for 28% of the variance in later behavior on average (Sheeran, 2002): a large effect by research standards, yet most of the variance in behavior went unexplained. With enough interviews, you can even [code them into variables and test them with logistic regression](/insights/interviews-and-logistic-regression).
 
 ## How do you write an insight statement?
 

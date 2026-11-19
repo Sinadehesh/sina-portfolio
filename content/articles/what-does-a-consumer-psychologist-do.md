@@ -24,7 +24,7 @@
     },
     {
       "q": "Is consumer psychologist a protected title?",
-      "a": "It depends on the country. In the UK, \"consumer psychologist\" is not one of the HCPC's nine protected titles, but using a protected one without registration is a criminal offense. In Italy, the title \"psicologo\" is reserved for psychologists enrolled in the Albo. In the US, state laws vary, and the model licensing acts treat a title containing \"psychologist\" as holding yourself out as one. Check the national regulator."
+      "a": "It depends on the country. In the UK, \"consumer psychologist\" is not one of the HCPC's nine protected titles, but using a protected one without registration is a criminal offense. In Italy, the title \"psicologo\" is reserved for psychologists enrolled in Section A of the Albo. In the US, state laws vary, and the model licensing acts treat a title containing \"psychologist\" as holding yourself out as one. This is general information, not legal advice; rules change, so check the national regulator."
     },
     {
       "q": "What is the difference between a consumer psychologist and a consumer psychology consultant?",

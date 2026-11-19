@@ -28,11 +28,11 @@
     },
     {
       "q": "Do you need a license to be a consumer psychologist?",
-      "a": "It depends on where you work and what you call yourself. In Italy, using the title \"psicologo\" requires enrollment in the Albo of the Ordine degli Psicologi. In the UK, \"consumer psychologist\" is not one of the HCPC's protected titles. In the US, states license psychologists and laws vary. Many people do this work under other titles, such as insights manager or behavioral scientist."
+      "a": "It depends on where you work and what you call yourself. In Italy, using the title \"psicologo\" requires enrollment in the Albo of the Ordine degli Psicologi. In the UK, \"consumer psychologist\" is not one of the HCPC's protected titles. In the US, states license psychologists and laws vary. Many people do this work under other titles, such as insights manager or behavioral scientist. This is general information, not legal advice, and rules change, so check the national body."
     },
     {
       "q": "Can you become a consumer psychologist without a PhD?",
-      "a": "For academic research careers, a PhD is the standard route. Outside academia, graduates in the field go into market research, advertising and marketing, often under titles such as researcher, insights manager, UX researcher or behavioral scientist. Where \"psychologist\" itself is regulated, the title has its own requirements: in the US, the prevailing standard for independent practice is a doctoral degree in psychology."
+      "a": "For academic research careers, a PhD is the standard route. Outside academia, graduates in the field go into market research, advertising and marketing, often under titles such as researcher, insights manager, UX researcher or behavioral scientist. Where \"psychologist\" itself is regulated, the title has its own requirements: in the US, the prevailing standard for independent practice is a doctoral degree in psychology. This is general information, not legal advice, and rules change, so check the national or state licensing body."
     }
   ],
   "related": ["what-does-a-consumer-psychologist-do", "what-does-a-behavioral-scientist-do", "what-does-a-ux-researcher-do"],
@@ -101,13 +101,13 @@ Here is the path I took, including the route I didn't take:
 1. 2018, interviewing at volume. As a volunteer researcher at the Salami Rehabilitation Center in Shiraz, I conducted 200 semi-structured interviews and analyzed them with binary logistic regression in SPSS. I describe the method, not that study's question or findings, in [combining interviews with logistic regression](/insights/interviews-and-logistic-regression).
 2. 2020–2021, working with stakeholders. As co-founder of Guardbar in Shiraz, I led requirement gathering and stakeholder communication and wrote the business plan.
 3. 2022–2026, the training. An M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca: a two-year, 120-ECTS master's in the psychology degree class (LM-51), taught in English. It covered consumer psychology, psychometrics and quantitative methods, cognitive ergonomics and human-technology interaction, and my marks included 29/30 in Consumer Psychology.
-4. 2025, applied research inside a product. As a research intern at the university, I led the conceptual development of [RecallMate](/work/recallmate), an AI-assisted learning app, and designed and ran its user research: multi-round interviews with thematic coding, Figma prototypes, pilot studies, usability tests and MoSCoW prioritization.
+4. 2025, applied research on a product prototype. As a research intern at the university, I led the conceptual development of [RecallMate](/work/recallmate), an AI-assisted learning app, and designed and ran its user research: multi-round interviews with thematic coding, Figma prototypes, pilot studies, usability tests and MoSCoW prioritization.
 5. The thesis, a controlled experiment. My [interview simulation study](/work/interview-simulation-study) was a within-subjects experiment with 96 participants in three conditions: self-view, an AI avatar and text only. Candidates were significantly more expressive with the AI avatar than when they saw themselves (p = .009).
 6. 2026, consulting. I consult on consumer psychology and growth for Optimolds, and I advised Musicity on market fit and go-to-market strategy.
 
 Across all of it, I've conducted and analyzed more than 240 interviews and usability tests.
 
-The route I didn't take is the regulated one to the title "psychologist". I'm not enrolled in the Albo of the Ordine degli Psicologi, and I don't use the title. Officially, my degree prepares graduates to design interventions that change people's behavior and choices, including consumer behavior, to improve how people interact with technology, to run communication campaigns, and to apply psychological models to communication, marketing and ergonomics in companies, consulting firms, agencies and market research institutes, including as freelance consultants. That is the work I do, as a behavioral scientist and consumer psychology consultant.
+The route I didn't take is the regulated one to the title "psychologist". My LM-51 degree doesn't by itself make me a psychologist: I'm not enrolled in the Albo of the Ordine degli Psicologi, and I don't use the title. Officially, my degree prepares graduates to design interventions that change people's behavior and choices, including consumer behavior, to improve how people interact with technology, to run communication campaigns, and to apply psychological models to communication, marketing and ergonomics in companies, consulting firms, agencies and market research institutes, including as freelance consultants. That is the work I do, as a behavioral scientist and consumer psychology consultant.
 
 ## What should you do first?
 

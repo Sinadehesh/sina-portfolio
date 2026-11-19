@@ -85,11 +85,11 @@ No single theory explains buying, but in my work six ideas do most of the explai
 | Other people are evidence | Social proof (Cialdini, 1984) | When unsure, people follow people like them, so show proof where the doubt appears |
 | Doing nothing wins | Status quo bias (Samuelson & Zeckhauser, 1988); defaults (Johnson & Goldstein, 2003; Madrian & Shea, 2001) | Defaults and habits carry much repeat buying, so renewals and switching steps decide loyalty |
 | Doubt after buying | Cognitive dissonance (Festinger, 1957), which marketers apply as post-purchase dissonance | The moments after payment need reassurance: what happens next and how to get help |
-| Big brands win twice | Double jeopardy (Ehrenberg, Goodhardt & Barwise, 1990); mental and physical availability (Sharp, 2010) | Small brands have fewer buyers, who also buy less often; Sharp argues brands grow mainly by coming to mind in buying situations and being easy to buy |
+| Big brands win twice | Double jeopardy (McPhee, 1963; Ehrenberg, Goodhardt & Barwise, 1990); mental and physical availability (Sharp, 2010) | Small brands have fewer buyers, who also buy less often; Sharp argues brands grow mainly by coming to mind in buying situations and being easy to buy |
 
 ## Why do customers say one thing and do another?
 
-Because intentions predict behavior less well than we'd like. Sheeran (2002) pooled 10 meta-analyses covering 422 studies and 82,107 participants: intentions correlated with later behavior at r = .53, so they accounted for about 28% of the variance in what people did. That counts as a large effect, yet most behavior stays unexplained, mainly because people who intend to act don't.
+Because intentions predict behavior less well than we'd like. Sheeran (2002) pooled 10 meta-analyses covering 422 studies and 82,107 participants: intentions correlated with later behavior at r = .53, so they accounted for about 28% of the variance in what people did. That counts as a large effect, yet most of the variance stays unexplained, and the gap comes mainly from people who intend to act and don't.
 
 Practitioners call this the say–do gap; researchers, the intention–behavior gap. The studies are mostly about health and social behavior, not purchases, but I see the same gap in buying, which is why I give behavior more weight than stated preference when the two conflict. Companies study consumer behavior with five kinds of evidence, and turning them into decisions is what [market insights](/insights/what-are-market-insights) are for:
 
