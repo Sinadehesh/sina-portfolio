@@ -42,7 +42,7 @@ I've had to write this down concretely for [Costly](/work/costly), the commitmen
 
 Engagement metrics assume more use means more value. For a behavior-change product, that assumption often breaks.
 
-In my Android app lockers, [FloraLock, ShroomLock and CloudLock](/work/app-lockers), now in closed testing, you name a plant, mushroom or cloud in a photo before Instagram or TikTok will open. There's an escape hatch, "I don't need Instagram right now," and choosing it counts as success. Closing the app is the best outcome, not beating the quiz. A dashboard that celebrated quiz sessions would reward the opposite of the goal.
+In my Android app lockers, [FloraLock, ShroomLock and CloudLock](/work/app-lockers) (ShroomLock and CloudLock are on Google Play, FloraLock is in closed testing), you name a plant, mushroom or cloud in a photo before Instagram or TikTok will open. There's an escape hatch, "I don't need Instagram right now," and choosing it counts as success. Closing the app is the best outcome, not beating the quiz. A dashboard that celebrated quiz sessions would reward the opposite of the goal.
 
 The same trap exists in finance, fitness and learning apps: time in app, streak length and sessions are easy to move and easy to mistake for impact.
 

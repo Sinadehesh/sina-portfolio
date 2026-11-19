@@ -97,4 +97,4 @@ Light-touch nudges still earn their place where the stakes are low, the cost is 
 
 What a nudge shouldn't do is work against the person's own goals. Steering people toward something they wouldn't choose with full information isn't choice architecture anymore; it's a dark pattern. I use [a five-question test](/insights/persuasion-or-dark-pattern-test) to find that line before anything ships.
 
-The honest version of behavioral design is less magical and more useful: find the step where the decision actually breaks, change the structure of that decision, and measure what people do afterwards. If you can afford one experiment this quarter, spend it there, not on the copy.
+The honest version of behavioral design is less magical and more useful: find the step where the decision actually breaks, change the structure of that decision, and measure what people do afterwards. If you can afford one experiment this quarter, spend it there, not on the copy. That is also how I approach [behavioral science consulting](/behavioral-science): the structure of the decision first, the wording last.

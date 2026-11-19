@@ -110,4 +110,4 @@ What the result means for AI interview design is in [self-view vs. an AI avatar]
 
 Efficiency matters because the effects worth detecting are often small, a point I make in [do nudges actually work?](/insights/do-nudges-work-evidence-for-product-teams) But be honest about what a result covers. A within-subjects lab study tells you how people respond in a session, not whether a change will move retention over months. For that you need live measurement, which I cover in [measuring behavior change in apps](/insights/measuring-behavior-change-apps).
 
-If your team only ever runs A/B tests, you are probably leaving cheap, sharp answers on the table. The next time a design question can be answered by showing the same people two or three versions, do that first, then take the winner to live traffic.
+If your team only ever runs A/B tests, you are probably leaving cheap, sharp answers on the table. The next time a design question can be answered by showing the same people two or three versions, do that first, then take the winner to live traffic. Designing studies like this is a large part of my [UX research](/ux-research) work.

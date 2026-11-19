@@ -46,6 +46,7 @@ export default function Faq({
               </summary>
               <div className="pl-10">
                 <p className={`mt-4 max-w-[62ch] ${dark ? "text-ivory-dim" : "text-ink-dim"}`}>{f.answer}</p>
+                {f.proof.some((slug) => getCaseStudy(slug)) && (
                 <p className="mt-3 text-sm">
                   <span className={dark ? "text-ivory-faint" : "text-ink-faint"}>See </span>
                   {f.proof
@@ -63,6 +64,7 @@ export default function Faq({
                       </span>
                     ))}
                 </p>
+                )}
               </div>
             </details>
           ))}

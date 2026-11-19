@@ -86,7 +86,7 @@ Every detail is there to make the toll worth paying:
 
 The question is a desirable difficulty in Bjork's (1994) sense: effortful in the moment, and the effort is what makes the learning stick.
 
-The lockers are in closed testing on Google Play, so I have no usage results to report yet. When they launch, the measure I care about isn't quiz scores but time spent on autopilot, tracked the way I describe in [measuring behavior change in apps](/insights/measuring-behavior-change-apps).
+ShroomLock and CloudLock went live on Google Play in November 2026 and FloraLock is in closed testing, so I have no usage results to report yet. As the data comes in, the measure I care about isn't quiz scores but time spent on autopilot, tracked the way I describe in [measuring behavior change in apps](/insights/measuring-behavior-change-apps).
 
 ## Why do the lockers have escape hatches?
 

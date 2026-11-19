@@ -108,7 +108,7 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
 
           <nav aria-label="Other topics" className="mt-16 flex flex-wrap gap-2">
             {topics
-              .filter((x) => x.slug !== t.slug)
+              .filter((x) => x.slug !== t.slug && articlesIn(x.slug).length > 0)
               .map((x) => (
                 <a
                   key={x.slug}

@@ -85,7 +85,7 @@ If you plan to turn codes into variables for a statistical model, the codebook h
 
 Two projects shaped how I think about this.
 
-For [RecallMate](/work/recallmate), an AI-assisted learning app whose concept I led as a research intern at the University of Milano-Bicocca, I designed and ran multi-round user interviews and coded them thematically. The coding fed a decision: a ranked backlog of pain points that went into MoSCoW prioritization, where AI-assisted card creation and conversational review became must-haves.
+For [RecallMate](/work/recallmate), an AI-assisted learning app whose concept I led as a research intern at the University of Milano-Bicocca, I designed and ran multi-round [user interviews](/ux-research) and coded them thematically. The coding fed a decision: a ranked backlog of pain points that went into MoSCoW prioritization, where AI-assisted card creation and conversational review became must-haves.
 
 For [Musicity](/work/musicity), a music platform, interviews with artists, listeners and venues were coded into a ranked jobs-to-be-done view to decide which segment to win first. There the codes had to separate what people said they wanted from what their behavior showed they needed. A model will blur that distinction unless the codebook spells it out.
 

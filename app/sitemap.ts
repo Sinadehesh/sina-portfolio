@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articlePath, articlesIn, getArticles, topicPath, topics } from "@/lib/articles";
 import { publishedCaseStudies } from "@/lib/content";
+import { expertise } from "@/lib/expertise";
 import { playableGames, playPath } from "@/lib/play";
 import { absoluteUrl, caseStudyPath } from "@/lib/schema";
 
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: absoluteUrl("/"), lastModified, priority: 1 },
     { url: absoluteUrl("/consumer-psychology"), lastModified, priority: 1 },
+    ...expertise.map((e) => ({ url: absoluteUrl(e.path), lastModified, priority: 0.9 })),
     { url: absoluteUrl("/work"), lastModified, priority: 0.9 },
     ...publishedCaseStudies.map((c) => ({ url: absoluteUrl(caseStudyPath(c.slug)), lastModified, priority: 0.8 })),
     { url: absoluteUrl("/play"), lastModified, priority: 0.9 },

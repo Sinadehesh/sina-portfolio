@@ -114,6 +114,6 @@ If you want numbers from interviews, here is the short version:
 5. Report odds ratios with intervals, translated into plain probabilities.
 6. Use the stories to explain every association you report, and treat any association you can't explain as a question for the next round, not a finding.
 
-When the question is causal, such as whether a change will make people upgrade, stop interviewing and run an experiment. [Within-subjects UX experiments](/insights/within-subjects-ux-experiments) are a good place to start when samples are small, and designing studies like these is part of the consumer research in my [consumer psychology consulting](/consumer-psychology).
+When the question is causal, such as whether a change will make people upgrade, stop interviewing and run an experiment. [Within-subjects UX experiments](/insights/within-subjects-ux-experiments) are a good place to start when samples are small, and designing studies like these is part of the consumer research in my [consumer psychology consulting](/consumer-psychology) and my [UX research](/ux-research) work.
 
 The combination works because each half keeps the other honest. A model without stories is a list of numbers nobody believes, and stories without a model are anecdotes with good lighting. Design for both from the first question, and two hundred conversations become one argument you can defend.

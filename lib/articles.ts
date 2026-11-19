@@ -20,6 +20,13 @@ export const topics = [
       "Why people choose, hesitate or leave — and what to change on the page, in the offer or in the funnel. These articles turn research on judgment and decision-making into design decisions I use with clients and in my own products, starting with the Four Gates model.",
   },
   {
+    slug: "behavioral-science",
+    label: "Behavioral science",
+    title: "Behavioral science & consumer behavior",
+    intro:
+      "What behavioral scientists, consumer behavior experts, UX researchers and insight teams actually do, and the evidence behind their work: how people decide, buy and stay, what separates data from insight, and which kind of behavior expert a question needs. I write as a behavioral scientist who designs and tests products with real people.",
+  },
+  {
     slug: "fintech",
     label: "Behavioral fintech",
     title: "Behavioral fintech",

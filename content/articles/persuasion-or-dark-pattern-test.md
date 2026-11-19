@@ -82,7 +82,7 @@ A test is only useful if it bites at home, so here it is on three things I've de
 
 [Costly](/work/costly), my pre-launch commitment app against doomscrolling, is the hard case. It charges real money for every minute of scrolling, at an hourly rate the user sets. Question one passes because the mechanism only works if the user understands it; a commitment device you don't know about can't commit you. Question two passes because the user chooses the goal. Question three is where it gets interesting, because Costly deliberately makes leaving cost something, through a deletion fee the user prices in advance. My answer is that the exit is visible, priced by the user while calm, can be set to zero, and that 80% of each loss can be earned back by walking it off within 24 hours. Whether that is enough is an open question: the contract terms will be reviewed against EU unfair-terms rules before launch, including how they interact with the 14-day withdrawal right.
 
-FloraLock, ShroomLock and CloudLock, my app lockers in closed testing, add friction on purpose: to open Instagram or TikTok, you name the plant, mushroom or cloud in a photo. They pass question three through escape hatches, an "I don't need Instagram right now" button and emergency unlocks, because a locker people can't leave is a locker people uninstall.
+FloraLock, ShroomLock and CloudLock, my Android app lockers, add friction on purpose: to open Instagram or TikTok, you name the plant, mushroom or cloud in a photo. They pass question three through escape hatches, an "I don't need Instagram right now" button and emergency unlocks, because a locker people can't leave is a locker people uninstall.
 
 ## What do regulators already say?
 
