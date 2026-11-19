@@ -8,9 +8,9 @@
   "keywords": ["seven sins of consumer psychology", "Pham seven sins of consumer psychology", "Pham 2013 Journal of Consumer Psychology", "criticism of consumer psychology research", "Michel Tuan Pham", "consumer psychology research methods"],
   "takeaways": [
     "Michel Tuan Pham (2013) argued that consumer psychology lacks relevance for businesses, policy makers, consumers and other researchers, and traced it to seven habits in how research is done.",
-    "The seven sins: narrow scope, narrow lenses, narrow epistemology, neglect of content, overgeneralization, research by convenience, and confusing \"theories of studies\" with studies of theories.",
+    "The seven sins: narrow scope, narrow lenses, narrow epistemology, disregard for content, overgeneralization, research by convenience, and confusing \"theories of studies\" with studies of theories.",
     "In my experience every sin has a company version, from research that stops at the purchase to tests run on colleagues instead of real customers.",
-    "Pham's standard applies to product research too: \"Studies should provide simplified models of the consumption world, not conceptual models of nothing.\"",
+    "In my view, Pham's standard applies to product research too: \"Studies should provide simplified models of the consumption world, not conceptual models of nothing.\"",
     "A controlled experiment is still exposed to Pham's critique: my own N = 96 interview study was a simulation, so its result needs replication with real candidates."
   ],
   "faq": [
@@ -39,7 +39,7 @@
   "caseStudies": ["interview-simulation-study", "musicity"]
 }
 ---
-The seven sins of consumer psychology are seven research habits that, in Michel Tuan Pham's view, make the field less relevant than it should be: to businesses, policy makers and consumers, and even to other researchers. In a 2013 article in the Journal of Consumer Psychology, Pham named them: a narrow scope, narrow theoretical lenses, a narrow epistemology, a neglect of psychological content, overgeneralization, research by convenience, and confusing "theories of studies" with studies of theories.
+The seven sins of consumer psychology are seven research habits that, in Michel Tuan Pham's view, make the field less relevant than it should be: to businesses, policy makers and consumers, and even to other researchers. In a 2013 article in the Journal of Consumer Psychology, Pham named them: a narrow scope, narrow theoretical lenses, a narrow epistemology, a disregard for content, overgeneralization, research by convenience, and confusing "theories of studies" with studies of theories.
 
 I read Pham from the other side of the gap he describes. I'm a behavioral scientist and consumer psychology consultant, not an academic, and in my experience the same habits show up in company research, including mine.
 
