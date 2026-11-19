@@ -28,7 +28,7 @@
     },
     {
       "q": "How do AI shopping assistants change consumer psychology?",
-      "a": "They move part of the choice into software. The 2005 book already studied preference construction in agent-assisted online shopping (Murray & Häubl); today the agent can be an AI assistant that summarizes and recommends. My design rules: show the criteria it used, let people change them, keep a way to check its work, and make clear who makes the final choice. Trust should match what the system can actually do (Lee & See, 2004)."
+      "a": "They move part of the choice into software. A chapter in the 2005 book already studied preference construction in agent-assisted online shopping (Murray & Häubl); today the agent can be an AI assistant that summarizes and recommends. My design rules: show the criteria it used, let people change them, keep a way to check its work, and make clear who makes the final choice. Trust should match what the system can actually do (Lee & See, 2004)."
     }
   ],
   "related": ["trust-signals-unknown-brand", "four-gates-why-customers-hesitate", "what-is-consumer-behavior"],
@@ -41,7 +41,7 @@ What changed is the setting: phones instead of desktops, feeds instead of homepa
 
 ## What is the book "Online Consumer Psychology" about?
 
-It's an edited volume with an introduction and 23 chapters, published in 2005 by Lawrence Erlbaum Associates and now sold by Psychology Press. The editors were Haugtvedt (Ohio State University), Machleit (University of Cincinnati) and Yalch (University of Washington). The chapters are edited versions of papers from the 2001 Advertising and Consumer Psychology Conference in Seattle, sponsored by the Society for Consumer Psychology. It builds on an earlier conference volume, "Advertising and the World Wide Web" (Schumann & Thorson, 1999).
+It's an edited volume with an introduction and 23 chapters, published in 2005 by Lawrence Erlbaum Associates and now sold by Psychology Press. The editors were Haugtvedt (Ohio State University), Machleit (University of Cincinnati) and Yalch (University of Washington). It contains edited versions of papers presented at the 2001 Advertising and Consumer Psychology Conference in Seattle, sponsored by the Society for Consumer Psychology. It builds on an earlier conference volume, "Advertising and the World Wide Web" (Schumann & Thorson, 1999).
 
 Its six parts show what consumer behavior in the virtual world meant to researchers then:
 
@@ -58,13 +58,13 @@ Two topics I'd expect today are absent: there's no chapter on online trust and n
 
 Four of the book's questions still apply almost unchanged, in my view.
 
-**Published word of mouth.** Schindler and Bickart treat consumer-generated information as something people publish online for others to find and use. That holds today; what changed is the scale. Uncertain people look to what others like them have done (Cialdini, 1984), and online they can read it at the moment of decision.
+**Published word of mouth.** Schindler and Bickart's chapter on online reviews and forums frames them as "published word of mouth": consumer-generated information that others can refer to. That holds today; what changed is the scale. Uncertain people look to what others like them have done (Cialdini, 1984), and online they can read it at the moment of decision.
 
-**Ads without clicks.** Mitchell and Valenzuela asked how banner ads affect brand choice without click-through. It's still the right question for feeds, where most people scroll past. A click-through rate captures one behavior, not an ad's whole effect, so I judge ads by what people do later.
+**Ads without clicks.** Mitchell and Valenzuela asked how banner ads affect brand choice without click-through. It's still the right question for feeds, where most people scroll past. A click-through rate captures one behavior, not an ad's whole effect, so I'd judge ads by what people do later.
 
-**The look of a site.** The Site Design part studies the effects of visual consistency on site identity and product attitude. I work on a similar assumption: how a site looks colors how people judge what it sells. So I keep one promise, one look and one call to action consistent across pages and languages.
+**The look of a site.** Omanson, Cline and Nordhielm studied the effects of visual consistency on site identity and product attitude. I work on a similar assumption: how a site looks colors how people judge what it sells. So I keep one promise, one look and one call to action consistent across pages and languages.
 
-**Online plus offline.** Levin, Levin and Heath looked for the best ways to combine online and offline shopping features. For considered purchases that mix is now normal: a website is one step in a journey that may end in a call or a meeting, so the next offline step should be visible. The offline foundations still apply too, as I cover in [what consumer behavior is](/insights/what-is-consumer-behavior).
+**Online plus offline.** Levin, Levin and Heath looked for the best ways to combine online and offline shopping features. For considered purchases that mix is now normal: a website is one step in a journey that may end in a call or a meeting, so the next offline step should be visible. The basics of how people decide still apply too; I cover them in [what consumer behavior is](/insights/what-is-consumer-behavior).
 
 ## How has online consumer behavior changed since 2005?
 
@@ -87,7 +87,7 @@ There's also a new reader. If an assistant summarizes your page for a buyer, tha
 
 I call this summary the then-and-now table; the verdicts are mine.
 
-| 2005 theme | Verdict | Design implication today |
+| Theme | Verdict | Design implication today |
 | --- | --- | --- |
 | Published word of mouth (Community) | Still true, at far larger scale | Put specific, checkable reviews next to the ask |
 | Ads without click-through (Advertising) | Still the right question | Judge ads by later behavior, not click-through alone |
@@ -96,8 +96,8 @@ I call this summary the then-and-now table; the verdicts are mine.
 | Online consumption communities (Community) | Needs updating: they live on others' platforms | Earn reputation where people talk, and answer there |
 | Web-based consumer research (Research Tools) | Still useful, with a warning | Pair analytics for where people drop with interviews for why |
 | Trust in an unknown seller | No chapter in 2005; I'd add it | Place proof and risk reversal where the doubt appears |
-| Value before sign-up | New since 2005 | Show a first result before asking for an account |
-| Dark patterns | New since 2005 | Test every persuasive element for honesty before it ships |
+| Value before sign-up | Now expected, in my experience | Show a first result before asking for an account |
+| Dark patterns | New since 2005: named in 2010 | Test every persuasive element for honesty before it ships |
 
 The warning in the research row comes from Pham (2013), who argued that cheap online data can steer what gets studied. I go through his critique in [the seven sins of consumer psychology](/insights/seven-sins-of-consumer-psychology-pham).
 
@@ -107,7 +107,7 @@ The doubts haven't changed much since 2005; where they appear has. I organize th
 
 [[four-gates]]
 
-[Optimolds](/work/optimolds), an Italy-based composite engineering and mold-making firm, sells to risk-averse buyers: a bad mold ruins a production run. On the trilingual website and lead-generation funnel I designed and built, trust signals (reviews, reply time, accepted CAD formats, based in Italy) sit next to one clear call to action, a free 48-hour feasibility check that reverses the risk of the first step, and the form is a short CAD upload. That's the trust row in practice; I explain the placement in [trust signals for a brand nobody knows yet](/insights/trust-signals-unknown-brand).
+[Optimolds](/work/optimolds), an Italy-based composite engineering and mold-making firm, sells to risk-averse buyers: a bad mold ruins a production run. On the trilingual website and lead-generation funnel I designed and built, trust signals (reviews, reply time, accepted CAD formats, based in Italy) sit next to one clear call to action: a free 48-hour feasibility check that takes the risk out of the first step. The form is a short CAD upload. That's the trust row in practice; I explain the placement in [trust signals for a brand nobody knows yet](/insights/trust-signals-unknown-brand).
 
 [OopsCupid](/work/oopscupid), a relationship-assessment platform I designed and launched, takes the value-before-sign-up row literally. Its 15 free research-informed tests ask for no sign-up before the first result, a deliberate trade of email capture for a shorter path. Responses are scored by fixed rules into a six-axis profile, and an LLM only writes the narrative readout, which keeps each profile consistent and checkable.
 

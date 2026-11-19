@@ -24,7 +24,7 @@
     },
     {
       "q": "Is consumer psychologist a protected title?",
-      "a": "It depends on the country. In the UK, \"consumer psychologist\" is not one of the HCPC's nine protected titles, but using a protected one without registration is a criminal offence. In Italy, the title \"psicologo\" is reserved for psychologists enrolled in the Albo. In the US, state laws vary, and the model licensing acts treat a title containing \"psychologist\" as holding yourself out as one. Check the national regulator."
+      "a": "It depends on the country. In the UK, \"consumer psychologist\" is not one of the HCPC's nine protected titles, but using a protected one without registration is a criminal offense. In Italy, the title \"psicologo\" is reserved for psychologists enrolled in the Albo. In the US, state laws vary, and the model licensing acts treat a title containing \"psychologist\" as holding yourself out as one. Check the national regulator."
     },
     {
       "q": "What is the difference between a consumer psychologist and a consumer psychology consultant?",
@@ -47,7 +47,7 @@ If you're new to the field itself, start with [what consumer psychology is](/ins
 
 ## What does a consumer psychologist actually do?
 
-Whatever the setting, most projects run through the same six steps. If you're writing or reading a consumer psychologist job description, these are the responsibilities it should cover:
+As I see it, an applied project runs through six steps. If you're writing or reading a consumer psychologist job description, these are the responsibilities it should cover:
 
 1. Turn a business or policy question into a research question. "Why are sales flat?" becomes "At which step do interested buyers stop, and what are they unsure about there?"
 2. Choose the method: an experiment, a survey, an interview study, an analysis of behavioral data, or a mix.
@@ -78,9 +78,9 @@ Treat the titles as examples, not a standard. The same interview noted that jobs
 
 ## What questions do consumer psychologists get asked?
 
-These are the questions that actually arrive, roughly in the words clients use, with how they're usually answered:
+A realistic list, in the words clients tend to use, with how each is usually answered:
 
-- "Why do people get to checkout and not buy?" Funnel data for where, interviews or one-question surveys for why.
+- "Why do interested people stop before they buy or get in touch?" Funnel data for where, interviews or one-question surveys for why.
 - "Which of these three names, packs or messages should we launch?" A controlled comparison with the target audience, not a vote in the office.
 - "If we raise the price, who leaves?" Past purchase data, a carefully designed pricing study or a small live test.
 - "Which customers should we go after first?" Interviews across segments, ranked by evidence of real demand.
@@ -92,7 +92,7 @@ None of these is "tell us about our customers". Useful questions name a decision
 
 ## Is "consumer psychologist" a protected title?
 
-Not as such everywhere, but "psychologist" often is, and that shapes who does this work. My own position first: I'm not a psychologist. In Italy the title is protected, so I work as a behavioral scientist and consumer psychology consultant. I trained in experimental psychology, but I'm not registered with the Ordine degli Psicologi and I don't use the title.
+In some countries it effectively is, because the word "psychologist" is protected, and that shapes who does this work. My own position first: I'm not a psychologist. In Italy the title is protected, so I work as a behavioral scientist and consumer psychology consultant. I trained in experimental psychology, but I'm not registered with the Ordine degli Psicologi and I don't use the title.
 
 What the rules say in Italy, the UK and the US:
 

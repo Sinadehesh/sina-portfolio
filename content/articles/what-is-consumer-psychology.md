@@ -1,7 +1,7 @@
 ---
 {
   "title": "What Is Consumer Psychology? Definition, History and Examples",
-  "description": "What is consumer psychology? A clear definition, a short and accurate history, what the field studies, real examples, and how it differs from consumer behavior.",
+  "description": "What is consumer psychology? A clear definition, a short history, what the field studies with everyday examples, and how it differs from consumer behavior.",
   "topic": "consumer-psychology",
   "order": 8,
   "date": "2026-11-19",
@@ -28,7 +28,7 @@
     },
     {
       "q": "What is the difference between consumer psychology and consumer behavior?",
-      "a": "Consumer behavior is the broader field: everything people do as they learn about, want, buy, use and dispose of products, studied with tools from several disciplines. Consumer psychology is the part that explains the mental processes behind those actions, such as attention, memory, motivation, emotion and judgment. In practice the two overlap heavily, and many researchers work across both."
+      "a": "Consumer behavior is the broader field: everything people do as they learn about, want, buy, use and dispose of products, studied with tools from several disciplines. Consumer psychology is the part that explains the mental processes behind those actions, such as attention, memory, motivation, emotion and judgment. In practice the two overlap heavily, and one study can belong to both."
     },
     {
       "q": "Is consumer psychology manipulative?",
@@ -41,7 +41,7 @@
 ---
 Consumer psychology is the study of how people think, feel and decide as consumers: what they notice, what they want, how they choose, and how they use what they buy. The APA Dictionary of Psychology defines it as "the branch of psychology that studies the behavior of individuals as consumers and the marketing and communication techniques used to influence consumer decisions."
 
-That definition has two halves: the consumer's mind, and the persuasion aimed at it. The second half is why the field has argued about its own ethics for most of its history.
+That definition has two halves: the consumer's mind, and the persuasion aimed at it. The second half is why the field has argued about its own ethics for decades.
 
 I'm a behavioral scientist and consumer psychology consultant in Milan, and this field is the base of my work. Below is the field in brief, with a checklist for any purchase.
 
@@ -86,7 +86,7 @@ The topics are easier to use as questions about a purchase, in roughly the order
 | 7. Who else is in the decision? | Social influence | Reviews and "people like you chose this" as social proof (Cialdini, 1984) |
 | 8. Do they use it, keep it, recommend it or get rid of it? | Use and after the purchase | The subscription paid every month and never opened |
 
-The last row is the one academic research most often skips. Pham (2013) argued that the field concentrates on the moment of acquisition and its proxies, such as attitudes, choice and willingness to pay, and neglects desire, actual use and disposal. In my experience product teams share the blind spot: they study the comparison in row 6 and miss that people never noticed the offer, or never came back.
+Academic research tends to skip the last row. Pham (2013) argued that the field concentrates on the moment of acquisition and its proxies, such as attitudes, choice and willingness to pay, and neglects desire, actual use and disposal. In my experience product teams share the blind spot: they study the comparison in row 6 and miss that people never noticed the offer, or never came back.
 
 ## How do consumer psychologists study people?
 

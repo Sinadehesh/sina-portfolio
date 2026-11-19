@@ -7,9 +7,9 @@
   "date": "2026-11-19",
   "keywords": ["how to become a consumer psychologist", "consumer psychology degree", "consumer psychology careers", "consumer psychology masters", "consumer psychologist qualifications", "consumer psychology PhD"],
   "takeaways": [
-    "Most routes into consumer psychology start with a psychology degree and add marketing or research training; a PhD is the usual requirement only for academic careers.",
+    "Most routes into consumer psychology start with a psychology degree and add marketing or research training; academic careers usually go on to a PhD.",
     "Academic consumer psychologists mostly work in business schools, so the usual research route is a marketing PhD with a consumer behavior track.",
-    "Six skills matter on every route: research design, statistics, psychometrics, interviewing, clear writing and a portfolio of real studies with real people.",
+    "In my view, six skills matter on every route: research design, statistics, psychometrics, interviewing, clear writing and a portfolio of real studies with real people.",
     "Whether you may use the title \"psychologist\" depends on the country: in Italy it requires enrollment in the Albo, and in the UK some psychologist titles are protected.",
     "I took the behavioral scientist route: an experimental psychology master's and studies with real people, without registering as a psychologist."
   ],
@@ -32,7 +32,7 @@
     },
     {
       "q": "Can you become a consumer psychologist without a PhD?",
-      "a": "For academic research careers, a PhD is the standard route. Outside academia, psychology graduates have long gone into market research, advertising and marketing, usually under titles such as researcher, insights manager, UX researcher or behavioral scientist. Where \"psychologist\" itself is regulated, the title has its own requirements: in the US, the prevailing standard for independent practice is a doctoral degree in psychology."
+      "a": "For academic research careers, a PhD is the standard route. Outside academia, graduates in the field go into market research, advertising and marketing, often under titles such as researcher, insights manager, UX researcher or behavioral scientist. Where \"psychologist\" itself is regulated, the title has its own requirements: in the US, the prevailing standard for independent practice is a doctoral degree in psychology."
     }
   ],
   "related": ["what-does-a-consumer-psychologist-do", "what-does-a-behavioral-scientist-do", "what-does-a-ux-researcher-do"],
@@ -41,7 +41,7 @@
 ---
 To become a consumer psychologist, you usually study psychology, add training in marketing or business research, and build experience running studies with real consumers. For an academic career that path ends in a PhD, most often in a business school's marketing program, and whether you may then call yourself a "psychologist" depends on the country: in Italy and the US the title is regulated, and in the UK some psychologist titles are protected.
 
-I'll use my own route as a worked example, with one thing said plainly: I'm not a psychologist. I trained in experimental psychology and chose the behavioral scientist route rather than registering as a psychologist. Below are the three main routes, the skills all of them need, the title rules, and that example.
+I'll use my own route as a worked example, with one thing said plainly: I'm not a psychologist. I trained in experimental psychology and chose the behavioral scientist route, not the registered psychologist route. Below are the three main routes, the skills all of them need, the title rules, and that example.
 
 ## What are the routes into consumer psychology?
 
@@ -55,15 +55,15 @@ No single degree or license leads to this work. In practice people arrive by one
 
 ### The academic route
 
-In a 2008 careers interview for The Psychologist, the British Psychological Society's magazine, Mike Nicholson of Durham summed up the classic path: "A first degree in psychology, a master's in business or marketing then doing a PhD". The PhD is usually in marketing, because "the vast majority of academic consumer psychologists work in business schools rather than in social science departments" (Pham, 2013).
+In a 2008 careers interview for The Psychologist, the British Psychological Society's magazine, Mike Nicholson of Durham summed up one route: "A first degree in psychology, a master's in business or marketing then doing a PhD". The PhD is usually in marketing, because "the vast majority of academic consumer psychologists work in business schools rather than in social science departments" (Pham, 2013).
 
 Carnegie Mellon's Tepper School, for example, runs a marketing PhD with a Consumer Behavior track next to two modeling tracks, and NYU Stern's marketing PhD covers "consumer psychology, information processing, and judgment and decision making".
 
 ### The industry route
 
-Outside universities, jobs titled "consumer psychologist" are rare, as the same BPS interview noted, so the work happens under other names. The interview described graduates going into market research, advertising and marketing companies and marketing departments. In my experience you'll also find the work in UX research and behavioral science teams, testing how people respond to a product, a price or a flow; see [what a UX researcher does](/insights/what-does-a-ux-researcher-do) and [what a behavioral scientist does](/insights/what-does-a-behavioral-scientist-do).
+Outside universities, jobs titled "consumer psychologist" are rare, as the same BPS interview noted, so the work happens under other names. The interview described graduates going into market research, advertising and marketing. In my experience you'll also find the work in UX research and behavioral science teams, testing how people respond to a product, a price or a flow; see [what a UX researcher does](/insights/what-does-a-ux-researcher-do) and [what a behavioral scientist does](/insights/what-does-a-behavioral-scientist-do).
 
-If you want a master's, there are two kinds to choose from. Some programs pair consumer psychology with marketing or business: Heriot-Watt University's, for example, combines international marketing with consumer psychology. Others are broader psychology degrees with a consumer psychology course inside. Mine was the second kind.
+If you want a master's, there are broadly two kinds. Some programs pair consumer psychology with marketing or business: Heriot-Watt University's, for example, combines international marketing with consumer psychology. Others are broader psychology degrees with a consumer psychology course inside. Mine was the second kind.
 
 ### The consulting route
 
@@ -80,7 +80,7 @@ In my view, six skills matter whichever route you take. For each, here's how to 
 - Writing: can you turn a finding into a decision on one page? Show a memo someone acted on.
 - A portfolio of real projects: show a few studies with real people, each with its method, its result and its limits.
 
-Outside academia the portfolio does the most work, because it's the one item a hiring manager can check quickly.
+Outside academia, I think the portfolio does the most work, because it's the one item a hiring manager can check quickly.
 
 ## Can you call yourself a consumer psychologist? Titles in Italy, the UK and the US
 
@@ -96,18 +96,18 @@ So decide early whether you want the title or the work. If you want the title, f
 
 ## My route, as a worked example
 
-Here is the path I took, including the step I didn't take:
+Here is the path I took, including the route I didn't take:
 
 1. 2018, interviewing at volume. As a volunteer researcher at the Salami Rehabilitation Center in Shiraz, I conducted 200 semi-structured interviews and analyzed them with binary logistic regression in SPSS. I describe the method, not that study's question or findings, in [combining interviews with logistic regression](/insights/interviews-and-logistic-regression).
 2. 2020–2021, working with stakeholders. As co-founder of Guardbar in Shiraz, I led requirement gathering and stakeholder communication and wrote the business plan.
 3. 2022–2026, the training. An M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca: a two-year, 120-ECTS master's in the psychology degree class (LM-51), taught in English. It covered consumer psychology, psychometrics and quantitative methods, cognitive ergonomics and human-technology interaction, and my marks included 29/30 in Consumer Psychology.
-4. 2025, applied research inside a product. As a research intern at the university, I led the conceptual development of [RecallMate](/work/recallmate), an AI-assisted learning app, and its user research: multi-round interviews with thematic coding, Figma prototypes, pilot studies, usability tests and MoSCoW prioritization.
+4. 2025, applied research inside a product. As a research intern at the university, I led the conceptual development of [RecallMate](/work/recallmate), an AI-assisted learning app, and designed and ran its user research: multi-round interviews with thematic coding, Figma prototypes, pilot studies, usability tests and MoSCoW prioritization.
 5. The thesis, a controlled experiment. My [interview simulation study](/work/interview-simulation-study) was a within-subjects experiment with 96 participants in three conditions: self-view, an AI avatar and text only. Candidates were significantly more expressive with the AI avatar than when they saw themselves (p = .009).
 6. 2026, consulting. I consult on consumer psychology and growth for Optimolds, and I advised Musicity on market fit and go-to-market strategy.
 
 Across all of it, I've conducted and analyzed more than 240 interviews and usability tests.
 
-The step I didn't take was registering as a psychologist. I'm not enrolled in the Albo of the Ordine degli Psicologi, and I don't use the title. Officially, my degree prepares graduates to design interventions that change people's behavior and choices, including consumer behavior, to improve how people interact with technology, to run communication campaigns, and to apply psychological models to communication, marketing and ergonomics in companies, consulting firms, agencies and market research institutes, including as freelance consultants. That is the work I do, as a behavioral scientist and consumer psychology consultant.
+The route I didn't take is the regulated one to the title "psychologist". I'm not enrolled in the Albo of the Ordine degli Psicologi, and I don't use the title. Officially, my degree prepares graduates to design interventions that change people's behavior and choices, including consumer behavior, to improve how people interact with technology, to run communication campaigns, and to apply psychological models to communication, marketing and ergonomics in companies, consulting firms, agencies and market research institutes, including as freelance consultants. That is the work I do, as a behavioral scientist and consumer psychology consultant.
 
 ## What should you do first?
 

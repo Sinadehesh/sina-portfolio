@@ -7,11 +7,11 @@
   "date": "2026-11-19",
   "keywords": ["what does a behavioral scientist do", "behavioral scientist", "behavior scientist", "behavioral science jobs", "applied behavioral scientist", "behavioral scientist job description"],
   "takeaways": [
-    "A behavioral scientist studies why people do what they do, designs a change that makes a target behavior easier, and tests whether behavior actually moved.",
+    "Behavioral scientists find out why people act as they do, change the conditions around one target behavior, and test whether that behavior actually moved.",
     "Most projects follow one loop: define a single behavior, diagnose what blocks it, design for the confirmed barrier, and test before scaling anything.",
     "Behavioral scientists work in government, companies, consultancies, nonprofits and universities; the OECD's map records over 200 government teams applying behavioral science in 58 countries (OECD, 2024).",
     "Expect small effects: trials run by nudge units found much smaller effects than published academic studies, so every nudge is a hypothesis to test.",
-    "Frameworks such as COM-B, EAST and MINDSPACE help you ask better questions, but they don't replace evidence about what your users actually do."
+    "COM-B, EAST and MINDSPACE are checklists for asking better questions; a diagnosis still needs data on what your own users actually do."
   ],
   "faq": [
     {
