@@ -55,7 +55,7 @@ export interface AnovaCondition {
 export const personal = {
   name: "Sina Dehesh",
   tagline: "Consumer psychology, applied to products people choose.",
-  headline: "Sina Dehesh — Applied Psychologist & Consumer Psychology Consultant",
+  headline: "Sina Dehesh — Behavioral Scientist & Consumer Psychology Consultant",
   location: "Milan, Italy",
   email: "sinadehesh@gmail.com",
 } as const;

@@ -6,18 +6,18 @@
 
 export const site = {
   url: "https://sinadehesh.com",
-  title: "Sina Dehesh — Applied Psychologist & Consumer Psychology Consultant, Milan",
+  title: "Sina Dehesh — Behavioral Scientist & Consumer Psychology Consultant, Milan",
   description:
-    "Sina Dehesh is an applied psychologist and consumer psychology consultant in Milan, Italy: consumer decision-making research, conversion and lead-generation strategy, and engagement design for apps and games, tested with real people.",
+    "Sina Dehesh is a behavioral scientist and consumer psychology consultant in Milan, Italy: consumer decision-making research, conversion and lead-generation strategy, and engagement design for apps and games, tested with real people.",
   ogImage: "/opengraph-image",
   locale: "en_US",
 };
 
 export const personalInfo = {
   name: "Sina Dehesh",
-  headline: "Applied Psychologist & Consumer Psychology Consultant",
+  headline: "Behavioral Scientist & Consumer Psychology Consultant",
   jobTitles: [
-    "Applied Psychologist",
+    "Behavioral Scientist",
     "Consumer Psychology Consultant",
     "UX Researcher",
     "Behavioral & Game Designer",
@@ -35,7 +35,7 @@ export const personalInfo = {
   heroDescription:
     "Good ideas fail when nobody checks them with real people. I diagnose the psychological barrier that stops customers, design the fix, test it with real users, and measure whether it worked, in a website, a funnel, an app or a game.",
   summary:
-    "Sina Dehesh is an applied psychologist and consumer psychology consultant based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in designing and testing the websites, funnels, apps and games that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, including 29/30 in Consumer Psychology, 29/30 in Elements of Human-Technology Interaction and 28/30 in Cognitive Ergonomics. Sina has designed and released consumer products and games including Pukytoon (a feed of games anyone can make, in development), Gem Jar and Zombie Bomber (merge games), The Loop (a story game about AI and work), Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), DeBubble (gamified self-care), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (240+ interviews and usability tests, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and tests with real people: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
+    "Sina Dehesh is a behavioral scientist and consumer psychology consultant based in Milan, Italy, specializing in how people perceive, decide, buy and stay — and in designing and testing the websites, funnels, apps and games that act on it. Sina holds an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, including 29/30 in Consumer Psychology, 29/30 in Elements of Human-Technology Interaction and 28/30 in Cognitive Ergonomics. Sina has designed and released consumer products and games including Pukytoon (a feed of games anyone can make, in development), Gem Jar and Zombie Bomber (merge games), The Loop (a story game about AI and work), Costly (a real-money commitment app against doomscrolling), FloraLock, ShroomLock and CloudLock (learn-to-unlock app lockers), DeBubble (gamified self-care), OopsCupid (a psychometric relationship-assessment platform), Daily Hustle and The Daily Sublime. As a consultant, Sina designs consumer-psychology-driven websites and lead-generation funnels, for example for Optimolds, and advises on market fit and go-to-market strategy, for example for Musicity. The work combines consumer psychology and behavioral economics, quantitative UX research (240+ interviews and usability tests, repeated-measures ANOVA, logistic regression), product strategy (Kano, MoSCoW, PRINCE2, Agile) and tests with real people: moving ads out of the flow of play made playing time go up dramatically, and a swipe borrowed from dating apps got students to enter much more data.",
   languages: [
     { name: "English", code: "en", level: "C1" },
     { name: "Persian", code: "fa", level: "Native" },
@@ -53,7 +53,7 @@ export const proofStats = [
 
 /** First-person bio for the homepage About section. */
 export const about = [
-  "I'm Sina Dehesh, an applied psychologist and consumer psychology consultant based in Milan. My M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca covered research design, psychometrics, quantitative methods, cognitive ergonomics, human-technology interaction and consumer psychology — how people perceive, decide and buy. My best marks were in Consumer Psychology (29/30), Elements of Human-Technology Interaction (29/30) and Cognitive Ergonomics (28/30).",
+  "I'm Sina Dehesh, a behavioral scientist and consumer psychology consultant based in Milan. My M.Sc. in Applied Experimental Psychological Sciences at the University of Milano-Bicocca covered research design, psychometrics, quantitative methods, cognitive ergonomics, human-technology interaction and consumer psychology — how people perceive, decide and buy. My best marks were in Consumer Psychology (29/30), Elements of Human-Technology Interaction (29/30) and Cognitive Ergonomics (28/30).",
   "I consult on consumer psychology and growth, and I make my own apps and games to test ideas on real people: the apps, games and websites below were researched, designed and tested end to end. My thesis was a controlled experiment with 96 participants; before that I ran 200 research interviews as a volunteer researcher and co-founded Guardbar.",
   "Two of my small ideas moved a number. In one of my games the first ad came after 25 clicks, and my friends played for about five minutes before saying it was getting annoying. After reading how Block Blast uses the game itself as the reason to watch ads, I moved the ads to the start and the end of a game, and playing time went up dramatically. On a platform for university students that I worked on with engineer friends, students were not entering enough data, so I suggested the swipe from dating apps, changed to fit data entry; in a test with engineering students they entered much more data and enjoyed it more.",
   "I work in English, Italian, Persian and German, with teams in Milan, Turin, across Europe and remotely.",
@@ -422,11 +422,15 @@ export const caseStudies: CaseStudy[] = [
     tagline: "App lockers that teach you something instead of saying no",
     published: true,
     category: "Consumer app",
-    status: "Closed testing",
+    status: "Live",
     schemaType: "MobileApplication",
     applicationCategory: "EducationalApplication",
     operatingSystem: "Android",
     url: "https://www.sinadehesh.com/app-lockers/",
+    googlePlay: [
+      { label: "ShroomLock", url: "https://play.google.com/store/apps/details?id=com.shroomlock.app" },
+      { label: "CloudLock", url: "https://play.google.com/store/apps/details?id=com.cloudlock.app" },
+    ],
     role: "Founder",
     organization: "Own product",
     summary:
@@ -438,7 +442,7 @@ export const caseStudies: CaseStudy[] = [
         "Worthwhile friction that interrupts the automatic tap-and-scroll loop, spaced repetition (reviews after 1, 3, 7, 14 and 30 days), real look-alikes as wrong answers, a 10-second \"Genius Penalty\" against random tapping, and escape hatches that respect autonomy to reduce reactance.",
       stack: ["Behavioral friction design", "Spaced repetition", "Android apps on Google Play", "Offline, on-device data"],
       outcome:
-        "Three apps on one design — 70 plants, 71 mushrooms and 36 clouds with real photos — each with its own landing page and a closed test on Google Play.",
+        "Three apps on one design — 70 plants, 71 mushrooms and 36 clouds with real photos — each with its own landing page. ShroomLock and CloudLock went live on Google Play in November 2026, and Sina now promotes them with short video ads on TikTok; FloraLock is in closed testing.",
     },
     metrics: [
       { value: "177", label: "Species and cloud types with real photos" },
@@ -1279,23 +1283,24 @@ export const caseStudies: CaseStudy[] = [
     tagline: "A story-driven merge tycoon game for young players",
     published: true,
     category: "Game",
-    status: "Pre-launch",
+    status: "Live",
     schemaType: "MobileApplication",
     applicationCategory: "GameApplication",
     operatingSystem: "Android, Web",
     url: "https://sinadehesh.github.io/animal-farm-merge/",
     play: { src: "https://sinadehesh.github.io/animal-farm-merge/", device: "phone" },
+    googlePlay: [{ label: "Merge Keeper", url: "https://play.google.com/store/apps/details?id=com.sinadehesh.mergefarmstead" }],
     role: "Founder & game designer",
     organization: "Own product",
     summary:
-      "Merge Farmstead is a farm merge game wrapped in a mystery: for a hundred years the Golden Bell rang over Sunnyvale every night, and now it is gone. As Clara, the new farmer, you fix the farm and follow the clues to find it before a land developer takes the valley. The new version adds the town itself: seven places in Sunnyvale to restore and townspeople to help, plus a Market, Land Deeds, a Growth Guide that makes merges one size bigger, Daily Deals, a Wishing Well, Missions and a 28-day Season Pass. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start.",
+      "Merge Farmstead is a farm merge game wrapped in a mystery: for a hundred years the Golden Bell rang over Sunnyvale every night, and now it is gone. As Clara, the new farmer, you fix the farm and follow the clues to find it before a land developer takes the valley. The new version adds the town itself: seven places in Sunnyvale to restore and townspeople to help, plus a Market, Land Deeds, a Growth Guide that makes merges one size bigger, Daily Deals, a Wishing Well, Missions and a 28-day Season Pass. Every story line is written at a second-to-third-grade reading level, and ads are requested as child-directed and non-personalized from the start. On Google Play it is called Merge Keeper: Mystery & Puzzle.",
     impact: {
       problem:
         "Merge games are sticky but hollow, and many aimed at children monetize through ad and purchase flows that were never designed for them.",
       mechanism:
         "Merge-and-upgrade progression for steady competence wins, a chaptered mystery with clues and suspects for curiosity, a town that visibly comes back to life as you restore it, daily and seasonal goals (Daily Deals, Missions, a 28-day Season Pass), and child-directed, non-personalized ad requests.",
       stack: ["Game design", "Story written for young readers", "Town restoration and a 28-day season pass", "Child-directed, non-personalized ads"],
-      outcome: "The new version is playable on the web, with a full story bible and an Android build prepared for release.",
+      outcome: "The new version is playable on the web, and the Android version went into production on Google Play in November 2026 as Merge Keeper: Mystery & Puzzle, which Sina now promotes with short video ads on TikTok. A full story bible backs every chapter.",
     },
     metrics: [
       { value: "7–9", label: "Reading age for all story text" },

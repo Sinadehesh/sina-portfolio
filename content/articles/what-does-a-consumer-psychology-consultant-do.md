@@ -10,7 +10,7 @@
     "A consumer psychology consultant finds the doubt that stops customers from deciding, changes the offer or flow to answer it, and measures whether behavior changed.",
     "The work runs in five steps: diagnose, research, redesign, build and measure. Without the last two, you have a recommendation, not a result.",
     "Hire one when people reach you but don't act, when tests keep coming back flat, or when a big bet rests on opinions.",
-    "This is applied psychology, not therapy: I'm an applied psychologist by training, and the subject is a buying decision, not a person's mental health.",
+    "This is applied psychology, not therapy: I'm a behavioral scientist trained in psychology, and the subject is a buying decision, not a person's mental health.",
     "A good first engagement is a funnel psychology audit: each drop-off named, matched to a barrier, and paired with a specific change and a way to measure it."
   ],
   "faq": [
@@ -20,7 +20,7 @@
     },
     {
       "q": "Is a consumer psychology consultant a psychologist?",
-      "a": "Not necessarily; it depends on the person's training. I'm an applied psychologist by training, with an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca, and I work as a consumer psychology consultant. The work is on decisions in a market, why buyers hesitate, choose or leave, not therapy: I don't assess or treat people."
+      "a": "Not necessarily. In Italy, psychologist is a protected professional title for members of the Ordine degli Psicologi, so I describe myself as a behavioral scientist: I hold an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca and work as a consumer psychology consultant. The work is on decisions in a market, why buyers hesitate, choose or leave, not therapy: I don't assess or treat people."
     },
     {
       "q": "How is a consumer psychology consultant different from a CRO specialist?",
@@ -41,7 +41,7 @@
 ---
 A consumer psychology consultant works out why customers hesitate, choose or leave, and then changes the offer, the message or the product so the decision gets easier. The work is grounded in evidence about how real buyers decide, and it ends with a measured change in what they do, not with a slide deck.
 
-I'm an applied psychologist and consumer psychology consultant based in Milan. Below is the role as I practice it: the steps, how it differs from the agencies and specialists you may already use, the signs you need one, and what a first engagement looks like.
+I'm a behavioral scientist and consumer psychology consultant based in Milan. Below is the role as I practice it: the steps, how it differs from the agencies and specialists you may already use, the signs you need one, and what a first engagement looks like.
 
 ## What does a consumer psychology consultant actually do?
 
@@ -74,7 +74,7 @@ My own angle is the combination of consumer psychology, research methods and tes
 
 ## Is a consumer psychology consultant a psychologist?
 
-Not necessarily. I am one: an applied psychologist by training, with an M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca focused on consumer psychology, psychometrics and human-technology interaction. The words matter, though: my work is on buying decisions, not therapy, and I don't assess or treat people.
+Not necessarily. In Italy, "psychologist" is a protected professional title for members of the Ordine degli Psicologi, so I describe myself as a behavioral scientist: my M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca focused on consumer psychology, psychometrics and human-technology interaction. The words matter: my work is on buying decisions, not therapy, and I don't assess or treat people.
 
 The unit I work on is a decision in a market: a buyer choosing a supplier, a visitor deciding whether to fill in a form, a user deciding whether to come back tomorrow. If you need support with someone's wellbeing, you need a therapist. If you need to know why people abandon your quote form, that's my job.
 

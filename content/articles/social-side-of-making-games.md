@@ -41,7 +41,7 @@
 ---
 The social side of making games is what turns a tool into a medium. Once anyone can make a game in minutes, the point stops being the game alone and becomes the people around it: who made it, who it's for, and who answers it. A game made in ten minutes for one friend can matter more than a polished game made for no one in particular.
 
-I'm an applied psychologist, and I'm designing [Pukytoon](/work/pukytoon), a feed of games anyone can make, which is still in development. [The democratization of game development](/insights/democratization-of-game-development) is usually told as a story about tools. I think the social side decides whether it happens, so here it is piece by piece: what changes between people when everyone can make games, and what that asks of the design.
+I'm a behavioral scientist, and I'm designing [Pukytoon](/work/pukytoon), a feed of games anyone can make, which is still in development. [The democratization of game development](/insights/democratization-of-game-development) is usually told as a story about tools. I think the social side decides whether it happens, so here it is piece by piece: what changes between people when everyone can make games, and what that asks of the design.
 
 ## Why do people make games for each other?
 

@@ -31,7 +31,7 @@
     },
     {
       "q": "Who is behind Pukytoon?",
-      "a": "I am. I'm Sina Dehesh, an applied psychologist and consumer psychology consultant in Milan, Italy, and Pukytoon is my own product: I'm its founder and I design it. I've also designed games like Gem Jar, Zombie Bomber and The Loop, and apps like OopsCupid and Costly."
+      "a": "I am. I'm Sina Dehesh, a behavioral scientist and consumer psychology consultant in Milan, Italy, and Pukytoon is my own product: I'm its founder and I design it. I've also designed games like Gem Jar, Zombie Bomber and The Loop, and apps like OopsCupid and Costly."
     }
   ],
   "related": ["democratization-of-game-development", "social-side-of-making-games", "ai-made-games-claude-artifacts"],
@@ -40,7 +40,7 @@
 ---
 Pukytoon is a feed of games anyone can make. You swipe through games like short videos, one per screen. You can make your own in a Creator Studio without writing a line of code. And if you've made a game with Claude, Gemini or Kimi, you can paste its link and it becomes a card in the feed, next to everyone else's.
 
-I'm Sina Dehesh, an applied psychologist and consumer psychology consultant in Milan, and [Pukytoon](/work/pukytoon) is my own product. It's still in development. This is why I'm building it, the decisions I've made so far, and what comes next.
+I'm Sina Dehesh, a behavioral scientist and consumer psychology consultant in Milan, and [Pukytoon](/work/pukytoon) is my own product. It's still in development. This is why I'm building it, the decisions I've made so far, and what comes next.
 
 ## Why build Pukytoon?
 

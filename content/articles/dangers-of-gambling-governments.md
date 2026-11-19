@@ -41,7 +41,7 @@
 ---
 Gambling's danger is that it's designed to work on everyone's psychology, while its harm falls hardest on the people who can least afford it. And it's spreading faster than at any time I can remember: betting apps in every pocket, sports betting legal across most of the United States, prediction markets that take bets on elections, games that sell random rewards, and governments that don't just regulate gambling but run it, and even use it as a policy tool.
 
-I'm an applied psychologist in Milan, and I built [Dopamine Box](/work/dopamine-box), a behavioral experiment on betting that runs on mock tokens with no real money, to study how people bet. This is what I think everyone should know about where gambling is going and why it works so well.
+I'm a behavioral scientist in Milan, and I built [Dopamine Box](/work/dopamine-box), a behavioral experiment on betting that runs on mock tokens with no real money, to study how people bet. This is what I think everyone should know about where gambling is going and why it works so well.
 
 ## How is gambling spreading?
 

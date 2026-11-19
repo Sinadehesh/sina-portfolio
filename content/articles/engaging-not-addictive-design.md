@@ -36,7 +36,7 @@
 ---
 I design apps and games to be very engaging, and I work just as hard to make sure they aren't addictive. The difference is simple to say and hard to build: people should come back because something adds to their day, and they should be able to leave whenever they like, at no cost. Engagement earns each return; addiction makes leaving feel expensive.
 
-I'm an applied psychologist, and I write about where that line falls in [engagement vs. addiction](/insights/engagement-vs-addiction-healthy-engagement). This article is about my own work: the rules I hold my products to, how they measure up, and the mechanics I watch most closely.
+I'm a behavioral scientist, and I write about where that line falls in [engagement vs. addiction](/insights/engagement-vs-addiction-healthy-engagement). This article is about my own work: the rules I hold my products to, how they measure up, and the mechanics I watch most closely.
 
 ## My rules for engagement without addiction
 

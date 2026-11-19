@@ -41,7 +41,7 @@
 ---
 The democratization of news is the long shift from a few printers and editors deciding what the public learns to anyone with a phone being able to report what they see. It came in steps: printed news sheets in the 1600s, the penny press in the 1830s, and then blogs, phones and social feeds that turned witnesses into reporters. Each step widened who could tell the news, and each one changed what it takes to trust it.
 
-I'm an applied psychologist, and much of my work is about how people decide what to trust. It's the same question I ask when I design products, including [Pukytoon](/work/pukytoon), a feed of games anyone can make. Here's how news opened up, what we gained and lost, and the psychology that decides what spreads.
+I'm a behavioral scientist, and much of my work is about how people decide what to trust. It's the same question I ask when I design products, including [Pukytoon](/work/pukytoon), a feed of games anyone can make. Here's how news opened up, what we gained and lost, and the psychology that decides what spreads.
 
 ## How did news begin?
 
