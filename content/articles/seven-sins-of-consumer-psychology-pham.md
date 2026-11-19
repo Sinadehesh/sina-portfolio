@@ -63,7 +63,7 @@ In Pham's order, with his wording from the abstract and the remedies from his co
 
 ## What else does Pham recommend?
 
-Beyond the seven remedies, Pham asks for structural change: more applied, MBA-level courses and teaching in doctoral training; researchers who increase "their physical exposure to businesses, policy agencies, and actual consumers… through consulting, executive teaching, and field visits"; and incentives "rebalanced" toward real research impact rather than the "number of A's", meaning top-journal publications.
+Beyond the seven remedies, Pham asks for structural change: more applied, MBA-level courses and teaching in doctoral training; researchers who increase "their physical exposure to businesses, policy agencies, and actual consumers… through consulting, executive teaching, and field visits"; and incentives rebalanced toward real research impact rather than the "number of A's", meaning top-journal publications.
 
 For practitioners, field-theory validation cuts both ways: what consultants believe is worth testing, and unproven until tested. My own Four Gates model of why customers hesitate is that kind of theory: by Pham's standard, a set of hypotheses, not a finding.
 
@@ -78,7 +78,7 @@ Pham wrote about academic research, but in my view every sin has a company versi
 | Narrow epistemology | Only A/B tests count; interviews are "anecdotes". | Explore, then describe, then test, and treat pet theories, mine included, as hypotheses. |
 | Disregard for content | The team can name the mechanism but not what customers want, fear or value. | Write the doubt or desire in the customer's words before picking a mechanism. |
 | Overgeneralization | A famous study becomes a rule: "fewer options always convert better". | Treat a published effect as a hypothesis here, and size the test for a small effect. |
-| Convenience | Tests with colleagues, friends or a cheap panel; "would you buy this?" surveys. | Recruit from the real market and watch behavior, especially for emotional decisions. |
+| Research by convenience | Tests with colleagues, friends or a cheap panel; "would you buy this?" surveys. | Recruit from the real market and watch behavior, especially for emotional decisions. |
 | Theories of studies | An "insight" that exists only inside one test setup. | Check that the test models the real decision: the real people, stakes and setting. |
 
 In my view, companies import overgeneralization most directly: a famous effect becomes a design rule before anyone checks it with their own customers. Nudges show the pattern: [effects tested at scale by nudge units are much smaller than in published studies](/insights/do-nudges-work-evidence-for-product-teams) (DellaVigna & Linos, 2022).
@@ -99,7 +99,7 @@ Pham's remedy applies: replication with real candidates, other avatars and other
 
 ## How do you do consumer research with fewer sins?
 
-In client work, my safeguard is to combine methods whose weaknesses differ. For [Musicity](/work/musicity), a music platform with three segments, I ran semi-structured interviews with artists, listeners and venues and coded them thematically into a ranked jobs-to-be-done view of demand, weighting what people did over what they said when the two conflicted. That covers more than the purchase (sin 1), builds its ranking inductively rather than testing a prior hypothesis (sin 3), centers what people are trying to get done (sin 4) and talks to the real market (sin 6). The method is in [jobs-to-be-done interviews for market fit](/insights/jobs-to-be-done-market-fit-interviews).
+In client work, my safeguard is to combine methods whose weaknesses differ. For [Musicity](/work/musicity), a music platform with three segments, I ran semi-structured interviews with artists, listeners and venues and coded them thematically into a ranked jobs-to-be-done view of demand, weighting what people did over what they said when the two conflicted. That covers more than the purchase (sin 1), builds its ranking from the evidence rather than testing a prior hypothesis (sin 3), centers what people are trying to get done (sin 4) and talks to the real market (sin 6). The method is in [jobs-to-be-done interviews for market fit](/insights/jobs-to-be-done-market-fit-interviews).
 
 Its weak spot mirrors my thesis: interviews are rich in content and thin on control, so I treat any ranking they produce as a strong hypothesis, not proof. Exploring with interviews and then testing with behavior is how I approach [behavioral science consulting](/behavioral-science), and the seven-sins audit is how I check research plans in [consumer psychology projects](/consumer-psychology).
 

@@ -7,7 +7,7 @@
   "date": "2026-11-19",
   "keywords": ["online consumer psychology", "online consumer behavior psychology", "Haugtvedt online consumer psychology", "consumer behavior in the virtual world", "psychology of online shopping", "online consumer behavior"],
   "takeaways": [
-    "Most questions online consumer psychology asked in 2005 still matter: how published word of mouth shapes choice, whether ads work without clicks, how people choose with software's help.",
+    "Most questions online consumer psychology asked in 2005 still matter: how published word of mouth passes on product experiences, whether ads work without clicks, how people choose with software's help.",
     "The 2005 volume edited by Haugtvedt, Machleit and Yalch has six parts: community, advertising, customization, site design, decision making, and research tools.",
     "What changed, in my view, is the setting: phones instead of desktops, feeds instead of homepages, and AI assistants in the role of the 2005 shopping agent.",
     "The book has no chapter on online trust; for an unknown brand today I'd start there, with checkable proof placed next to the ask.",
@@ -35,7 +35,7 @@
   "caseStudies": ["optimolds", "oopscupid"]
 }
 ---
-Online consumer psychology studies how people perceive, judge and decide when they shop through a screen, and most of its core questions have held up for two decades. How published word of mouth shapes a choice, whether an ad works when nobody clicks, how a site's look relates to what people think of its products, and how people choose with a shopping agent's help were all on the table in 2005, and each still matters for a website, an app or a funnel.
+Online consumer psychology studies how people perceive, judge and decide when they shop through a screen, and most of its core questions have held up for two decades. How published word of mouth passes product experiences between consumers, whether an ad works when nobody clicks, how a site's look relates to what people think of its products, and how people choose with a shopping agent's help were all on the table in 2005, and each still matters for a website, an app or a funnel.
 
 What changed is the setting: phones instead of desktops, feeds instead of homepages, AI assistants where there were shopping agents. To separate what holds from what doesn't, I use one book as a time capsule: "Online Consumer Psychology: Understanding and Influencing Consumer Behavior in the Virtual World", edited by Haugtvedt, Machleit and Yalch (2005). The verdicts below are my opinion, from designing websites, funnels and apps, not claims the chapters make.
 
@@ -52,7 +52,7 @@ Its six parts show what consumer behavior in the virtual world meant to research
 5. Decision Making (6), including how to combine online and offline shopping features (Levin, Levin & Heath) and an exploratory study of online auctions (Sivadas, Stern, Mehta & Jones).
 6. Research Tools and Approaches (2), including web-based consumer research (Englis, Solomon & Danskin).
 
-Two topics I'd expect today are absent: there's no chapter on online trust and none on web atmospherics, the "store atmosphere" of a page. The closest is the Site Design part.
+Two topics I'd expect today are absent: there's no chapter on online trust and none on web atmospherics, the "store atmosphere" of a page. For atmospherics, the closest is the Site Design part.
 
 ## Which ideas from 2005 still hold?
 
