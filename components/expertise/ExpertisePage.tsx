@@ -6,7 +6,7 @@ import { MediaSlot } from "@/components/ui/MediaSlot";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { WorkTile } from "@/components/work/WorkTile";
 import { getArticle, type Article } from "@/lib/articles";
-import { getCaseStudy, personalInfo } from "@/lib/content";
+import { education, getCaseStudy, personalInfo } from "@/lib/content";
 import { consumerPsychologyLink, expertise, type Expertise } from "@/lib/expertise";
 import { absoluteUrl, breadcrumbNode, caseStudyPath, faqPageNode, PERSON_ID } from "@/lib/schema";
 
@@ -55,6 +55,9 @@ export default function ExpertisePage({ page: e }: { page: Expertise }) {
   const proof = e.proof.map((slug) => getCaseStudy(slug)).filter((c) => c !== undefined);
   const articles = e.articles.map((slug) => getArticle(slug)).filter((a): a is Article => Boolean(a));
   const mail = `mailto:${personalInfo.email}?subject=${encodeURIComponent(e.serviceName)}`;
+  const degree = education[0];
+  const unknown = e.training.courses.filter((c) => !degree.coursework.includes(c));
+  if (unknown.length) throw new Error(`lib/expertise.ts (${e.slug}): unknown course ${unknown.join(", ")}`);
 
   return (
     <>
@@ -127,6 +130,20 @@ export default function ExpertisePage({ page: e }: { page: Expertise }) {
             </div>
           ))}
         </dl>
+        <div className="mt-10 rounded-2xl bg-white/40 p-7 ring-1 ring-ink/10 md:p-8">
+          <h3 className="font-mono text-[0.75rem] tracking-[0.16em] text-ember-ink uppercase">What I studied for this</h3>
+          <p className="mt-3 text-[0.9375rem] text-ink-dim">
+            {degree.degree}, {degree.institution}. {degree.format}.
+          </p>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {e.training.courses.map((c) => (
+              <li key={c} className="rounded-full border border-ink/15 bg-paper px-3.5 py-1.5 text-sm text-ink">
+                {c}
+              </li>
+            ))}
+          </ul>
+          {e.training.note && <p className="mt-4 max-w-[70ch] text-[0.9375rem] text-ink-dim">{e.training.note}</p>}
+        </div>
       </Section>
 
       <Section id="methods" tone="paper-deep">

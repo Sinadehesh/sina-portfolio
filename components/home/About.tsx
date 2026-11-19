@@ -64,8 +64,11 @@ export default function About() {
                     {e.period ? ` · ${e.period}` : ""}
                   </p>
                   <p className="mt-3 text-[0.9375rem] text-ink-dim">
-                    Thesis: a controlled experiment with 96 participants — seeing yourself in an automated interview
-                    makes you more expressive (p = .009).
+                    {e.format}. Coursework included {e.coursework.slice(0, 6).join(", ")} and more.
+                  </p>
+                  <p className="mt-3 text-[0.9375rem] text-ink-dim">
+                    Thesis: a controlled experiment with 96 participants — candidates were more expressive with an AI
+                    avatar than when they saw themselves on screen (p = .009).
                   </p>
                   <a href={caseStudyPath("interview-simulation-study")} className="link-arrow mt-3 text-sm text-ink">
                     The study <span aria-hidden="true">→</span>

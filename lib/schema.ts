@@ -76,6 +76,8 @@ export function personNode(): Person {
         "@type": "EducationalOccupationalCredential" as const,
         credentialCategory: "degree",
         name: e.degree,
+        educationalLevel: "Master's degree (EQF level 7)",
+        description: `${e.format}. Coursework: ${e.coursework.join(", ")}.`,
         recognizedBy: university,
       })),
       ...certifications.map((c) => ({

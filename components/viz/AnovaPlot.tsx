@@ -8,8 +8,9 @@
  * (the raw data is not in the repo — the cloud is generated from the reported
  * M and SD with a seeded PRNG, and says so in the footnote and the table).
  *
- * The hero is the p = .009 contrast between "No visual feedback" and
- * "Self-referential feedback": it is the only gold in the frame.
+ * The hero is the p = .009 contrast between the AI avatar and self-view:
+ * it is the only gold in the frame. Not shown on the site until the real
+ * condition means are added to thesis.conditions in lib/data.ts.
  *
  * D3 owns the entire <svg> subtree; React owns the mount node, the mode
  * toggle, and the screen-reader table.
@@ -55,9 +56,9 @@ interface Dot {
   p: number;
 }
 
-/* The p = .009 contrast, per thesis.stats: self-referential vs. none. */
-const HERO_FROM = "no-feedback";
-const HERO_TO = "self-feedback";
+/* The p = .009 contrast, per thesis.stats: AI avatar vs. self-view. */
+const HERO_FROM = "self-view";
+const HERO_TO = "avatar";
 
 /** thesis.finding without its trailing "p = .009" — the bracket carries that. */
 const CALLOUT = thesis.finding
@@ -69,7 +70,7 @@ const ARIA_LABEL =
   thesis.conditions
     .map((c) => `${c.label}: mean ${c.mean.toFixed(2)}, SD ${c.sd.toFixed(2)}`)
     .join("; ") +
-  `. The contrast between no visual feedback and self-referential feedback is significant at p = ${thesis.pValue}.`;
+  `. The contrast between the AI avatar and self-view is significant at p = ${thesis.pValue}.`;
 
 const FOOTNOTE = `Individual points simulated from the reported M and SD · N = ${thesis.n}`;
 

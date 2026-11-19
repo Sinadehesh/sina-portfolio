@@ -27,6 +27,8 @@ export interface Expertise {
   serviceName: string;
   hue: string;
   services: { name: string; description: string }[];
+  /** Courses from the M.Sc. (names exactly as in lib/content.ts education[0].coursework). */
+  training: { courses: string[]; note?: string };
   servicesTitle: string;
   servicesLede: string;
   methods: { name: string; question: string; proof: string[] }[];
@@ -97,6 +99,16 @@ export const expertise: Expertise[] = [
           "Reward schedules, difficulty, friction and feedback for products people choose to use, which is how I design and test my own apps and games.",
       },
     ],
+    training: {
+      courses: [
+        "Social Cognition",
+        "Cognitive Psychology",
+        "Psychometrics and Quantitative Methods",
+        "Computational Modelling",
+        "Measurement Methods and Ambulatory Assessment",
+        "Evaluation of Psychological Interventions Laboratory",
+      ],
+    },
     methodsTitle: "Which behavioral science methods do I use, and where?",
     methods: [
       { name: "Controlled experiment", question: "Did this change cause the behavior?", proof: ["interview-simulation-study"] },
@@ -221,6 +233,16 @@ export const expertise: Expertise[] = [
           "A funnel redesigned around the barrier the research confirmed, whether uncertainty, low trust, effort or perceived risk, with the change measured against the old version.",
       },
     ],
+    training: {
+      courses: [
+        "Consumer Psychology",
+        "Social Cognition",
+        "Cognitive Psychology",
+        "Psychometrics and Quantitative Methods",
+        "Cognitive and Behavioral Measures",
+      ],
+      note: "The degree’s diploma supplement names this kind of work among the ones it prepares for: changing or encouraging people’s behavior and choices, consumer behavior included, in companies, consulting firms, communication agencies and market research institutes.",
+    },
     methodsTitle: "Which consumer behavior questions have I answered, and how?",
     methods: [
       { name: "Jobs-to-be-done interviews across segments", question: "Which customers should we win first?", proof: ["musicity"] },
@@ -333,6 +355,16 @@ export const expertise: Expertise[] = [
           "Findings turned into a ranked list of changes with Kano or MoSCoW, so research changes the roadmap instead of sitting in a slide deck.",
       },
     ],
+    training: {
+      courses: [
+        "Elements of Human-Technology Interaction",
+        "Cognitive Ergonomics",
+        "Cognitive and Behavioral Measures",
+        "Measurement Methods and Ambulatory Assessment",
+        "Psychometrics and Quantitative Methods",
+        "Transferable Research Skills Laboratory",
+      ],
+    },
     methodsTitle: "Which UX research methods do I use, and when?",
     methods: [
       { name: "Multi-round interviews with thematic coding", question: "What do users need, in their own words?", proof: ["recallmate"] },
@@ -435,6 +467,15 @@ export const expertise: Expertise[] = [
           "Which segment to win first, how to position for it and the launch order, with the evidence behind each choice.",
       },
     ],
+    training: {
+      courses: [
+        "Consumer Psychology",
+        "Psychometrics and Quantitative Methods",
+        "Social Cognition",
+        "Transferable Research Skills Laboratory",
+      ],
+      note: "The degree prepares graduates to apply psychological models to communication and marketing in companies, consulting firms, communication agencies and market research institutes, including as freelance consultants.",
+    },
     methodsTitle: "Which methods turn data into insight?",
     methods: [
       { name: "Segment interviews coded into jobs to be done", question: "Which customers want this most, and why?", proof: ["musicity"] },

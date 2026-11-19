@@ -264,13 +264,9 @@ export const thesis: {
   pValue: ".009",
   finding:
     "Candidates were more expressive with the AI avatar than with self-view, p = .009.",
-  // Not shown on the site: these means come from an earlier draft and do not match the thesis result
-  // (candidates were most expressive with the AI avatar). Replace them with the real values before showing AnovaPlot again.
-  conditions: [
-    { id: "no-feedback", label: "No visual feedback", mean: 3.41, sd: 0.82, ci: 0.17 },
-    { id: "other-feedback", label: "Interviewer-image feedback", mean: 3.62, sd: 0.79, ci: 0.16 },
-    { id: "self-feedback", label: "Self-referential feedback", mean: 4.18, sd: 0.74, ci: 0.15 },
-  ],
+  // No condition means are published. The draft values that used to sit here were wrong (the conditions are
+  // self-view, AI avatar and text only), so they were removed. AnovaPlot stays off the site until real values exist.
+  conditions: [],
   stats: [
     { k: "Design", v: "Within-subjects, repeated measures" },
     { k: "Sample", v: "N = 96" },
