@@ -25,6 +25,8 @@ export interface Expertise {
   /** Lede under the H1, also the Service description. */
   summary: string;
   serviceName: string;
+  /** For recruiters: the role this page matches and one line on availability. */
+  hiring: { role: string; text: string };
   hue: string;
   services: { name: string; description: string }[];
   /** Courses from the M.Sc. (names exactly as in lib/content.ts education[0].coursework). */
@@ -60,10 +62,14 @@ export const expertise: Expertise[] = [
     h1: "Behavioral scientist in Milan, Italy",
     metaTitle: "Behavioral Scientist in Milan, Italy — Sina Dehesh",
     description:
-      "Behavioral scientist in Milan: behavioral audits, experiments, choice architecture and habit design for websites, apps and games, tested with real people.",
+      "Behavioral scientist and behavioral expert in Milan: audits, experiments, choice architecture and habit design for websites, apps and games, tested with people.",
     summary:
       "I’m Sina Dehesh, a behavioral scientist in Milan. I study what people actually do, not what they say they will do, and design the change that makes the right behavior easier, in a website, a funnel, an app or a game. Then I test it with real people and measure whether behavior moved. I trained in experimental psychology at the University of Milano-Bicocca (M.Sc.), and my thesis was a controlled experiment with 96 participants.",
     serviceName: "Behavioral science consulting",
+    hiring: {
+      role: "Behavioral Scientist",
+      text: "Hiring a behavioral scientist? I’m open to in-house and contract roles in Milan, Turin or remote, as well as consulting projects.",
+    },
     hue: "#6a86b0",
     servicesTitle: "What does a behavioral scientist do for your product?",
     servicesLede: "Six kinds of work, from a one-off behavioral audit to designing and testing the change.",
@@ -196,13 +202,17 @@ export const expertise: Expertise[] = [
     name: "Consumer behavior",
     blurb: "Why customers buy, hesitate, switch or stay, and what to change.",
     eyebrow: "Consumer behavior expertise",
-    h1: "Consumer behavior consultant in Milan, Italy",
+    h1: "Consumer behavior expert in Milan, Italy",
     metaTitle: "Consumer Behavior Expert & Consultant in Milan — Sina Dehesh",
     description:
       "Consumer behavior expert in Milan: why customers buy, hesitate, switch or stay, researched with real people and turned into offers, funnels and products.",
     summary:
       "I’m Sina Dehesh, a behavioral scientist and consumer behavior consultant in Milan. When a company looks for a consumer behavior expert, the question is usually easy to ask and hard to answer: why do people buy, hesitate, switch or stay? I find out with interviews, data and experiments, then change the offer, the funnel or the product around what customers actually do, and measure it.",
     serviceName: "Consumer behavior consulting",
+    hiring: {
+      role: "Consumer Insights / Consumer Behavior",
+      text: "Hiring for consumer insights or consumer behavior? I’m open to in-house and contract roles in Milan, Turin or remote, as well as consulting projects.",
+    },
     hue: "#5f8f86",
     servicesTitle: "What can a consumer behavior consultant find out for you?",
     servicesLede: "Five pieces of work, each ending in a decision rather than a report.",
@@ -305,6 +315,12 @@ export const expertise: Expertise[] = [
         proof: ["musicity"],
       },
       {
+        question: "Is a consumer behavior expert the same as a consumer expert?",
+        answer:
+          "Not always. “Consumer expert” often means a consumer-rights journalist or advocate who helps people with complaints, refunds and scams. A consumer behavior expert works with companies on how customers decide, buy and stay. I’m the second kind: I research why people choose, hesitate or leave, and design and test the change.",
+        proof: [],
+      },
+      {
         question: "Can you work with my team remotely?",
         answer:
           "Yes. I’m based in Milan and work with teams in Milan, Turin, across Europe and remotely, in English, Italian, Persian and German. Interviews, analysis and design work run well online. For buyers across Europe, language matters: the Optimolds site runs in English, Italian and German because buyers judge a supplier in their own language.",
@@ -325,6 +341,10 @@ export const expertise: Expertise[] = [
     summary:
       "I’m Sina Dehesh, a UX researcher and behavioral scientist in Milan. I run the research that tells a team what users actually do and why: interviews, usability tests, surveys and controlled experiments. I’ve run more than 240 interviews and usability tests and a within-subjects experiment with 96 participants, and I turn what I find into decisions the team can test.",
     serviceName: "UX research",
+    hiring: {
+      role: "UX Researcher",
+      text: "Hiring a UX researcher? I’m open to in-house and contract roles in Milan, Turin or remote, as well as research projects.",
+    },
     hue: "#8a78b0",
     servicesTitle: "What UX research can I run for your team?",
     servicesLede: "From a first round of interviews to an experiment that settles an argument.",
@@ -425,20 +445,24 @@ export const expertise: Expertise[] = [
     ],
   },
   {
-    slug: "market-insights",
-    path: "/market-insights",
-    name: "Market & consumer insights",
+    slug: "market-research",
+    path: "/market-research",
+    name: "Market research & insights",
     blurb: "Which customers to win first, what they want and how to position.",
-    eyebrow: "Market & consumer insights",
-    h1: "Market insights consultant in Milan, Italy",
-    metaTitle: "Market & Consumer Insights Consultant in Milan — Sina Dehesh",
+    eyebrow: "Market research & consumer insights",
+    h1: "Market research and insights consultant in Milan",
+    metaTitle: "Market Research & Insights Consultant in Milan — Sina Dehesh",
     description:
-      "Market and consumer insights in Milan: interviews, jobs-to-be-done and benchmarking that show which customers to win first and how to position for them.",
+      "Market research and consumer insights in Milan: interviews, surveys, jobs-to-be-done and benchmarking that show which customers to win first, and why.",
     summary:
-      "I’m Sina Dehesh, a behavioral scientist and market insights consultant in Milan. Data tells you what happened; an insight tells you why, and what to do about it. I find insights with interviews, jobs-to-be-done analysis, surveys and competitive benchmarking, and turn them into go-to-market decisions: which customers to win first, what to promise them and how to reach them.",
-    serviceName: "Market and consumer insights",
+      "I’m Sina Dehesh, a behavioral scientist and market research consultant in Milan. Data tells you what happened; an insight tells you why, and what to do about it. I run market and consumer research with interviews, jobs-to-be-done analysis, surveys and competitive benchmarking, and turn it into go-to-market decisions: which customers to win first, what to promise them and how to reach them.",
+    serviceName: "Market research and consumer insights",
+    hiring: {
+      role: "Market Research & Insights",
+      text: "Hiring for market research or consumer insights? I’m open to in-house and contract roles in Milan, Turin or remote, as well as research projects.",
+    },
     hue: "#9a6aa0",
-    servicesTitle: "What market and consumer insight work do I do?",
+    servicesTitle: "What market research and insight work do I do?",
     servicesLede: "Small, fast studies chosen for the decision you need to make.",
     services: [
       {
@@ -498,9 +522,9 @@ export const expertise: Expertise[] = [
       ],
       note: "An insight is still a hypothesis until a test supports it. The last step is always to check it against what people do.",
     },
-    proofTitle: "Market insights in practice",
+    proofTitle: "Market research in practice",
     proof: ["musicity", "recallmate", "optimolds", "costly"],
-    writingTitle: "Articles on market and consumer insights",
+    writingTitle: "Articles on market research and insights",
     articles: [
       "what-are-market-insights",
       "jobs-to-be-done-market-fit-interviews",
@@ -509,7 +533,7 @@ export const expertise: Expertise[] = [
       "seven-sins-of-consumer-psychology-pham",
       "what-makes-a-good-consultant-research",
     ],
-    faqTitle: "Market and consumer insights: questions",
+    faqTitle: "Market research and insights: questions",
     faqs: [
       {
         question: "What are market insights?",
@@ -518,9 +542,9 @@ export const expertise: Expertise[] = [
         proof: ["musicity"],
       },
       {
-        question: "How is a market insights consultant different from a market research agency?",
+        question: "How is a market research consultant different from a market research agency?",
         answer:
-          "An agency usually runs large studies, such as surveys, panels and tracking, and delivers the data and findings. A market insights consultant works closer to the decision: smaller studies chosen for the question, an interpretation and a recommendation. For a national market sizing, hire an agency; for “which customers first, and why”, a consultant is often faster.",
+          "An agency usually runs large studies, such as surveys, panels and tracking, and delivers the data and findings. A market research and insights consultant works closer to the decision: smaller studies chosen for the question, an interpretation and a recommendation. For a national market sizing, hire an agency; for “which customers first, and why”, a consultant is often faster.",
         proof: ["musicity"],
       },
       {

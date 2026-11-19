@@ -83,7 +83,7 @@ for (const file of files) {
     if (w && !caseStudies.has(w[1])) E.push(`link to missing case study ${href}`);
   }
   if (!/\]\(\/insights\/[a-z0-9-]+\)/.test(body)) W.push("no link to another article");
-  if (!/\]\(\/(work\/[a-z0-9-]+|consumer-psychology|behavioral-science|consumer-behavior|ux-research|market-insights)\)/.test(body)) W.push("no link to a case study or a service page");
+  if (!/\]\(\/(work\/[a-z0-9-]+|consumer-psychology|behavioral-science|consumer-behavior|ux-research|market-research)\)/.test(body)) W.push("no link to a case study or a service page");
 
   const text = `${JSON.stringify(fm)}\n${body}`;
   for (const re of banned) if (re.test(text)) E.push(`filler phrase: ${re}`);
