@@ -5,7 +5,15 @@
   "topic": "consumer-psychology",
   "order": 2,
   "date": "2026-11-08",
-  "keywords": ["consumer psychology consultant", "what does a consumer psychology consultant do", "consumer psychology consultant Milan", "consumer psychology consulting", "funnel psychology audit", "hire a consumer psychology consultant"],
+  "keywords": [
+    "consumer psychology consultant",
+    "what does a consumer psychology consultant do",
+    "consumer psychology consultant Milan",
+    "consumer psychology consulting",
+    "funnel psychology audit",
+    "hire a consumer psychology consultant",
+    "consumer behavior consultant"
+  ],
   "takeaways": [
     "A consumer psychology consultant finds the doubt that stops customers from deciding, changes the offer or flow to answer it, and measures whether behavior changed.",
     "The work runs in five steps: diagnose, research, redesign, build and measure. Without the last two, you have a recommendation, not a result.",
@@ -35,8 +43,17 @@
       "a": "Yes. I'm based in Milan and work with teams in Milan, Turin, across Europe and remotely, in English, Italian, Persian and German. Most of the work, from funnel audits and interviews to analysis and design, runs well online. Meeting in person helps most for workshops and for talking to customers where they actually buy."
     }
   ],
-  "related": ["four-gates-why-customers-hesitate", "risk-reversal-b2b-lead-generation", "jobs-to-be-done-market-fit-interviews"],
-  "caseStudies": ["optimolds", "musicity", "oopscupid"]
+  "related": [
+    "four-gates-why-customers-hesitate",
+    "what-makes-a-good-consultant-research",
+    "what-is-a-consumer-consultant"
+  ],
+  "caseStudies": [
+    "optimolds",
+    "musicity",
+    "oopscupid"
+  ],
+  "updated": "2026-11-19"
 }
 ---
 A consumer psychology consultant works out why customers hesitate, choose or leave, and then changes the offer, the message or the product so the decision gets easier. The work is grounded in evidence about how real buyers decide, and it ends with a measured change in what they do, not with a slide deck.
@@ -70,13 +87,15 @@ All of these roles are valuable, and the lines blur in practice. The clearest di
 
 That's my opinion, not an industry standard. Good CRO specialists do research, and good agencies think hard about buyers. But the starting question shapes the answer. If you start from a page, you test pages. If you start from a decision, you sometimes find the page was never the problem: the first step cost too much, or the offer asked for trust it hadn't earned.
 
+You may also see the title "consumer consultant", which covers several quite different jobs; I sort them out in [what a consumer consultant is](/insights/what-is-a-consumer-consultant).
+
 My own angle is the combination of consumer psychology, research methods and testing with real people. The person who ran the interviews is the person who designs the change, tests it and reads the numbers.
 
 ## Is a consumer psychology consultant a psychologist?
 
 Not necessarily. In Italy, "psychologist" is a protected professional title for members of the Ordine degli Psicologi, so I describe myself as a behavioral scientist: my M.Sc. in Applied Experimental Psychological Sciences from the University of Milano-Bicocca focused on consumer psychology, psychometrics and human-technology interaction. The words matter: my work is on buying decisions, not therapy, and I don't assess or treat people.
 
-The unit I work on is a decision in a market: a buyer choosing a supplier, a visitor deciding whether to fill in a form, a user deciding whether to come back tomorrow. If you need support with someone's wellbeing, you need a therapist. If you need to know why people abandon your quote form, that's my job.
+The unit I work on is a decision in a market: a buyer choosing a supplier, a visitor deciding whether to fill in a form, a user deciding whether to come back tomorrow. If you need support with someone's wellbeing, you need a therapist. If you need to know why people abandon your quote form, that's my job. If you're curious about the other path, I've written about [what a consumer psychologist does](/insights/what-does-a-consumer-psychologist-do) and [how people become one](/insights/how-to-become-a-consumer-psychologist).
 
 ## When should you hire a consumer psychology consultant?
 
@@ -120,6 +139,6 @@ OopsCupid is my own product, a live relationship-assessment platform with 15 fre
 
 I'm based in Milan and work with teams in Milan, Turin, across Europe and remotely, in English, Italian, Persian and German. Language matters more than it sounds: the Optimolds site runs in English, Italian and German because buyers across Europe evaluate a supplier in their own language.
 
-Most of the work runs well online. Being in the same city helps for workshops and for meeting customers where they actually buy. You can see the services and how an engagement runs on my [consumer psychology consulting](/consumer-psychology) page.
+Most of the work runs well online. Being in the same city helps for workshops and for meeting customers where they actually buy. You can see the services and how an engagement runs on my [consumer psychology consulting](/consumer-psychology) page, and the neighboring work on my [consumer behavior](/consumer-behavior) and [market research](/market-research) pages.
 
-Whoever you hire, ask one question before you sign: "What will you measure, and what result would tell us you were wrong?" A consultant who can answer that in a sentence is treating your funnel as a hypothesis to test, not a canvas to decorate. That answer is most of the job.
+Whoever you hire, ask one question before you sign: "What will you measure, and what result would tell us you were wrong?" A consultant who can answer that in a sentence is treating your funnel as a hypothesis to test, not a canvas to decorate. That answer is most of the job. For the other signals worth checking before you hire, see [what makes a good consultant](/insights/what-makes-a-good-consultant-research).
