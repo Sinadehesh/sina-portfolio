@@ -297,7 +297,7 @@ export function buildLlmsFullTxt(): string {
     ]),
     "## Education and certifications",
     "",
-    ...education.flatMap((e) => [`### ${e.degree} — ${e.institution}`, "", ...e.achievements.map((a) => `- ${a}`), ""]),
+    ...education.flatMap((e) => [`### ${e.degree} — ${e.institution}`, "", ...e.achievements.map((a) => `- ${a}`), `- Coursework: ${e.coursework.join("; ")}.`, ""]),
     `Certifications: ${certifications.map((c) => `${c.name} (${c.issuer})`).join(", ")}.`,
     "",
     capabilityList(),
