@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import DecisionField from "@/components/home/DecisionField";
 import { personalInfo, proofStats } from "@/lib/content";
+import { expertise } from "@/lib/expertise";
 
 const mailto = `mailto:${personalInfo.email}?subject=${encodeURIComponent("Working together")}`;
 const delay = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
@@ -75,7 +76,7 @@ export default function Hero() {
                 style={delay(60)}
               >
                 <span aria-hidden="true" className="live-dot shrink-0" />
-                {personalInfo.name} — Consumer Psychology Consultant, Milan
+                {personalInfo.name} — {personalInfo.headline}, Milan
               </span>
               <span className="display hero-title mt-5 block">
                 <span className="line">
@@ -105,6 +106,23 @@ export default function Hero() {
                 See the work
               </a>
             </div>
+
+            <nav
+              aria-label="Roles"
+              className="rise mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.875rem] text-ivory-dim"
+              style={delay(680)}
+            >
+              <span className="font-mono text-[0.75rem] tracking-[0.16em] text-ivory-faint uppercase">Open to roles in</span>
+              {expertise.map((e) => (
+                <a
+                  key={e.path}
+                  href={e.path}
+                  className="underline decoration-ivory/25 underline-offset-4 transition-colors hover:text-ivory hover:decoration-ember"
+                >
+                  {e.name}
+                </a>
+              ))}
+            </nav>
 
             <p
               className="rise mt-8 font-mono text-[0.75rem] tracking-[0.16em] text-ivory-faint uppercase lg:hidden"

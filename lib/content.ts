@@ -8,7 +8,7 @@ export const site = {
   url: "https://sinadehesh.com",
   title: "Sina Dehesh — Behavioral Scientist & Consumer Psychology Consultant, Milan",
   description:
-    "Sina Dehesh is a behavioral scientist and consumer psychology consultant in Milan, Italy: consumer decision-making research, conversion and lead-generation strategy, and engagement design for apps and games, tested with real people.",
+    "Sina Dehesh, behavioral scientist and consumer psychology consultant in Milan: consumer behavior, market research and UX research, tested with real people.",
   ogImage: "/opengraph-image",
   locale: "en_US",
 };
@@ -20,6 +20,7 @@ export const personalInfo = {
     "Behavioral Scientist",
     "Consumer Psychology Consultant",
     "Consumer Behavior Consultant",
+    "Market Research & Insights Consultant",
     "UX Researcher",
     "Behavioral & Game Designer",
   ],
@@ -72,6 +73,12 @@ export const targetRoles = [
     pitch:
       "Finds the behavior behind a business problem, designs the change that makes the right behavior easier and tests it with real people: behavioral audits, experiments, choice architecture, habit design and market insights.",
     proof: ["interview-simulation-study", "app-lockers", "musicity"],
+  },
+  {
+    title: "Market Research & Consumer Insights",
+    pitch:
+      "Plans and runs market and consumer research, from interviews and jobs-to-be-done analysis to surveys and competitive benchmarking, and turns it into go-to-market decisions: which customers first, what to promise and how to reach them.",
+    proof: ["musicity", "recallmate", "optimolds"],
   },
   {
     title: "AI Product Manager / 0-to-1 Product Builder",

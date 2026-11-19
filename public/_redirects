@@ -10,3 +10,6 @@
 /work/virtue-ledger/ /work 301
 /work/tao-app /#books 301
 /work/tao-app/ /#books 301
+# The market insights page became the market research and insights page (19 Nov 2026).
+/market-insights /market-research 301
+/market-insights/ /market-research 301

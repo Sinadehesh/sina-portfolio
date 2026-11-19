@@ -55,6 +55,7 @@ export default function ExpertisePage({ page: e }: { page: Expertise }) {
   const proof = e.proof.map((slug) => getCaseStudy(slug)).filter((c) => c !== undefined);
   const articles = e.articles.map((slug) => getArticle(slug)).filter((a): a is Article => Boolean(a));
   const mail = `mailto:${personalInfo.email}?subject=${encodeURIComponent(e.serviceName)}`;
+  const roleMail = `mailto:${personalInfo.email}?subject=${encodeURIComponent(`Role: ${e.hiring.role}`)}`;
   const degree = education[0];
   const unknown = e.training.courses.filter((c) => !degree.coursework.includes(c));
   if (unknown.length) throw new Error(`lib/expertise.ts (${e.slug}): unknown course ${unknown.join(", ")}`);
@@ -113,6 +114,17 @@ export default function ExpertisePage({ page: e }: { page: Expertise }) {
               See the proof
             </a>
           </div>
+          <p className="mt-7 max-w-[60ch] text-[0.9375rem] text-ivory-dim">
+            {e.hiring.text}{" "}
+            <a href={roleMail} className="font-semibold text-ivory underline decoration-ember underline-offset-4 hover:text-ember-bright">
+              Email me about a role
+            </a>{" "}
+            or see my{" "}
+            <a href={personalInfo.linkedin} className="font-semibold text-ivory underline decoration-ivory/30 underline-offset-4 hover:decoration-ember">
+              LinkedIn
+            </a>
+            .
+          </p>
         </div>
       </header>
 

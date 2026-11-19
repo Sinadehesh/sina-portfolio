@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ExpertisePage from "@/components/expertise/ExpertisePage";
 import { getExpertise } from "@/lib/expertise";
 
-const page = getExpertise("market-insights")!;
+const page = getExpertise("market-research")!;
 
 export const metadata: Metadata = {
   title: page.metaTitle,
