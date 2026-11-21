@@ -123,9 +123,10 @@ codebase against it; keep this file in sync when the brief changes.
      - `/docs/anabin-bachelor-psychology-shiraz.pdf`: the anabin entry for Sina's
        Bachelor's in Psychology from Shiraz University (H+, equivalent to a
        German Bachelor).
-     - `/docs/diploma-supplement-msc-milano-bicocca.pdf`: the official Diploma
-       Supplement of Sina's M.Sc. in Applied Experimental Psychological
-       Sciences, University of Milano-Bicocca.
+     - `/docs/diploma-supplement-msc-milano-bicocca.pdf`: the English section
+       (original pages 13–23) of the official Diploma Supplement of Sina's M.Sc.
+       in Applied Experimental Psychological Sciences, University of
+       Milano-Bicocca.
 
 ## Standing quality bars
 
