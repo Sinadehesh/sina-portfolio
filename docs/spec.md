@@ -115,6 +115,14 @@ codebase against it; keep this file in sync when the brief changes.
      addictive). Claims about a product's mechanics come from its code or its
      entry in `lib/content.ts`, never from assumption.
 
+18b. Permanent documents: files in `public/docs/` are linked from Sina's CV and
+     shared directly, so their URLs must keep working forever. Never delete,
+     rename or move them. They are never linked from the site, never listed in
+     the sitemap or the llms files, and are served with `X-Robots-Tag: noindex`
+     (`public/_headers`). Current: `/docs/anabin-bachelor-psychology-shiraz.pdf`,
+     the anabin entry for Sina's Bachelor's in Psychology from Shiraz University
+     (H+, equivalent to a German Bachelor).
+
 ## Standing quality bars
 
 - No console errors or unhandled rejections on load or through a full scroll.

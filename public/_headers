@@ -5,3 +5,7 @@
   Content-Type: image/png
 /insights/feed.xml
   Content-Type: application/rss+xml; charset=utf-8
+# Documents linked from Sina's CV (public/docs): reachable by their direct link, never linked
+# from the site and kept out of search results. Never remove, rename or move them.
+/docs/*
+  X-Robots-Tag: noindex, nofollow, noarchive
