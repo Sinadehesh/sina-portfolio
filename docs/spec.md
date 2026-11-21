@@ -119,9 +119,13 @@ codebase against it; keep this file in sync when the brief changes.
      shared directly, so their URLs must keep working forever. Never delete,
      rename or move them. They are never linked from the site, never listed in
      the sitemap or the llms files, and are served with `X-Robots-Tag: noindex`
-     (`public/_headers`). Current: `/docs/anabin-bachelor-psychology-shiraz.pdf`,
-     the anabin entry for Sina's Bachelor's in Psychology from Shiraz University
-     (H+, equivalent to a German Bachelor).
+     (`public/_headers`). Current:
+     - `/docs/anabin-bachelor-psychology-shiraz.pdf`: the anabin entry for Sina's
+       Bachelor's in Psychology from Shiraz University (H+, equivalent to a
+       German Bachelor).
+     - `/docs/diploma-supplement-msc-milano-bicocca.pdf`: the official Diploma
+       Supplement of Sina's M.Sc. in Applied Experimental Psychological
+       Sciences, University of Milano-Bicocca.
 
 ## Standing quality bars
 
