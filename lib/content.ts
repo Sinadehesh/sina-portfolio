@@ -838,14 +838,14 @@ export const caseStudies: CaseStudy[] = [
     tagline: "n8n + Pipedrive CRM automation with human-in-the-loop review",
     published: true,
     category: "B2B automation",
-    status: "Shipped",
+    status: "Prototype",
     schemaType: "SoftwareApplication",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     role: "Product owner",
     organization: "Own product",
     summary:
-      "The Workflow Automation Engine captures CRM signal from sales calls and email threads and writes it to Pipedrive automatically. Custom n8n pipelines transcribe and extract deal fields, a confidence gate routes ambiguous extractions to human review, and data integrity is the invariant: the pipeline may be slow, never wrong.",
+      "The Workflow Automation Engine is a tested prototype that turns sales calls and email threads into Pipedrive deal fields. n8n pipelines transcribe and extract the fields, a confidence gate routes ambiguous extractions to human review, and data integrity is the invariant: the pipeline may be slow, never wrong.",
     impact: {
       problem:
         "Sales teams skip CRM data entry, so pipelines rot; naive AI auto-fill makes it worse by writing wrong data.",
@@ -853,7 +853,7 @@ export const caseStudies: CaseStudy[] = [
         "Human-in-the-loop automation: high-confidence LLM extractions sync straight through, low-confidence ones wait for a human, matching automation to trust.",
       stack: ["n8n", "Pipedrive", "Speech-to-text", "AI extraction with human review"],
       outcome:
-        "Production pipeline that removes manual CRM entry while guaranteeing no unreviewed ambiguous writes.",
+        "A working prototype, tested but not yet used by a sales team. By design, no ambiguous extraction reaches the CRM without human review.",
     },
     metrics: [
       { value: "2", label: "Ingestion sources (calls, email)" },
@@ -869,13 +869,13 @@ export const caseStudies: CaseStudy[] = [
         challenge: "CRM data is incomplete because entry is manual.",
         hypothesis: "Extracting fields from calls and email removes the effort barrier.",
         method: "n8n triggers → transcription → LLM entity extraction.",
-        outcome: "Deal fields populated automatically from conversations.",
+        outcome: "In the prototype, deal fields are filled in automatically from conversations.",
       },
       {
         challenge: "AI extraction is sometimes wrong.",
         hypothesis: "Users trust automation that defers when unsure.",
         method: "Confidence gate with a manual review queue.",
-        outcome: "High-confidence writes sync instantly; ambiguous ones are human-approved.",
+        outcome: "In the prototype, high-confidence writes sync at once; ambiguous ones wait for a person to approve them.",
       },
     ],
     featureList: [
