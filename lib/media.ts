@@ -51,6 +51,7 @@ const hues: Record<string, string> = {
   "interview-simulation-study": "#6a86b0",
   "workflow-automation-engine": "#7f9a68",
   "daily-sublime": "#b0704f",
+  "daily-sublime-automation": "#5f7fa8",
   recallmate: "#8a78b0",
   "daily-hustle": "#c08a4a",
   passway: "#5a8aa0",

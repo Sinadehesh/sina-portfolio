@@ -89,6 +89,13 @@ codebase against it; keep this file in sync when the brief changes.
     listings are public), DeBubble, Merge Farmstead and Dopamine Box (a
     behavioral experiment on betting, mock tokens only). Virtue Ledger and the
     TAO companion app are not shown (their old pages redirect).
+14b. Daily Sublime Automation (`/work/daily-sublime-automation`) is the case study of
+    how The Daily Sublime was run: three n8n workflows with Claude (issue writer,
+    link checker, creator outreach as Gmail drafts). Its facts come from the
+    exported workflows, the content sheet and the sent mail. Its pictures never
+    show a reader's or a creator's name, address or photo, and it gives no reader
+    numbers. The Daily Sublime page links to it. The Workflow Automation Engine
+    (n8n + Pipedrive) is a tested prototype: never say a team used it.
 14a. Silent previews: Gem Jar, Zombie Bomber and DeBubble play muted 8-second
     loops in their tiles, and their case pages have a "See it in action"
     section with the full clips (no audio, end cards cut). See

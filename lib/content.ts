@@ -322,7 +322,7 @@ export interface CaseStudy {
   tagline: string;
   /** Hidden from every page, schema, llms.txt and sitemap until set to true. */
   published: boolean;
-  category: "Consumer app" | "Game" | "B2B automation" | "Research" | "Consulting" | "Growth consulting" | "Media product" | "EdTech";
+  category: "Consumer app" | "Game" | "B2B automation" | "AI automation" | "Research" | "Consulting" | "Growth consulting" | "Media product" | "EdTech";
   status: "Live" | "Shipped" | "Closed testing" | "Pre-launch" | "In development" | "Playable" | "Built" | "Prototype" | "Completed";
   schemaType: SchemaType;
   applicationCategory?: string;
@@ -376,6 +376,39 @@ export interface CaseStudy {
   demo?: { src: string; poster?: string; title: string; caption: string; duration: string; uploaded: string }[];
   /** Google Play listing, shown as a "Get it on Google Play" link. */
   googlePlay?: { label: string; url: string }[];
+  /**
+   * The automation that ran a product, shown as its own section (#automation) on the case page: what each
+   * workflow does in plain steps with a picture of the real workflow, screens from the build, what came out,
+   * and what it changed. Pictures live in public/images/work; `wide` lets a long, flat workflow scroll
+   * sideways on phones instead of shrinking. Pictures never show a reader's or a creator's name, address or photo.
+   */
+  automation?: {
+    title: string;
+    intro: string;
+    workflows: {
+      name: string;
+      what: string;
+      steps: string[];
+      image: { src: string; width: number; height: number; alt: string; wide?: boolean };
+    }[];
+    /** Real screens from the build, each with what it shows. */
+    screens?: { title: string; items: AutomationShot[] };
+    /** What the workflows produced, e.g. an email as it was sent. */
+    outputs?: { title: string; items: AutomationShot[] };
+    results: string[];
+    tools: string[];
+    note: string;
+  };
+  /** Another case study that continues this one, shown as a link under the header (e.g. how a product was run). */
+  seeAlso?: { slug: string; label: string };
+}
+
+export interface AutomationShot {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
 }
 
 export interface Investment {
@@ -818,14 +851,14 @@ export const caseStudies: CaseStudy[] = [
     tagline: "n8n + Pipedrive CRM automation with human-in-the-loop review",
     published: true,
     category: "B2B automation",
-    status: "Shipped",
+    status: "Prototype",
     schemaType: "SoftwareApplication",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     role: "Product owner",
     organization: "Own product",
     summary:
-      "The Workflow Automation Engine captures CRM signal from sales calls and email threads and writes it to Pipedrive automatically. Custom n8n pipelines transcribe and extract deal fields, a confidence gate routes ambiguous extractions to human review, and data integrity is the invariant: the pipeline may be slow, never wrong.",
+      "The Workflow Automation Engine is a tested prototype that turns sales calls and email threads into Pipedrive deal fields. n8n pipelines transcribe and extract the fields, a confidence gate routes ambiguous extractions to human review, and data integrity is the invariant: the pipeline may be slow, never wrong.",
     impact: {
       problem:
         "Sales teams skip CRM data entry, so pipelines rot; naive AI auto-fill makes it worse by writing wrong data.",
@@ -833,7 +866,7 @@ export const caseStudies: CaseStudy[] = [
         "Human-in-the-loop automation: high-confidence LLM extractions sync straight through, low-confidence ones wait for a human, matching automation to trust.",
       stack: ["n8n", "Pipedrive", "Speech-to-text", "AI extraction with human review"],
       outcome:
-        "Production pipeline that removes manual CRM entry while guaranteeing no unreviewed ambiguous writes.",
+        "A working prototype, tested but not yet used by a sales team. By design, no ambiguous extraction reaches the CRM without human review.",
     },
     metrics: [
       { value: "2", label: "Ingestion sources (calls, email)" },
@@ -849,13 +882,13 @@ export const caseStudies: CaseStudy[] = [
         challenge: "CRM data is incomplete because entry is manual.",
         hypothesis: "Extracting fields from calls and email removes the effort barrier.",
         method: "n8n triggers → transcription → LLM entity extraction.",
-        outcome: "Deal fields populated automatically from conversations.",
+        outcome: "In the prototype, deal fields are filled in automatically from conversations.",
       },
       {
         challenge: "AI extraction is sometimes wrong.",
         hypothesis: "Users trust automation that defers when unsure.",
         method: "Confidence gate with a manual review queue.",
-        outcome: "High-confidence writes sync instantly; ambiguous ones are human-approved.",
+        outcome: "In the prototype, high-confidence writes sync at once; ambiguous ones wait for a person to approve them.",
       },
     ],
     featureList: [
@@ -926,7 +959,7 @@ export const caseStudies: CaseStudy[] = [
     tagline: "A 30-issue art-meditation email magazine designed for engagement signal",
     published: true,
     category: "Media product",
-    status: "Live",
+    status: "Completed",
     schemaType: "CreativeWork",
     url: "https://daily.sinadehesh.com/",
     role: "Founder & editor",
@@ -938,7 +971,14 @@ export const caseStudies: CaseStudy[] = [
         "Newsletters cannot tell what lands: open rates are noisy and replies take effort, so most readers never signal anything.",
       mechanism:
         "Friction reduction at the response step (one-click replies) plus a fixed daily ritual that builds a reading habit.",
-      stack: ["Email magazine", "One-click reply buttons", "Landing page", "Gumroad checkout", "YouTube companion channel"],
+      stack: [
+        "Email magazine",
+        "One-click reply buttons",
+        "n8n workflows with Claude",
+        "Landing page",
+        "Gumroad checkout",
+        "YouTube companion channel",
+      ],
       outcome: "30 issues shipped with per-issue reply signal, a paid course offer and a companion meditation channel.",
     },
     metrics: [
@@ -964,8 +1004,217 @@ export const caseStudies: CaseStudy[] = [
         outcome: "Daily art-meditation course and companion channel.",
       },
     ],
-    featureList: ["Daily art-observation email", "Guided slow-looking exercises", "One-click reply engagement", "Paid course"],
-    keywords: ["Friction Reduction", "Habit Formation", "Email Engagement", "Visual Mindfulness"],
+    featureList: [
+      "Daily art-observation email",
+      "Guided slow-looking exercises",
+      "One-click reply engagement",
+      "Paid course",
+      "AI issue writer (n8n and Claude)",
+      "Personal creator outreach drafts",
+    ],
+    keywords: ["Friction Reduction", "Habit Formation", "Email Engagement", "Visual Mindfulness", "n8n Automation"],
+    seeAlso: { slug: "daily-sublime-automation", label: "How it was run: three n8n workflows with Claude" },
+  },
+  {
+    slug: "daily-sublime-automation",
+    cover: { metric: "56 s", caption: "for Claude to write one issue" },
+    name: "Daily Sublime Automation",
+    tagline: "n8n and Claude workflows that ran a one-person art magazine",
+    published: true,
+    category: "AI automation",
+    status: "Completed",
+    schemaType: "CreativeWork",
+    role: "Founder; designed and built the workflows",
+    organization: "Own product: The Daily Sublime",
+    summary:
+      "The Daily Sublime was a 30-issue art magazine by email that I ran alone. Three n8n workflows with Claude did the back-office work: one wrote each issue, one checked its links, and one drafted a personal email to each YouTube creator. Nothing went to a stranger before I had read it.",
+    impact: {
+      problem:
+        "A daily art magazine needs research, writing, six pictures and a send for every issue, plus outreach to find readers. That is too much for one person to do by hand every day.",
+      mechanism:
+        "Trust in automation: the AI writes, real sources and code supply what must be exact, such as picture links, and a person checks anything that goes to a stranger. For outreach, personal relevance: every email opens with something specific about that creator's own channel.",
+      stack: [
+        "n8n workflows",
+        "Claude for writing",
+        "Wikimedia Commons search for pictures",
+        "Google Sheets for issues and readers",
+        "Gmail for sending and drafts",
+        "Google Apps Script for sign-ups",
+      ],
+      outcome:
+        "Starting with issue 8, the workflow wrote the issues and looked up their pictures. Issues went out automatically at 8:00 in the morning between December 2025 and March 2026, and about 80 personal outreach emails were drafted by Claude and checked by me before sending.",
+    },
+    metrics: [
+      { value: "3", label: "Workflows: issue writer, link checker, creator outreach" },
+      { value: "56 s", label: "For Claude to write one issue (test run, 21 January 2026)" },
+      { value: "43", label: "Fields in every issue, from the title to the poem" },
+      { value: "~80", label: "Outreach emails drafted by AI and checked by me" },
+      { value: "25", label: "Saved versions of the workflows" },
+    ],
+    tradeoffs: [
+      "Outreach emails stop as Gmail drafts instead of being sent by the workflow: slower, but nothing reaches a stranger unread.",
+      "Google Sheets as the only database: easy to read and to fix by hand, not built for scale.",
+      "One issue per run instead of a whole batch: slower, but a bad run costs one issue, not thirty.",
+      "Pictures come from Wikimedia Commons: free and reliable for old masters, thin for modern painters, so some issues needed pictures placed by hand.",
+    ],
+    decisionLog: [
+      {
+        challenge: "Picture links written by the AI often did not open.",
+        hypothesis: "A language model is good at writing and unreliable with exact addresses, so the links should come from the source.",
+        method:
+          "Three attempts in two days: a loop that tested every link, a second model only for links, then a search of Wikimedia Commons for each painting.",
+        outcome:
+          "From issue 8 the pictures came from the Wikimedia search. It found all six pictures for 15 of the next 24 issues; I placed the rest by hand, mostly for modern painters.",
+      },
+      {
+        challenge: "Thirty issues can start to repeat themselves.",
+        hypothesis: "The model repeats less when it sees what earlier issues already used.",
+        method: "Before each run, n8n collects the practices, music and poems of all earlier issues and tells Claude not to reuse them.",
+        outcome:
+          "No practice and no piece of music repeats in 31 issues. Four poems do, so a rule in a prompt reduces repeats but is not a guarantee.",
+      },
+      {
+        challenge: "An email written by AI and sent to the wrong person costs trust.",
+        hypothesis: "Automation is easier to trust when it stops before the step that cannot be undone.",
+        method: "The outreach workflow saves every email as a Gmail draft and marks the creator as Drafted in the sheet. Sending stays manual.",
+        outcome: "I read each draft before it went out. About 80 emails were sent between 17 January and 1 February 2026.",
+      },
+      {
+        challenge: "A daily magazine has to arrive every day at the same time.",
+        hypothesis: "A fixed morning time turns reading into a routine.",
+        method: "The sheet stores which issue each reader is on. n8n sends the next issue at 8:00 and moves the reader forward.",
+        outcome: "Issues went out at 8:00 in the morning between December 2025 and March 2026.",
+      },
+    ],
+    featureList: [
+      "Issue writer (n8n and Claude)",
+      "Picture search on Wikimedia Commons",
+      "Link checker",
+      "Do-not-repeat list from earlier issues",
+      "Scheduled sending at 8:00",
+      "Creator outreach as Gmail drafts",
+      "Seven color themes, one per weekday",
+      "Sign-up form to Google Sheets",
+    ],
+    keywords: ["n8n", "Claude", "AI Automation", "Human-in-the-loop", "Email Automation", "Google Sheets"],
+    seeAlso: { slug: "daily-sublime", label: "The magazine itself: The Daily Sublime" },
+    automation: {
+      title: "How the automation worked",
+      intro:
+        "I ran The Daily Sublime on my own, so I built its back office as n8n workflows with Claude. One workflow wrote each issue, one checked its links, and one drafted personal emails to YouTube creators. Google Sheets held the issues and the readers, sign-ups went into the sheet through a small Google Apps Script, and Gmail sent the email.",
+      workflows: [
+        {
+          name: "Issue writer",
+          what: "Turns one day number into a complete issue.",
+          steps: [
+            "I type a day number in n8n's chat.",
+            "n8n finds that day's painter in a Google Sheet and stops if the issue already exists.",
+            "It collects the practices, music and poems of earlier issues, so Claude does not reuse them.",
+            "Claude writes the issue: a hook, why the painter matters, five things to notice, a short practice, a true story with its source, music and a poem.",
+            "n8n searches Wikimedia Commons for the five paintings and the painter's portrait, so the picture links come from the source and not from the AI.",
+            "n8n saves all 43 fields back into the sheet, where the email template picks them up.",
+          ],
+          image: {
+            src: "/images/work/daily-sublime-flow-issue.webp",
+            width: 2864,
+            height: 294,
+            alt: "n8n workflow: Receive Day Number, Read All Lessons, Find Target Row, Build Content Prompt, Sonnet - Write Content, Parse Content, Prepare Wikimedia Searches, Search Wikimedia, Combine Content + URLs, Update Sheet, Success Response.",
+            wide: true,
+          },
+        },
+        {
+          name: "Link checker",
+          what: "Makes sure every picture and source in an issue opens.",
+          steps: [
+            "n8n reads the issue and checks every image and source link.",
+            "If a link is broken, Claude suggests a replacement.",
+            "n8n writes the fixed links back into the sheet.",
+          ],
+          image: {
+            src: "/images/work/daily-sublime-flow-links.webp",
+            width: 2852,
+            height: 512,
+            alt: "n8n workflow: Trigger Validation, Read Lessons Sheet, Extract URLs, Check URL, Collect Results, All URLs Valid?, then either All Valid Response or Build Fix Prompt, Find Replacement URLs with Claude, Parse Replacements, Update Fixed URLs and Fixed Response.",
+            wide: true,
+          },
+        },
+        {
+          name: "Creator outreach",
+          what: "Finds creators and drafts a personal email to each, for me to check and send.",
+          steps: [
+            "I type a topic in n8n's chat.",
+            "A scraper finds up to 10 YouTube creators with a public business email.",
+            "n8n adds each creator to a Google Sheet as Pending.",
+            "Claude writes a personal email from the creator's channel description.",
+            "n8n puts it into the designed email, saves it as a Gmail draft and marks the row Drafted.",
+            "I read each draft and send it myself.",
+          ],
+          image: {
+            src: "/images/work/daily-sublime-flow-outreach.webp",
+            width: 2866,
+            height: 294,
+            alt: "n8n workflow: When Chat Message Received, Scrape YouTube Emails, Loop Over Items, Add to Google Sheet, Store Influencer Data, Generate with Claude, Parse AI Response, Build Email, Create Draft in Gmail, Update Status to Drafted, Generate Summary.",
+            wide: true,
+          },
+        },
+      ],
+      screens: {
+        title: "What building it looked like",
+        items: [
+          {
+            src: "/images/work/daily-sublime-build-day1.webp",
+            width: 1920,
+            height: 866,
+            alt: "n8n editor showing version 1 of the issue writer, 17 steps with a loop that validates every link, and an error message on the last sheet step.",
+            caption:
+              "20 January 2026, version 1: seventeen steps, with a loop that tested every link the AI wrote. This test run failed at the last sheet step.",
+          },
+          {
+            src: "/images/work/daily-sublime-build-day2.webp",
+            width: 1920,
+            height: 866,
+            alt: "n8n editor showing the rebuilt issue writer: Claude's writing step finished in 55.628 seconds, Wikimedia returned six items, and one step is marked red.",
+            caption:
+              "21 January 2026, the rebuild: Claude wrote the Velázquez issue in 55.6 seconds and Wikimedia returned six pictures. The red step is the bug I fixed next: it still asked for a step I had disconnected.",
+          },
+        ],
+      },
+      outputs: {
+        title: "What came out",
+        items: [
+          {
+            src: "/images/work/daily-sublime-issue-top.webp",
+            width: 1000,
+            height: 1231,
+            alt: "Issue 27 of The Daily Sublime: Geometry as Quiet Revelation, featured artist Piero della Francesca, with The Flagellation of Christ.",
+            caption: "Issue 27, sent to a reader on Sunday 15 February 2026 at 8:00. Each weekday has its own color theme.",
+          },
+          {
+            src: "/images/work/daily-sublime-issue-end.webp",
+            width: 1000,
+            height: 967,
+            alt: "The end of issue 27: a poem with its source link, the footer, and the line 'This email was sent automatically with n8n'.",
+            caption: "The end of the same issue. The last line comes from n8n: the email was sent automatically.",
+          },
+          {
+            src: "/images/work/daily-sublime-outreach-email.webp",
+            width: 1000,
+            height: 1921,
+            alt: "An outreach email with the creator's photo and name covered: two personal paragraphs, the partnership offer and a reply button.",
+            caption:
+              "An outreach email as it was sent on 19 January 2026. Claude wrote the two paragraphs from the creator's channel description. I have covered the creator's name and photo.",
+          },
+        ],
+      },
+      results: [
+        "Writing an issue by hand means researching a painter, choosing the works, finding a true story and a poem, and finding six pictures that open. The workflow does that in one run; Claude's writing step took 55.6 seconds in the test shown above.",
+        "Each reader got the issues in order at 8:00 in the morning, in a designed email with seven color themes, one for each weekday. The sheet tracked which issue each reader was on.",
+        "Outreach went from finding people and writing every email from scratch to typing a topic and checking up to 10 personal drafts.",
+        "About 80 personal emails to creators went out between 17 January and 1 February 2026.",
+      ],
+      tools: ["n8n", "Claude", "Wikimedia Commons API", "Google Sheets", "Gmail", "Google Apps Script"],
+      note: "The dark screens are my own n8n editor in January 2026. The light pictures are my exported workflows in n8n's workflow viewer, with logins and prompts removed.",
+    },
   },
   {
     slug: "passway",
@@ -1753,7 +2002,7 @@ export const problemMatrix = [
       "I take research from SPSS and ANOVA models and Figma wireframes to a tested product: an app, a game, a funnel or an n8n automation, with the measurement built in. One person, no hand-off loss.",
     proof: [
       { slug: "interview-simulation-study", note: "N = 96 experiment, p = .009" },
-      { slug: "workflow-automation-engine", note: "LLM extraction with human-in-the-loop" },
+      { slug: "daily-sublime-automation", note: "n8n and Claude workflows with a human check" },
       { slug: "daily-hustle", note: "product with dashboards" },
     ],
   },

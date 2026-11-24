@@ -235,6 +235,18 @@ const caseStudyFull = (c: CaseStudy) =>
     `- **Outcome:** ${c.impact.outcome}`,
     `- **Metrics:** ${c.metrics.map((m) => `${m.value} ${m.label}`).join("; ")}`,
     "",
+    ...(c.automation
+      ? [
+          `**${c.automation.title}** (${studyUrl(c)}#automation)`,
+          "",
+          c.automation.intro,
+          "",
+          ...c.automation.workflows.map((w) => `- ${w.name}: ${w.what} ${w.steps.join(" ")}`),
+          ...c.automation.results.map((r) => `- ${r}`),
+          `- Built with: ${c.automation.tools.join(", ")}.`,
+          "",
+        ]
+      : []),
     ...(c.benchmarks
       ? [
           "| Product | Strength | Gap |",
