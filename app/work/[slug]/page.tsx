@@ -42,6 +42,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const c = getCaseStudy(slug);
   if (!c) notFound();
 
+  const seeAlso = c.seeAlso ? getCaseStudy(c.seeAlso.slug) : undefined;
   const index = publishedCaseStudies.findIndex((s) => s.slug === c.slug);
   const next = publishedCaseStudies[(index + 1) % publishedCaseStudies.length];
   const writing = getArticles()
@@ -146,6 +147,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </a>
             ))}
           </div>
+          {seeAlso && c.seeAlso && (
+            <p id={c.automation ? undefined : "automation"} className="mt-8 scroll-mt-28">
+              <a href={caseStudyPath(seeAlso.slug)} className="link-arrow font-semibold text-ivory hover:text-ember-bright">
+                {c.seeAlso.label}
+              </a>
+            </p>
+          )}
         </div>
       </header>
 
