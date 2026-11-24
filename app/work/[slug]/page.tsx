@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import AutoVideo from "@/components/ui/AutoVideo";
 import { MediaSlot } from "@/components/ui/MediaSlot";
 import CaseViz from "@/components/work/CaseViz";
+import AutomationSection from "@/components/work/Automation";
 import InvestmentSection from "@/components/work/Investment";
 import VisionSection from "@/components/work/Vision";
 import ArticleCard from "@/components/insights/ArticleCard";
@@ -248,6 +249,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </div>
         </div>
       </section>
+
+      {c.automation && <AutomationSection study={c} />}
 
       {c.vision && <VisionSection study={c} />}
 

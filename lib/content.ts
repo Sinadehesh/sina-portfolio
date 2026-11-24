@@ -376,6 +376,26 @@ export interface CaseStudy {
   demo?: { src: string; poster?: string; title: string; caption: string; duration: string; uploaded: string }[];
   /** Google Play listing, shown as a "Get it on Google Play" link. */
   googlePlay?: { label: string; url: string }[];
+  /**
+   * The automation that ran a product, shown as its own section (#automation) on the case page: what each
+   * workflow does in plain steps, a picture of the real workflow, and what it changed. Pictures live in
+   * public/images/work; `wide` lets a long, flat workflow scroll sideways on phones instead of shrinking.
+   */
+  automation?: {
+    title: string;
+    intro: string;
+    workflows: {
+      name: string;
+      what: string;
+      steps: string[];
+      image: { src: string; width: number; height: number; alt: string; wide?: boolean };
+    }[];
+    /** A picture of what the workflows produced, e.g. an email as readers got it. */
+    output?: { src: string; width: number; height: number; alt: string; caption: string };
+    results: string[];
+    tools: string[];
+    note: string;
+  };
 }
 
 export interface Investment {
@@ -926,7 +946,7 @@ export const caseStudies: CaseStudy[] = [
     tagline: "A 30-issue art-meditation email magazine designed for engagement signal",
     published: true,
     category: "Media product",
-    status: "Live",
+    status: "Completed",
     schemaType: "CreativeWork",
     url: "https://daily.sinadehesh.com/",
     role: "Founder & editor",
@@ -938,7 +958,14 @@ export const caseStudies: CaseStudy[] = [
         "Newsletters cannot tell what lands: open rates are noisy and replies take effort, so most readers never signal anything.",
       mechanism:
         "Friction reduction at the response step (one-click replies) plus a fixed daily ritual that builds a reading habit.",
-      stack: ["Email magazine", "One-click reply buttons", "Landing page", "Gumroad checkout", "YouTube companion channel"],
+      stack: [
+        "Email magazine",
+        "One-click reply buttons",
+        "n8n workflows with Claude",
+        "Landing page",
+        "Gumroad checkout",
+        "YouTube companion channel",
+      ],
       outcome: "30 issues shipped with per-issue reply signal, a paid course offer and a companion meditation channel.",
     },
     metrics: [
@@ -964,8 +991,89 @@ export const caseStudies: CaseStudy[] = [
         outcome: "Daily art-meditation course and companion channel.",
       },
     ],
-    featureList: ["Daily art-observation email", "Guided slow-looking exercises", "One-click reply engagement", "Paid course"],
-    keywords: ["Friction Reduction", "Habit Formation", "Email Engagement", "Visual Mindfulness"],
+    featureList: [
+      "Daily art-observation email",
+      "Guided slow-looking exercises",
+      "One-click reply engagement",
+      "Paid course",
+      "AI issue writer (n8n and Claude)",
+      "Personal creator outreach drafts",
+    ],
+    keywords: ["Friction Reduction", "Habit Formation", "Email Engagement", "Visual Mindfulness", "n8n Automation"],
+    automation: {
+      title: "How the automation worked",
+      intro:
+        "I ran The Daily Sublime on my own, so I built its back office as n8n workflows with Claude. One workflow wrote each issue, one checked its links, and one drafted personal emails to YouTube creators. Google Sheets held the issues and the readers, sign-ups went into the sheet through a small Google Apps Script, and Gmail sent the email.",
+      workflows: [
+        {
+          name: "Issue writer",
+          what: "Turns one day number into a complete issue.",
+          steps: [
+            "I type a day number in n8n's chat.",
+            "n8n finds that day's painter in a Google Sheet and stops if the issue already exists.",
+            "It collects the practices, music and poems of earlier issues, so nothing repeats.",
+            "Claude writes the issue as 43 fields: the artworks, a hook, five things to notice, a short practice, a true story with its source, music and a poem.",
+            "n8n saves the issue back into the sheet, where the email template picks it up.",
+          ],
+          image: {
+            src: "/images/work/daily-sublime-flow-issue.webp",
+            width: 2886,
+            height: 856,
+            alt: "n8n workflow: Receive Day Number, Read All Lessons, Find Target Row, Build AI Prompt, Generate with Claude, Parse AI Response, Update Lessons Sheet, Success Response, then an image check.",
+          },
+        },
+        {
+          name: "Link checker",
+          what: "Makes sure every picture and source in an issue opens.",
+          steps: [
+            "n8n reads the issue and checks every image and source link.",
+            "If a link is broken, Claude suggests a replacement.",
+            "n8n writes the fixed links back into the sheet.",
+          ],
+          image: {
+            src: "/images/work/daily-sublime-flow-links.webp",
+            width: 2852,
+            height: 512,
+            alt: "n8n workflow: Trigger Validation, Read Lessons Sheet, Extract URLs, Check URL, Collect Results, All URLs Valid?, then either All Valid Response or Build Fix Prompt, Find Replacement URLs with Claude, Parse Replacements, Update Fixed URLs and Fixed Response.",
+            wide: true,
+          },
+        },
+        {
+          name: "Creator outreach",
+          what: "Finds creators and drafts a personal email to each, for me to check and send.",
+          steps: [
+            "I type a topic in n8n's chat.",
+            "A scraper finds up to 10 YouTube creators with a public business email.",
+            "n8n adds each creator to a Google Sheet as Pending.",
+            "Claude writes a personal email from the creator's channel description.",
+            "n8n puts it into the designed email, saves it as a Gmail draft and marks the row Drafted.",
+            "I read each draft and send it myself.",
+          ],
+          image: {
+            src: "/images/work/daily-sublime-flow-outreach.webp",
+            width: 2866,
+            height: 294,
+            alt: "n8n workflow: When Chat Message Received, Scrape YouTube Emails, Loop Over Items, Add to Google Sheet, Store Influencer Data, Generate with Claude, Parse AI Response, Build Email, Create Draft in Gmail, Update Status to Drafted, Generate Summary.",
+            wide: true,
+          },
+        },
+      ],
+      output: {
+        src: "/images/work/daily-sublime-issue-email.webp",
+        width: 1024,
+        height: 586,
+        alt: "The first issue of The Daily Sublime open in Gmail: The Measured Theater of Light, featured artist Johannes Vermeer.",
+        caption: "The first issue as it arrived in Gmail. I first planned 111 issues and later made it a 30-issue course.",
+      },
+      results: [
+        "Writing an issue by hand means researching a painter, choosing the works, finding a true story and a poem, and checking every link. With the issue writer and the link checker, that became two runs.",
+        "Each reader got the issues in order, in a designed email with seven colour themes, one for each weekday. The sheet tracked which issue each reader was on.",
+        "Outreach went from finding people and writing every email from scratch to typing a topic and checking up to 10 personal drafts.",
+        "About 80 personal emails to creators went out between mid-January and early February 2026.",
+      ],
+      tools: ["n8n", "Claude", "Google Sheets", "Gmail", "Google Apps Script", "OpenAI image check"],
+      note: "The pictures are my exported n8n workflows, shown in n8n's own workflow viewer, with logins and prompts removed.",
+    },
   },
   {
     slug: "passway",
