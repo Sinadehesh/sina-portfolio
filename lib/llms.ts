@@ -274,6 +274,7 @@ const caseStudyFull = (c: CaseStudy) =>
           ...c.investment.plan.map((step) => `- ${step.when}: ${step.what}`),
           `- Use of funds: ${c.investment.useOfFunds.join("; ")}.`,
           `- Market: ${c.investment.market.map((m) => `${m.label} ${m.value} (${m.source})`).join("; ")}.`,
+          ...(c.investment.deck ? [`- Pitch deck: ${absoluteUrl(c.investment.deck)}`] : []),
           `- Contact: ${personalInfo.email}`,
         ]
       : []),

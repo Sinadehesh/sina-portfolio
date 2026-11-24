@@ -416,12 +416,16 @@ export interface Investment {
   /** Round size; leave empty until decided. */
   amount: string;
   status: string;
+  /** Heading over the plan, e.g. "What the round buys: the 18-month plan". */
+  planTitle?: string;
   plan: { when: string; what: string }[];
   useOfFunds: string[];
   successMetrics: string[];
   market: { label: string; value: string; source: string; url: string }[];
   beachhead: string;
   ask: string;
+  /** The pitch deck as a PDF in public/decks, offered as a download on the case page. */
+  deck?: string;
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -748,26 +752,33 @@ export const caseStudies: CaseStudy[] = [
     role: "Founder",
     organization: "Costly",
     summary:
-      "Costly is a habit-reversal app that charges real money for every minute of doomscrolling, at the hourly rate you set for your own time — then lets you earn 80% of it back by walking it off within 24 hours. A self-priced commitment contract stops you deleting it when it starts to hurt.",
+      "Costly is a habit-reversal app that charges real money for every minute of doomscrolling, at the hourly rate you set for your own time — then lets you earn 80% of it back by walking it off within 24 hours. You sign the contract yourself: the rate, the free minutes each day, the term and the exit stake, so the commitment holds even when it starts to hurt.",
     impact: {
       problem:
-        "App blockers rely on soft friction, so people switch them off — competitor reviews are full of \"I just turn it off.\" Commitment-contract apps work, but make users define and track a goal first.",
+        "App blockers cut usage, but most people bypass or delete them — \"I just click ignore every time I see my app blocker,\" one interviewee told me. Commitment-contract apps such as stickK, Beeminder and Forfeit are built for any goal, so they rely on self-reporting or on tracking the user sets up. Costly is built for the phone: tracking is automatic and the consequence is committed up front.",
       mechanism:
-        "Real stakes and loss aversion (money held per minute scrolled), losses framed against a five-tier ladder of things the user actually wants, redemption through exercise (2 minutes walked per minute scrolled), and precommitment through a self-priced deletion fee.",
-      stack: ["Loss aversion and precommitment design", "Real-money holds through Stripe", "Android companion app", "Walking detection to earn money back"],
+        "A Ulysses contract signed at setup (hourly rate, free minutes each day, a one-week or one-month term and a self-priced exit stake), with loss aversion and the endowment effect doing the work: money already committed feels like yours to lose. Losses are framed against a five-tier ladder of things the user actually wants, and walking earns them back (2 minutes walked per minute scrolled).",
+      stack: [
+        "Ulysses contract, loss aversion and the endowment effect",
+        "Real-money holds through Stripe, with 3DS at signup",
+        "Android usage detection from network stats and motion sensors",
+        "iOS (planned): Family Controls and DeviceActivity",
+        "Walking detection to earn money back",
+      ],
       outcome:
-        "Built in June–July 2026: the full flow of holding money and giving it back through Stripe, and an Android companion app with a live meter on screen. No users yet — the first live loop on real hardware is the next milestone.",
+        "Built in June–July 2026: the contract flow, real-money holds and releases through Stripe, and an Android companion app with a live meter on screen. Validated in 30 conversations and 10 interviews: 8 people asked to join the waitlist, 3 asked unprompted when they could start, 7 of 10 completed signup with a test card, and their feedback drove 6 major changes to the MVP. Now raising a $200K pre-seed.",
     },
     metrics: [
+      { value: "7 / 10", label: "Interviewees completed signup with a test card" },
+      { value: "30 + 10", label: "Conversations and in-depth interviews" },
       { value: "80%", label: "Of each loss redeemable by walking" },
-      { value: "2 : 1", label: "Minutes walked per minute scrolled" },
-      { value: "24 h", label: "Window to walk it off" },
     ],
     tradeoffs: [
-      "Scrolling is detected from screen time and phone movement instead of reading the screen, so the app stays within Google Play's rules, at the cost of tuning it on each phone.",
-      "Two Stripe PaymentIntents per session — 20% captured, 80% held for 24 hours — because Stripe cannot partially capture a payment and keep the rest on hold.",
-      "The user sets the deletion fee (€0–€1000, zero allowed) and a fixed 7- or 30-day term, so the contract is self-priced rather than an imposed penalty.",
-      "If the redemption rate comes back low, Costly is a punishment app and needs rebalancing — the alpha is designed to find that out early.",
+      "Scrolling is detected from per-app network stats and phone movement instead of reading the screen, so the app stays within Google Play's rules, at the cost of tuning it on each phone.",
+      "A pre-funded balance instead of charging the card each session: the card is authenticated with 3DS at signup, usage draws down credit the user already put in, and nothing moves without the user acting, which keeps chargeback risk low.",
+      "The user sets the exit stake (€0–€1000, zero allowed) and a fixed one-week or one-month term, so the contract is self-priced rather than an imposed penalty.",
+      "A spending cap of $50 a month ($600 a year); three months at the cap means renegotiating the contract or leaving, so the stakes stay motivating, not ruinous.",
+      "The money doesn't go to charity: phone addiction shouldn't fund something good, and charity shouldn't be attached to punishment.",
     ],
     decisionLog: [
       {
@@ -789,42 +800,70 @@ export const caseStudies: CaseStudy[] = [
         outcome: "Commitment contract signed at onboarding; breach sweep scaffolded.",
       },
       {
+        challenge: "Would people sign up for a penalty on their own phone?",
+        hypothesis: "People who have already failed with blockers want real consequences.",
+        method: "30 conversations and 10 interviews with the working signup flow.",
+        outcome: "8 asked to join the waitlist, 3 asked unprompted when they could start and 7 of 10 completed signup with a test card; 6 major changes to the MVP.",
+      },
+      {
+        challenge: "Charges triggered by an app worry payment processors.",
+        hypothesis: "A pre-funded, authenticated balance makes the payment profile reviewable.",
+        method: "3DS at signup, a pre-funded balance drawn down by usage, and the exit stake held as an authorization on one-week terms, not a charge.",
+        outcome: "Initial risk feedback from an EU acquirer: the prepaid structure is a reviewable profile. Formal underwriting is the next step.",
+      },
+      {
         challenge: "Is the effect causal, or just awareness?",
         hypothesis: "Stakes cut targeted-app minutes more than awareness or soft friction.",
         method: "Planned randomized three-arm study: awareness vs. soft friction vs. stakes.",
-        outcome: "Scheduled for weeks 9–12, after a 30–50 user alpha.",
+        outcome: "Planned after launch, to estimate the effect size.",
       },
     ],
     featureList: [
+      "Self-signed contract: hourly rate, free minutes, term and exit stake",
       "Real-money per-minute meter",
-      "Self-set hourly rate",
+      "Pre-funded balance with a 3DS-authenticated card",
+      "$50 monthly spending cap",
       "Five-tier ladder of wanted products",
       "Walk-it-off redemption via Health Connect",
       "Commitment contract with dead man's switch",
       "Live overlay meter on Android",
     ],
-    keywords: ["Loss Aversion", "Commitment Devices", "Behavioral Friction", "Habit Reversal", "Precommitment", "Digital Wellbeing"],
+    keywords: ["Loss Aversion", "Commitment Devices", "Ulysses Contract", "Endowment Effect", "Behavioral Friction", "Habit Reversal", "Precommitment", "Digital Wellbeing"],
     investment: {
-      stage: "Accelerator programme + pre-seed",
-      // TODO: add the round size once decided, e.g. "€150K".
-      amount: "",
-      status: "Zero users. No charge has moved yet. The system is built end to end; the first live loop on real hardware is the next milestone.",
+      stage: "Pre-seed",
+      amount: "$200K · 18 months of runway",
+      status:
+        "Pre-launch and validated: 8 people asked to join the waitlist, 3 asked unprompted when they could start, and 7 of 10 interviewees completed signup with a test card. The contract flow, Stripe holds and the Android live meter are built.",
+      planTitle: "What the round buys: the 18-month plan",
       plan: [
-        { when: "Weeks 1–4", what: "Harden, deploy and tune detection → first live loop on real hardware" },
-        { when: "Weeks 5–8", what: "30–50 user alpha on real cards at small stakes → retention and redemption data; legal opinion on the contract terms" },
-        { when: "Weeks 9–12", what: "Randomized three-arm study — awareness vs. soft friction vs. stakes → effect size" },
+        { when: "Product", what: "Complete Android and ship the pre-funded balance and payments layer; secure processor underwriting." },
+        { when: "Phase 1", what: "First 1,000 users from organic Reddit communities (r/nosurf, r/productivity, r/getdisciplined), at a $7–10 acquisition cost." },
+        { when: "Phase 2", what: "To 10,000 users through creator partnerships in the focus and ADHD niches, under a $60 acquisition-cost ceiling. Paid acquisition unlocks once install-to-contract clears 12%." },
+        { when: "Month 18", what: "5,000 paying users and $900K ARR, with churn and install-to-contract measured." },
       ],
       useOfFunds: [
-        "Legal & compliance — EU unfair-terms review of the breach fee and the 14-day withdrawal question",
-        "Alpha cohort — recruitment and a reimbursement pool so real cards can run ethically at small stakes",
-        "Part-time Android contractor — detection tuning and device-matrix testing, the riskiest technical surface",
-        "The study — instrumentation, incentives and analysis",
+        "50% product: complete Android and ship the pre-funded balance and payments layer",
+        "35% founding engineer: the production build, as the first technical hire or co-founder",
+        "15% legal and compliance: US payments counsel, entity structuring and state-level consumer law review",
       ],
       successMetrics: [
         "Primary: daily minutes in targeted apps, week 4 vs. baseline",
         "Health: redemption rate — the share of holds walked off",
+        "Growth: install-to-contract rate and churn",
       ],
       market: [
+        {
+          label: "US market (TAM)",
+          value: "$18B",
+          source: "Costly pitch deck: 100M dissatisfied doomscrollers × $180 ARPU",
+          url: "/decks/costly-pitch-deck.pdf",
+        },
+        {
+          label: "Serviceable market (SAM)",
+          value: "$4.5B",
+          source: "Costly pitch deck: the 25% who would stake real money",
+          url: "/decks/costly-pitch-deck.pdf",
+        },
         {
           label: "Digital detox apps",
           value: "$498M (2025) → $1.38B (2032)",
@@ -838,8 +877,10 @@ export const caseStudies: CaseStudy[] = [
           url: "https://dataintelo.com/report/screen-time-management-software-market",
         },
       ],
-      beachhead: "People who already paid for a blocker and relapsed: proven willingness to pay, proven dissatisfaction with soft friction.",
-      ask: "Beyond capital: payments and regulatory introductions, and time with people who have shipped consumer products that charge cards on an automated trigger.",
+      beachhead:
+        "Productivity enthusiasts and people who need outside help to control their phone, almost all heavy social media users, reached first through r/nosurf, r/productivity and r/getdisciplined.",
+      ask: "$200K for 18 months of runway, and a technical co-founder for production Android and payments. Beyond capital: payments and regulatory introductions.",
+      deck: "/decks/costly-pitch-deck.pdf",
     },
   },
   {
