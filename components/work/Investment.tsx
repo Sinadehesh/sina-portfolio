@@ -22,7 +22,7 @@ export default function InvestmentSection({ study: c, inv }: { study: CaseStudy;
 
         <div className="mt-14 grid gap-6 lg:grid-cols-12">
           <div className="rounded-2xl bg-charcoal-800/90 p-7 ring-1 ring-ivory/10 sm:p-9 lg:col-span-7">
-            <h3 className="eyebrow">What the round funds: the 12-week plan</h3>
+            <h3 className="eyebrow">{inv.planTitle ?? "What the round funds: the plan"}</h3>
             <ol className="mt-6 space-y-6">
               {inv.plan.map((step, i) => (
                 <li key={step.when} className="grid gap-2 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
@@ -78,9 +78,15 @@ export default function InvestmentSection({ study: c, inv }: { study: CaseStudy;
         </div>
 
         <div className="mt-12 flex flex-wrap gap-3">
-          <a href={deck} className="btn btn-ember">
-            Request the investor deck
-          </a>
+          {inv.deck ? (
+            <a href={inv.deck} className="btn btn-ember">
+              Download the pitch deck (PDF)
+            </a>
+          ) : (
+            <a href={deck} className="btn btn-ember">
+              Request the investor deck
+            </a>
+          )}
           <a href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(`${c.name} — intro call`)}`} className="btn btn-ghost">
             Book an intro call
           </a>
