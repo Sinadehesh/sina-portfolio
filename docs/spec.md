@@ -81,6 +81,17 @@ codebase against it; keep this file in sync when the brief changes.
 12. Optimolds is presented as a consumer-psychology-driven B2B website and
     lead-generation engagement; Musicity only as market-fit and go-to-market
     strategy consulting.
+12a. Optimolds' case page has an automation section (`#automation`, linked from
+    its header): the request helper. Every form request is emailed to the team
+    first; then Claude writes a brief, the open questions and a reply draft from
+    the technical fields only, and a person sends the reply. It exists as an n8n
+    workflow and as a Cloudflare Pages Function. It is built and tested with
+    made-up requests and is not live: the page says so (also as a label next to
+    the header link and over the section title), says which parts are not tested
+    yet (a real Claude answer, a real email send) and says that Sina had Claude
+    build it and that Claude wrote the workflow and the code. Never say the team uses it until Sina says
+    it is live. Its pictures show only made-up test data, never a customer's
+    data and never the site's thank-you page.
 13. Costly's case page carries an Investment section (stage, honest status,
     12-week plan, use of funds, sourced market figures, the ask, deck CTA),
     and its tile shows a "Raising pre-seed" badge.

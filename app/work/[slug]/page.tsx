@@ -154,6 +154,17 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </a>
             </p>
           )}
+          {/* A case page whose automation is one part of the story (Optimolds) links down to that section. */}
+          {c.automation && !c.seeAlso && (
+            <p className="mt-8">
+              <a href="#automation" className="link-arrow font-semibold text-ivory hover:text-ember-bright">
+                {c.automation.title}
+              </a>
+              {c.automation.status && (
+                <span className="mt-1 block text-sm text-ivory-faint sm:mt-0 sm:ml-3 sm:inline">{c.automation.status}</span>
+              )}
+            </p>
+          )}
         </div>
       </header>
 

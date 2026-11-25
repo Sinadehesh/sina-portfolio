@@ -381,6 +381,10 @@ export interface CaseStudy {
    * workflow does in plain steps with a picture of the real workflow, screens from the build, what came out,
    * and what it changed. Pictures live in public/images/work; `wide` lets a long, flat workflow scroll
    * sideways on phones instead of shrinking. Pictures never show a reader's or a creator's name, address or photo.
+   *
+   * It also holds an automation that is built and tested but not live yet (Optimolds' request helper). Then
+   * the intro and the results say so, `resultsTitle` replaces "What it changed", and the pictures show only
+   * made-up test data.
    */
   automation?: {
     title: string;
@@ -389,12 +393,17 @@ export interface CaseStudy {
       name: string;
       what: string;
       steps: string[];
-      image: { src: string; width: number; height: number; alt: string; wide?: boolean };
+      /** `caption` replaces the default line under the picture ("The <name> workflow in n8n."). */
+      image: { src: string; width: number; height: number; alt: string; wide?: boolean; caption?: string };
     }[];
     /** Real screens from the build, each with what it shows. */
     screens?: { title: string; items: AutomationShot[] };
     /** What the workflows produced, e.g. an email as it was sent. */
     outputs?: { title: string; items: AutomationShot[] };
+    /** Shown next to the header link and over the section title when the automation is not live, e.g. "Built and tested, not live yet". */
+    status?: string;
+    /** Heading over `results`. Defaults to "What it changed"; use another for work that is not live yet. */
+    resultsTitle?: string;
     results: string[];
     tools: string[];
     note: string;
@@ -444,7 +453,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Consumer Psychology & Lead-Generation Consultant; Website Builder",
     organization: "Optimolds",
     summary:
-      "For Optimolds, an Italy-based composite engineering and mold-making firm, I built the trilingual website and advised on lead generation. The funnel applies B2B buyer psychology: a free 48-hour feasibility check as a risk-reversing lead magnet, a short CAD-upload form to cut effort, and trust signals placed before the ask.",
+      "For Optimolds, an Italy-based composite engineering and mold-making firm, I built the trilingual website and advised on lead generation. The funnel applies B2B buyer psychology: a free 48-hour feasibility check as a risk-reversing lead magnet, a short CAD-upload form to cut effort, and trust signals placed before the ask. A request helper that runs on n8n and Claude prepares the first reply for the team; it is tested and not live yet.",
     impact: {
       problem:
         "Small composite producers are risk-averse buyers: a bad mold ruins a production run, so they hesitate to contact an unfamiliar engineering supplier.",
@@ -489,6 +498,13 @@ export const caseStudies: CaseStudy[] = [
         method: "English, Italian and German versions.",
         outcome: "Trilingual site live.",
       },
+      {
+        challenge: "A 48-hour promise is only as good as the first reply, and a small team answers requests between other jobs.",
+        hypothesis: "Buyers trust a fast, specific first answer, and a team trusts automation that drafts but never sends.",
+        method:
+          "A request helper: every request is emailed to the team at once, then Claude drafts a brief, the open questions and a reply for a person to send.",
+        outcome: "Built and tested with made-up requests. Not live yet.",
+      },
     ],
     featureList: [
       "Free 48-hour feasibility check lead magnet",
@@ -497,8 +513,102 @@ export const caseStudies: CaseStudy[] = [
       "Social proof and response-time trust signals",
       "English, Italian and German versions",
       "Step-by-step process explainer",
+      "Request helper with n8n and Claude (built and tested, not live yet)",
     ],
-    keywords: ["Consumer Psychology", "B2B Buyer Psychology", "Lead Generation", "Risk Reversal", "Conversion Rate Optimization", "Choice Architecture"],
+    keywords: [
+      "Consumer Psychology",
+      "B2B Buyer Psychology",
+      "Lead Generation",
+      "Risk Reversal",
+      "Conversion Rate Optimization",
+      "Choice Architecture",
+      "Human-in-the-loop Automation",
+    ],
+    automation: {
+      title: "The request helper: how it works",
+      status: "Built and tested, not live yet",
+      intro:
+        "The site promises a feasibility check within 48 hours, so the first reply has to be fast and specific. I had Claude build a helper for the team's inbox: it wrote the workflow and the code, and the helper was tested with made-up requests. When a buyer sends the form, the full request reaches the team at once. Then Claude prepares a short brief, a list of what is still missing and a reply draft, and a person reads the draft and sends it. The helper is built and tested. It is not live yet.",
+      workflows: [
+        {
+          name: "The request reaches the team first",
+          what: "No request waits for the AI, and none disappears quietly.",
+          steps: [
+            "A buyer sends the feasibility form on the website, with or without a CAD file.",
+            "The helper drops requests from robots, which fill in a field that people never see.",
+            "It emails the full request to the team at once, with the uploaded file. A reply to that email goes straight to the buyer.",
+            "Only after that email is sent does the website show its thank-you page.",
+            "If the email cannot be sent, the buyer sees an error message instead, so no request disappears quietly.",
+          ],
+          image: {
+            src: "/images/work/optimolds-helper-flow-request.webp",
+            width: 2856,
+            height: 728,
+            alt: "n8n workflow, part 1: Website form, Prepare request, Real request?, Settings, File uploaded?, Email the request with the file or Email the request, Email failed?, then either Tell the website it failed and Stop with an error, or Answer the website.",
+            wide: true,
+            caption: "Part 1 of the workflow in n8n, after a test run with a made-up request.",
+          },
+        },
+        {
+          name: "Claude prepares the first reply",
+          what: "A brief and a reply draft for a person to check and send.",
+          steps: [
+            "Claude gets the technical fields and the notes only: the part, industry, material, quantity, deadline and services. The buyer's name, email, company and country are not sent to it.",
+            "It writes a short brief, a list of what is still missing, up to four questions to ask, and a reply draft in the language of the page the buyer used: English, Italian or German.",
+            "The team gets a second email with all of it, and the reply waits as a draft in Gmail.",
+            "A person reads the draft, changes what they want and sends it. Nothing goes to a buyer automatically.",
+            "If Claude is not available, the team is told, and they still have the request from the first email.",
+          ],
+          image: {
+            src: "/images/work/optimolds-helper-flow-brief.webp",
+            width: 2856,
+            height: 714,
+            alt: "n8n workflow, part 2: Claude writes the brief, Read the answer, Email the brief, Reply draft written?, Save a reply draft, then two switched-off steps, Make the log row and Log the request.",
+            wide: true,
+            caption:
+              "Part 2 of the workflow in n8n, after the same test run. The two grey steps are an optional list of requests in Google Sheets, switched off.",
+          },
+        },
+      ],
+      outputs: {
+        title: "A test run, from the form to the inbox",
+        items: [
+          {
+            src: "/images/work/optimolds-helper-form.webp",
+            width: 1280,
+            height: 1977,
+            alt: "The feasibility form filled in with a made-up request: Test Person at Example Boats, a hydrofoil front wing in carbon prepreg, 2 to 10 parts, a sample CAD file, mold design and tooling ticked.",
+            caption: "The feasibility form on a copy of the site, filled in with a made-up request.",
+          },
+          {
+            src: "/images/work/optimolds-helper-email-request.webp",
+            width: 1520,
+            height: 1744,
+            alt: "Test email to the team, New feasibility request: Hydrofoil front wing (Example Boats), listing every field of the made-up request with the sample file attached.",
+            caption:
+              "Email 1 goes to the team at once: every field of the request, with the file attached. From a test of the website version.",
+          },
+          {
+            src: "/images/work/optimolds-helper-email-brief.webp",
+            width: 1520,
+            height: 2476,
+            alt: "Test email to the team, Brief and reply draft: a short brief, urgency, four missing details, four questions to ask and a reply draft with a button to open it in the email program.",
+            caption:
+              "Email 2 follows: the brief, what is still missing, questions to ask and the reply draft. In this test the brief and the draft are stand-in text, not a real Claude answer.",
+          },
+        ],
+      },
+      resultsTitle: "Where it stands",
+      results: [
+        "Built and tested, not live yet. It goes live when it is connected to the form on the Optimolds site.",
+        "Tested with made-up requests: with a file and without one, with the AI not answering, with the email step failing, and with a robot's request. Each request either produced the email for the team or showed the buyer an error, and the robot's request was dropped.",
+        "The tests ran in a local n8n and in Cloudflare's local runtime, with stand-ins for the email and AI services. A real Claude answer and a real email send are not tested yet. They come with the first live request.",
+        "It exists in two versions with the same steps: an n8n workflow, and code that runs on the website itself as a Cloudflare Pages Function, for a team without n8n.",
+        "A person stays in charge: the AI drafts, and a person decides what a buyer reads.",
+      ],
+      tools: ["n8n", "Claude", "Gmail", "Cloudflare Pages Functions"],
+      note: "Every picture in this section shows a test with a made-up request. No customer data is shown.",
+    },
   },
   {
     slug: "app-lockers",

@@ -45,7 +45,8 @@ function Shot({ shot, className = "" }: { shot: AutomationShot; className?: stri
 /**
  * The automation behind a product (`automation` in lib/content.ts): each workflow in plain steps with a
  * picture of the real workflow, screens from the build, what came out, and what it changed. Anchored at
- * #automation so a job application can link straight to it.
+ * #automation so a job application can link straight to it. For an automation that is not live yet, the
+ * data sets `resultsTitle` (e.g. "Where it stands") and its own picture captions.
  */
 export default function AutomationSection({ study: c }: { study: CaseStudy }) {
   const a = c.automation;
@@ -55,7 +56,7 @@ export default function AutomationSection({ study: c }: { study: CaseStudy }) {
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 py-20 sm:px-10 md:py-28">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <p className="eyebrow">Behind the scenes</p>
+            <p className="eyebrow">Behind the scenes{a.status ? ` · ${a.status}` : ""}</p>
             <h2 id="automation-heading" className="display mt-4 text-[clamp(2rem,4.4vw,3.5rem)]">
               {a.title}
             </h2>
@@ -110,7 +111,7 @@ export default function AutomationSection({ study: c }: { study: CaseStudy }) {
                   />
                 </div>
                 <figcaption className="mt-3 text-sm text-ivory-faint">
-                  The {w.name.toLowerCase()} workflow in n8n.{" "}
+                  {w.image.caption ?? `The ${w.name.toLowerCase()} workflow in n8n.`}{" "}
                   <span className="sm:hidden">Swipe sideways to see all of it.</span>
                 </figcaption>
               </figure>
@@ -145,7 +146,9 @@ export default function AutomationSection({ study: c }: { study: CaseStudy }) {
         )}
 
         <div className="mt-20 grid gap-10 border-t border-ivory/15 pt-10 lg:grid-cols-12">
-          <h3 className="display text-[clamp(1.75rem,3.2vw,2.5rem)] lg:col-span-4">What it changed</h3>
+          <h3 className="display text-[clamp(1.75rem,3.2vw,2.5rem)] lg:col-span-4">
+            {a.resultsTitle ?? "What it changed"}
+          </h3>
           <div className="lg:col-span-8">
             <ul className="space-y-4">
               {a.results.map((r) => (
